@@ -17,13 +17,28 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-//SeedData.Seed();
+SeedData.Seed();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "search",
+    pattern: "search",
+    defaults: new { controller = "Shop", action = "Search" });
+
+app.MapControllerRoute(
+    name: "productsdetails",
+    pattern: "{url}",
+    defaults: new { controller = "Shop", action = "List" });
+
+app.MapControllerRoute(
+    name: "products",
+    pattern: "products/{category?}",
+    defaults: new {controller="Shop", action="List"});
 
 app.MapControllerRoute(
     name: "default",

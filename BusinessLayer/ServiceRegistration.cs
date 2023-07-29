@@ -14,6 +14,8 @@ namespace BusinessLayer
         public static void AddBusinessLayerServices(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddScoped<IProductService, ProductManager>();
+            serviceCollection.AddScoped<ICategoryService, CategoryManager>();
+            serviceCollection.AddScoped<IOrderService, OrderManager>();
         }
     }
 }

@@ -2,7 +2,9 @@
 using DataAccessLayer.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Models;
+using PresentationLayer.VIewModels;
 using System.Diagnostics;
+using System.Reflection.Metadata.Ecma335;
 
 namespace PresentationLayer.Controllers
 {
@@ -19,18 +21,21 @@ namespace PresentationLayer.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
+            var productViewModel = new ProductListViewModel()
+            {
+                Products = _productService.GetHomePageProducts()
+            };
 
-        public IActionResult Privacy()
+            return View(productViewModel);
+        }
+        public IActionResult About() 
         {
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Contact()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
         }
+        
     }
 }
