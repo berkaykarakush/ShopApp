@@ -1,10 +1,6 @@
 ﻿using BusinessLayer.Abstract;
-using DataAccessLayer.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Models;
-using PresentationLayer.VIewModels;
-using System.Diagnostics;
-using System.Reflection.Metadata.Ecma335;
 
 namespace PresentationLayer.Controllers
 {

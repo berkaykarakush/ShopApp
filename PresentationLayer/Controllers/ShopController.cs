@@ -2,7 +2,6 @@
 using EntityLayer;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Models;
-using PresentationLayer.VIewModels;
 
 namespace PresentationLayer.Controllers
 {

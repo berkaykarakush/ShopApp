@@ -37,6 +37,12 @@ namespace BusinessLayer.Concrete
             return _productRepository.GetById(id);
         }
 
+        public Product GetByIdWithCategories(int id)
+        {
+            //TODO is kurallari uygula
+            return _productRepository.GetByIdWithCategories(id);
+        }
+
         public int GetCountByCategory(string category)
         {
             //TODO is kurallari
@@ -71,6 +77,12 @@ namespace BusinessLayer.Concrete
         {
             //TODO is kurallari
             _productRepository.Update(entity);
+        }
+
+        public void Update(Product entity, int[] categoryIds)
+        {
+            //TODO is kurallari
+            _productRepository.Update(entity, categoryIds);
         }
     }
 }

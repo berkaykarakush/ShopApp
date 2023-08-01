@@ -1,4 +1,4 @@
-﻿namespace PresentationLayer.VIewModels
+﻿namespace PresentationLayer.Models
 {
     public class PageInfo
     {

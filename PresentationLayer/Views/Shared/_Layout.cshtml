@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/modules/bootstrap/dist/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <title>Shopapp</title>
 </head>
 <body>
@@ -14,11 +15,19 @@
 
     <main class="my-3">
         <div class="container">
-            <div class="row">
+            @if (TempData["message"] != null)
+            {
+                var message = JsonConvert.DeserializeObject<AlertMessage>(TempData["message"] as String);
+
+                <div class="row">
                 <div class="col-md-12">
-                    @RenderBody()
+                    <div class="alert alert-@message.AlertType">
+                        @message.Message
+                    </div>
                 </div>
             </div>
+            }
+            @RenderBody()
         </div>
     </main>
 

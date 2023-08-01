@@ -8,6 +8,18 @@ namespace DataAccessLayer.Concrete.EFCore
 {
     public class EFCoreProductRepository : EFCoreGenericRepository<Product, ShopContext>, IProductRepository
     {
+        public Product GetByIdWithCategories(int id)
+        {
+            using (var context = new ShopContext())
+            {
+                return context.Products
+                    .Where(p => p.ProductId == id)
+                    .Include(p => p.ProductCategories)
+                    .ThenInclude(pc => pc.Category)
+                    .FirstOrDefault();
+            }
+        }
+
         public int GetCountByCategory(string category)
         {
             using (var context = new ShopContext())
@@ -95,6 +107,33 @@ namespace DataAccessLayer.Concrete.EFCore
         public List<Product> GetTop5Products()
         {
             throw new NotImplementedException();
+        }
+
+        public void Update(Product entity, int[] categoryIds)
+        {
+            using (var context = new ShopContext())
+            {
+                var product = context.Products
+                    .Include(p => p.ProductCategories)
+                    .FirstOrDefault(p => p.ProductId == entity.ProductId);
+
+                if (product != null)
+                {
+                    product.Name = entity.Name;
+                    product.Price = entity.Price;
+                    product.Url = entity.Url;
+                    product.Description = entity.Description;
+                    product.ImageUrl= entity.ImageUrl;  
+
+                    product.ProductCategories = categoryIds.Select(c => new ProductCategory()
+                    {
+                        ProductId = entity.ProductId,
+                        CategoryId = c
+                    }).ToList();
+
+                    context.SaveChanges();
+                }
+            }
         }
     }
 }

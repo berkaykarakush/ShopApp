@@ -1,6 +1,5 @@
 ﻿using EntityLayer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 
 namespace DataAccessLayer.Concrete.EFCore
 {

@@ -26,12 +26,42 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "adminProducts",
+    pattern: "admin/products",
+    defaults: new { controller = "Admin", action = "ListProduct" });
+
+app.MapControllerRoute(
+    name: "adminCategories",
+    pattern: "admin/categories",
+    defaults: new { controller = "Admin", action = "ListCategory" });
+
+app.MapControllerRoute(
+    name: "adminCreateProduct",
+    pattern: "admin/product/create",
+    defaults: new { controller = "Admin", action = "CreateProduct" });
+
+app.MapControllerRoute(
+    name: "adminCreateCategory",
+    pattern: "admin/category/create",
+    defaults: new { controller = "Admin", action = "CreateCategory" });
+
+app.MapControllerRoute(
+    name: "adminEditProduct",
+    pattern: "admin/products/{id?}",
+    defaults: new { controller = "Admin", action = "EditProduct" });
+
+app.MapControllerRoute(
+    name: "adminEditCategory",
+    pattern: "admin/categories/{id?}",
+    defaults: new { controller = "Admin", action = "EditCategory" });
+
+app.MapControllerRoute(
     name: "search",
     pattern: "search",
     defaults: new { controller = "Shop", action = "Search" });
 
 app.MapControllerRoute(
-    name: "productsdetails",
+    name: "productsDetails",
     pattern: "{url}",
     defaults: new { controller = "Shop", action = "List" });
 
