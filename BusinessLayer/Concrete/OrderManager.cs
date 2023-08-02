@@ -13,6 +13,8 @@ namespace BusinessLayer.Concrete
             _orderRepository = orderRepository;
         }
 
+        public string ErrorMessage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public void Create(Order entity)
         {
             //TODO is kurallari
@@ -40,6 +42,11 @@ namespace BusinessLayer.Concrete
         {
             //TODO is kurallari
             _orderRepository.Update(entity);
+        }
+
+        public bool Validation(Order entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

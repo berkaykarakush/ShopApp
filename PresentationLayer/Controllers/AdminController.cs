@@ -30,28 +30,43 @@ namespace PresentationLayer.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CreateProduct(ProductModel model) 
+        public async Task<IActionResult> CreateProduct(ProductModel model, IFormFile file) 
         {
-            var entity = new Product
+            bool errors = ModelState.Values.Any(m => m.Errors.Count == 0);
+            if (ModelState.IsValid)
             {
-                Name = model.Name,
-                Url = model.Url,
-                Description = model.Description,
-                Price = model.Price,
-                ImageUrl = model.ImageUrl
-            };
+                var entity = new Product
+                {
+                    Name = model.Name,
+                    Url = model.Url,
+                    Description = model.Description,
+                    Price = model.Price,
+                    ImageUrl = model.ImageUrl,
+                };
 
-            _productService.Create(entity);
+                if (file != null)
+                {
+                    var extension = Path.GetExtension(file.FileName);
+                    var randomName = string.Format($"{Guid.NewGuid()}{extension}");
+                    entity.ImageUrl = randomName;
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", randomName);
 
-            var message = new AlertMessage()
-            {
-                Message = $"{entity.Name} isimli urun eklendi",
-                AlertType = "success"
-            };
 
-            TempData["message"] = JsonConvert.SerializeObject(message);
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                }
 
-            return RedirectToAction("ListProduct");
+                if (_productService.Create(entity))
+                {
+                    CreateErrorMessage($"{entity.Name} urun eklendi", "success");
+                    return RedirectToAction("ListProduct");
+                }
+                CreateErrorMessage("urun adi girmelisiniz", "danger");
+                return View(model);
+            }
+            return View(model);
         }
         [HttpGet]
         public IActionResult EditProduct(int? id)
@@ -75,39 +90,44 @@ namespace PresentationLayer.Controllers
                 Description = entity.Description,
                 Price = entity.Price,
                 ImageUrl = entity.ImageUrl,
+                IsApproved = entity.IsApproved,
+                IsHome = entity.IsHome,
                 SelectedCategories = entity.ProductCategories.Select(pc => pc.Category).ToList()
             };
 
             ViewBag.Categories = _categoryService.GetAll();
-
             return View(model);
         }
         [HttpPost]
         public IActionResult EditProduct(ProductModel model, int[] categoryIds)
         {
-            var entity = _productService.GetById(model.ProductId);
-            if (entity == null)
+            bool errors = ModelState.Values.Any(m => m.Errors.Count == 0);
+
+            if (ModelState.IsValid)
             {
-                return NotFound();
+                var entity = _productService.GetById(model.ProductId);
+                if (entity == null)
+                {
+                    return NotFound();
+                }
+
+                entity.Name = model.Name;
+                entity.Url = model.Url;
+                entity.Description = model.Description;
+                entity.Price = model.Price;
+                entity.ImageUrl = model.ImageUrl;
+                entity.IsApproved = model.IsApproved;
+                entity.IsHome = model.IsHome;
+
+                if (_productService.Update(entity, categoryIds))
+                {
+                    CreateErrorMessage($"{entity.Name} isimli urun guncellendi.", "success");
+                    return RedirectToAction("ListProduct");
+                }
+                CreateErrorMessage(_productService.ErrorMessage.ToString(), "danger");
             }
-
-            entity.Name = model.Name;
-            entity.Url = model.Url;
-            entity.Description = model.Description;
-            entity.Price = model.Price;
-            entity.ImageUrl = model.ImageUrl;
-
-            _productService.Update(entity, categoryIds);
-
-            var message = new AlertMessage()
-            {
-                Message = $"{entity.Name} isimli urun guncellendi.",
-                AlertType = "success"
-            };
-
-            TempData["message"] = JsonConvert.SerializeObject(message);
-
-            return RedirectToAction("ListProduct");
+            ViewBag.Categories = _categoryService.GetAll();
+            return View(model);
         }
         public IActionResult DeleteProduct(int productId)
         {
@@ -117,14 +137,7 @@ namespace PresentationLayer.Controllers
                 _productService.Delete(entity);
             }
 
-            var message = new AlertMessage()
-            {
-                Message = $"{entity.Name} isimli urun silindi.",
-                AlertType = "danger"
-            };
-
-            TempData["message"] = JsonConvert.SerializeObject(message);
-
+            CreateErrorMessage($"{entity.Name} isimli urun silindi.", "danger");
             return RedirectToAction("ListProduct");
         }
         #endregion
@@ -144,23 +157,27 @@ namespace PresentationLayer.Controllers
         [HttpPost]
         public IActionResult CreateCategory(CategoryModel model)
         {
-            var entity = new Category
+            if (ModelState.IsValid)
             {
-                Name = model.Name,
-                Url = model.Url,
-            };
+                var entity = new Category
+                {
+                    Name = model.Name,
+                    Url = model.Url,
+                };
 
-            _categoryService.Create(entity);
+                _categoryService.Create(entity);
 
-            var message = new AlertMessage()
-            {
-                Message = $"{entity.Name} isimli category eklendi",
-                AlertType = "success"
-            };
+                var message = new AlertMessage()
+                {
+                    Message = $"{entity.Name} isimli category eklendi",
+                    AlertType = "success"
+                };
 
-            TempData["message"] = JsonConvert.SerializeObject(message);
+                TempData["message"] = JsonConvert.SerializeObject(message);
 
-            return RedirectToAction("ListCategory");
+                return RedirectToAction("ListCategory");
+            }
+            return View(model);
         }
         [HttpGet]
         public IActionResult EditCategory(int? id)
@@ -188,26 +205,30 @@ namespace PresentationLayer.Controllers
         [HttpPost]
         public IActionResult EditCategory(CategoryModel model)
         {
-            var entity = _categoryService.GetById(model.CategoryId);
-            if (entity == null)
+            if (ModelState.IsValid)
             {
-                return NotFound();
+                var entity = _categoryService.GetById(model.CategoryId);
+                if (entity == null)
+                {
+                    return NotFound();
+                }
+
+                entity.Name = model.Name;
+                entity.Url = model.Url;
+
+                _categoryService.Update(entity);
+
+                var message = new AlertMessage()
+                {
+                    Message = $"{entity.Name} isimli category guncellendi.",
+                    AlertType = "success"
+                };
+
+                TempData["message"] = JsonConvert.SerializeObject(message);
+
+                return RedirectToAction("ListCategory");
             }
-
-            entity.Name = model.Name;
-            entity.Url = model.Url;
-
-            _categoryService.Update(entity);
-
-            var message = new AlertMessage()
-            {
-                Message = $"{entity.Name} isimli category guncellendi.",
-                AlertType = "success"
-            };
-
-            TempData["message"] = JsonConvert.SerializeObject(message);
-
-            return RedirectToAction("ListCategory");
+            return View(model);
         }
         public IActionResult DeleteCategory(int categoryId)
         {
@@ -234,5 +255,16 @@ namespace PresentationLayer.Controllers
             return Redirect("/admin/categories/"+categoryId);
         }
         #endregion
+
+        private void CreateErrorMessage(string message, string alertType)
+        {
+            var msg = new AlertMessage()
+            {
+                Message = message,
+                AlertType = alertType
+            };
+
+            TempData["message"] = JsonConvert.SerializeObject(msg);
+        }
     }
 }

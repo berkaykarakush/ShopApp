@@ -1,0 +1,19 @@
+{
+  "name": "presentationlayer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ckeditor": "^4.12.1",
+    "ckeditor5": "^39.0.0",
+    "jquery-validation": "^1.19.5",
+    "jquery-validation-unobtrusive": "^4.0.0",
+    "node-modules": "^0.0.1"
+  }
+}

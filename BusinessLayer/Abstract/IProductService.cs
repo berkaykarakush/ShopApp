@@ -2,7 +2,7 @@
 
 namespace BusinessLayer.Abstract
 {
-    public interface IProductService
+    public interface IProductService:IValidator<Product>
     {
         Product GetById(int id);
         Product GetByIdWithCategories(int id);
@@ -11,9 +11,9 @@ namespace BusinessLayer.Abstract
         List<Product> GetSearchResult(string searchString);
         List<Product> GetProductsByCategory(string name, int page, int pageSize);
         Product GetProductDetails(string url);
-        void Create(Product entity);
+        bool Create(Product entity);
         void Update(Product entity);
-        void Update(Product entity, int[] categoryIds);
+        bool Update(Product entity, int[] categoryIds);
         void Delete(Product entity);
         int GetCountByCategory(string category);
     }

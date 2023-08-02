@@ -13,6 +13,8 @@ namespace BusinessLayer.Concrete
             _categoryRepository = categoryRepository;
         }
 
+        public string ErrorMessage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public void Create(Category entity)
         {
             //TODO Is Kurallari
@@ -49,6 +51,11 @@ namespace BusinessLayer.Concrete
         {
             //TODO Is kurallari
             _categoryRepository.Update(entity);
+        }
+
+        public bool Validation(Category entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -90,3 +90,7 @@ C:\Users\berka\OneDrive\Masaüstü\ShopApp\PresentationLayer\bin\Debug\net6.0\ru
 C:\Users\berka\OneDrive\Masaüstü\ShopApp\PresentationLayer\bin\Debug\net6.0\BusinessLayer.dll
 C:\Users\berka\OneDrive\Masaüstü\ShopApp\PresentationLayer\bin\Debug\net6.0\BusinessLayer.pdb
 C:\Users\berka\OneDrive\Masaüstü\ShopApp\PresentationLayer\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\berka\OneDrive\Masaüstü\ShopApp\PresentationLayer\bin\Debug\net6.0\package-lock.json
+C:\Users\berka\OneDrive\Masaüstü\ShopApp\PresentationLayer\bin\Debug\net6.0\package.json
+C:\Users\berka\OneDrive\Masaüstü\ShopApp\PresentationLayer\bin\Debug\net6.0\libman.json
+C:\Users\berka\OneDrive\Masaüstü\ShopApp\PresentationLayer\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

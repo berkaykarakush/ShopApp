@@ -13,10 +13,17 @@ namespace BusinessLayer.Concrete
             _productRepository = productRepository;
         }
 
-        public void Create(Product entity)
+        public string ErrorMessage { get; set; }
+
+        public bool Create(Product entity)
         {
             //TODO is kurallari uygula
-            _productRepository.Create(entity);
+            if (Validation(entity))
+            {
+                _productRepository.Create(entity);
+                return true;
+            }
+            return false;
         }
 
         public void Delete(Product entity)
@@ -79,10 +86,38 @@ namespace BusinessLayer.Concrete
             _productRepository.Update(entity);
         }
 
-        public void Update(Product entity, int[] categoryIds)
+        public bool Update(Product entity, int[] categoryIds)
         {
             //TODO is kurallari
-            _productRepository.Update(entity, categoryIds);
+            if (Validation(entity))
+            {
+                if (categoryIds.Length == 0)
+                {
+                    ErrorMessage += "Urun icin en az bir kategori secmelisiniz.\n";
+                    return false;
+                }
+                _productRepository.Update(entity, categoryIds);
+                return true;
+            }
+            return false;
+        }
+
+        public bool Validation(Product entity)
+        {
+            var isValid = true;
+            
+            if (string.IsNullOrEmpty(entity.Name))
+            {
+                ErrorMessage += "urun ismi bos birakilamaz.\n";
+                isValid = false;
+            }
+            if (entity.Price < 1)
+            {
+                ErrorMessage += "urun fiyati 1'den az olamaz.\n";
+                isValid = false;
+            }
+
+            return isValid;
         }
     }
 }

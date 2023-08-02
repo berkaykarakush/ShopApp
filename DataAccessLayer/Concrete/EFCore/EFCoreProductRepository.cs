@@ -124,6 +124,8 @@ namespace DataAccessLayer.Concrete.EFCore
                     product.Url = entity.Url;
                     product.Description = entity.Description;
                     product.ImageUrl= entity.ImageUrl;  
+                    product.IsHome = entity.IsHome;
+                    product.IsApproved = entity.IsApproved;
 
                     product.ProductCategories = categoryIds.Select(c => new ProductCategory()
                     {

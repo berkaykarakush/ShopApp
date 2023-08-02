@@ -1,6 +1,7 @@
 using BusinessLayer;
 using DataAccessLayer;
 using DataAccessLayer.Concrete.EFCore;
+using PresentationLayer.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDataAccessLayerServices();
 builder.Services.AddBusinessLayerServices();
+builder.Services.AddPresentationLayerServices();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,9 +22,8 @@ if (!app.Environment.IsDevelopment())
 SeedData.Seed();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseAuthentication();
 app.UseRouting();
-
 app.UseAuthorization();
 
 app.MapControllerRoute(

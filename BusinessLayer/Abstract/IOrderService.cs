@@ -2,7 +2,7 @@
 
 namespace BusinessLayer.Abstract
 {
-    public interface IOrderService
+    public interface IOrderService:IValidator<Order>
     {
         Order GetById(int id);
         List<Order> GetAll();

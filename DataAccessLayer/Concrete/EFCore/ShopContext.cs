@@ -1,5 +1,6 @@
 ﻿using EntityLayer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace DataAccessLayer.Concrete.EFCore
 {
