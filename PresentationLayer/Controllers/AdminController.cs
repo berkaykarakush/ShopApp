@@ -1,12 +1,14 @@
 ﻿using BusinessLayer.Abstract;
 using EntityLayer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+using PresentationLayer.Enums;
+using PresentationLayer.Extensions;
 using PresentationLayer.Models;
-using System.Security.Cryptography.Xml;
 
 namespace PresentationLayer.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly IProductService _productService;
@@ -60,10 +62,20 @@ namespace PresentationLayer.Controllers
 
                 if (_productService.Create(entity))
                 {
-                    CreateErrorMessage($"{entity.Name} urun eklendi", "success");
+                    TempData.Put("message", new AlertMessage()
+                    {
+                        Title = "Islem Basarili",
+                        Message = $"{entity.Name} urun eklendi",
+                        AlertType = AlertTypeEnum.Success
+                    });
                     return RedirectToAction("ListProduct");
                 }
-                CreateErrorMessage("urun adi girmelisiniz", "danger");
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Hata",
+                    Message = "urun adi girmelisiniz",
+                    AlertType = AlertTypeEnum.Danger
+                });
                 return View(model);
             }
             return View(model);
@@ -121,10 +133,20 @@ namespace PresentationLayer.Controllers
 
                 if (_productService.Update(entity, categoryIds))
                 {
-                    CreateErrorMessage($"{entity.Name} isimli urun guncellendi.", "success");
+                    TempData.Put("message", new AlertMessage()
+                    {
+                        Title = "Islem Basarili",
+                        Message = $"{entity.Name} isimli urun guncellendi.",
+                        AlertType = AlertTypeEnum.Success
+                    });
                     return RedirectToAction("ListProduct");
                 }
-                CreateErrorMessage(_productService.ErrorMessage.ToString(), "danger");
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Hata",
+                    Message = _productService.ErrorMessage.ToString(),
+                    AlertType = AlertTypeEnum.Danger
+                });
             }
             ViewBag.Categories = _categoryService.GetAll();
             return View(model);
@@ -137,7 +159,12 @@ namespace PresentationLayer.Controllers
                 _productService.Delete(entity);
             }
 
-            CreateErrorMessage($"{entity.Name} isimli urun silindi.", "danger");
+            TempData.Put("message", new AlertMessage()
+            {
+                Title = "Urun Silindi",
+                Message = $"{entity.Name} isimli urun silindi.",
+                AlertType = AlertTypeEnum.Danger
+            });
             return RedirectToAction("ListProduct");
         }
         #endregion
@@ -167,13 +194,12 @@ namespace PresentationLayer.Controllers
 
                 _categoryService.Create(entity);
 
-                var message = new AlertMessage()
+                TempData.Put("message", new AlertMessage()
                 {
+                    Title = "Category Eklendi",
                     Message = $"{entity.Name} isimli category eklendi",
-                    AlertType = "success"
-                };
-
-                TempData["message"] = JsonConvert.SerializeObject(message);
+                    AlertType = AlertTypeEnum.Success
+                });
 
                 return RedirectToAction("ListCategory");
             }
@@ -218,13 +244,12 @@ namespace PresentationLayer.Controllers
 
                 _categoryService.Update(entity);
 
-                var message = new AlertMessage()
+                TempData.Put("message", new AlertMessage()
                 {
+                    Title = "Category Guncellendi",
                     Message = $"{entity.Name} isimli category guncellendi.",
-                    AlertType = "success"
-                };
-
-                TempData["message"] = JsonConvert.SerializeObject(message);
+                    AlertType = AlertTypeEnum.Success
+                });
 
                 return RedirectToAction("ListCategory");
             }
@@ -238,13 +263,12 @@ namespace PresentationLayer.Controllers
                 _categoryService.Delete(entity);
             }
 
-            var message = new AlertMessage()
+            TempData.Put("message", new AlertMessage()
             {
+                Title = "Category Silindi",
                 Message = $"{entity.Name} isimli category silindi.",
-                AlertType = "danger"
-            };
-
-            TempData["message"] = JsonConvert.SerializeObject(message);
+                AlertType = AlertTypeEnum.Danger
+            });
 
             return RedirectToAction("ListCategory");
         }
@@ -255,16 +279,5 @@ namespace PresentationLayer.Controllers
             return Redirect("/admin/categories/"+categoryId);
         }
         #endregion
-
-        private void CreateErrorMessage(string message, string alertType)
-        {
-            var msg = new AlertMessage()
-            {
-                Message = message,
-                AlertType = alertType
-            };
-
-            TempData["message"] = JsonConvert.SerializeObject(msg);
-        }
     }
 }

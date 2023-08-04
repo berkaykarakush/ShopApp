@@ -6,6 +6,7 @@ using PresentationLayer.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+Configuration.ConnectionString(builder.Configuration);//this method for appsettings.json and secret.json
 builder.Services.AddControllersWithViews();
 builder.Services.AddDataAccessLayerServices();
 builder.Services.AddBusinessLayerServices();
@@ -16,14 +17,13 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 SeedData.Seed();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthentication();
-app.UseRouting();
+app.UseRouting();  
 app.UseAuthorization();
 
 app.MapControllerRoute(

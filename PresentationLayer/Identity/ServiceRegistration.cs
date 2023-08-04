@@ -2,6 +2,8 @@
 using DataAccessLayer.Concrete.EFCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using PresentationLayer.EmailServices;
 using System.Runtime;
 
 namespace PresentationLayer.Identity
@@ -10,7 +12,17 @@ namespace PresentationLayer.Identity
     {
         public static void AddPresentationLayerServices(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddDbContext<ApplicationContext>(options => options.UseSqlServer("Server=DESKTOP-IBNN2BI\\SQLEXPRESS;Database=ShopAppDb;User Id=sa;Password=Q19F25g;TrustServerCertificate=True;"));
+            serviceCollection.AddScoped<IEmailSender, EmailSender>(i=> new EmailSender
+                (
+                    Configuration._configuration.GetSection("EmailSender:Host").Value,
+                    Configuration._configuration.GetSection("EmailSender:Port").Value,
+                    Configuration._configuration.GetSection("EmailSender:EnableSSl").Value,
+                    Configuration._configuration.GetSection("EmailSender:Username").Value,
+                    Configuration._configuration.GetSection("EmailSender:Password").Value
+                )
+            );
+
+            serviceCollection.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration._configuration.GetSection("ConnectionStrings:ShopDb").Value));
             serviceCollection.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
 
             //identity settings
@@ -30,9 +42,9 @@ namespace PresentationLayer.Identity
 
                 //username
                 //options.User.AllowedUserNameCharacters = "";
-                options.User.RequireUniqueEmail = true;
+                options.User.RequireUniqueEmail = false;
                 options.SignIn.RequireConfirmedEmail = false;
-                options.SignIn.RequireConfirmedPhoneNumber = true;
+                options.SignIn.RequireConfirmedPhoneNumber = false;
 
             });
             //cookie settings

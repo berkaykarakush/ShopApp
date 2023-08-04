@@ -12,7 +12,7 @@ namespace DataAccessLayer.Concrete.EFCore
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=DESKTOP-IBNN2BI\\SQLEXPRESS;Database=ShopAppDb;User Id=sa;Password=Q19F25g;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer(Configuration._configuration.GetSection("ConnectionStrings:ShopDb").Value);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
