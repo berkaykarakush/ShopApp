@@ -6,6 +6,7 @@ using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
+using System.Data;
 
 namespace PresentationLayer.Controllers
 {
@@ -95,6 +96,7 @@ namespace PresentationLayer.Controllers
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                await _userManager.AddToRoleAsync(user, "Customer");
                 //generate token
                 string generateToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 string url = Url.Action("ConfirmEmail", "Account", new 
@@ -292,6 +294,11 @@ namespace PresentationLayer.Controllers
                 AlertType = AlertTypeEnum.Danger
             });
             return View(model);
+        }
+        [HttpGet]
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }

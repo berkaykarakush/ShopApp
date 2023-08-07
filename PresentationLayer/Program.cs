@@ -1,6 +1,7 @@
 using BusinessLayer;
 using DataAccessLayer;
 using DataAccessLayer.Concrete.EFCore;
+using Microsoft.AspNetCore.Identity;
 using PresentationLayer.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,11 +21,46 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 SeedData.Seed();
+
+var scopeFactory = app.Services.GetService<IServiceScopeFactory>();
+using (var scope = scopeFactory.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+    SeedIdentity.Seed(userManager, roleManager).Wait();
+}
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAuthentication();
 app.UseRouting();  
 app.UseAuthorization();
+
+
+app.MapControllerRoute(
+    name: "adminUsers",
+    pattern: "admin/user/list",
+    defaults: new { controller = "Admin", action = "ListUser" });
+
+app.MapControllerRoute(
+    name: "adminEditUser",
+    pattern: "admin/user/{id?}",
+    defaults: new { controller = "Admin", action = "EditUser" });
+
+app.MapControllerRoute(
+    name: "adminRoles",
+    pattern: "admin/role/list",
+    defaults: new { controller = "Admin", action = "ListRole" });
+
+app.MapControllerRoute(
+    name: "adminRoleCreate",
+    pattern: "admin/role/create",
+    defaults: new { controller = "Admin", action = "CreateRole" });
+
+app.MapControllerRoute(
+    name: "adminEditRole",
+    pattern: "admin/role/{id?}",
+    defaults: new { controller = "Admin", action = "EditRole" });
 
 app.MapControllerRoute(
     name: "adminProducts",

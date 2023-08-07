@@ -1,22 +1,30 @@
 ﻿using BusinessLayer.Abstract;
 using EntityLayer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
+using PresentationLayer.Identity;
 using PresentationLayer.Models;
+using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace PresentationLayer.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
-        public AdminController(IProductService productService, ICategoryService categoryService)
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<User> _userManager;
+        public AdminController(IProductService productService, ICategoryService categoryService, RoleManager<IdentityRole> roleManager, UserManager<User> userManager)
         {
             _productService = productService;
             _categoryService = categoryService;
+            _roleManager = roleManager;
+            _userManager = userManager;
         }
         #region Product
         public IActionResult ListProduct()
@@ -277,6 +285,191 @@ namespace PresentationLayer.Controllers
         {
             _categoryService.DeleteFromCategory(productId, categoryId);
             return Redirect("/admin/categories/"+categoryId);
+        }
+        #endregion
+        #region Role
+        [HttpGet]
+        public IActionResult ListRole()
+        {
+            return View(_roleManager.Roles);
+        }
+
+        [HttpGet]
+        public IActionResult CreateRole()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateRole(RoleModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _roleManager.CreateAsync(new IdentityRole(model.Name));
+                if (result.Succeeded)
+                {
+                    TempData.Put("message", new AlertMessage()
+                    {
+                        Title = "Islem Basarili",
+                        Message = $"{model.Name} isimli role basariyla olusturuldu.",
+                        AlertType = AlertTypeEnum.Success
+                    });
+                    return RedirectToAction("ListRole","Admin");
+                }
+                else
+                {
+                    var erros = result.Errors;
+                    TempData.Put("message", new AlertMessage()
+                    {
+                        Title = "Islem Basarisiz!",
+                        Message = $"{erros}",
+                        AlertType = AlertTypeEnum.Danger
+                    });
+                }
+            }
+            TempData.Put("message", new AlertMessage()
+            {
+                Title = "Islem Basarisiz!",
+                Message = $"Role olusturulamadi. Lutfen tekrar deneyiniz.",
+                AlertType = AlertTypeEnum.Danger
+            });
+            return View(model);
+        }
+
+        [HttpGet]
+        public  async Task<IActionResult> EditRole(string id)
+        {
+            var role = await _roleManager.FindByIdAsync(id);
+
+            var members = new List<User>();
+            var nonMembers = new List<User>();
+
+            foreach (var user in _userManager.Users)
+            {
+                var list = await _userManager.IsInRoleAsync(user, role.Name)?members:nonMembers;
+                list.Add(user);
+            }
+
+            var model = new RoleDetails()
+            { 
+                Role = role,
+                Members = members,
+                NonMembers = nonMembers
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditRole(EditRoleModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                foreach (var userId in model.IdsToAdd ?? new string[] { })
+                {
+                    var user = await _userManager.FindByIdAsync(userId);
+                    if (user != null)
+                    {
+                        var result = await _userManager.AddToRoleAsync(user, model.RoleName);
+                        if (!result.Succeeded)
+                        {
+                            foreach (var error in result.Errors)
+                            {
+                                ModelState.AddModelError("",error.Description);
+                            }
+                        }
+                    }
+                }
+                foreach (var userId in model.IdsToDelete ?? new string[] { })
+                {
+                    var user = await _userManager.FindByIdAsync(userId);
+                    if (user != null)
+                    {
+                        var result = await _userManager.RemoveFromRoleAsync(user, model.RoleName);
+                        if (!result.Succeeded)
+                        {
+                            foreach (var error in result.Errors)
+                            {
+                                ModelState.AddModelError("", error.Description);
+                            }
+                        }
+                    }
+
+                }
+            }
+            return Redirect("/admin/role/"+model.RoleId);
+        }
+        #endregion
+        #region User
+        [HttpGet]
+        public IActionResult ListUser()
+        {
+            return View(_userManager.Users);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                var selectedRoles = await _userManager.GetRolesAsync(user);
+                var roles = _roleManager.Roles.Select(r => r.Name);
+                ViewBag.Roles = roles;  
+                return View(new UserDetailsModel()
+                {
+                    UserId = user.Id,
+                    UserName = user.UserName,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Email = user.Email,
+                    EmailConfirmed = user.EmailConfirmed,
+                    SelectedRoles = selectedRoles
+                });
+            }
+
+            TempData.Put("message", new AlertMessage()
+            {
+                Title = "Islem Basarisiz",
+                Message = $"Kullanici bilgileri guncellenirken bir hata ile karsilasildi. Lutfen daha sonra tekrar deneyiniz. ",
+                AlertType = AlertTypeEnum.Danger
+            });
+            return RedirectToAction("ListUser", "Admin");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditUser(UserDetailsModel model, string[] selectedRoles)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByIdAsync(model.UserId);
+                if (user != null)
+                {
+                    user.FirstName = model.FirstName;
+                    user.LastName = model.LastName;
+                    user.UserName = model.UserName;
+                    user.Email = model.Email;
+                    user.EmailConfirmed = model.EmailConfirmed;
+
+                    var result = await _userManager.UpdateAsync(user);
+                    if (result.Succeeded)
+                    {
+                        var userRoles = await _userManager.GetRolesAsync(user);
+                        selectedRoles = selectedRoles ?? new string[] { };
+                        await _userManager.AddToRolesAsync(user, selectedRoles.Except(userRoles).ToArray<string>());
+                        await _userManager.RemoveFromRolesAsync(user, userRoles.Except(selectedRoles).ToArray<string>());
+
+                        TempData.Put("message", new AlertMessage()
+                        {
+                            Title = "Islem Basarili",
+                            Message = $"Kullanici bilgileri guncellendi.",
+                            AlertType = AlertTypeEnum.Success
+                        });
+                        return RedirectToAction("ListUser", "Admin");
+                    }
+                }
+                return RedirectToAction("ListUser", "Admin");
+            }
+            var roles = _roleManager.Roles.Select(r => r.Name);
+            ViewBag.Roles = roles;
+            return View(model);
         }
         #endregion
     }

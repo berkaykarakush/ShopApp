@@ -1,10 +1,7 @@
-﻿using DataAccessLayer.Abstract;
-using DataAccessLayer.Concrete.EFCore;
+﻿using DataAccessLayer.Concrete.EFCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using PresentationLayer.EmailServices;
-using System.Runtime;
 
 namespace PresentationLayer.Identity
 {
@@ -42,7 +39,7 @@ namespace PresentationLayer.Identity
 
                 //username
                 //options.User.AllowedUserNameCharacters = "";
-                options.User.RequireUniqueEmail = false;
+                options.User.RequireUniqueEmail = true;
                 options.SignIn.RequireConfirmedEmail = false;
                 options.SignIn.RequireConfirmedPhoneNumber = false;
 
@@ -52,7 +49,7 @@ namespace PresentationLayer.Identity
             {
                 options.LoginPath = "/account/login";
                 options.LogoutPath = "/account/logout";
-                options.AccessDeniedPath = "/account/accesdenied";
+                options.AccessDeniedPath = "/account/accessdenied";
                 options.SlidingExpiration = true;//her click'te 20dakika uzatir
                 options.ExpireTimeSpan = TimeSpan.FromDays(365);//default yerine 365 gun ayarla
                 options.Cookie = new CookieBuilder

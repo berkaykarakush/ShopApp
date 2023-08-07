@@ -13,15 +13,24 @@
                 <li class="nav-item">
                     <a href="" class="nav-link">Orders</a>
                 </li>
-                <li class="nav-item">
-                    <a asp-controller="admin" asp-action="createproduct" class="nav-link">Add Product</a>
-                </li>
-                <li class="nav-item">
-                    <a asp-controller="admin" asp-action="listproduct" class="nav-link">Admin Products</a>
-                </li>
-                <li class="nav-item">
-                    <a asp-controller="admin" asp-action="listcategory" class="nav-link">Admin Categories</a>
-                </li>
+              @if (User.IsInRole("Admin"))
+                {
+                    <li class="nav-item">
+                        <a asp-controller="admin" asp-action="createproduct" class="nav-link">Add Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="admin" asp-action="listproduct" class="nav-link">Admin Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="admin" asp-action="listcategory" class="nav-link">Admin Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="admin" asp-action="listrole" class="nav-link">Roles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="admin" asp-action="listuser" class="nav-link">Users</a>
+                    </li>
+                }
             }
         </ul>
         <ul class="navbar-nav ml-auto">
