@@ -11,6 +11,7 @@ namespace DataAccessLayer
             serviceCollection.AddScoped<ICategoryRepository, EFCoreCategoryRepository>();
             serviceCollection.AddScoped<IProductRepository, EFCoreProductRepository>();
             serviceCollection.AddScoped<IOrderRepository, EFCoreOrderRepository>();
+            serviceCollection.AddScoped<ICartRepository, EFCoreCartRepository>();
         }
     }
 }

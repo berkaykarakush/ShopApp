@@ -7,8 +7,6 @@ using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
-using System.Linq;
-using System.Runtime.CompilerServices;
 
 namespace PresentationLayer.Controllers
 {

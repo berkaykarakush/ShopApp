@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using BusinessLayer.Abstract;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using PresentationLayer.EmailServices;
 using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
-using System.Data;
 
 namespace PresentationLayer.Controllers
 {
@@ -15,11 +14,13 @@ namespace PresentationLayer.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IEmailSender _emailSender;
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IEmailSender emailSender)
+        private readonly ICartService _cartService;
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IEmailSender emailSender, ICartService cartService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
+            _cartService = cartService;
         }
 
         [HttpGet]
@@ -153,6 +154,8 @@ namespace PresentationLayer.Controllers
                 IdentityResult result = await _userManager.ConfirmEmailAsync(user, token);
                 if (result.Succeeded)
                 {
+                    //TODO create cart object
+                    _cartService.InitilazeCart(user.Id);
                     TempData.Put("message", new AlertMessage()
                     {
                         Title = "Islem Basarili",

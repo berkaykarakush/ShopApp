@@ -16,6 +16,7 @@ namespace BusinessLayer
             serviceCollection.AddScoped<IProductService, ProductManager>();
             serviceCollection.AddScoped<ICategoryService, CategoryManager>();
             serviceCollection.AddScoped<IOrderService, OrderManager>();
+            serviceCollection.AddScoped<ICartService, CartManager>();
         }
     }
 }

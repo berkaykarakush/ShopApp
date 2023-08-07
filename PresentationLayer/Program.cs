@@ -20,15 +20,15 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-SeedData.Seed();
+//SeedData.Seed();
 
-var scopeFactory = app.Services.GetService<IServiceScopeFactory>();
-using (var scope = scopeFactory.CreateScope())
-{
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
-    SeedIdentity.Seed(userManager, roleManager).Wait();
-}
+//var scopeFactory = app.Services.GetService<IServiceScopeFactory>();
+//using (var scope = scopeFactory.CreateScope())
+//{
+//    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+//    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+//    SeedIdentity.Seed(userManager, roleManager).Wait();
+//}
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -36,6 +36,10 @@ app.UseAuthentication();
 app.UseRouting();  
 app.UseAuthorization();
 
+app.MapControllerRoute(
+    name: "cart",
+    pattern: "cart",
+    defaults: new { controller = "Cart", action = "Index" });
 
 app.MapControllerRoute(
     name: "adminUsers",
