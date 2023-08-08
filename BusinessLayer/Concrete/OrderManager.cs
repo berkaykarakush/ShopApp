@@ -38,6 +38,11 @@ namespace BusinessLayer.Concrete
             return _orderRepository.GetById(id);
         }
 
+        public List<Order> GetOrders(string userId)
+        {
+            return _orderRepository.GetOrders(userId);
+        }
+
         public void Update(Order entity)
         {
             //TODO is kurallari

@@ -94,3 +94,4 @@ C:\Users\berka\OneDrive\Masaüstü\ShopApp\PresentationLayer\bin\Debug\net6.0\pa
 C:\Users\berka\OneDrive\Masaüstü\ShopApp\PresentationLayer\bin\Debug\net6.0\package.json
 C:\Users\berka\OneDrive\Masaüstü\ShopApp\PresentationLayer\bin\Debug\net6.0\libman.json
 C:\Users\berka\OneDrive\Masaüstü\ShopApp\PresentationLayer\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\berka\OneDrive\Masaüstü\ShopApp\PresentationLayer\bin\Debug\net6.0\Iyzipay.dll

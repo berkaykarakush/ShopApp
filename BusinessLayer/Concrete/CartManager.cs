@@ -30,7 +30,7 @@ namespace BusinessLayer.Concrete
                     {
                         ProductId = productId,
                         Quantity = quantity,
-                        CartId = cart.Id
+                        CartId = cart.CartId
                     });
                 }
                 else
@@ -41,12 +41,17 @@ namespace BusinessLayer.Concrete
             }
         }
 
+        public void ClearCart(int cartId)
+        {
+            _cartRepository.ClearCart(cartId);
+        }
+
         public void DeleteFromCart(string userId, int productId)
         {
             var cart = GetCartByUserId(userId);
             if (cart != null)
             {
-                _cartRepository.DeleteFromCart(cart.Id, productId);
+                _cartRepository.DeleteFromCart(cart.CartId, productId);
             }
         }
 

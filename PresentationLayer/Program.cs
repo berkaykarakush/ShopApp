@@ -37,6 +37,16 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "orders",
+    pattern: "orders",
+    defaults: new { controller = "Order", action = "GetOrders" });
+
+app.MapControllerRoute(
+    name: "checkout",
+    pattern: "checkout",
+    defaults: new { controller = "Cart", action = "Checkout" });
+
+app.MapControllerRoute(
     name: "cart",
     pattern: "cart",
     defaults: new { controller = "Cart", action = "Index" });
