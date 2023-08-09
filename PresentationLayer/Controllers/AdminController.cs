@@ -45,11 +45,12 @@ namespace PresentationLayer.Controllers
             {
                 var entity = new Product
                 {
-                    Name = model.Name,
-                    Url = model.Url,
+                    Name = NameEditExtensions.NameEdit(model.Name),
+                    Url = UrlNameEditExtensions.UrlNameEdit(model.Name),
                     Description = model.Description,
                     Price = model.Price,
                     ImageUrl = model.ImageUrl,
+                    IsApproved = true
                 };
 
                 if (file != null)
@@ -129,8 +130,8 @@ namespace PresentationLayer.Controllers
                     return NotFound();
                 }
 
-                entity.Name = model.Name;
-                entity.Url = model.Url;
+                entity.Name = NameEditExtensions.NameEdit(model.Name);
+                entity.Url = UrlNameEditExtensions.UrlNameEdit(model.Name);
                 entity.Description = model.Description;
                 entity.Price = model.Price;
                 entity.ImageUrl = model.ImageUrl;

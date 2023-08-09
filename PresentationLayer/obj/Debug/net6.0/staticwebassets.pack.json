@@ -9,8 +9,28 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\068f1e15-dcc0-4f0d-a0d8-9ee26534ab11.jpg",
+      "PackagePath": "staticwebassets\\img\\068f1e15-dcc0-4f0d-a0d8-9ee26534ab11.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\0853ea1f-5f7a-4325-95eb-3d891bbb9d51.jpg",
+      "PackagePath": "staticwebassets\\img\\0853ea1f-5f7a-4325-95eb-3d891bbb9d51.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\0f64b6f4-a467-4c72-9715-998fbbde6fc3.jpg",
+      "PackagePath": "staticwebassets\\img\\0f64b6f4-a467-4c72-9715-998fbbde6fc3.jpg"
+    },
+    {
       "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\1.jpg",
       "PackagePath": "staticwebassets\\img\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\194d8906-0434-4e1f-9d69-77b599938176.jpg",
+      "PackagePath": "staticwebassets\\img\\194d8906-0434-4e1f-9d69-77b599938176.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\1a8f614f-ae0f-4ad4-b5eb-73334604c61f.jpg",
+      "PackagePath": "staticwebassets\\img\\1a8f614f-ae0f-4ad4-b5eb-73334604c61f.jpg"
     },
     {
       "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\2.jpg",
@@ -25,12 +45,28 @@
       "PackagePath": "staticwebassets\\img\\4.jpg"
     },
     {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\43d21ec5-0f6d-4fd3-bd9a-82c2d41f4bf0.jpg",
+      "PackagePath": "staticwebassets\\img\\43d21ec5-0f6d-4fd3-bd9a-82c2d41f4bf0.jpg"
+    },
+    {
       "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\5.jpg",
       "PackagePath": "staticwebassets\\img\\5.jpg"
     },
     {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\5c352346-5df1-4a0c-aaa8-00f7b704c9bf.jpg",
+      "PackagePath": "staticwebassets\\img\\5c352346-5df1-4a0c-aaa8-00f7b704c9bf.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\5fa076b5-c4f0-4254-94e0-f2537757983c.jpg",
+      "PackagePath": "staticwebassets\\img\\5fa076b5-c4f0-4254-94e0-f2537757983c.jpg"
+    },
+    {
       "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\6.jpg",
       "PackagePath": "staticwebassets\\img\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\6159b391-4195-4eef-a614-25b14772eecb.jpg",
+      "PackagePath": "staticwebassets\\img\\6159b391-4195-4eef-a614-25b14772eecb.jpg"
     },
     {
       "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\7.jpg",
@@ -45,8 +81,80 @@
       "PackagePath": "staticwebassets\\img\\80919579-41e2-4ef3-9819-be485b295f1b.jpg"
     },
     {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\836701d0-986e-468c-b467-572c5292a8b4.jpg",
+      "PackagePath": "staticwebassets\\img\\836701d0-986e-468c-b467-572c5292a8b4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\8f0ed937-f4db-47b5-b23d-3b453f8497ee.jpg",
+      "PackagePath": "staticwebassets\\img\\8f0ed937-f4db-47b5-b23d-3b453f8497ee.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\8f8def47-af8b-4bfe-aaa5-5485d6b7b8ca.jpg",
+      "PackagePath": "staticwebassets\\img\\8f8def47-af8b-4bfe-aaa5-5485d6b7b8ca.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\9dc93eee-5d7b-45c4-a704-e6cc80728941.jpg",
+      "PackagePath": "staticwebassets\\img\\9dc93eee-5d7b-45c4-a704-e6cc80728941.jpg"
+    },
+    {
       "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\a3cdee42-5f7a-42f9-9301-cd3196967675.jpg",
       "PackagePath": "staticwebassets\\img\\a3cdee42-5f7a-42f9-9301-cd3196967675.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\a48079b8-879e-4f99-87de-00d6267565af.jpg",
+      "PackagePath": "staticwebassets\\img\\a48079b8-879e-4f99-87de-00d6267565af.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\a5237185-7863-49e4-88b8-b808b25bba10.jpg",
+      "PackagePath": "staticwebassets\\img\\a5237185-7863-49e4-88b8-b808b25bba10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\ab582224-cf96-4b2f-ac3f-44076d20388b.jpg",
+      "PackagePath": "staticwebassets\\img\\ab582224-cf96-4b2f-ac3f-44076d20388b.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\b30cf0fb-f1d5-4671-9006-f284559f3cfd.jpg",
+      "PackagePath": "staticwebassets\\img\\b30cf0fb-f1d5-4671-9006-f284559f3cfd.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\b334097a-104f-4cd0-a5a5-7e90a9230262.jpg",
+      "PackagePath": "staticwebassets\\img\\b334097a-104f-4cd0-a5a5-7e90a9230262.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\b7c372ee-a685-46a8-b482-2a0bc61d6bfa.jpg",
+      "PackagePath": "staticwebassets\\img\\b7c372ee-a685-46a8-b482-2a0bc61d6bfa.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\b8b70806-5835-4cc6-b3c4-b98b3749af23.jpg",
+      "PackagePath": "staticwebassets\\img\\b8b70806-5835-4cc6-b3c4-b98b3749af23.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\ba95004c-a49c-4590-9819-9772de8c603d.jpg",
+      "PackagePath": "staticwebassets\\img\\ba95004c-a49c-4590-9819-9772de8c603d.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\c4e3223f-3104-4312-9a04-6b49454033fb.jpg",
+      "PackagePath": "staticwebassets\\img\\c4e3223f-3104-4312-9a04-6b49454033fb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\cfeef4b1-4d28-4fb8-a18a-c67385fe24cf.jpg",
+      "PackagePath": "staticwebassets\\img\\cfeef4b1-4d28-4fb8-a18a-c67385fe24cf.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\d3e7e38b-d475-4433-ba09-fd25fd037beb.jpg",
+      "PackagePath": "staticwebassets\\img\\d3e7e38b-d475-4433-ba09-fd25fd037beb.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\de35e899-c0c7-46a2-94a2-696af06ecb98.jpg",
+      "PackagePath": "staticwebassets\\img\\de35e899-c0c7-46a2-94a2-696af06ecb98.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\e104d0d4-f49a-4a08-a191-039e3dcc322b.jpg",
+      "PackagePath": "staticwebassets\\img\\e104d0d4-f49a-4a08-a191-039e3dcc322b.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\e997a153-939f-44ed-86e9-f50296acf7ca.jpg",
+      "PackagePath": "staticwebassets\\img\\e997a153-939f-44ed-86e9-f50296acf7ca.jpg"
     },
     {
       "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\slider1.png",

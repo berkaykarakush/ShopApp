@@ -19,8 +19,6 @@ namespace PresentationLayer.Models
         [Required(ErrorMessage = "Description alani bos birakilamaz")]
         [StringLength(240, MinimumLength = 3)]
         public string? Description { get; set; }
-
-        [Required(ErrorMessage = "Url alani bos birakilamaz")]
         public string? Url { get; set; }
         public string? ImageUrl { get; set; }
         public bool IsApproved { get; set; }

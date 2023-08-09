@@ -14,6 +14,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDataAccessLayerServices();
 builder.Services.AddBusinessLayerServices();
 builder.Services.AddPresentationLayerServices();
+
+//builder.WebHost.CaptureStartupErrors(true);
+//builder.WebHost.UseSetting("detailedErrors","true");
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

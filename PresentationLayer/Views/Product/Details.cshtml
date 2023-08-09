@@ -14,7 +14,7 @@
             <div class="col-md-9">
 
                 <h5 class="card-title">@Model.Name</h5>
-                <p class="card-text">@Html.Raw(Model.Description)</p>
+                <p class="card-text">@Html.Raw(Model.Description).ToString()</p>
                 <p class="card-text">
                     <small class="text-muted">3 days ago</small>
                 </p>
@@ -23,3 +23,9 @@
         </div>
     </div>
 </div>
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/ckeditor5/ckeditor.js"></script>
+}

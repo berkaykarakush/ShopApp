@@ -94,7 +94,6 @@ namespace DataAccessLayer.Concrete.EFCore
         {
             throw new NotImplementedException();
         }
-
         public void Update(Product entity, int[] categoryIds)
         {
             var product = ShopContext.Products

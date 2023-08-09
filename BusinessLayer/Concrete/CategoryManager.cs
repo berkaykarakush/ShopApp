@@ -17,7 +17,7 @@ namespace BusinessLayer.Concrete
 
         public void Create(Category entity)
         {
-            //TODO Is Kurallari
+            //TODO is kurallari 
             _unitOfWork.Categories.Create(entity);
             _unitOfWork.Save();
         }
