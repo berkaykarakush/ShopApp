@@ -4,22 +4,27 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessLayer.Concrete.EFCore
 {
-    public class EFCoreOrderRepository : EFCoreGenericRepository<Order, ShopContext>, IOrderRepository
+    public class EFCoreOrderRepository : EFCoreGenericRepository<Order>, IOrderRepository
     {
+        public EFCoreOrderRepository(ShopContext context) : base(context)
+        {
+
+        }
+        private ShopContext ShopContext
+        {
+            get { return _context as ShopContext; }
+        }
         public List<Order> GetOrders(string userId)
         {
-            using (var context = new ShopContext())
-            {
-                var orders = context.Orders
-                    .Include(o => o.OrderItems)
-                    .ThenInclude(o => o.Product)
-                    .AsQueryable();
+            var orders = ShopContext.Orders
+                .Include(o => o.OrderItems)
+                .ThenInclude(o => o.Product)
+                .AsQueryable();
 
-                if (!string.IsNullOrEmpty(userId))
-                    orders = orders.Where(o => o.UserId == userId);
+            if (!string.IsNullOrEmpty(userId))
+                orders = orders.Where(o => o.UserId == userId);
 
-                return orders.ToList();
-            }
+            return orders.ToList();
         }
     }
 }

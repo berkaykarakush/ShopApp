@@ -1,107 +1,93 @@
-﻿using Azure;
-using DataAccessLayer.Abstract;
+﻿using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete.EFCore;
 using EntityLayer;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace DataAccessLayer.Concrete.EFCore
 {
-    public class EFCoreProductRepository : EFCoreGenericRepository<Product, ShopContext>, IProductRepository
+    public class EFCoreProductRepository : EFCoreGenericRepository<Product>, IProductRepository
     {
+        public EFCoreProductRepository(ShopContext context) : base(context)
+        {
+
+        }
+        private ShopContext ShopContext
+        {
+            get { return _context as ShopContext; }
+        }
         public Product GetByIdWithCategories(int id)
         {
-            using (var context = new ShopContext())
-            {
-                return context.Products
-                    .Where(p => p.ProductId == id)
-                    .Include(p => p.ProductCategories)
-                    .ThenInclude(pc => pc.Category)
-                    .FirstOrDefault();
-            }
+            return ShopContext.Products
+                .Where(p => p.ProductId == id)
+                .Include(p => p.ProductCategories)
+                .ThenInclude(pc => pc.Category)
+                .FirstOrDefault();
         }
 
         public int GetCountByCategory(string category)
         {
-            using (var context = new ShopContext())
+            var products = ShopContext.Products
+                .Where(p => p.IsApproved)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(category))
             {
-                var products = context.Products
-                    .Where(p => p.IsApproved)
-                    .AsQueryable();
-
-                if (!string.IsNullOrEmpty(category))
-                {
-                    products = products
-                                       .Include(p => p.ProductCategories)
-                                       .ThenInclude(p => p.Category)
-                                       .Where(p => p.ProductCategories.Any(
-                                           a => a.Category.Url == category.ToLower()));
-                }
-
-                return products.Count();
+                products = products
+                                    .Include(p => p.ProductCategories)
+                                    .ThenInclude(p => p.Category)
+                                    .Where(p => p.ProductCategories.Any(
+                                        a => a.Category.Url == category.ToLower()));
             }
+
+            return products.Count();
         }
 
         public List<Product> GetHomePageProducts()
         {
-            using (var context = new ShopContext())
-            {
-                return context.Products
-                    .Where(p => p.IsApproved && p.IsHome)
-                    .ToList();
-            }
+            return ShopContext.Products
+                .Where(p => p.IsApproved && p.IsHome)
+                .ToList();
         }
 
         public List<Product> GetPopularProducts()
         {
-            using (var context = new ShopContext())
-            {
-                return context.Products.ToList();
-            }
+             return ShopContext.Products.ToList();
         }
 
         public Product GetProductDetails(string url)
         {
-            using (var context = new ShopContext())
-            {
-                return context.Products
-                    .Where(p => p.Url == url)
-                    .Include(p => p.ProductCategories)
-                    .ThenInclude(pc => pc.Category)
-                    .FirstOrDefault();
-            }
+            return ShopContext.Products
+                .Where(p => p.Url == url)
+                .Include(p => p.ProductCategories)
+                .ThenInclude(pc => pc.Category)
+                .FirstOrDefault();
         }
 
         public List<Product> GetProductsByCategory(string name, int page, int pageSize)
         {
-            using (var context = new ShopContext())
+            var products = ShopContext.Products
+                .Where(p => p.IsApproved)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(name))
             {
-                var products = context.Products
-                    .Where(p => p.IsApproved)
-                    .AsQueryable();
-
-                if (!string.IsNullOrEmpty(name))
-                {
-                    products = products
-                                       .Include(p => p.ProductCategories)
-                                       .ThenInclude(p => p.Category)
-                                       .Where(p => p.ProductCategories.Any(
-                                           a => a.Category.Url == name.ToLower()));
-                }
-
-                return products.Skip((page-1)*pageSize).Take(pageSize).ToList();
+                products = products
+                                    .Include(p => p.ProductCategories)
+                                    .ThenInclude(p => p.Category)
+                                    .Where(p => p.ProductCategories.Any(
+                                        a => a.Category.Url == name.ToLower()));
             }
+
+            return products.Skip((page-1)*pageSize).Take(pageSize).ToList();
         }
 
         public List<Product> GetSearchResult(string searchString)
         {
-            using (var context = new ShopContext())
-            {
-                var products = context.Products
-                    .Where(p => p.IsApproved && (p.Name.ToLower().Contains(searchString) || p.Description.ToLower().Contains(searchString)))
-                    .AsQueryable();
+            var products = ShopContext.Products
+                .Where(p => p.IsApproved && (p.Name.ToLower().Contains(searchString) || p.Description.ToLower().Contains(searchString)))
+                .AsQueryable();
 
-                return products.ToList();
-            }
+            return products.ToList();
         }
 
         public List<Product> GetTop5Products()
@@ -111,30 +97,25 @@ namespace DataAccessLayer.Concrete.EFCore
 
         public void Update(Product entity, int[] categoryIds)
         {
-            using (var context = new ShopContext())
+            var product = ShopContext.Products
+                .Include(p => p.ProductCategories)
+                .FirstOrDefault(p => p.ProductId == entity.ProductId);
+
+            if (product != null)
             {
-                var product = context.Products
-                    .Include(p => p.ProductCategories)
-                    .FirstOrDefault(p => p.ProductId == entity.ProductId);
+                product.Name = entity.Name;
+                product.Price = entity.Price;
+                product.Url = entity.Url;
+                product.Description = entity.Description;
+                product.ImageUrl= entity.ImageUrl;  
+                product.IsHome = entity.IsHome;
+                product.IsApproved = entity.IsApproved;
 
-                if (product != null)
+                product.ProductCategories = categoryIds.Select(c => new ProductCategory()
                 {
-                    product.Name = entity.Name;
-                    product.Price = entity.Price;
-                    product.Url = entity.Url;
-                    product.Description = entity.Description;
-                    product.ImageUrl= entity.ImageUrl;  
-                    product.IsHome = entity.IsHome;
-                    product.IsApproved = entity.IsApproved;
-
-                    product.ProductCategories = categoryIds.Select(c => new ProductCategory()
-                    {
-                        ProductId = entity.ProductId,
-                        CategoryId = c
-                    }).ToList();
-
-                    context.SaveChanges();
-                }
+                    ProductId = entity.ProductId,
+                    CategoryId = c
+                }).ToList();
             }
         }
     }

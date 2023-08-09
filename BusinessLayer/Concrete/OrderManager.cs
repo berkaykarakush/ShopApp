@@ -6,11 +6,11 @@ namespace BusinessLayer.Concrete
 {
     public class OrderManager : IOrderService
     {
-        private readonly IOrderRepository _orderRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public OrderManager(IOrderRepository orderRepository)
+        public OrderManager(IUnitOfWork unitOfWork)
         {
-            _orderRepository = orderRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public string ErrorMessage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -18,35 +18,38 @@ namespace BusinessLayer.Concrete
         public void Create(Order entity)
         {
             //TODO is kurallari
-            _orderRepository.Create(entity);
+            _unitOfWork.Orders.Create(entity);
+            _unitOfWork.Save();
         }
 
         public void Delete(Order entity)
         {
             //TODO is kurallari
-            _orderRepository.Delete(entity);
+            _unitOfWork.Orders.Delete(entity);
+            _unitOfWork.Save();
         }
 
         public List<Order> GetAll()
         {
-           return _orderRepository.GetAll();
+           return _unitOfWork.Orders.GetAll();
         }
 
         public Order GetById(int id)
         {
             //TODO is kurallari
-            return _orderRepository.GetById(id);
+            return _unitOfWork.Orders.GetById(id);
         }
 
         public List<Order> GetOrders(string userId)
         {
-            return _orderRepository.GetOrders(userId);
+            return _unitOfWork.Orders.GetOrders(userId);
         }
 
         public void Update(Order entity)
         {
             //TODO is kurallari
-            _orderRepository.Update(entity);
+            _unitOfWork.Orders.Update(entity);
+            _unitOfWork.Save();
         }
 
         public bool Validation(Order entity)

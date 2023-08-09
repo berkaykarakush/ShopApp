@@ -19,7 +19,7 @@ namespace PresentationLayer.Identity
                 )
             );
 
-            serviceCollection.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration._configuration.GetSection("ConnectionStrings:ShopDb").Value));
+            serviceCollection.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration._configuration.GetSection("ConnectionStrings:MsSQLConnection").Value));
             serviceCollection.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
 
             //identity settings

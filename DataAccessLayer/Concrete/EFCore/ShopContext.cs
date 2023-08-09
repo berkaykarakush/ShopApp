@@ -6,6 +6,10 @@ namespace DataAccessLayer.Concrete.EFCore
 {
     public class ShopContext : DbContext
     {
+        public ShopContext(DbContextOptions<ShopContext> options):base(options)
+        {
+            
+        }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Cart> Carts { get; set; }
@@ -13,11 +17,11 @@ namespace DataAccessLayer.Concrete.EFCore
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(Configuration._configuration.GetSection("ConnectionStrings:ShopDb").Value);
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    base.OnConfiguring(optionsBuilder);
+        //    optionsBuilder.UseSqlServer(Configuration._configuration.GetSection("ConnectionStrings:MsSQLConnection").Value);
+        //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
