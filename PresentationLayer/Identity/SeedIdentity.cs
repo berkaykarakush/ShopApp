@@ -1,33 +1,47 @@
-﻿using DataAccessLayer.Concrete.EFCore;
+﻿using BusinessLayer.Abstract;
+using DataAccessLayer.Concrete.EFCore;
 using Microsoft.AspNetCore.Identity;
 
 namespace PresentationLayer.Identity
 {
     public static class SeedIdentity
     {
-        public static async Task Seed(UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+        public static async Task Seed(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, ICartService cartService)
         {
-            var username = Configuration._configuration.GetSection("Data:AdminUser:username").Value;
-            var password = Configuration._configuration.GetSection("Data:AdminUser:password").Value;
-            var email = Configuration._configuration.GetSection("Data:AdminUser:email").Value;
-            var role = Configuration._configuration.GetSection("Data:AdminUser:role").Value;
-
-            if (await userManager.FindByNameAsync(username) == null)
+            var roles = Configuration._configuration.GetSection("Data:Roles").GetChildren().Select(r => r.Value).ToArray();
+            foreach (var role in roles)
             {
-                await roleManager.CreateAsync(new IdentityRole(role));
-                var user = new User() 
-                {
-                    UserName = username,
-                    Email = email,
-                    FirstName = "shopapp",
-                    LastName = "admin",
-                    EmailConfirmed = true
-                };
+                if (!await roleManager.RoleExistsAsync(role))
+                    await roleManager.CreateAsync(new IdentityRole(role));
+            }
 
-                var result = await userManager.CreateAsync(user,password);
-                if (result.Succeeded)
+            var users = Configuration._configuration.GetSection("Data:Users");
+            foreach (var section in users.GetChildren())
+            {
+                var username = section.GetValue<string>("username");
+                var password = section.GetValue<string>("password");
+                var email = section.GetValue<string>("email");
+                var role = section.GetValue<string>("role");
+                var firstName = section.GetValue<string>("firstName");
+                var lastName = section.GetValue<string>("lastName");
+
+                if (await userManager.FindByNameAsync(username) == null)
                 {
-                    await userManager.AddToRoleAsync(user, role);
+                    var user = new User()
+                    {
+                        UserName = username,
+                        Email = email,
+                        FirstName = firstName,
+                        LastName = lastName,
+                        EmailConfirmed = true
+                    };
+
+                    var result = await userManager.CreateAsync(user, password);
+                    if (result.Succeeded)
+                    {
+                        await userManager.AddToRoleAsync(user, role);
+                        cartService.InitilazeCart(user.Id);
+                    }
                 }
             }
         }

@@ -84,6 +84,32 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("CategoryId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            Name = "Telefon",
+                            Url = "telefon"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            Name = "Bilgisayar",
+                            Url = "bilgisayar"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            Name = "Elektronik",
+                            Url = "elektorik"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            Name = "Beyaz Eşya",
+                            Url = "beyaz-esya"
+                        });
                 });
 
             modelBuilder.Entity("EntityLayer.Order", b =>
@@ -181,6 +207,11 @@ namespace DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
 
+                    b.Property<DateTime>("DateAdded")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getdate()");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -197,9 +228,11 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
 
                     b.Property<double?>("Price")
+                        .IsRequired()
                         .HasColumnType("float");
 
                     b.Property<string>("Url")
@@ -209,6 +242,104 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("ProductId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            ProductId = 1,
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "iyi telefon",
+                            ImageUrl = "1.jpg",
+                            IsApproved = true,
+                            IsHome = false,
+                            Name = "Iphone 11",
+                            Price = 20000.0,
+                            Url = "iphone-11"
+                        },
+                        new
+                        {
+                            ProductId = 2,
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "iyi telefon",
+                            ImageUrl = "2.jpg",
+                            IsApproved = true,
+                            IsHome = false,
+                            Name = "Iphone 11 pro",
+                            Price = 21000.0,
+                            Url = "iphone-11-pro"
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "iyi telefon",
+                            ImageUrl = "1.jpg",
+                            IsApproved = true,
+                            IsHome = false,
+                            Name = "Iphone 12",
+                            Price = 22000.0,
+                            Url = "iphone-12"
+                        },
+                        new
+                        {
+                            ProductId = 4,
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "iyi telefon",
+                            ImageUrl = "2.jpg",
+                            IsApproved = true,
+                            IsHome = false,
+                            Name = "Iphone 12 pro",
+                            Price = 23000.0,
+                            Url = "iphone-12-pro"
+                        },
+                        new
+                        {
+                            ProductId = 5,
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "iyi telefon",
+                            ImageUrl = "1.jpg",
+                            IsApproved = true,
+                            IsHome = false,
+                            Name = "Iphone 12 pro max",
+                            Price = 24000.0,
+                            Url = "iphone-12-pro-max"
+                        },
+                        new
+                        {
+                            ProductId = 6,
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "iyi telefon",
+                            ImageUrl = "2.jpg",
+                            IsApproved = true,
+                            IsHome = false,
+                            Name = "Iphone 13",
+                            Price = 25000.0,
+                            Url = "iphone-13"
+                        },
+                        new
+                        {
+                            ProductId = 7,
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "iyi telefon",
+                            ImageUrl = "1.jpg",
+                            IsApproved = true,
+                            IsHome = false,
+                            Name = "Iphone 13 pro",
+                            Price = 26000.0,
+                            Url = "iphone-13-pro"
+                        },
+                        new
+                        {
+                            ProductId = 8,
+                            DateAdded = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "iyi telefon",
+                            ImageUrl = "2.jpg",
+                            IsApproved = true,
+                            IsHome = false,
+                            Name = "Iphone 13 pro max",
+                            Price = 27000.0,
+                            Url = "iphone-13-pro-max"
+                        });
                 });
 
             modelBuilder.Entity("EntityLayer.ProductCategory", b =>
@@ -224,6 +355,48 @@ namespace DataAccessLayer.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductCategory");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            CategoryId = 1,
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            ProductId = 2
+                        });
                 });
 
             modelBuilder.Entity("EntityLayer.CartItem", b =>

@@ -1,4 +1,5 @@
-﻿using EntityLayer;
+﻿using DataAccessLayer.Configurations;
+using EntityLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -17,16 +18,19 @@ namespace DataAccessLayer.Concrete.EFCore
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    base.OnConfiguring(optionsBuilder);
-        //    optionsBuilder.UseSqlServer(Configuration._configuration.GetSection("ConnectionStrings:MsSQLConnection").Value);
-        //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<ProductCategory>()
-                .HasKey(c => new { c.CategoryId, c.ProductId });
+            modelBuilder.ApplyConfiguration(new ProductEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductCategoryEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryEntityTypeConfiguration());
+            //modelBuilder.ApplyConfiguration(new CartEntityTypeConfiguration());
+            //modelBuilder.ApplyConfiguration(new CartItemEntityTypeConfiguration());
+            //modelBuilder.ApplyConfiguration(new OrderEntityTypeConfiguration());
+            //modelBuilder.ApplyConfiguration(new OrderItemEntityTypeConfiguration());
+
+            //seed data
+            modelBuilder.Seed();
         }
     }
 }

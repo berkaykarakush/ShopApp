@@ -1,8 +1,10 @@
 using BusinessLayer;
+using BusinessLayer.Abstract;
 using DataAccessLayer;
 using DataAccessLayer.Concrete.EFCore;
 using Microsoft.AspNetCore.Identity;
 using PresentationLayer.Identity;
+using PresentationLayer.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,15 +22,16 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-//SeedData.Seed();
 
-//var scopeFactory = app.Services.GetService<IServiceScopeFactory>();
-//using (var scope = scopeFactory.CreateScope())
-//{
-//    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-//    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
-//    SeedIdentity.Seed(userManager, roleManager).Wait();
-//}
+using (var scope = app.Services.CreateScope())
+{
+    var host = scope.ServiceProvider.GetService<IHost>();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+    var cartService = scope.ServiceProvider.GetRequiredService<ICartService>();
+    MigrationManager.MigrateDatabase(host);
+    SeedIdentity.Seed(userManager, roleManager, cartService).Wait();
+}
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
