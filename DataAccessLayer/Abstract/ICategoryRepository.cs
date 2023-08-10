@@ -7,6 +7,6 @@ namespace DataAccessLayer.Abstract
         List<Product> GetPopularCategories();
         Category GetByIdWithProducts(int categoryId);
         void DeleteFromCategory(int productId, int categoryId);
-
+        bool GetByName(string name);
     }
 }

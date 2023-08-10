@@ -1,5 +1,4 @@
 ﻿using DataAccessLayer.Abstract;
-using DataAccessLayer.Concrete.EFCore;
 using EntityLayer;
 using Microsoft.EntityFrameworkCore;
 

@@ -16,7 +16,6 @@ namespace BusinessLayer.Concrete
 
         public bool Create(Product entity)
         {
-            //TODO is kurallari uygula
             if (Validation(entity))
             {
                 _unitOfWork.Products.Create(entity);
@@ -28,7 +27,6 @@ namespace BusinessLayer.Concrete
 
         public void Delete(Product entity)
         {
-            //TODO is kurallari uygula
             _unitOfWork.Products.Delete(entity);
             _unitOfWork.Save();
         }
@@ -81,16 +79,20 @@ namespace BusinessLayer.Concrete
             return _unitOfWork.Products.GetSearchResult(searchString);
         }
 
-        public void Update(Product entity)
+        public bool Update(Product entity)
         {
-            //TODO is kurallari
-            _unitOfWork.Products.Update(entity);
-            _unitOfWork.Save();
-        }
+            if (Validation(entity))
+            {
+                _unitOfWork.Products.Update(entity);
+                _unitOfWork.Save();
+                return true;
+            }
+            ErrorMessage += "Lutfen eksik bilgileri giriniz.\n";
+            return false;
 
+        }
         public bool Update(Product entity, int[] categoryIds)
         {
-            //TODO is kurallari
             if (Validation(entity))
             {
                 if (categoryIds.Length == 0)
@@ -117,6 +119,16 @@ namespace BusinessLayer.Concrete
             if (entity.Price < 1)
             {
                 ErrorMessage += "urun fiyati 1'den az olamaz.\n";
+                isValid = false;
+            }
+            if (string.IsNullOrEmpty(entity.Description))
+            {
+                ErrorMessage += "Urun aciklamasi bos birakilamaz\n";
+                isValid = false;
+            }
+            if (entity.ImageUrl == null)
+            {
+                ErrorMessage += "Urun resmi bos birakilamaz.\n";
                 isValid = false;
             }
 

@@ -12,7 +12,7 @@ namespace BusinessLayer.Abstract
         List<Product> GetProductsByCategory(string name, int page, int pageSize);
         Product GetProductDetails(string url);
         bool Create(Product entity);
-        void Update(Product entity);
+        bool Update(Product entity);
         bool Update(Product entity, int[] categoryIds);
         void Delete(Product entity);
         int GetCountByCategory(string category);

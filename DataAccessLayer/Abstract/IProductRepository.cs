@@ -13,6 +13,5 @@ namespace DataAccessLayer.Abstract
         List<Product> GetHomePageProducts();
         int GetCountByCategory(string category);
         void Update(Product entity, int[] categoryIds);
-
     }
 }

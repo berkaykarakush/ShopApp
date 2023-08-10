@@ -30,6 +30,11 @@ namespace DataAccessLayer.Concrete.EFCore
                  .FirstOrDefault();
         }
 
+        public bool GetByName(string name)
+        {
+            return ShopContext.Categories.Any(c => c.Name.ToLower() == name.ToLower());    
+        }
+
         public List<Product> GetPopularCategories()
         {
             throw new NotImplementedException();

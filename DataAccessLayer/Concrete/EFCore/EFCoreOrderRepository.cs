@@ -7,9 +7,7 @@ namespace DataAccessLayer.Concrete.EFCore
     public class EFCoreOrderRepository : EFCoreGenericRepository<Order>, IOrderRepository
     {
         public EFCoreOrderRepository(ShopContext context) : base(context)
-        {
-
-        }
+        {}
         private ShopContext ShopContext
         {
             get { return _context as ShopContext; }

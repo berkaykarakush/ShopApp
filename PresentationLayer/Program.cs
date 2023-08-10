@@ -61,57 +61,57 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "adminUsers",
     pattern: "admin/user/list",
-    defaults: new { controller = "Admin", action = "ListUser" });
+    defaults: new { controller = "User", action = "ListUser" });
 
 app.MapControllerRoute(
     name: "adminEditUser",
     pattern: "admin/user/{id?}",
-    defaults: new { controller = "Admin", action = "EditUser" });
+    defaults: new { controller = "User", action = "EditUser" });
 
 app.MapControllerRoute(
     name: "adminRoles",
     pattern: "admin/role/list",
-    defaults: new { controller = "Admin", action = "ListRole" });
+    defaults: new { controller = "Role", action = "ListRole" });
 
 app.MapControllerRoute(
     name: "adminRoleCreate",
     pattern: "admin/role/create",
-    defaults: new { controller = "Admin", action = "CreateRole" });
+    defaults: new { controller = "Role", action = "CreateRole" });
 
 app.MapControllerRoute(
     name: "adminEditRole",
     pattern: "admin/role/{id?}",
-    defaults: new { controller = "Admin", action = "EditRole" });
+    defaults: new { controller = "Role", action = "EditRole" });
 
 app.MapControllerRoute(
     name: "adminProducts",
     pattern: "admin/products",
-    defaults: new { controller = "Admin", action = "ListProduct" });
+    defaults: new { controller = "Product", action = "ListProduct" });
 
 app.MapControllerRoute(
     name: "adminCategories",
     pattern: "admin/categories",
-    defaults: new { controller = "Admin", action = "ListCategory" });
+    defaults: new { controller = "Category", action = "ListCategory" });
 
 app.MapControllerRoute(
     name: "adminCreateProduct",
     pattern: "admin/product/create",
-    defaults: new { controller = "Admin", action = "CreateProduct" });
+    defaults: new { controller = "Product", action = "CreateProduct" });
 
 app.MapControllerRoute(
     name: "adminCreateCategory",
     pattern: "admin/category/create",
-    defaults: new { controller = "Admin", action = "CreateCategory" });
+    defaults: new { controller = "Category", action = "CreateCategory" });
 
 app.MapControllerRoute(
     name: "adminEditProduct",
     pattern: "admin/products/{id?}",
-    defaults: new { controller = "Admin", action = "EditProduct" });
+    defaults: new { controller = "Product", action = "EditProduct" });
 
 app.MapControllerRoute(
     name: "adminEditCategory",
     pattern: "admin/categories/{id?}",
-    defaults: new { controller = "Admin", action = "EditCategory" });
+    defaults: new { controller = "Category", action = "EditCategory" });
 
 app.MapControllerRoute(
     name: "search",

@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using PresentationLayer.EmailServices;
 using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
@@ -12,15 +13,17 @@ namespace PresentationLayer.Controllers
     public class AccountController : Controller
     {
         private readonly UserManager<User> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ICartService _cartService;
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IEmailSender emailSender, ICartService cartService)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IEmailSender emailSender, ICartService cartService, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _cartService = cartService;
+            _roleManager = roleManager;
         }
 
         [HttpGet]
@@ -111,14 +114,21 @@ namespace PresentationLayer.Controllers
                 return RedirectToAction("Login","Account");
             }
             
-            ModelState.AddModelError("", "Bilinmeyen bir hata oldu lutfen tekrar deneyiniz.");
+            ModelState.AddModelError("", "Bu email adresi zaten kullanilmaktadir.");
             return View(model);
         }
 
-        [HttpGet]
-        public IActionResult Manage()
-        { 
+       [HttpGet]
+        public  IActionResult Manage()
+        {
+            //TODO manage get method
             return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Manage(ManageModel model)
+        {
+            //TODO manage post method
+            return View(model);
         }
 
         [HttpGet]
@@ -154,7 +164,6 @@ namespace PresentationLayer.Controllers
                 IdentityResult result = await _userManager.ConfirmEmailAsync(user, token);
                 if (result.Succeeded)
                 {
-                    //TODO create cart object
                     _cartService.InitilazeCart(user.Id);
                     TempData.Put("message", new AlertMessage()
                     {

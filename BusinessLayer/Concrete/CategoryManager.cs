@@ -13,20 +13,33 @@ namespace BusinessLayer.Concrete
             _unitOfWork = unitOfWork;
         }
 
-        public string ErrorMessage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ErrorMessage { get; set; }
 
-        public void Create(Category entity)
+        public bool Create(Category entity)
         {
-            //TODO is kurallari 
-            _unitOfWork.Categories.Create(entity);
-            _unitOfWork.Save();
+            bool isValid = true;
+            if (!_unitOfWork.Categories.GetByName(entity.Name))
+            {
+                _unitOfWork.Categories.Create(entity);
+                _unitOfWork.Save();
+                isValid = true;
+            }
+            else 
+            {
+                ErrorMessage = "Girdiginiz isimde bir categori zaten mevcut";
+                isValid = false;
+            }
+            return isValid;
         }
 
         public void Delete(Category entity)
         {
-            //TODO is kurallari 
-            _unitOfWork.Categories.Delete(entity);
-            _unitOfWork.Save();
+            var category = _unitOfWork.Categories.GetById(entity.CategoryId);
+            if (category != null)
+            {
+                _unitOfWork.Categories.Delete(entity);
+                _unitOfWork.Save();
+            }
         }
 
         public void DeleteFromCategory(int productId, int categoryId)
@@ -50,16 +63,34 @@ namespace BusinessLayer.Concrete
             return _unitOfWork.Categories.GetByIdWithProducts(categoryId);
         }
 
-        public void Update(Category entity)
+        public bool Update(Category entity)
         {
-            //TODO Is kurallari
-            _unitOfWork.Categories.Update(entity);
-            _unitOfWork.Save();
+            bool isValid = true;
+            var category = _unitOfWork.Categories.GetById(entity.CategoryId);
+            if (category != null)
+            {
+                _unitOfWork.Categories.Update(entity);
+                _unitOfWork.Save();
+                isValid = true;
+            }
+            isValid = false;
+            return isValid;
         }
 
         public bool Validation(Category entity)
         {
-            throw new NotImplementedException();
+            bool isValid = true;
+            if (string.IsNullOrEmpty(entity.Name))
+            {
+                ErrorMessage += "Category ismi bos birakilamaz.\n";
+                isValid = false;
+            }
+            if (string.IsNullOrEmpty(entity.Url))
+            {
+                ErrorMessage += "Category url alani bos birakilamaz.\n";
+                isValid = false;
+            }
+            return isValid;
         }
     }
 }

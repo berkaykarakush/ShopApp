@@ -20,9 +20,6 @@ namespace BusinessLayer.Concrete
             var cart = GetCartByUserId(userId);
             if (cart != null)
             {
-                //TODO eklenmek isteyen urun sepette var mi (update)
-                //TODO eklenmek isteyen urun sepetta var ve yeni kayit olustur(insert)
-
                 var index = cart.CartItems.FindIndex(c => c.ProductId == productId);
                 if (index<0)
                 {
@@ -53,9 +50,17 @@ namespace BusinessLayer.Concrete
             var cart = GetCartByUserId(userId);
             if (cart != null)
             {
-                _unitOfWork.Carts.DeleteFromCart(cart.CartId, productId);
-                _unitOfWork.Save();
+                var index = cart.CartItems.FindIndex(c => c.ProductId == productId);
+                if (!(index < 0))
+                {
+                    if (cart.CartItems[index].Quantity == 1)
+                        _unitOfWork.Carts.DeleteFromCart(cart.CartId, productId);
+                    else
+                        cart.CartItems[index].Quantity -= 1;
+                }
             }
+            _unitOfWork.Carts.Update(cart);
+            _unitOfWork.Save();
         }
 
         public Cart GetCartByUserId(string userId)
@@ -71,7 +76,18 @@ namespace BusinessLayer.Concrete
 
         public bool Validation(Cart entity)
         {
-            throw new NotImplementedException();
+            bool isValid = true;
+            if (entity.CartId == null)
+            {
+                ErrorMessage += "CartId bilgisine erisilemedi lutfen tekrar deneyiniz.\n";
+                isValid = false;
+            }
+            if (entity.UserId == null)
+            {
+                ErrorMessage += "UserId bilgisine erisilemdi lutfen tekrar deneyiniz.\n";
+                isValid = false;
+            }
+            return isValid;
         }
     }
 }

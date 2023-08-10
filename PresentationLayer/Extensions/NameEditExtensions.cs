@@ -2,6 +2,11 @@
 {
     public static class NameEditExtensions
     {
+        /// <summary>
+        /// This method ensures that the received name value is saved in an orderly state by deleting the spaces between
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static string NameEdit(string name)
         {
             string[] names;

@@ -16,7 +16,7 @@ namespace PresentationLayer.Controllers
 
         public IActionResult List(string category, int page=1)
         {
-            const int pageSize = 2;    
+            const int pageSize = 15;    
             var productViewModel = new ProductListViewModel()
             {
                 PageInfo = new PageInfo()

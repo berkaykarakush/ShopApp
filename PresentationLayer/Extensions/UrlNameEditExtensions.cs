@@ -4,6 +4,11 @@ namespace PresentationLayer.Extensions
 {
     public static class UrlNameEditExtensions
     {
+        /// <summary>
+        /// This method saves the received name value by deleting the spaces and replacing them with a - sign.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public static string UrlNameEdit(string name)
         {
             string[] names;
