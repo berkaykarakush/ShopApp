@@ -3,8 +3,8 @@
 <div class="row">
     <div class="col-md-12">
         <h1>Admin Products</h1>
-        <a class="btn btn-outline-primary btn-sm" asp-controller="Admin" asp-action="CreateCategory">Add Category</a>
-        <table class="table table-bordered mt-4">
+        <a class="btn btn-outline-primary btn-sm" asp-controller="Category" asp-action="CreateCategory">Add Category</a>
+        <table id="categoryTable" class="table table-bordered mt-4">
             <thead>
                 <tr>
                     <td style="width: 30px;">Id</td>
@@ -24,7 +24,7 @@
                             <td>
                                 <a href="/admin/categories/@item.CategoryId" class="btn btn-primary btn-sm mr-2">Edit</a>
 
-                                <form action="/admin/deletecategory" method="post" style="display: inline;">
+                                <form asp-controller="Category" asp-action="DeleteCategory" method="post" style="display: inline;">
                                     <input type="hidden" name="CategoryId" value="@item.CategoryId">
                                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                 </form>
@@ -42,3 +42,14 @@
         </table>
     </div>
 </div>
+
+@section Css{
+    <script src="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"></script>
+}
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        new DataTable('#categoryTable');
+    </script>
+}

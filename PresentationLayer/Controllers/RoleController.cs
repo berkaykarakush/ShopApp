@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
@@ -18,17 +19,21 @@ namespace PresentationLayer.Controllers
             _userManager = userManager;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult ListRole()
         {
             return View(_roleManager.Roles);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult CreateRole()
         {
             return View();
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateRole(RoleModel model)
         {
@@ -65,6 +70,7 @@ namespace PresentationLayer.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> EditRole(string id)
         {
@@ -87,6 +93,8 @@ namespace PresentationLayer.Controllers
             };
             return View(model);
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> EditRole(EditRoleModel model)
         {
@@ -126,6 +134,9 @@ namespace PresentationLayer.Controllers
             }
             return Redirect("/admin/role/" + model.RoleId);
         }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
         public async Task<IActionResult> DeleteRole(string id)
         {
             var role = await _roleManager.FindByIdAsync(id);

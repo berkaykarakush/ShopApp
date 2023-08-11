@@ -15,6 +15,7 @@ namespace PresentationLayer.Controllers
             _productService = productService;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             var productViewModel = new ProductListViewModel()
@@ -24,10 +25,14 @@ namespace PresentationLayer.Controllers
 
             return View(productViewModel);
         }
+
+        [HttpGet]
         public IActionResult About() 
         {
             return View();
         }
+
+        [HttpGet]
         public IActionResult Contact()
         {
             return View();

@@ -63,11 +63,15 @@ namespace PresentationLayer.Controllers
             {
                 var entity = new Product
                 {
+                    ProductId = model.ProductId,
                     Name = NameEditExtensions.NameEdit(model.Name),
                     Url = UrlNameEditExtensions.UrlNameEdit(model.Name),
                     Description = model.Description,
                     Price = model.Price,
+                    CreatedDate = DateTime.Now,
                     ImageUrl = model.ImageUrl,
+                    Quantity = model.Quantity,
+                    ProductCategories = ViewBag.Categories,
                     IsApproved = true
                 };
 
@@ -124,13 +128,15 @@ namespace PresentationLayer.Controllers
             var model = new ProductModel()
             {
                 ProductId = entity.ProductId,
-                Name = entity.Name,
-                Url = entity.Url,
-                Description = entity.Description,
+                Name = NameEditExtensions.NameEdit(entity.Name),
+                Url = UrlNameEditExtensions.UrlNameEdit(entity.Name),
                 Price = entity.Price,
+                Quantity = entity.Quantity,
+                Description = entity.Description,
                 ImageUrl = entity.ImageUrl,
                 IsApproved = entity.IsApproved,
                 IsHome = entity.IsHome,
+                UpdatedDate = DateTime.Now,
                 SelectedCategories = entity.ProductCategories.Select(pc => pc.Category).ToList()
             };
 
@@ -140,10 +146,8 @@ namespace PresentationLayer.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public IActionResult EditProduct(ProductModel model, int[] categoryIds)
+        public async Task<IActionResult> EditProduct(ProductModel model, int[] categoryIds, IFormFile file)
         {
-            bool errors = ModelState.Values.Any(m => m.Errors.Count == 0);
-
             if (ModelState.IsValid)
             {
                 var entity = _productService.GetById(model.ProductId);
@@ -154,11 +158,26 @@ namespace PresentationLayer.Controllers
 
                 entity.Name = NameEditExtensions.NameEdit(model.Name);
                 entity.Url = UrlNameEditExtensions.UrlNameEdit(model.Name);
-                entity.Description = model.Description;
                 entity.Price = model.Price;
-                entity.ImageUrl = model.ImageUrl;
+                entity.Quantity= model.Quantity;
+                entity.Description = model.Description;
                 entity.IsApproved = model.IsApproved;
                 entity.IsHome = model.IsHome;
+                entity.UpdatedDate = DateTime.Now;
+
+                if (file != null)
+                {
+                    var extension = Path.GetExtension(file.FileName);
+                    var randomName = string.Format($"{Guid.NewGuid()}{extension}");
+                    entity.ImageUrl = randomName;
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", randomName);
+
+
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                }
 
                 if (_productService.Update(entity, categoryIds))
                 {

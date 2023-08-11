@@ -33,49 +33,41 @@ namespace BusinessLayer.Concrete
 
         public List<Product> GetAll()
         {
-            //TODO is kurallari uygula
             return _unitOfWork.Products.GetAll();
         }
 
         public Product GetById(int id)
         {
-            //TODO is kurallari uygula
             return _unitOfWork.Products.GetById(id);
         }
 
         public Product GetByIdWithCategories(int id)
         {
-            //TODO is kurallari uygula
             return _unitOfWork.Products.GetByIdWithCategories(id);
         }
 
         public int GetCountByCategory(string category)
         {
-            //TODO is kurallari
             return _unitOfWork.Products.GetCountByCategory(category);
         }
 
         public List<Product> GetHomePageProducts()
         {
-            //TODO is kurallari
             return _unitOfWork.Products.GetHomePageProducts();
         }
 
         public Product GetProductDetails(string url)
         {
-            //TODO is kurallari uygula
             return _unitOfWork.Products.GetProductDetails(url);
         }
 
         public List<Product> GetProductsByCategory(string name, int page, int pageSize)
         {
-            //TODO is kurallari
             return _unitOfWork.Products.GetProductsByCategory(name,page, pageSize);
         }
 
         public List<Product> GetSearchResult(string searchString)
         {
-            //TODO is kurallari
             return _unitOfWork.Products.GetSearchResult(searchString);
         }
 
@@ -93,18 +85,14 @@ namespace BusinessLayer.Concrete
         }
         public bool Update(Product entity, int[] categoryIds)
         {
-            if (Validation(entity))
+            if (categoryIds.Length == 0)
             {
-                if (categoryIds.Length == 0)
-                {
-                    ErrorMessage += "Urun icin en az bir kategori secmelisiniz.\n";
-                    return false;
-                }
-                _unitOfWork.Products.Update(entity, categoryIds);
-                _unitOfWork.Save();
-                return true;
+                ErrorMessage += "Urun icin en az bir kategori secmelisiniz.\n";
+                return false;
             }
-            return false;
+            _unitOfWork.Products.Update(entity, categoryIds);
+            _unitOfWork.Save();
+            return true;
         }
 
         public bool Validation(Product entity)

@@ -13,6 +13,7 @@ namespace DataAccessLayer.Concrete.EFCore
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -24,13 +25,13 @@ namespace DataAccessLayer.Concrete.EFCore
             modelBuilder.ApplyConfiguration(new ProductEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new ProductCategoryEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryEntityTypeConfiguration());
-            //modelBuilder.ApplyConfiguration(new CartEntityTypeConfiguration());
-            //modelBuilder.ApplyConfiguration(new CartItemEntityTypeConfiguration());
-            //modelBuilder.ApplyConfiguration(new OrderEntityTypeConfiguration());
-            //modelBuilder.ApplyConfiguration(new OrderItemEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new CartEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new CartItemEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderItemEntityTypeConfiguration());
 
             //seed data
-            modelBuilder.Seed();
+            //modelBuilder.Seed();
         }
     }
 }

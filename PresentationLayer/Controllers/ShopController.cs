@@ -14,6 +14,9 @@ namespace PresentationLayer.Controllers
             _productService = productService;
         }
 
+        //TODO En cok satilan urunler
+
+        [HttpGet]
         public IActionResult List(string category, int page=1)
         {
             const int pageSize = 15;    
@@ -31,6 +34,8 @@ namespace PresentationLayer.Controllers
 
             return View(productViewModel);
         }
+
+        [HttpGet]
         public IActionResult Details(string url)
         {
             if (url == null)
@@ -47,6 +52,7 @@ namespace PresentationLayer.Controllers
             });
         }
 
+        [HttpGet]
         public IActionResult Search(string q)
         {
             var productViewModel = new ProductListViewModel()

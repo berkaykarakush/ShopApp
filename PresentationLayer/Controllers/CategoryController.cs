@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using EntityLayer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
@@ -15,7 +16,9 @@ namespace PresentationLayer.Controllers
         {
             _categoryService = categoryService;
         }
-
+        
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
         public IActionResult ListCategory()
         {
             return View(new CategoryListViewModel()
@@ -23,11 +26,15 @@ namespace PresentationLayer.Controllers
                 Categories = _categoryService.GetAll()
             });
         }
+
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public IActionResult CreateCategory()
         {
             return View();
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult CreateCategory(CategoryModel model)
         {
@@ -62,6 +69,8 @@ namespace PresentationLayer.Controllers
             }
             return View(model);
         }
+        
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult EditCategory(int? id)
         {
@@ -85,6 +94,8 @@ namespace PresentationLayer.Controllers
             };
             return View(model);
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult EditCategory(CategoryModel model)
         {
@@ -119,6 +130,9 @@ namespace PresentationLayer.Controllers
             }
             return View(model);
         }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
         public IActionResult DeleteCategory(int categoryId)
         {
             var entity = _categoryService.GetById(categoryId);
@@ -136,6 +150,8 @@ namespace PresentationLayer.Controllers
 
             return RedirectToAction("ListCategory", "Category");
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DeleteFromCategory(int productId, int categoryId)
         {

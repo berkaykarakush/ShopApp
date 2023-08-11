@@ -13,32 +13,23 @@
                 <li class="nav-item">
                     <a asp-controller="Order" asp-action="GetOrders" class="nav-link">Orders</a>
                 </li>
-              @if (User.IsInRole("Admin"))
-                {
-                    <li class="nav-item">
-                        <a asp-controller="Product" asp-action="createproduct" class="nav-link">Add Product</a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-controller="Product" asp-action="listproduct" class="nav-link">Admin Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-controller="Category" asp-action="listcategory" class="nav-link">Admin Categories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-controller="Role" asp-action="listrole" class="nav-link">Roles</a>
-                    </li>
-                    <li class="nav-item">
-                        <a asp-controller="User" asp-action="listuser" class="nav-link">Users</a>
-                    </li>
-                }
             }
         </ul>
         <ul class="navbar-nav ml-auto">
             @if (User.Identity.IsAuthenticated)
             {
-                <li class="nav-item">
-                    <a asp-controller="account" asp-action="manage" class="nav-link">@User.Identity.Name</a>
-                </li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li class="nav-item">
+                        <a asp-controller="admin" asp-action="index" class="nav-link">@User.Identity.Name</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a asp-controller="account" asp-action="manage" class="nav-link">@User.Identity.Name</a>
+                    </li>
+                }
                 <li class="nav-item">
                     <a asp-controller="account" asp-action="logout" class="nav-link">Logout</a>
                 </li>

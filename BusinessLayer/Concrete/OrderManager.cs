@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
 using EntityLayer;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace BusinessLayer.Concrete
 {
@@ -13,22 +14,7 @@ namespace BusinessLayer.Concrete
             _unitOfWork = unitOfWork;
         }
 
-        public string ErrorMessage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public void Create(Order entity)
-        {
-            //TODO is kurallari
-            _unitOfWork.Orders.Create(entity);
-            _unitOfWork.Save();
-        }
-
-        public void Delete(Order entity)
-        {
-            //TODO is kurallari
-            _unitOfWork.Orders.Delete(entity);
-            _unitOfWork.Save();
-        }
-
+        public string ErrorMessage { get; set; }
         public List<Order> GetAll()
         {
            return _unitOfWork.Orders.GetAll();
@@ -36,7 +22,6 @@ namespace BusinessLayer.Concrete
 
         public Order GetById(int id)
         {
-            //TODO is kurallari
             return _unitOfWork.Orders.GetById(id);
         }
 
@@ -44,17 +29,76 @@ namespace BusinessLayer.Concrete
         {
             return _unitOfWork.Orders.GetOrders(userId);
         }
-
-        public void Update(Order entity)
+        public bool Create(Order entity)
         {
-            //TODO is kurallari
-            _unitOfWork.Orders.Update(entity);
-            _unitOfWork.Save();
+            if(Validation(entity))
+            {
+               _unitOfWork.Orders.Create(entity);
+                _unitOfWork.Save();
+                return true;
+            }
+            ErrorMessage += "Order not created.\n";
+            return false;
+        }
+        public bool Delete(Order entity)
+        {
+            if (Validation(entity))
+            {
+                _unitOfWork.Orders.Delete(entity);
+                _unitOfWork.Save();
+                return true;
+            }
+            ErrorMessage += "Order not deleted.\n";
+            return false;
+        }
+        public bool Update(Order entity)
+        {
+            if (Validation(entity))
+            {
+                _unitOfWork.Orders.Update(entity);
+                _unitOfWork.Save();
+                return true;
+            }
+            ErrorMessage += "Order not updated.\n";
+            return false;
+
         }
 
         public bool Validation(Order entity)
         {
-            throw new NotImplementedException();
+            //TODO order validation
+            bool isValid = true;
+            if (string.IsNullOrEmpty(entity.FirstName))
+            {
+                ErrorMessage += $"FirstName is reqiured.\n";
+                return false;
+            }
+            if (string.IsNullOrEmpty(entity.LastName))
+            {
+                ErrorMessage += $"LastName is reqiured.\n";
+                return false;
+            }
+            if (string.IsNullOrEmpty(entity.Address))
+            {
+                ErrorMessage += $"Address is reqiured.\n";
+                return false;
+            } 
+            if (string.IsNullOrEmpty(entity.City))
+            {
+                ErrorMessage += $"City is reqiured.\n";
+                return false;
+            }
+            if (string.IsNullOrEmpty(entity.Phone))
+            {
+                ErrorMessage += $"Phone is reqiured.\n";
+                return false;
+            }
+            if (string.IsNullOrEmpty(entity.Email))
+            {
+                ErrorMessage += $"Email is reqiured.\n";
+                return false;
+            }
+            return isValid;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
@@ -17,11 +18,15 @@ namespace PresentationLayer.Controllers
             _roleManager = roleManager;
             _userManager = userManager;
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult ListUser()
         {
             return View(_userManager.Users);
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> EditUser(string id)
         {
@@ -51,6 +56,8 @@ namespace PresentationLayer.Controllers
             });
             return RedirectToAction("ListUser", "User");
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> EditUser(UserDetailsModel model, string[] selectedRoles)
         {
@@ -89,5 +96,7 @@ namespace PresentationLayer.Controllers
             return View(model);
         }
         
+        //TODO Kullaniciya hesabini onayla mailini tekrar gonderme secegni olustur
+        //TODO kullaniciya hesabinin sifresini degistirmesi icin link gonder
     }
 }

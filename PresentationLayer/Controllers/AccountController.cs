@@ -41,6 +41,7 @@ namespace PresentationLayer.Controllers
             });
         }
         
+        //TODO hesabiniza giris yapildi maili gonder
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel model)
@@ -73,13 +74,14 @@ namespace PresentationLayer.Controllers
             ModelState.AddModelError("", "Girilen email ya da parola hatalidir. Lutfen kontrol ederek tekrar deneyiniz.");
             return View(model);
         }
-        
+
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
         
+        //TODO hosgeldiniz maili gonder
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterModel model)
@@ -118,12 +120,13 @@ namespace PresentationLayer.Controllers
             return View(model);
         }
 
-       [HttpGet]
+        [HttpGet]
         public  IActionResult Manage()
         {
             //TODO manage get method
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Manage(ManageModel model)
         {
@@ -243,6 +246,7 @@ namespace PresentationLayer.Controllers
             return View();
         }
 
+        //TODO kullaniciya hesabiniz sifresi degistirildi diye mail gonder
         [HttpGet]
         public IActionResult ResetPassword(string userId, string token)
         {
@@ -307,6 +311,7 @@ namespace PresentationLayer.Controllers
             });
             return View(model);
         }
+
         [HttpGet]
         public IActionResult AccessDenied()
         {

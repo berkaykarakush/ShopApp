@@ -102,12 +102,14 @@ namespace DataAccessLayer.Concrete.EFCore
             if (product != null)
             {
                 product.Name = entity.Name;
-                product.Price = entity.Price;
                 product.Url = entity.Url;
+                product.Price = entity.Price;
+                product.Quantity = entity.Quantity;
                 product.Description = entity.Description;
                 product.ImageUrl= entity.ImageUrl;  
                 product.IsHome = entity.IsHome;
                 product.IsApproved = entity.IsApproved;
+                product.UpdatedDate = entity.UpdatedDate;
 
                 product.ProductCategories = categoryIds.Select(c => new ProductCategory()
                 {

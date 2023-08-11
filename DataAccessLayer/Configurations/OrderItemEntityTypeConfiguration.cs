@@ -8,7 +8,14 @@ namespace DataAccessLayer.Configurations
     {
         public void Configure(EntityTypeBuilder<OrderItem> builder)
         {
-            throw new NotImplementedException();
+            //Primary key
+            builder.HasKey(o => o.OrderItemId);
+
+            //Price
+            builder.Property(o => o.Price).IsRequired();
+
+            //Quantity
+            builder.Property(o => o.Quantity).IsRequired();
         }
     }
 }

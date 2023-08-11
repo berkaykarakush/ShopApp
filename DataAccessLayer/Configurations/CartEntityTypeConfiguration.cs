@@ -8,7 +8,9 @@ namespace DataAccessLayer.Configurations
     {
         public void Configure(EntityTypeBuilder<Cart> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(c => c.CartId);
+
+            builder.Property(c => c.UserId).IsRequired();
         }
     }
 }

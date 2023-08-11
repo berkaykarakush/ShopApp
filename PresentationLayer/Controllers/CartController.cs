@@ -15,7 +15,6 @@ using System.Data;
 
 namespace PresentationLayer.Controllers
 {
-    [Authorize]
     public class CartController : Controller
     {
         private readonly ICartService _cartService;
@@ -29,6 +28,7 @@ namespace PresentationLayer.Controllers
             _orderService = orderService;
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Index()
         {
@@ -47,6 +47,10 @@ namespace PresentationLayer.Controllers
                 }).ToList()
             });
         }
+
+        //TODO urunun miktarini kontrol et ve sepete ekle
+        //TODO details view icerisinde stok durumu var ise sepete ekle secenegini cikart
+        [Authorize]
         [HttpPost]
         public IActionResult AddToCart(int productId, int quantity)
         {
@@ -54,6 +58,8 @@ namespace PresentationLayer.Controllers
              _cartService.AddToCart(userId, productId, quantity);
             return RedirectToAction("Index");
         }
+
+        [Authorize]
         [HttpPost]
         public IActionResult DeleteFromCart(int productId)
         {
@@ -61,6 +67,8 @@ namespace PresentationLayer.Controllers
             _cartService.DeleteFromCart(userId, productId);
             return RedirectToAction("Index","Cart");
         }
+
+        [Authorize]
         [HttpGet]
         public IActionResult Checkout()
         {
@@ -81,6 +89,8 @@ namespace PresentationLayer.Controllers
             };
            return View(orderModel);
         }
+
+        [Authorize]
         [HttpPost]
         public IActionResult Checkout(OrderModel model)
         {
@@ -128,12 +138,15 @@ namespace PresentationLayer.Controllers
             }
             return View(model);
         }
-
+        //TODO odeme tamamlandigi anda kullaniciya mail gonder
+        //TODO kullaniciya fatura duzenle ve gonder
+        [Authorize]
         private void ClearCart(int cartId)
         {
             _cartService.ClearCart(cartId);
         }
 
+        [Authorize]
         private void SaveOrder(OrderModel model, Payment payment, string userId)
         {
             var order = new Order();
@@ -163,6 +176,7 @@ namespace PresentationLayer.Controllers
             _orderService.Create(order);
         }
 
+        [Authorize]
         private Payment PaymentProcess(OrderModel model)
         {
             Options options = new Options();

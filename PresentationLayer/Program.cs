@@ -44,6 +44,11 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "adminPanel",
+    pattern: "admin/index",
+    defaults: new { controller = "Admin", action = "Index" });
+
+app.MapControllerRoute(
     name: "orders",
     pattern: "orders",
     defaults: new { controller = "Order", action = "GetOrders" });

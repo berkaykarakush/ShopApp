@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Identity;
@@ -6,6 +7,7 @@ using PresentationLayer.Models;
 
 namespace PresentationLayer.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly IOrderService _orderService;
@@ -16,7 +18,6 @@ namespace PresentationLayer.Controllers
             _orderService = orderService;
             _userManager = userManager;
         }
-
         public IActionResult GetOrders()
         {
             var userId = _userManager.GetUserId(User);
