@@ -13,67 +13,63 @@
             string newName = "";
             if (!string.IsNullOrEmpty(name))
             {
-                
-                if (name.Contains(' '))
-                {
-                    name = name.Replace("\"", "")
-                    .Replace("!", " ")
-                    .Replace("'", " ")
-                    .Replace("^", " ")
-                    .Replace("+", " ")
-                    .Replace("%", " ")
-                    .Replace("&", " ")
-                    .Replace("/", " ")
-                    .Replace("\\", " ")
-                    .Replace("(", " ")
-                    .Replace(")", " ")
-                    .Replace("=", " ")
-                    .Replace("?", " ")
-                    .Replace("_", " ")
-                    .Replace("-", " ")
-                    .Replace("@", " ")
-                    .Replace("€", " ")
-                    .Replace("¨", " ")
-                    .Replace("~", " ")
-                    .Replace(",", " ")
-                    .Replace(";", " ")
-                    .Replace(":", " ")
-                    .Replace(".", " ")
-                    .Replace("<", " ")
-                    .Replace("<", " ")
-                    .Replace("<", " ")
-                    .Replace(">", " ")
-                    .Replace("|", " ")
-                    .Replace("[", " ")
-                    .Replace("]", " ")
-                    .Replace("Ö", "o")
-                    .Replace("ö", "o")
-                    .Replace("Ü", "u")
-                    .Replace("ü", "u")
-                    .Replace("ı", "i")
-                    .Replace("İ", "i")
-                    .Replace("ğ", "g")
-                    .Replace("Ğ", "g")
-                    .Replace("æ", "")
-                    .Replace("ß", "")
-                    .Replace("â", "a")
-                    .Replace("î", "i")
-                    .Replace("ş", "s")
-                    .Replace("Ş", "s")
-                    .Replace("Ç", "c")
-                    .Replace("ç", "c");
-                    names = name.Split(' ');
+                name = name.Replace("\"", "")
+                .Replace("!", " ")
+                .Replace("'", " ")
+                .Replace("^", " ")
+                .Replace("+", " ")
+                .Replace("%", " ")
+                .Replace("&", " ")
+                .Replace("/", " ")
+                .Replace("\\", " ")
+                .Replace("(", " ")
+                .Replace(")", " ")
+                .Replace("=", " ")
+                .Replace("?", " ")
+                .Replace("_", " ")
+                .Replace("-", " ")
+                .Replace("@", " ")
+                .Replace("€", " ")
+                .Replace("¨", " ")
+                .Replace("~", " ")
+                .Replace(",", " ")
+                .Replace(";", " ")
+                .Replace(":", " ")
+                .Replace(".", " ")
+                .Replace("<", " ")
+                .Replace("<", " ")
+                .Replace("<", " ")
+                .Replace(">", " ")
+                .Replace("|", " ")
+                .Replace("[", " ")
+                .Replace("]", " ")
+                .Replace("Ö", "o")
+                .Replace("ö", "o")
+                .Replace("Ü", "u")
+                .Replace("ü", "u")
+                .Replace("ı", "i")
+                .Replace("İ", "i")
+                .Replace("ğ", "g")
+                .Replace("Ğ", "g")
+                .Replace("æ", "")
+                .Replace("ß", "")
+                .Replace("â", "a")
+                .Replace("î", "i")
+                .Replace("ş", "s")
+                .Replace("Ş", "s")
+                .Replace("Ç", "c")
+                .Replace("ç", "c");
+                names = name.Split(' ');
 
-                    newName = names[0];
-                    for (int i = 1; i < names.Length; i++)
+                newName = names[0];
+                for (int i = 1; i < names.Length; i++)
+                {
+                    if (!string.IsNullOrWhiteSpace(names[i]))
                     {
-                        if (!string.IsNullOrWhiteSpace(names[i]))
-                        {
-                            newName += $" {names[i]}";
-                        }
+                        newName += $" {names[i]}";
                     }
-                    name = newName;
                 }
+                name = newName;
             }
             return name.ToLower();
         }

@@ -75,19 +75,8 @@ namespace PresentationLayer.Controllers
                     IsApproved = true
                 };
                 //TODO resim icin extension metot
-                if (file != null)
-                {
-                    var extension = Path.GetExtension(file.FileName);
-                    var randomName = string.Format($"{Guid.NewGuid()}{extension}");
-                    entity.ImageUrl = randomName;
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", randomName);
-
-
-                    using (var stream = new FileStream(path, FileMode.Create))
-                    {
-                        await file.CopyToAsync(stream);
-                    }
-                }
+                entity.ImageUrl = await ImageNameEditExtensions.ImageNameEdit(file, UrlNameEditExtensions.UrlNameEdit(model.Name));
+                
 
                 if (_productService.Create(entity))
                 {
