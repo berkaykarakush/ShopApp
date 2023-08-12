@@ -66,7 +66,6 @@ namespace BusinessLayer.Concrete
 
         public bool Validation(Order entity)
         {
-            //TODO order validation
             bool isValid = true;
             if (string.IsNullOrEmpty(entity.FirstName))
             {

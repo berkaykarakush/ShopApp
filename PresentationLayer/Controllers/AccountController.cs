@@ -7,6 +7,7 @@ using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
+using System;
 
 namespace PresentationLayer.Controllers
 {
@@ -292,6 +293,7 @@ namespace PresentationLayer.Controllers
             }
 
             var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+            DateTime changedTime = DateTime.Now;
             if (result.Succeeded)
             {
                 TempData.Put("message", new AlertMessage()
@@ -300,7 +302,11 @@ namespace PresentationLayer.Controllers
                     Message = "Parola degistirme islemi basariyla tamamlanmistir",
                     AlertType = AlertTypeEnum.Success
                 });
+
+                //send email saying reset password
+                await _emailSender.SendEmailAsync(model.Email,"Sifreniz degistirildi",$"Parolaniz {changedTime} tarihinde degistirilmistir.");
                 return RedirectToAction("Login", "Account");
+
             }
 
             TempData.Put("message", new AlertMessage()
