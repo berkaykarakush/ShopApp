@@ -13,11 +13,13 @@ namespace PresentationLayer.Extensions
         {
             string[] names;
             string newName = "";
-            if (!string.IsNullOrEmpty(name))
+
+            string editName = NameEditExtensions.NameEdit(name);
+            if (!string.IsNullOrEmpty(editName))
             {
-                if (name.Contains(' '))
+                if (editName.Contains(' '))
                 {
-                    names = name.Split(' ');
+                    names = editName.Split(' ');
                     newName = names[0];
                     for (int i = 1; i < names.Length; i++)
                     {
@@ -26,10 +28,10 @@ namespace PresentationLayer.Extensions
                             newName += $"-{names[i]}";
                         }
                     }
-                    name = newName;
+                    editName = newName;
                 }
             }
-            return name.ToLower();
+            return editName.ToLower();
         }
     }
 }
