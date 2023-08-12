@@ -104,6 +104,7 @@ namespace PresentationLayer.Controllers
             if (result.Succeeded)
             {
                 await _userManager.AddToRoleAsync(user, "Customer");
+
                 //generate token
                 string generateToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 string url = Url.Action("ConfirmEmail", "Account", new 
@@ -111,9 +112,12 @@ namespace PresentationLayer.Controllers
                     userId = user.Id,
                     token = generateToken
                 });
+
                 //confirmed email
                 await _emailSender.SendEmailAsync(model.Email,"Hesabinizi onaylayiniz",$"Lutfen email hesabinizi onaylamak icin <a href='https://localhost:7087{url}'>Link'e tiklayiniz.</a>");
 
+                //send mail saying welcome
+                await _emailSender.SendEmailAsync(model.Email, "ShopApp'e Hosgeldiniz", $"Hello, {model.UserName} </br> Welcome to the ShopApp!");
                 return RedirectToAction("Login","Account");
             }
             
@@ -247,7 +251,6 @@ namespace PresentationLayer.Controllers
             return View();
         }
 
-        //TODO kullaniciya hesabiniz sifresi degistirildi diye mail gonder
         [HttpGet]
         public IActionResult ResetPassword(string userId, string token)
         {
