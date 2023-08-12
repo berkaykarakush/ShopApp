@@ -46,16 +46,16 @@ namespace DataAccessLayer.Migrations
                 {
                     OrderId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OrderNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MyProperty = table.Column<int>(type: "int", nullable: false),
-                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "getdate()"),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Note = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PaymentId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ConversationId = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -73,14 +73,16 @@ namespace DataAccessLayer.Migrations
                 {
                     ProductId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
-                    Price = table.Column<double>(type: "float", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsApproved = table.Column<bool>(type: "bit", nullable: false),
                     IsHome = table.Column<bool>(type: "bit", nullable: false),
-                    DateAdded = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "getdate()")
+                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "getdate()"),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -143,7 +145,7 @@ namespace DataAccessLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductCategory",
+                name: "ProductCategories",
                 columns: table => new
                 {
                     CategoryId = table.Column<int>(type: "int", nullable: false),
@@ -151,15 +153,15 @@ namespace DataAccessLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductCategory", x => new { x.CategoryId, x.ProductId });
+                    table.PrimaryKey("PK_ProductCategories", x => new { x.CategoryId, x.ProductId });
                     table.ForeignKey(
-                        name: "FK_ProductCategory_Categories_CategoryId",
+                        name: "FK_ProductCategories_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProductCategory_Products_ProductId",
+                        name: "FK_ProductCategories_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "ProductId",
@@ -179,21 +181,21 @@ namespace DataAccessLayer.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ProductId", "Description", "ImageUrl", "IsApproved", "IsHome", "Name", "Price", "Url" },
+                columns: new[] { "ProductId", "Description", "ImageUrl", "IsApproved", "IsHome", "Name", "Price", "Quantity", "UpdatedDate", "Url" },
                 values: new object[,]
                 {
-                    { 1, "iyi telefon", "1.jpg", true, false, "Iphone 11", 20000.0, "iphone-11" },
-                    { 2, "iyi telefon", "2.jpg", true, false, "Iphone 11 pro", 21000.0, "iphone-11-pro" },
-                    { 3, "iyi telefon", "1.jpg", true, false, "Iphone 12", 22000.0, "iphone-12" },
-                    { 4, "iyi telefon", "2.jpg", true, false, "Iphone 12 pro", 23000.0, "iphone-12-pro" },
-                    { 5, "iyi telefon", "1.jpg", true, false, "Iphone 12 pro max", 24000.0, "iphone-12-pro-max" },
-                    { 6, "iyi telefon", "2.jpg", true, false, "Iphone 13", 25000.0, "iphone-13" },
-                    { 7, "iyi telefon", "1.jpg", true, false, "Iphone 13 pro", 26000.0, "iphone-13-pro" },
-                    { 8, "iyi telefon", "2.jpg", true, false, "Iphone 13 pro max", 27000.0, "iphone-13-pro-max" }
+                    { 1, "iyi telefon", "1.jpg", true, false, "Iphone 11", 20000.0, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "iphone-11" },
+                    { 2, "iyi telefon", "2.jpg", true, false, "Iphone 11 pro", 21000.0, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "iphone-11-pro" },
+                    { 3, "iyi telefon", "1.jpg", true, false, "Iphone 12", 22000.0, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "iphone-12" },
+                    { 4, "iyi telefon", "2.jpg", true, false, "Iphone 12 pro", 23000.0, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "iphone-12-pro" },
+                    { 5, "iyi telefon", "1.jpg", true, false, "Iphone 12 pro max", 24000.0, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "iphone-12-pro-max" },
+                    { 6, "iyi telefon", "2.jpg", true, false, "Iphone 13", 25000.0, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "iphone-13" },
+                    { 7, "iyi telefon", "1.jpg", true, false, "Iphone 13 pro", 26000.0, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "iphone-13-pro" },
+                    { 8, "iyi telefon", "2.jpg", true, false, "Iphone 13 pro max", 27000.0, 0, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "iphone-13-pro-max" }
                 });
 
             migrationBuilder.InsertData(
-                table: "ProductCategory",
+                table: "ProductCategories",
                 columns: new[] { "CategoryId", "ProductId" },
                 values: new object[,]
                 {
@@ -228,8 +230,8 @@ namespace DataAccessLayer.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductCategory_ProductId",
-                table: "ProductCategory",
+                name: "IX_ProductCategories_ProductId",
+                table: "ProductCategories",
                 column: "ProductId");
         }
 
@@ -243,7 +245,7 @@ namespace DataAccessLayer.Migrations
                 name: "OrderItems");
 
             migrationBuilder.DropTable(
-                name: "ProductCategory");
+                name: "ProductCategories");
 
             migrationBuilder.DropTable(
                 name: "Carts");

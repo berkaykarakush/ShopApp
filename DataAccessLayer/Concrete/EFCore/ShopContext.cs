@@ -31,7 +31,7 @@ namespace DataAccessLayer.Concrete.EFCore
             modelBuilder.ApplyConfiguration(new OrderItemEntityTypeConfiguration());
 
             //seed data
-            //modelBuilder.Seed();
+            modelBuilder.Seed();
         }
     }
 }

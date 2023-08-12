@@ -5,6 +5,7 @@ using DataAccessLayer.Concrete.EFCore;
 using Microsoft.AspNetCore.Identity;
 using PresentationLayer.Identity;
 using PresentationLayer.Extensions;
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,7 @@ builder.Services.AddPresentationLayerServices();
 
 //builder.WebHost.CaptureStartupErrors(true);
 //builder.WebHost.UseSetting("detailedErrors","true");
+
 
 var app = builder.Build();
 
@@ -36,6 +38,12 @@ using (var scope = app.Services.CreateScope())
     MigrationManager.MigrateDatabase(host);
     SeedIdentity.Seed(userManager, roleManager, cartService).Wait();
 }
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor |
+    ForwardedHeaders.XForwardedProto
+});
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

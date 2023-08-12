@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Abstract;
+using Iyzipay.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
@@ -8,6 +9,7 @@ using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
 using System;
+using System.Net;
 
 namespace PresentationLayer.Controllers
 {
@@ -42,7 +44,6 @@ namespace PresentationLayer.Controllers
             });
         }
         
-        //TODO hesabiniza giris yapildi maili gonder
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel model)
@@ -56,23 +57,32 @@ namespace PresentationLayer.Controllers
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
-                ModelState.AddModelError("", "Girdiginiz bilgiler yanlis lutfen kontrol ederek tekrar deneyiniz.");
+                ModelState.AddModelError("", "The information you entered is incorrect, please check and try again!");
                 return View(model);
             }
 
             if (! await _userManager.IsEmailConfirmedAsync(user))
             {
-                ModelState.AddModelError("", "Lutfen hesabinizi onaylayiniz.");
+                ModelState.AddModelError("", "Please confirm your account!");
                 return View(model);
             }
 
             var result = await _signInManager.PasswordSignInAsync(user, model.Password, false , false);
             if (result.Succeeded)
             {
+                //send mail if you sign in on new device
+                if (user.IpAddress != GetPublicIPAddress.GetIPAddress())
+                {
+                    user.IpAddress = GetPublicIPAddress.GetIPAddress();
+                    await _userManager.UpdateAsync(user);
+                    await _emailSender.SendEmailAsync(model.Email, "Your account was signed in from a new device", $"Hello {user.FirstName}. </br> We have detected that your account has been logged in");
+                    return Redirect(model.ReturnUrl ?? "~/");
+                }
+
                 return Redirect(model.ReturnUrl??"~/");
             }
 
-            ModelState.AddModelError("", "Girilen email ya da parola hatalidir. Lutfen kontrol ederek tekrar deneyiniz.");
+            ModelState.AddModelError("", "The information you entered is incorrect, please check and try again!");
             return View(model);
         }
 
@@ -82,7 +92,6 @@ namespace PresentationLayer.Controllers
             return View();
         }
         
-        //TODO hosgeldiniz maili gonder
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterModel model)
@@ -97,7 +106,8 @@ namespace PresentationLayer.Controllers
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 UserName =model.UserName,
-                Email =model.Email
+                Email =model.Email,
+                IpAddress = GetPublicIPAddress.GetIPAddress()
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
@@ -114,14 +124,14 @@ namespace PresentationLayer.Controllers
                 });
 
                 //confirmed email
-                await _emailSender.SendEmailAsync(model.Email,"Hesabinizi onaylayiniz",$"Lutfen email hesabinizi onaylamak icin <a href='https://localhost:7087{url}'>Link'e tiklayiniz.</a>");
+                await _emailSender.SendEmailAsync(model.Email,"Confirm your account",$"Please click on the <a href='https://localhost:7087{url}'>link</a> to confirm your e-mail account!");
 
                 //send mail saying welcome
-                await _emailSender.SendEmailAsync(model.Email, "ShopApp'e Hosgeldiniz", $"Hello, {model.UserName} </br> Welcome to the ShopApp!");
+                await _emailSender.SendEmailAsync(model.Email, "Welcome to ShopApp", $"Hello, {model.UserName} </br> Welcome to the ShopApp!");
                 return RedirectToAction("Login","Account");
             }
             
-            ModelState.AddModelError("", "Bu email adresi zaten kullanilmaktadir.");
+            ModelState.AddModelError("", "This email address is already in use!");
             return View(model);
         }
 
@@ -159,8 +169,8 @@ namespace PresentationLayer.Controllers
             {
                 TempData.Put("message", new AlertMessage()
                 {
-                    Title = "Hata",
-                    Message = "Gecersiz token",
+                    Title = "Error",
+                    Message = "Invalid Token",
                     AlertType = AlertTypeEnum.Danger
                 });
                 return View();
@@ -175,8 +185,8 @@ namespace PresentationLayer.Controllers
                     _cartService.InitilazeCart(user.Id);
                     TempData.Put("message", new AlertMessage()
                     {
-                        Title = "Islem Basarili",
-                        Message = "Hesabiniz onaylandi",
+                        Title = "Transaction Successful",
+                        Message = "Your account has been confirmed",
                         AlertType = AlertTypeEnum.Success
                     });
                     return View();
@@ -184,8 +194,8 @@ namespace PresentationLayer.Controllers
             }
             TempData.Put("message", new AlertMessage()
             {
-                Title = "Hata",
-                Message = "Hesabiniz onaylanmadi",
+                Title = "Error",
+                Message = "Your account has not been confirmed",
                 AlertType = AlertTypeEnum.Danger
             });
             return View();
@@ -203,8 +213,8 @@ namespace PresentationLayer.Controllers
             {
                 TempData.Put("message", new AlertMessage()
                 {
-                    Title = "Uyari",
-                    Message = "Lutfen bir email adresi giriniz",
+                    Title = "Warning",
+                    Message = "Please enter an e-mail address",
                     AlertType = AlertTypeEnum.Warning
                 });
                 return View();
@@ -215,8 +225,8 @@ namespace PresentationLayer.Controllers
             {
                 TempData.Put("message", new AlertMessage()
                 {
-                    Title = "Hata",
-                    Message = "Kullanici bulunamadi",
+                    Title = "Error",
+                    Message = "User not found",
                     AlertType = AlertTypeEnum.Danger
                 });
                 return View();
@@ -227,8 +237,8 @@ namespace PresentationLayer.Controllers
             {
                 TempData.Put("message", new AlertMessage()
                 {
-                    Title = "Uyari",
-                    Message = "Lutfen daha sonra tekrar deneyiniz.",
+                    Title = "Warning",
+                    Message = "Please try again in few minutes",
                     AlertType = AlertTypeEnum.Warning
                 });
                 return View();
@@ -240,11 +250,11 @@ namespace PresentationLayer.Controllers
                 token = generateToken
             });
 
-            await _emailSender.SendEmailAsync(model.Email, "Parolanizi sifirlayin", $"Parolanizi sifirlamak icin lutfen <a href='https://localhost:7087{url}'>linke tiklayiniz.</a>");
+            await _emailSender.SendEmailAsync(model.Email, "Reset Your Password ", $"Please click the <a href='https://localhost:7087{url}'>link</a> to reset your password.");
             TempData.Put("message", new AlertMessage()
             {
-                Title = "Islem Basarili",
-                Message = "Parola sifirlama istegi gonderildi lutfen mail adresinizi kontrol ediniz",
+                Title = "Transaction Successfull",
+                Message = "Password reset request sent, please check your e-mail.",
                 AlertType = AlertTypeEnum.Success
             });
 
@@ -258,8 +268,8 @@ namespace PresentationLayer.Controllers
             {
                 TempData.Put("message", new AlertMessage()
                 {
-                    Title = "Uyari",
-                    Message = "Lutfen daha sonra tekrar deneyiniz",
+                    Title = "Warning",
+                    Message = "Please try again in few minutes",
                     AlertType = AlertTypeEnum.Warning
                 });
                 return View();
@@ -276,8 +286,8 @@ namespace PresentationLayer.Controllers
             {
                 TempData.Put("message", new AlertMessage()
                 {
-                    Title = "Uyari",
-                    Message = "Girilen bilgileri kontrol ederek tekrar deneyiniz.",
+                    Title = "Warning",
+                    Message = "Please check to information and try again.",
                     AlertType = AlertTypeEnum.Warning
                 });
                 return View(model);
@@ -288,34 +298,34 @@ namespace PresentationLayer.Controllers
             {
                 TempData.Put("message", new AlertMessage()
                 {
-                    Title = "Hata",
-                    Message = "Girilen email adresi bulunamadi",
+                    Title = "Error",
+                    Message = "The e-mail address entered was not found.",
                     AlertType = AlertTypeEnum.Danger
                 });
                 return View(model);
             }
 
             var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
-            DateTime changedTime = DateTime.Now;
+            string changedTime = DateTime.Now.ToString("dddd,dd MMMM yyyy HH:mm:ss");
             if (result.Succeeded)
             {
                 TempData.Put("message", new AlertMessage()
                 {
-                    Title = "Islem Basarili",
-                    Message = "Parola degistirme islemi basariyla tamamlanmistir",
+                    Title = "Transaction Successfull",
+                    Message = "Password change completed successfully.",
                     AlertType = AlertTypeEnum.Success
                 });
 
                 //send email saying reset password
-                await _emailSender.SendEmailAsync(model.Email,"Sifreniz degistirildi",$"Parolaniz {changedTime} tarihinde degistirilmistir.");
+                await _emailSender.SendEmailAsync(model.Email,"Your password has been changed",$"Your password has been changed on {changedTime}.");
                 return RedirectToAction("Login", "Account");
 
             }
 
             TempData.Put("message", new AlertMessage()
             {
-                Title = "Hata",
-                Message = "Beklenmeyen bir hata olustu lutfen daha sonra tekrar deneyiniz.",
+                Title = "Error",
+                Message = "An unexpected error occured, please try again later.",
                 AlertType = AlertTypeEnum.Danger
             });
             return View(model);

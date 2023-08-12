@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Concrete.EFCore;
 using Microsoft.AspNetCore.Identity;
+using PresentationLayer.Extensions;
+using System.Net;
 
 namespace PresentationLayer.Identity
 {
@@ -33,7 +35,8 @@ namespace PresentationLayer.Identity
                         Email = email,
                         FirstName = firstName,
                         LastName = lastName,
-                        EmailConfirmed = true
+                        EmailConfirmed = true,
+                        IpAddress = GetPublicIPAddress.GetIPAddress()
                     };
 
                     var result = await userManager.CreateAsync(user, password);

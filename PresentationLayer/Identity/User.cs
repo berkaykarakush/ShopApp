@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.Net;
 
 namespace PresentationLayer.Identity
 {
@@ -6,5 +7,6 @@ namespace PresentationLayer.Identity
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string? IpAddress { get; set; }
     }
 }

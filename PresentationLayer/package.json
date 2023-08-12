@@ -16,5 +16,6 @@
     "jquery-validation-unobtrusive": "^4.0.0",
     "node-modules": "^0.0.1",
     "paginationjs": "^2.6.0"
-  }
+  },
+  "Microsoft.AspNetCore.HttpOverrides": "2.2.0"
 }

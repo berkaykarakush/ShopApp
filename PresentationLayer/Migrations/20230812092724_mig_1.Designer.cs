@@ -12,7 +12,7 @@ using PresentationLayer.Identity;
 namespace PresentationLayer.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230809113438_mig_1")]
+    [Migration("20230812092724_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -179,6 +179,9 @@ namespace PresentationLayer.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IpAddress")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
