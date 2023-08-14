@@ -19,20 +19,50 @@
         </nav>
         <div class="mb-3">
             <h4 class="text-primary mb-3"><i class="fas fa-lira-sign" style="color:black;"></i> @Model.Product.Price</h4>
-
-            <form asp-controller="Cart" asp-action="AddToCart" method="post" class="form-inline">
-                <div style="width: 200px;">
-                <input type="hidden" name="productId" value="@Model.Product.ProductId">
-                <div class="input-group mb-3">
-                    <input type="number" name="quantity" value="1" min="1" step="1" class="form-control"> 
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-danger">
-                            <i class="fas fa-cart-plus"></i>Add To Cart
-                        </button>
+            @if (Model.Product.Quantity > 0)
+            {
+                <div class="row" style="width: 300px;">
+                    <div class="col-md-9" style="width: 230px;">
+                        <form asp-controller="Cart" asp-action="AddToCart" method="post" class="form-inline">
+                            <input type="hidden" name="productId" value="@Model.Product.ProductId">
+                            <div class="input-group mb-3">
+                                <input type="number" name="quantity" value="1" min="1" step="1" max="@Model.Product.Quantity" class="form-control"> 
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="fas fa-cart-plus"></i>Add To Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-2">
+                        <form asp-controller="#" asp-action="#" method="post" class="form-inline">
+                            <input type="hidden" name="productId" value="@Model.Product.ProductId">
+                            <div class="input-group-append">
+                                <button style="border-radius: 100%;" type="submit" class="btn btn-outline-danger">
+                                    <i class="fa-solid fa-heart"></i>
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
+            }else
+            {
+                <div class="row" style="width: 300px;">
+                    <div class="col-md-9">
+                        <form asp-controller="#" asp-action="#" method="post">
+                            <input type="hidden" name="productId" value="@Model.Product.ProductId">
+                            <button type="submit" class="btn btn-outline-dark" style="width: 220px;"><i class="fa-solid fa-envelope"></i> Gelince Haber Ver</button>
+                        </form>
+                    </div>
+                    <div class="col-md-2">
+                        <form asp-controller="#" asp-action="#" method="post">
+                            <input type="hidden" name="productId" value="@Model.Product.ProductId">
+                            <button type="submit" class="btn btn-outline-danger"><i class="fa-solid fa-heart"></i></button>
+                        </form>
+                    </div>
                 </div>
-            </form>
+            }
         </div>
     </div>
 </div>

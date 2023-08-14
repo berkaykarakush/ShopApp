@@ -5,44 +5,44 @@
             <li class="nav-item">
                 <a asp-controller="Shop" asp-action="List" class="nav-link">Products</a>
             </li>
-            @if (User.Identity.IsAuthenticated)
-            {
-                <li class="nav-item">
-                    <a asp-controller="cart" asp-action="index" class="nav-link">Cart</a>
-                </li>
-                <li class="nav-item">
-                    <a asp-controller="Order" asp-action="GetOrders" class="nav-link">Orders</a>
-                </li>
-            }
+            
         </ul>
         <ul class="navbar-nav ml-auto">
             @if (User.Identity.IsAuthenticated)
             {
+                <li class="nav-item">
+                    <a asp-controller="Order" asp-action="GetOrders" class="nav-link">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="cart" asp-action="index" class="nav-link"><i class="fa-solid fa-cart-shopping"></i> Basket</a>
+                </li>
                 @if (User.IsInRole("Admin"))
                 {
                     <li class="nav-item">
-                        <a asp-controller="admin" asp-action="index" class="nav-link">@User.Identity.Name</a>
+                        <a asp-controller="admin" asp-action="index" class="nav-link"><i class="fa-solid fa-user"></i> @User.Identity.Name</a>
                     </li>
                 }
                 else
                 {
                     <li class="nav-item">
-                        <a asp-controller="account" asp-action="manage" class="nav-link">@User.Identity.Name</a>
+                        <a asp-controller="account" asp-action="manage" class="nav-link"><i class="fa-solid fa-user"></i> @User.Identity.Name</a>
                     </li>
                 }
                 <li class="nav-item">
-                    <a asp-controller="account" asp-action="logout" class="nav-link">Logout</a>
+                    <a asp-controller="account" asp-action="logout" class="nav-link"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                 </li>
             }
             else
             {
                 <li class="nav-item">
-                    <a asp-controller="account" asp-action="login" class="nav-link">Login</a>
+                    <a asp-controller="account" asp-action="login" class="nav-link"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
                 </li>
                 <li class="nav-item">
-                    <a asp-controller="account" asp-action="register" class="nav-link">Register</a>
+                    <a asp-controller="account" asp-action="register" class="nav-link"><i class="fa-solid fa-right-to-bracket"></i> Register</a>
                 </li>
             }
         </ul>
     </div>
 </div>
+
+

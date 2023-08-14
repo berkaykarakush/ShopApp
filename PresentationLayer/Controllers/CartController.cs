@@ -13,6 +13,7 @@ using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
 using System.Data;
+using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 
 namespace PresentationLayer.Controllers
@@ -22,14 +23,17 @@ namespace PresentationLayer.Controllers
         private readonly ICartService _cartService;
         private readonly IOrderService _orderService;
         private readonly IEmailSender _emailSender;
+        private readonly IProductService _productService;
+        
         private UserManager<User> _userManager;
 
-        public CartController(ICartService cartService, UserManager<User> userManager, IOrderService orderService, IEmailSender emailSender)
+        public CartController(ICartService cartService, UserManager<User> userManager, IOrderService orderService, IEmailSender emailSender, IProductService productService)
         {
             _cartService = cartService;
             _userManager = userManager;
             _orderService = orderService;
             _emailSender = emailSender;
+            _productService = productService;
         }
 
         [Authorize]
@@ -42,6 +46,7 @@ namespace PresentationLayer.Controllers
                 CartId = cart.CartId,
                 CartItems = cart.CartItems.Select(c => new CartItemModel()
                 {
+                    ProductQuantity = c.Product.Quantity,
                     ProductId = c.ProductId,
                     CartItemId = c.ProductId,
                     Name = c.Product.Name,
@@ -49,11 +54,12 @@ namespace PresentationLayer.Controllers
                     Quantity = c.Quantity,
                     ImageUrl = c.Product.ImageUrl
                 }).ToList()
+
+                
             });
         }
 
         //TODO urunun miktarini kontrol et ve sepete ekle
-        //TODO details view icerisinde stok durumu var ise sepete ekle secenegini cikart
         [Authorize]
         [HttpPost]
         public IActionResult AddToCart(int productId, int quantity)
@@ -122,11 +128,12 @@ namespace PresentationLayer.Controllers
                 {
                     SaveOrder(model, payment, userId);
                     OrderState(model, EnumOrderState.waiting);
+                    DecreaseQuantity(model);
                     ClearCart(model.CartModel.CartId);
                     TempData.Put("message", new AlertMessage()
                     {
-                        Title = "Islem Basarili",
-                        Message = $"{payment.PaymentId} no'lu odeme isleminiz tamamlanmistir.",
+                        Title = "Transaction Successfull",
+                        Message = $"Your payment transaction number {payment.PaymentId} has been completed.",
                         AlertType = AlertTypeEnum.Success
                     });
                     return View("Success");
@@ -135,13 +142,45 @@ namespace PresentationLayer.Controllers
                 {
                     TempData.Put("message", new AlertMessage()
                     {
-                        Title = "Islem Basarisiz",
+                        Title = "Error",
                         Message = $"{payment.ErrorCode} - {payment.ErrorMessage}",
                         AlertType = AlertTypeEnum.Danger
                     });
                 }
             }
             return View(model);
+        }
+
+        [Authorize]
+        private void DecreaseQuantity(OrderModel model)
+        {
+            foreach (var i in model.CartModel.CartItems)
+            {
+                var product = _productService.GetById(i.ProductId);
+
+                if (product.Quantity < i.Quantity)
+                {
+                    TempData.Put("message", new AlertMessage()
+                    {
+                        Title = "Error",
+                        Message = $"{product.Name} - Quantity entered is more than the product in the stock.",
+                        AlertType = AlertTypeEnum.Danger
+                    });
+                }
+
+                if (product.Quantity > 0)
+                {
+                    product.Quantity -= i.Quantity;
+                    _productService.Update(product);
+                }
+
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Error",
+                    Message = $"{product.Name} has no stock.",
+                    AlertType = AlertTypeEnum.Danger
+                });
+            }
         }
 
         [Authorize]
@@ -226,14 +265,14 @@ namespace PresentationLayer.Controllers
             buyer.RegistrationAddress = model.Address;
             buyer.Ip = GetPublicIPAddress.GetIPAddress();
             buyer.City = model.City;
-            buyer.Country = "Turkey";
+            buyer.Country = model.Country;
             buyer.ZipCode = "34732";
             request.Buyer = buyer;
 
             Address shippingAddress = new Address();
             shippingAddress.ContactName = $"{model.FirstName} {model.LastName}";
             shippingAddress.City = model.City;
-            shippingAddress.Country = "Turkey";
+            shippingAddress.Country = model.Country;
             shippingAddress.Description = model.Address;
             shippingAddress.ZipCode = "34742";
             request.ShippingAddress = shippingAddress;
@@ -241,7 +280,7 @@ namespace PresentationLayer.Controllers
             Address billingAddress = new Address();
             billingAddress.ContactName = $"{model.FirstName} {model.LastName}";
             billingAddress.City = model.City;
-            billingAddress.Country = "Turkey";
+            billingAddress.Country = model.Country;
             billingAddress.Description = model.Address;
             billingAddress.ZipCode = "34742";
             request.BillingAddress = billingAddress;
@@ -257,7 +296,7 @@ namespace PresentationLayer.Controllers
                 basketItem.Category1 = "Collectibles";
                 basketItem.Category2 = "Accessories";
                 basketItem.ItemType = BasketItemType.PHYSICAL.ToString();
-                basketItem.Price = item.Price.ToString();
+                basketItem.Price = (item.Price * item.Quantity).ToString();
                 basketItems.Add(basketItem);
             }
 

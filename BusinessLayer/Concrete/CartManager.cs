@@ -20,9 +20,15 @@ namespace BusinessLayer.Concrete
             var cart = GetCartByUserId(userId);
             if (cart != null)
             {
+                var product = _unitOfWork.Products.GetById(productId);
                 var index = cart.CartItems.FindIndex(c => c.ProductId == productId);
                 if (index<0)
                 {
+                    if (product.Quantity < quantity)
+                    {
+                        ErrorMessage += "Has no product\n";
+                    }
+
                     cart.CartItems.Add(new CartItem() 
                     {
                         ProductId = productId,
@@ -32,10 +38,17 @@ namespace BusinessLayer.Concrete
                 }
                 else
                 {
-                    cart.CartItems[index].Quantity += quantity;
+                    if (product.Quantity < quantity)
+                        cart.CartItems[index].Quantity += quantity;
+                    else
+                    {
+                        ErrorMessage += "Has no product\n";
+                        cart.CartItems[index].Quantity = product.Quantity;
+                    }
+
+                    _unitOfWork.Carts.Update(cart);
+                    _unitOfWork.Save();
                 }
-                _unitOfWork.Carts.Update(cart);
-                _unitOfWork.Save();
             }
         }
 

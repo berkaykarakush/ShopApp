@@ -1,7 +1,17 @@
 ﻿@model Product
 
-<div class="card mb-2">
-    <img class="card-img-top" src="~/img/@Model.ImageUrl" alt="">
+<div class="card position-relative mb-2">
+    <a asp-controller="shop" asp-action="Details" asp-route-url="@Model.Url">
+        <img asp-append-version="true" class="card-img-top" src="~/img/@Model.ImageUrl" alt="">
+    </a>
+    <span >
+        <form asp-controller="#" asp-action="#" method="post">
+            <input type="hidden" name="productId" value="@Model.ProductId">
+            <button style="border-radius: 100%;" type="submit" class="btn btn-outline-danger text-right position-absolute top-0 end-0 m-2">
+                    <i class="fa-solid fa-heart"></i>
+                </button>
+        </form>
+    </span>
     <div class="card-body">
         <h5 class="card-title">@Model.Name</h5>
         <small class="text-muted">
@@ -14,8 +24,11 @@
         {
             <form asp-controller="Cart" asp-action="AddToCart" method="post" style="display: inline;">
                 <input type="hidden" name="productId" value="@Model.ProductId">
-                <input type="hidden" name="quantity" value="1">
-                <button type="submit" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.ProductId" class="btn btn-primary btn-sm">Add To Cart</button>
+                <input type="hidden" name="quantity" value="1" min="1" step="1" max="@Model.Quantity">
+                @if (Model.Quantity > 0)
+                {
+                    <button type="submit" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.ProductId" class="btn btn-primary btn-sm" >Add To Cart</button>
+                }
             </form>
         }
     </div>

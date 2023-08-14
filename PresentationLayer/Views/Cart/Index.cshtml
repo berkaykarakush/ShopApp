@@ -1,5 +1,4 @@
 ﻿@model CartModel
-
 <h1 class="h3">Shopping Cart</h1>
 <hr />
 
@@ -38,7 +37,12 @@
                         </td>
                         <td>@cartItem.Name</td>
                         <td>@cartItem.Price TL</td>
-                        <td>@cartItem.Quantity</td>
+                        <td>
+                            @if (cartItem.ProductQuantity < cartItem.Quantity)
+                                @cartItem.ProductQuantity
+                            else
+                                @cartItem.Quantity    
+                        </td>
                         <td>@(cartItem.Price * cartItem.Quantity) TL</td>
                         <td>
                             <form asp-controller="Cart" asp-action="DeleteFromCart" method="post">
