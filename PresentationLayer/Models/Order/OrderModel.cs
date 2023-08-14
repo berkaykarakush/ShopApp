@@ -18,9 +18,9 @@ namespace PresentationLayer.Models
         
         [Required]
         public string? City { get; set; }
-        [Required] 
-        public string? Country { get;}
-        
+
+        [Required]
+        public string? Country { get; set; }
         [Required]
         public string? Phone { get; set; }
         

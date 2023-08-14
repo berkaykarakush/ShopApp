@@ -6,7 +6,7 @@ namespace PresentationLayer.Controllers
     [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
-        [HttpGet]
+       [HttpGet]
        public IActionResult Index()
         {
             return View();

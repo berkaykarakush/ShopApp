@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using Iyzipay.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
@@ -124,15 +125,7 @@ namespace PresentationLayer.Controllers
                 await _userManager.AddToRoleAsync(user, "Customer");
 
                 //generate token
-                string generateToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                string url = Url.Action("ConfirmEmail", "Account", new 
-                {
-                    userId = user.Id,
-                    token = generateToken
-                });
-
-                //confirmed email
-                await _emailSender.SendEmailAsync(model.Email,"Confirm your account",$"Please click on the <a href='https://localhost:7087{url}'>link</a> to confirm your e-mail account!");
+                await SendConfirmMail(user.Id);
 
                 //send mail saying welcome
                 await _emailSender.SendEmailAsync(model.Email, "Welcome to ShopApp", $"Hello, {user.UserName} </br> Welcome to the ShopApp!");
@@ -365,6 +358,39 @@ namespace PresentationLayer.Controllers
         public IActionResult AccessDenied()
         {
             return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> SendConfirmMail(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user != null)
+            {
+                string generateToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                string url = Url.Action("ConfirmEmail", "Account", new
+                {
+                    userId = user.Id,
+                    token = generateToken
+                });
+
+                //confirmed email
+                await _emailSender.SendEmailAsync(user.Email, "Confirm your account", $"Please click on the <a href='https://localhost:7087{url}'>link</a> to confirm your e-mail account!");
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Transaction Successfull",
+                    Message = "The e-mail address entered was not found.",
+                    AlertType = AlertTypeEnum.Success
+                });
+                return RedirectToAction("ListUser","User");
+            }
+            TempData.Put("message", new AlertMessage()
+            {
+                Title = "Error",
+                Message = "Please try again a few minutes.",
+                AlertType = AlertTypeEnum.Danger
+            });
+            return RedirectToAction("ListUser","User");
         }
     }
 }

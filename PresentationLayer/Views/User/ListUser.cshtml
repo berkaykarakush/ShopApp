@@ -13,7 +13,7 @@
                     <td>UserName</td>
                     <td>Email</td>
                     <td>EmailConfirmed</td>
-                    <td style="width: 130px;"></td>
+                    <td style="width: 260px;"></td>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +30,11 @@
                             <td>
                                 <a href="/admin/user/@item.Id" class="btn btn-primary btn-sm mr-2">Edit</a>
 
+                                <form asp-controller="Account" asp-action="SendConfirmMail" method="post" style="display: inline;">
+                                    <input type="hidden" name="userId" value="@item.Id">
+                                    <button type="submit" class="btn btn-danger btn-sm">Confirm Email</button>
+                                </form>
+                                
                                 <form action="/admin/user/delete" method="post" style="display: inline;">
                                     <input type="hidden" name="UserId" value="@item.Id">
                                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>

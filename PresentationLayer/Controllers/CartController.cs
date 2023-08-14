@@ -13,6 +13,7 @@ using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
 using System.Data;
+using System.Runtime.Serialization;
 
 namespace PresentationLayer.Controllers
 {
@@ -58,7 +59,7 @@ namespace PresentationLayer.Controllers
         public IActionResult AddToCart(int productId, int quantity)
         {
             var userId = _userManager.GetUserId(User);
-             _cartService.AddToCart(userId, productId, quantity);
+            _cartService.AddToCart(userId, productId, quantity);
             return RedirectToAction("Index");
         }
 
@@ -68,7 +69,7 @@ namespace PresentationLayer.Controllers
         {
             var userId = _userManager.GetUserId(User);
             _cartService.DeleteFromCart(userId, productId);
-            return RedirectToAction("Index","Cart");
+            return RedirectToAction("Index", "Cart");
         }
 
         [Authorize]
@@ -90,7 +91,7 @@ namespace PresentationLayer.Controllers
                     ImageUrl = c.Product.ImageUrl
                 }).ToList()
             };
-           return View(orderModel);
+            return View(orderModel);
         }
 
         [Authorize]
@@ -112,7 +113,7 @@ namespace PresentationLayer.Controllers
                         Name = c.Product.Name,
                         Price = (double)c.Product.Price,
                         Quantity = c.Quantity,
-                        ImageUrl = c.Product.ImageUrl
+                        ImageUrl = c.Product.ImageUrl,
                     }).ToList()
                 };
 
@@ -120,7 +121,7 @@ namespace PresentationLayer.Controllers
                 if (payment.Status == "success")
                 {
                     SaveOrder(model, payment, userId);
-
+                    OrderState(model, EnumOrderState.waiting);
                     ClearCart(model.CartModel.CartId);
                     TempData.Put("message", new AlertMessage()
                     {
@@ -142,7 +143,7 @@ namespace PresentationLayer.Controllers
             }
             return View(model);
         }
-        //TODO kullaniciya fatura duzenle ve gonder
+
         [Authorize]
         private void ClearCart(int cartId)
         {
@@ -167,7 +168,7 @@ namespace PresentationLayer.Controllers
 
             foreach (var item in model.CartModel.CartItems)
             {
-                var orderItem = new EntityLayer.OrderItem() 
+                var orderItem = new EntityLayer.OrderItem()
                 {
                     Price = item.Price,
                     Quantity = item.Quantity,
@@ -177,8 +178,6 @@ namespace PresentationLayer.Controllers
                 order.OrderItems.Add(orderItem);
             }
             _orderService.Create(order);
-            _emailSender.SendEmailAsync(model.Email, "You order has been received", $"Your order number {order.ConversationId} has reached us.");
-            
         }
 
         [Authorize]
@@ -191,7 +190,7 @@ namespace PresentationLayer.Controllers
 
             CreatePaymentRequest request = new CreatePaymentRequest();
             request.Locale = Locale.TR.ToString();
-            request.ConversationId = new Random().Next(111111111,999999999).ToString();
+            request.ConversationId = new Random().Next(111111111, 999999999).ToString();
             request.Price = model.CartModel.TotalPrice().ToString();
             request.PaidPrice = model.CartModel.TotalPrice().ToString();
             request.Currency = Currency.TRY.ToString();
@@ -261,9 +260,31 @@ namespace PresentationLayer.Controllers
                 basketItem.Price = item.Price.ToString();
                 basketItems.Add(basketItem);
             }
-           
+
             request.BasketItems = basketItems;
             return Payment.Create(request, options);
+        }
+
+        [Authorize]
+        public async Task<EnumOrderState> OrderState(OrderModel model, EnumOrderState state)
+        {
+            EnumOrderState _state = state;
+
+            switch (_state)
+            {
+                case EnumOrderState.waiting:
+                    await _emailSender.SendEmailAsync(model.Email, "You order has been received", $"Your order number {model.CartModel.CartId} has reached us.");
+                    break;
+                case EnumOrderState.shipped:
+                    await _emailSender.SendEmailAsync(model.Email, "Your order has been shipped", $"Your order number {model.CartModel.CartId} has been delivered to cargo.");
+                    break;
+                case EnumOrderState.completed:
+                    await _emailSender.SendEmailAsync(model.Email,"Your order has been delivered",$"Your cargo number {model.CartModel.CartId} has been delivered.");
+                    break;
+                default:
+                    break;
+            }
+            return _state;
         }
     }
 }

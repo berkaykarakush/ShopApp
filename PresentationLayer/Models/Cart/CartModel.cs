@@ -8,7 +8,10 @@ namespace PresentationLayer.Models
         public List<CartItemModel>? CartItems { get; set; }
         public decimal TotalPrice()
         {
-            return (decimal)CartItems.Sum(c => c.Price * c.Quantity);
+            if (CartItems != null)
+                return (decimal)CartItems.Sum(c => c.Price * c.Quantity);
+            else
+                throw new Exception("Error");
         }
     }
 }
