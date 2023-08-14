@@ -74,7 +74,6 @@ namespace PresentationLayer.Controllers
                     ProductCategories = ViewBag.Categories,
                     IsApproved = true
                 };
-                //TODO resim icin extension metot
                 entity.ImageUrl = await ImageNameEditExtensions.ImageNameEdit(file, UrlNameEditExtensions.UrlNameEdit(model.Name));
                 
 
@@ -154,7 +153,6 @@ namespace PresentationLayer.Controllers
                 entity.IsHome = model.IsHome;
                 entity.UpdatedDate = DateTime.Now;
                 
-                //TODO resim icin extension metot
                 if (file != null)
                 {
                     var extension = Path.GetExtension(file.FileName);

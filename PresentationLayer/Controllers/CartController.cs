@@ -7,6 +7,7 @@ using Iyzipay.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using PresentationLayer.EmailServices;
 using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
@@ -19,13 +20,15 @@ namespace PresentationLayer.Controllers
     {
         private readonly ICartService _cartService;
         private readonly IOrderService _orderService;
+        private readonly IEmailSender _emailSender;
         private UserManager<User> _userManager;
 
-        public CartController(ICartService cartService, UserManager<User> userManager, IOrderService orderService)
+        public CartController(ICartService cartService, UserManager<User> userManager, IOrderService orderService, IEmailSender emailSender)
         {
             _cartService = cartService;
             _userManager = userManager;
             _orderService = orderService;
+            _emailSender = emailSender;
         }
 
         [Authorize]
@@ -92,7 +95,7 @@ namespace PresentationLayer.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult Checkout(OrderModel model)
+        public async Task<IActionResult> Checkout(OrderModel model)
         {
             if (ModelState.IsValid)
             {
@@ -117,6 +120,7 @@ namespace PresentationLayer.Controllers
                 if (payment.Status == "success")
                 {
                     SaveOrder(model, payment, userId);
+
                     ClearCart(model.CartModel.CartId);
                     TempData.Put("message", new AlertMessage()
                     {
@@ -174,6 +178,8 @@ namespace PresentationLayer.Controllers
                 order.OrderItems.Add(orderItem);
             }
             _orderService.Create(order);
+            _emailSender.SendEmailAsync(model.Email, "You order has been received", $"Your order number {order.ConversationId} has reached us.");
+            
         }
 
         [Authorize]
@@ -191,7 +197,8 @@ namespace PresentationLayer.Controllers
             request.PaidPrice = model.CartModel.TotalPrice().ToString();
             request.Currency = Currency.TRY.ToString();
             request.Installment = 1;
-            request.BasketId = "B67832";
+            //request.BasketId = "B67832";
+            request.BasketId = $"B{model.CartModel.CartId}";
             request.PaymentChannel = PaymentChannel.WEB.ToString();
             request.PaymentGroup = PaymentGroup.PRODUCT.ToString();
 
