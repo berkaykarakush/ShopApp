@@ -70,15 +70,21 @@ namespace PresentationLayer.Controllers
             var result = await _signInManager.PasswordSignInAsync(user, model.Password, false , false);
             if (result.Succeeded)
             {
+                TempData["UserId"] = user.Id;
+                //user.UserDetails.LastLoginDate = DateTime.Now.ToString("yyyy/MM//dd HH:mm:ss");
                 //send mail if you sign in on new device
                 if (user.IpAddress != GetPublicIPAddress.GetIPAddress())
                 {
                     user.IpAddress = GetPublicIPAddress.GetIPAddress();
+
                     await _userManager.UpdateAsync(user);
+
                     await _emailSender.SendEmailAsync(model.Email, "Your account was signed in from a new device", $"Hello {user.FirstName}. </br> We have detected that your account has been logged in");
+
                     return Redirect(model.ReturnUrl ?? "~/");
                 }
 
+                await _userManager.UpdateAsync(user);
                 return Redirect(model.ReturnUrl??"~/");
             }
 
@@ -103,11 +109,13 @@ namespace PresentationLayer.Controllers
 
             var user = new User()
             {
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                UserName =model.UserName,
-                Email =model.Email,
-                IpAddress = GetPublicIPAddress.GetIPAddress()
+                FirstName = NameEditExtensions.NameEdit(model.FirstName),
+                LastName = NameEditExtensions.NameEdit(model.LastName),
+                UserName = $"{model.FirstName}{model.LastName}",
+                PhoneNumber = model.Phone,
+                Email = model.Email,
+                IpAddress = GetPublicIPAddress.GetIPAddress(),
+                RegistrationDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
@@ -127,7 +135,7 @@ namespace PresentationLayer.Controllers
                 await _emailSender.SendEmailAsync(model.Email,"Confirm your account",$"Please click on the <a href='https://localhost:7087{url}'>link</a> to confirm your e-mail account!");
 
                 //send mail saying welcome
-                await _emailSender.SendEmailAsync(model.Email, "Welcome to ShopApp", $"Hello, {model.UserName} </br> Welcome to the ShopApp!");
+                await _emailSender.SendEmailAsync(model.Email, "Welcome to ShopApp", $"Hello, {user.UserName} </br> Welcome to the ShopApp!");
                 return RedirectToAction("Login","Account");
             }
             
@@ -152,14 +160,31 @@ namespace PresentationLayer.Controllers
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
-            await _signInManager.SignOutAsync();
+            string userId = TempData["UserId"].ToString();
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user != null)
+            {
+                user.LastLogoutDate = DateTime.Now.ToString("yyyy/mm/dd HH:mm:ss");
+                await _userManager.UpdateAsync(user);
+
+                await _signInManager.SignOutAsync();
+
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Logged Out",
+                    Message = "Your account has been securely closed.",
+                    AlertType = AlertTypeEnum.Success
+                });
+                return RedirectToAction("Index", "Home");
+            }
+
             TempData.Put("message", new AlertMessage()
             {
-                Title = "Cikis Yapildi",
-                Message = "Hesabiniz guvenli bir sekilde kapatildi.",
-                AlertType = AlertTypeEnum.Info
+                Title = "Error",
+                Message = "Failed to log out",
+                AlertType = AlertTypeEnum.Danger
             });
-            return RedirectToAction("Index","Home");  
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -183,6 +208,8 @@ namespace PresentationLayer.Controllers
                 if (result.Succeeded)
                 {
                     _cartService.InitilazeCart(user.Id);
+                    user.ConfirmEmailDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                    await _userManager.UpdateAsync(user);
                     TempData.Put("message", new AlertMessage()
                     {
                         Title = "Transaction Successful",
@@ -257,7 +284,7 @@ namespace PresentationLayer.Controllers
                 Message = "Password reset request sent, please check your e-mail.",
                 AlertType = AlertTypeEnum.Success
             });
-
+            
             return View();
         }
 
@@ -306,7 +333,7 @@ namespace PresentationLayer.Controllers
             }
 
             var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
-            string changedTime = DateTime.Now.ToString("dddd,dd MMMM yyyy HH:mm:ss");
+            string changedTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             if (result.Succeeded)
             {
                 TempData.Put("message", new AlertMessage()
@@ -315,6 +342,9 @@ namespace PresentationLayer.Controllers
                     Message = "Password change completed successfully.",
                     AlertType = AlertTypeEnum.Success
                 });
+
+                user.ResetPasswordDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                await _userManager.UpdateAsync(user);
 
                 //send email saying reset password
                 await _emailSender.SendEmailAsync(model.Email,"Your password has been changed",$"Your password has been changed on {changedTime}.");

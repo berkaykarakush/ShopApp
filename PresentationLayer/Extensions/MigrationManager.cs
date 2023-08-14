@@ -19,7 +19,7 @@ namespace PresentationLayer.Extensions
                     catch (Exception ex)
                     {
                         //TODO Loglama
-                        throw;
+                        Console.Write(ex.InnerException.Message.ToString());
                     }
                 }
                 using (var shopContext = scope.ServiceProvider.GetRequiredService<ShopContext>())

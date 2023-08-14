@@ -142,7 +142,6 @@ namespace PresentationLayer.Controllers
             }
             return View(model);
         }
-        //TODO odeme tamamlandigi anda kullaniciya mail gonder
         //TODO kullaniciya fatura duzenle ve gonder
         [Authorize]
         private void ClearCart(int cartId)
@@ -220,31 +219,31 @@ namespace PresentationLayer.Controllers
             buyer.Id = "BY789";
             buyer.Name = model.FirstName;
             buyer.Surname = model.LastName;
-            buyer.GsmNumber = "+905350000000";
-            buyer.Email = "email@email.com";
+            buyer.GsmNumber = $"+90{model.Phone}";
+            buyer.Email = model.Email;
             buyer.IdentityNumber = "74300864791";
             buyer.LastLoginDate = "2015-10-05 12:43:35";
             buyer.RegistrationDate = "2013-04-21 15:12:09";
-            buyer.RegistrationAddress = "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1";
-            buyer.Ip = "85.34.78.112";
-            buyer.City = "Izmir";
+            buyer.RegistrationAddress = model.Address;
+            buyer.Ip = GetPublicIPAddress.GetIPAddress();
+            buyer.City = model.City;
             buyer.Country = "Turkey";
             buyer.ZipCode = "34732";
             request.Buyer = buyer;
 
             Address shippingAddress = new Address();
-            shippingAddress.ContactName = "Jane Doe";
-            shippingAddress.City = "Istanbul";
+            shippingAddress.ContactName = $"{model.FirstName} {model.LastName}";
+            shippingAddress.City = model.City;
             shippingAddress.Country = "Turkey";
-            shippingAddress.Description = "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1";
+            shippingAddress.Description = model.Address;
             shippingAddress.ZipCode = "34742";
             request.ShippingAddress = shippingAddress;
 
             Address billingAddress = new Address();
-            billingAddress.ContactName = "Jane Doe";
-            billingAddress.City = "Istanbul";
+            billingAddress.ContactName = $"{model.FirstName} {model.LastName}";
+            billingAddress.City = model.City;
             billingAddress.Country = "Turkey";
-            billingAddress.Description = "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1";
+            billingAddress.Description = model.Address;
             billingAddress.ZipCode = "34742";
             request.BillingAddress = billingAddress;
 

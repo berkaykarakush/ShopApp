@@ -36,7 +36,11 @@ namespace PresentationLayer.Identity
                         FirstName = firstName,
                         LastName = lastName,
                         EmailConfirmed = true,
-                        IpAddress = GetPublicIPAddress.GetIPAddress()
+                        PhoneNumber = "5435432323",
+                        IpAddress = GetPublicIPAddress.GetIPAddress(),
+                        RegistrationDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                        LastLoginDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                        LastLogoutDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
                     };
 
                     var result = await userManager.CreateAsync(user, password);

@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Concrete.EFCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using PresentationLayer.EmailServices;
 
 namespace PresentationLayer.Identity

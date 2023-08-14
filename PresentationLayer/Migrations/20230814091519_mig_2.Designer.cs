@@ -12,8 +12,8 @@ using PresentationLayer.Identity;
 namespace PresentationLayer.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230812092724_mig_1")]
-    partial class mig_1
+    [Migration("20230814091519_mig_2")]
+    partial class mig_2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -170,6 +170,9 @@ namespace PresentationLayer.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConfirmEmailDate")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -178,14 +181,18 @@ namespace PresentationLayer.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IpAddress")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("LastLoginDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastLogoutDate")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -210,6 +217,12 @@ namespace PresentationLayer.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<string>("RegistrationDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ResetPasswordDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
