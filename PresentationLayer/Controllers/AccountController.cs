@@ -11,6 +11,7 @@ using PresentationLayer.Identity;
 using PresentationLayer.Models;
 using System;
 using System.Net;
+using System.Runtime.CompilerServices;
 
 namespace PresentationLayer.Controllers
 {
@@ -226,6 +227,7 @@ namespace PresentationLayer.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordModel model)
         {
@@ -240,44 +242,7 @@ namespace PresentationLayer.Controllers
                 return View();
             }
 
-            var user = await _userManager.FindByEmailAsync(model.Email);
-            if (user == null)
-            {
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error",
-                    Message = "User not found",
-                    AlertType = AlertTypeEnum.Danger
-                });
-                return View();
-            }
-
-            var generateToken = await _userManager.GeneratePasswordResetTokenAsync(user);
-            if (generateToken == null)
-            {
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Warning",
-                    Message = "Please try again in few minutes",
-                    AlertType = AlertTypeEnum.Warning
-                });
-                return View();
-            }
-
-            var url = Url.Action("ResetPassword", "Account", new
-            {
-                userId = user.Id,
-                token = generateToken
-            });
-
-            await _emailSender.SendEmailAsync(model.Email, "Reset Your Password ", $"Please click the <a href='https://localhost:7087{url}'>link</a> to reset your password.");
-            TempData.Put("message", new AlertMessage()
-            {
-                Title = "Transaction Successfull",
-                Message = "Password reset request sent, please check your e-mail.",
-                AlertType = AlertTypeEnum.Success
-            });
-            
+            await SendForgotPassword(model.Email);
             return View();
         }
 
@@ -342,7 +307,6 @@ namespace PresentationLayer.Controllers
                 //send email saying reset password
                 await _emailSender.SendEmailAsync(model.Email,"Your password has been changed",$"Your password has been changed on {changedTime}.");
                 return RedirectToAction("Login", "Account");
-
             }
 
             TempData.Put("message", new AlertMessage()
@@ -392,5 +356,50 @@ namespace PresentationLayer.Controllers
             });
             return RedirectToAction("ListUser","User");
         }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> SendForgotPassword(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Error",
+                    Message = "User not found",
+                    AlertType = AlertTypeEnum.Danger
+                });
+                return View();
+            }
+
+            var generateToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+            if (generateToken == null)
+            {
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Warning",
+                    Message = "Please try again in few minutes",
+                    AlertType = AlertTypeEnum.Warning
+                });
+                return View();
+            }
+
+            var url = Url.Action("ResetPassword", "Account", new
+            {
+                userId = user.Id,
+                token = generateToken
+            });
+
+            await _emailSender.SendEmailAsync(email, "Reset Your Password ", $"Please click the <a href='https://localhost:7087{url}'>link</a> to reset your password.");
+            TempData.Put("message", new AlertMessage()
+            {
+                Title = "Transaction Successfull",
+                Message = "Password reset request sent, please check your e-mail.",
+                AlertType = AlertTypeEnum.Success
+            });
+            return RedirectToAction("ListUser", "User");
+        }
+
     }
 }

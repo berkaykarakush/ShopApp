@@ -95,8 +95,5 @@ namespace PresentationLayer.Controllers
             ViewBag.Roles = roles;
             return View(model);
         }
-        
-        //TODO Kullaniciya hesabini onayla mailini tekrar gonderme secegni olustur
-        //TODO kullaniciya hesabinin sifresini degistirmesi icin link gonder
     }
 }
