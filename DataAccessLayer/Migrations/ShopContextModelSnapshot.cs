@@ -248,6 +248,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<int>("SalesCount")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
@@ -271,6 +274,7 @@ namespace DataAccessLayer.Migrations
                             Name = "Iphone 11",
                             Price = 20000.0,
                             Quantity = 0,
+                            SalesCount = 0,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Url = "iphone-11"
                         },
@@ -285,6 +289,7 @@ namespace DataAccessLayer.Migrations
                             Name = "Iphone 11 pro",
                             Price = 21000.0,
                             Quantity = 0,
+                            SalesCount = 0,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Url = "iphone-11-pro"
                         },
@@ -299,6 +304,7 @@ namespace DataAccessLayer.Migrations
                             Name = "Iphone 12",
                             Price = 22000.0,
                             Quantity = 0,
+                            SalesCount = 0,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Url = "iphone-12"
                         },
@@ -313,6 +319,7 @@ namespace DataAccessLayer.Migrations
                             Name = "Iphone 12 pro",
                             Price = 23000.0,
                             Quantity = 0,
+                            SalesCount = 0,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Url = "iphone-12-pro"
                         },
@@ -327,6 +334,7 @@ namespace DataAccessLayer.Migrations
                             Name = "Iphone 12 pro max",
                             Price = 24000.0,
                             Quantity = 0,
+                            SalesCount = 0,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Url = "iphone-12-pro-max"
                         },
@@ -341,6 +349,7 @@ namespace DataAccessLayer.Migrations
                             Name = "Iphone 13",
                             Price = 25000.0,
                             Quantity = 0,
+                            SalesCount = 0,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Url = "iphone-13"
                         },
@@ -355,6 +364,7 @@ namespace DataAccessLayer.Migrations
                             Name = "Iphone 13 pro",
                             Price = 26000.0,
                             Quantity = 0,
+                            SalesCount = 0,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Url = "iphone-13-pro"
                         },
@@ -369,6 +379,7 @@ namespace DataAccessLayer.Migrations
                             Name = "Iphone 13 pro max",
                             Price = 27000.0,
                             Quantity = 0,
+                            SalesCount = 0,
                             UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Url = "iphone-13-pro-max"
                         });

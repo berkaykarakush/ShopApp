@@ -39,16 +39,18 @@ namespace PresentationLayer.Identity
                         PhoneNumber = "5435432323",
                         IpAddress = GetPublicIPAddress.GetIPAddress(),
                         RegistrationDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                        LastOrderDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                        FirstOrderDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
                         LastLoginDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
                         LastLogoutDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-                    };
+                };
 
-                    var result = await userManager.CreateAsync(user, password);
-                    if (result.Succeeded)
-                    {
-                        await userManager.AddToRoleAsync(user, role);
-                        cartService.InitilazeCart(user.Id);
-                    }
+                var result = await userManager.CreateAsync(user, password);
+                if (result.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(user, role);
+                    cartService.InitilazeCart(user.Id);
+                }
                 }
             }
         }

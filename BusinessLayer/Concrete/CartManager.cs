@@ -46,9 +46,9 @@ namespace BusinessLayer.Concrete
                         cart.CartItems[index].Quantity = product.Quantity;
                     }
 
-                    _unitOfWork.Carts.Update(cart);
-                    _unitOfWork.Save();
                 }
+                _unitOfWork.Carts.Update(cart);
+                _unitOfWork.Save();
             }
         }
 

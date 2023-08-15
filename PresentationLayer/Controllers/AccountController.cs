@@ -73,7 +73,7 @@ namespace PresentationLayer.Controllers
             if (result.Succeeded)
             {
                 TempData["UserId"] = user.Id;
-                //user.UserDetails.LastLoginDate = DateTime.Now.ToString("yyyy/MM//dd HH:mm:ss");
+                user.LastLoginDate = DateTime.Now.ToString("yyyy/MM//dd HH:mm:ss");
                 //send mail if you sign in on new device
                 if (user.IpAddress != GetPublicIPAddress.GetIPAddress())
                 {
@@ -119,7 +119,7 @@ namespace PresentationLayer.Controllers
                 IpAddress = GetPublicIPAddress.GetIPAddress(),
                 RegistrationDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
             };
-
+            
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
@@ -138,27 +138,51 @@ namespace PresentationLayer.Controllers
         }
 
         [HttpGet]
-        public  IActionResult Manage()
+        public async Task<IActionResult> Manage()
         {
-            //TODO manage get method
-            return View();
+            var userId = _userManager.GetUserId(User);
+            var user = await _userManager.FindByIdAsync(userId);
+
+            return View(new ManageModel()
+            {
+                UserId = user.Id,
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Phone = user.PhoneNumber
+                //Address
+                //City
+                //Country
+                //ZipCode 
+            });
         }
 
         [HttpPost]
         public async Task<IActionResult> Manage(ManageModel model)
         {
-            //TODO manage post method
+            var user = await _userManager.FindByIdAsync(model.UserId);
+            if (user != null)
+            {
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+                user.PhoneNumber = model.Phone;
+                user.Email = model.Email;
+
+                await _userManager.UpdateAsync(user);
+                RedirectToAction("Manage","Account");
+            }
             return View(model);
         }
 
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
-            string userId = TempData["UserId"].ToString();
+            var userId = _userManager.GetUserId(User);
             var user = await _userManager.FindByIdAsync(userId);
             if (user != null)
             {
                 user.LastLogoutDate = DateTime.Now.ToString("yyyy/mm/dd HH:mm:ss");
+
                 await _userManager.UpdateAsync(user);
 
                 await _signInManager.SignOutAsync();
@@ -302,6 +326,7 @@ namespace PresentationLayer.Controllers
                 });
 
                 user.ResetPasswordDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+
                 await _userManager.UpdateAsync(user);
 
                 //send email saying reset password

@@ -59,7 +59,6 @@ namespace PresentationLayer.Controllers
             });
         }
 
-        //TODO urunun miktarini kontrol et ve sepete ekle
         [Authorize]
         [HttpPost]
         public IActionResult AddToCart(int productId, int quantity)
@@ -130,6 +129,7 @@ namespace PresentationLayer.Controllers
                     OrderState(model, EnumOrderState.waiting);
                     DecreaseQuantity(model);
                     ClearCart(model.CartModel.CartId);
+                    IncreaseProductSaleCount(model);
                     TempData.Put("message", new AlertMessage()
                     {
                         Title = "Transaction Successfull",
@@ -149,6 +149,19 @@ namespace PresentationLayer.Controllers
                 }
             }
             return View(model);
+        }
+
+        private void IncreaseProductSaleCount(OrderModel model)
+        {
+            foreach (var p in model.CartModel.CartItems)
+            {
+                var product = _productService.GetById(p.ProductId);
+                if (product != null)
+                {
+                    product.SalesCount += p.Quantity;
+                    _productService.Update(product);
+                }
+            }
         }
 
         [Authorize]

@@ -21,6 +21,10 @@ namespace PresentationLayer.Models
 
         [Required]
         public string? Country { get; set; }
+
+        [Required]
+        public string? ZipCode { get; set; }
+
         [Required]
         public string? Phone { get; set; }
         

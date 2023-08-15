@@ -21,6 +21,7 @@ namespace PresentationLayer.Models
 
         [Required]
         public int Quantity { get; set; }
+        public int? SalesCount { get; set; }
 
         [Required]
         [DataType(DataType.Html)]
@@ -28,7 +29,6 @@ namespace PresentationLayer.Models
         
         [DataType(DataType.ImageUrl)]
         public string? ImageUrl { get; set; }
-        
         public bool IsApproved { get; set; }
         public bool IsHome { get; set; }
         public DateTime CreatedDate { get; set; }
