@@ -8,7 +8,7 @@ namespace BusinessLayer.Abstract
         Product GetByIdWithCategories(double id);
         List<Product> GetAll();
         List<Product> GetHomePageProducts();
-        List<Product> TopSales();
+        List<Product> GetTopSalesProducts(int page, int pageSize);
         List<Product> GetSearchResult(string searchString);
         List<Product> GetProductsByCategory(string name, int page, int pageSize);
         Product GetProductDetails(string url);
@@ -17,5 +17,6 @@ namespace BusinessLayer.Abstract
         bool Update(Product entity, double[] categoryIds);
         void Delete(Product entity);
         int GetCountByCategory(string category);
+        int GetCountTopSalesProduct();
     }
 }

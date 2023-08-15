@@ -51,6 +51,11 @@ namespace BusinessLayer.Concrete
             return _unitOfWork.Products.GetCountByCategory(category);
         }
 
+        public int GetCountTopSalesProduct()
+        {
+           return _unitOfWork.Products.GetCountTopSalesProduct();
+        }
+
         public List<Product> GetHomePageProducts()
         {
             return _unitOfWork.Products.GetHomePageProducts();
@@ -71,9 +76,9 @@ namespace BusinessLayer.Concrete
             return _unitOfWork.Products.GetSearchResult(searchString);
         }
 
-        public List<Product> TopSales()
+        public List<Product> GetTopSalesProducts(int page, int pageSize)
         {
-            return _unitOfWork.Products.GetTopSalesProducts();
+            return _unitOfWork.Products.GetTopSalesProducts(page,pageSize);
         }
 
         public bool Update(Product entity)

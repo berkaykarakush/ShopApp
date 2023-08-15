@@ -15,9 +15,20 @@ namespace PresentationLayer.Controllers
         }
 
         [HttpGet]
-        public IActionResult TopSalesList()
+        public IActionResult TopSalesList(int page = 1)
         {
-            return View();
+            const int pageSize = 15;
+            var productViewModel = new ProductListViewModel()
+            {
+                PageInfo = new PageInfo()
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = pageSize,
+                    TotalItems = _productService.GetCountTopSalesProduct()
+                },
+                Products = _productService.GetTopSalesProducts(page, pageSize)
+            };
+            return View(productViewModel);
         }
 
         [HttpGet]

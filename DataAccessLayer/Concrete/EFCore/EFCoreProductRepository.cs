@@ -41,6 +41,14 @@ namespace DataAccessLayer.Concrete.EFCore
             return products.Count();
         }
 
+        public int GetCountTopSalesProduct()
+        {
+            return ShopContext.Products
+                .Where(p => p.IsApproved)
+                .OrderByDescending(p => p.SalesCount)
+                .Count();
+        }
+
         public List<Product> GetHomePageProducts()
         {
             return ShopContext.Products
@@ -89,10 +97,20 @@ namespace DataAccessLayer.Concrete.EFCore
             return products.ToList();
         }
 
-        public List<Product> GetTop5Products()
+        public List<Product> GetTopSalesProducts(int page, int pageSize)
+        {
+            var products = ShopContext.Products
+                .OrderByDescending(p => p.SalesCount)
+                .AsQueryable();
+
+            return products.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+        }
+
+        public List<Product> GetTopSalesProductsWithCategory(string name, int page, int pageSize)
         {
             throw new NotImplementedException();
         }
+
         public void Update(Product entity, double[] categoryIds)
         {
             var product = ShopContext.Products
