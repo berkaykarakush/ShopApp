@@ -14,7 +14,7 @@ namespace DataAccessLayer.Concrete.EFCore
         {
             get { return _context as ShopContext; }
         }
-        public Product GetByIdWithCategories(int id)
+        public Product GetByIdWithCategories(double id)
         {
             return ShopContext.Products
                 .Where(p => p.ProductId == id)
@@ -93,7 +93,7 @@ namespace DataAccessLayer.Concrete.EFCore
         {
             throw new NotImplementedException();
         }
-        public void Update(Product entity, int[] categoryIds)
+        public void Update(Product entity, double[] categoryIds)
         {
             var product = ShopContext.Products
                 .Include(p => p.ProductCategories)

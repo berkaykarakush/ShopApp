@@ -14,7 +14,11 @@ namespace PresentationLayer.Controllers
             _productService = productService;
         }
 
-        //TODO En cok satilan urunler
+        [HttpGet]
+        public IActionResult TopSalesList()
+        {
+            return View();
+        }
 
         [HttpGet]
         public IActionResult List(string category, int page=1)

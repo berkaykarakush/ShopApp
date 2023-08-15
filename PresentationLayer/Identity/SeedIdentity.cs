@@ -44,6 +44,7 @@ namespace PresentationLayer.Identity
                         LastLoginDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
                         LastLogoutDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
                 };
+                user.UserDetails.Add(new UserDetail { UserId = user.Id, LastOrderDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") });
 
                 var result = await userManager.CreateAsync(user, password);
                 if (result.Succeeded)

@@ -15,13 +15,13 @@ namespace DataAccessLayer.Concrete.EFCore
         {
             get { return _context as ShopContext; }
         }
-        public void ClearCart(int cartId)
+        public void ClearCart(double cartId)
         {
             var cmd = @"delete from CartItems where CartId=@p0";
             ShopContext.Database.ExecuteSqlRaw(cmd, cartId);
         }
 
-        public void DeleteFromCart(int cartId, int productId)
+        public void DeleteFromCart(double cartId, double productId)
         {
             var cmd = @"delete from CartItems where CartId=@p0 and ProductId=@p1";
             ShopContext.Database.ExecuteSqlRaw(cmd, cartId, productId);

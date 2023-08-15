@@ -4,8 +4,8 @@ namespace DataAccessLayer.Abstract
 {
     public interface ICartRepository : IRepository<Cart>
     {
-        void ClearCart(int cartId);
-        void DeleteFromCart(int id, int productId);
+        void ClearCart(double cartId);
+        void DeleteFromCart(double id, double productId);
         Cart GetByUserId(string userId);
     }
 }

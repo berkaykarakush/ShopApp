@@ -2,9 +2,15 @@
 {
     public class ProductCategory
     {
-        public int CategoryId { get; set; }
+        public ProductCategory()
+        {
+            Random random = new();
+            Id = random.NextDouble(); 
+        }
+        public double Id { get; set; }
+        public double CategoryId { get; set; }
         public Category Category { get; set; }
-        public int ProductId { get; set; }
+        public double ProductId { get; set; }
         public Product Product { get; set; }
     }
 }

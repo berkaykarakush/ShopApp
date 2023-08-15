@@ -6,7 +6,7 @@ namespace PresentationLayer.Models
     public class ProductModel
     {
         [Required]
-        public int ProductId { get; set; }
+        public double ProductId { get; set; }
         
         [Required]
         [MinLength(1)]
@@ -31,8 +31,8 @@ namespace PresentationLayer.Models
         public string? ImageUrl { get; set; }
         public bool IsApproved { get; set; }
         public bool IsHome { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
+        public string CreatedDate { get; set; }
+        public string UpdatedDate { get; set; }
         public List<Category>? SelectedCategories { get; internal set; }
     }
 }

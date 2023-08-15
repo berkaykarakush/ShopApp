@@ -6,8 +6,8 @@ namespace BusinessLayer.Abstract
     {
         void InitilazeCart(string userId);
         Cart GetCartByUserId(string userId);
-        void AddToCart(string userId, int productId, int quantity);
-        void DeleteFromCart(string userId, int productId);
-        void ClearCart(int cartId);
+        void AddToCart(string userId, double productId, int quantity);
+        void DeleteFromCart(string userId, double productId);
+        void ClearCart(double cartId);
     }
 }

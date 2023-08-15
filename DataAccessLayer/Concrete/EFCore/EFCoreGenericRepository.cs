@@ -28,7 +28,7 @@ namespace DataAccessLayer.Concrete.EFCore
              return _context.Set<TEntity>().ToList();
         }
 
-        public TEntity GetById(int id)
+        public TEntity GetById(double id)
         {
             return _context.Set<TEntity>().Find(id);
         }

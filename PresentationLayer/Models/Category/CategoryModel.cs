@@ -5,7 +5,7 @@ namespace PresentationLayer.Models
 {
     public class CategoryModel
     {
-        public int CategoryId { get; set; }
+        public double CategoryId { get; set; }
         [Required(ErrorMessage = "Category name is required")]
         [StringLength(100, MinimumLength = 5, ErrorMessage = "Category name 5-100 karakter arasinda olmalidir")]
         public string? Name { get; set; }

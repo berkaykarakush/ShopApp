@@ -15,7 +15,7 @@ namespace BusinessLayer.Concrete
 
         public string ErrorMessage { get; set; }
 
-        public void AddToCart(string userId, int productId, int quantity)
+        public void AddToCart(string userId, double productId, int quantity)
         {
             var cart = GetCartByUserId(userId);
             if (cart != null)
@@ -52,13 +52,13 @@ namespace BusinessLayer.Concrete
             }
         }
 
-        public void ClearCart(int cartId)
+        public void ClearCart(double cartId)
         {
             _unitOfWork.Carts.ClearCart(cartId);
             _unitOfWork.Save();
         }
 
-        public void DeleteFromCart(string userId, int productId)
+        public void DeleteFromCart(string userId, double productId)
         {
             var cart = GetCartByUserId(userId);
             if (cart != null)

@@ -36,12 +36,12 @@ namespace BusinessLayer.Concrete
             return _unitOfWork.Products.GetAll();
         }
 
-        public Product GetById(int id)
+        public Product GetById(double id)
         {
             return _unitOfWork.Products.GetById(id);
         }
 
-        public Product GetByIdWithCategories(int id)
+        public Product GetByIdWithCategories(double id)
         {
             return _unitOfWork.Products.GetByIdWithCategories(id);
         }
@@ -71,6 +71,11 @@ namespace BusinessLayer.Concrete
             return _unitOfWork.Products.GetSearchResult(searchString);
         }
 
+        public List<Product> TopSales()
+        {
+            return _unitOfWork.Products.GetTopSalesProducts();
+        }
+
         public bool Update(Product entity)
         {
             if (Validation(entity))
@@ -83,7 +88,7 @@ namespace BusinessLayer.Concrete
             return false;
 
         }
-        public bool Update(Product entity, int[] categoryIds)
+        public bool Update(Product entity, double[] categoryIds)
         {
             if (categoryIds.Length == 0)
             {

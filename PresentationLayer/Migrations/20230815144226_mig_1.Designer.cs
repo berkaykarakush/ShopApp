@@ -12,7 +12,7 @@ using PresentationLayer.Identity;
 namespace PresentationLayer.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230815124914_mig_1")]
+    [Migration("20230815144226_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -253,6 +253,25 @@ namespace PresentationLayer.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("PresentationLayer.Identity.UserDetail", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LastOrderDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserDetails");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -302,6 +321,22 @@ namespace PresentationLayer.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("PresentationLayer.Identity.UserDetail", b =>
+                {
+                    b.HasOne("PresentationLayer.Identity.User", "User")
+                        .WithMany("UserDetails")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("PresentationLayer.Identity.User", b =>
+                {
+                    b.Navigation("UserDetails");
                 });
 #pragma warning restore 612, 618
         }

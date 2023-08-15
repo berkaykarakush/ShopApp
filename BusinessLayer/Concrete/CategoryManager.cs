@@ -42,7 +42,7 @@ namespace BusinessLayer.Concrete
             }
         }
 
-        public void DeleteFromCategory(int productId, int categoryId)
+        public void DeleteFromCategory(double productId, double categoryId)
         {
             _unitOfWork.Categories.DeleteFromCategory(productId, categoryId);
             _unitOfWork.Save();
@@ -53,12 +53,12 @@ namespace BusinessLayer.Concrete
            return _unitOfWork.Categories.GetAll();
         }
 
-        public Category GetById(int id)
+        public Category GetById(double id)
         {
             return _unitOfWork.Categories.GetById(id);
         }
 
-        public Category GetByIdWithProducts(int categoryId)
+        public Category GetByIdWithProducts(double categoryId)
         {
             return _unitOfWork.Categories.GetByIdWithProducts(categoryId);
         }

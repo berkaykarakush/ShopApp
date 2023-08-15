@@ -197,7 +197,7 @@ namespace PresentationLayer.Controllers
         }
 
         [Authorize]
-        private void ClearCart(int cartId)
+        private void ClearCart(double cartId)
         {
             _cartService.ClearCart(cartId);
         }

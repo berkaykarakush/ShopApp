@@ -4,12 +4,12 @@ namespace BusinessLayer.Abstract
 {
     public interface ICategoryService: IValidator<Category>
     {
-        Category GetById(int id);
-        Category GetByIdWithProducts(int categoryId);
+        Category GetById(double id);
+        Category GetByIdWithProducts(double categoryId);
         List<Category> GetAll();
         bool Create(Category entity);
         bool Update(Category entity);
         void Delete(Category entity);
-        void DeleteFromCategory(int productId, int categoryId);
+        void DeleteFromCategory(double productId, double categoryId);
     }
 }

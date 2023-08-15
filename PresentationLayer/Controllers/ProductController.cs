@@ -68,7 +68,7 @@ namespace PresentationLayer.Controllers
                     Url = UrlNameEditExtensions.UrlNameEdit(model.Name),
                     Description = model.Description,
                     Price = model.Price,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
                     ImageUrl = model.ImageUrl,
                     Quantity = model.Quantity,
                     ProductCategories = ViewBag.Categories,
@@ -116,15 +116,15 @@ namespace PresentationLayer.Controllers
             var model = new ProductModel()
             {
                 ProductId = entity.ProductId,
-                Name = NameEditExtensions.NameEdit(entity.Name),
-                Url = UrlNameEditExtensions.UrlNameEdit(entity.Name),
+                Name = entity.Name,
+                Url = entity.Url,
                 Price = entity.Price,
                 Quantity = entity.Quantity,
                 Description = entity.Description,
                 ImageUrl = entity.ImageUrl,
                 IsApproved = entity.IsApproved,
                 IsHome = entity.IsHome,
-                UpdatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
                 SelectedCategories = entity.ProductCategories.Select(pc => pc.Category).ToList()
             };
 
@@ -134,7 +134,7 @@ namespace PresentationLayer.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> EditProduct(ProductModel model, int[] categoryIds, IFormFile file)
+        public async Task<IActionResult> EditProduct(ProductModel model, double[] categoryIds, IFormFile file)
         {
             if (ModelState.IsValid)
             {
@@ -151,21 +151,8 @@ namespace PresentationLayer.Controllers
                 entity.Description = model.Description;
                 entity.IsApproved = model.IsApproved;
                 entity.IsHome = model.IsHome;
-                entity.UpdatedDate = DateTime.Now;
-                
-                if (file != null)
-                {
-                    var extension = Path.GetExtension(file.FileName);
-                    var randomName = string.Format($"{Guid.NewGuid()}{extension}");
-                    entity.ImageUrl = randomName;
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", randomName);
-
-
-                    using (var stream = new FileStream(path, FileMode.Create))
-                    {
-                        await file.CopyToAsync(stream);
-                    }
-                }
+                entity.UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                entity.ImageUrl = await ImageNameEditExtensions.ImageNameEdit(file, UrlNameEditExtensions.UrlNameEdit(model.Name));
 
                 if (_productService.Update(entity, categoryIds))
                 {

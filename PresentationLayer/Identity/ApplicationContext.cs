@@ -9,5 +9,6 @@ namespace PresentationLayer.Identity
         {
             
         }
+        public DbSet<UserDetail> UserDetails { get; set; }
     }
 }

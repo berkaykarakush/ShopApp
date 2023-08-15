@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
            return _unitOfWork.Orders.GetAll();
         }
 
-        public Order GetById(int id)
+        public Order GetById(double id)
         {
             return _unitOfWork.Orders.GetById(id);
         }

@@ -5,13 +5,13 @@ namespace DataAccessLayer.Abstract
     public interface IProductRepository : IRepository<Product>
     {
         Product GetProductDetails(string url);
-        Product GetByIdWithCategories(int id);
+        Product GetByIdWithCategories(double id);
         List<Product> GetProductsByCategory(string name, int page, int pageSize); 
         List<Product> GetPopularProducts();
-        List<Product> GetTop5Products();
+        List<Product> GetTopSalesProducts();
         List<Product> GetSearchResult(string searchString);
         List<Product> GetHomePageProducts();
         int GetCountByCategory(string category);
-        void Update(Product entity, int[] categoryIds);
+        void Update(Product entity, double[] categoryIds);
     }
 }

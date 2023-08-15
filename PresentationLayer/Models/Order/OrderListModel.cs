@@ -4,9 +4,8 @@ namespace PresentationLayer.Models
 {
     public class OrderListModel
     {
-        public int OrderId { get; set; }
+        public double OrderId { get; set; }
         public string? OrderNumber { get; set; }
-        public int MyProperty { get; set; }
         public DateTime OrderDate { get; set; }
         public string? UserId { get; set; }
         public string? FirstName { get; set; }

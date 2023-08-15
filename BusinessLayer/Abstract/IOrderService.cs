@@ -4,7 +4,7 @@ namespace BusinessLayer.Abstract
 {
     public interface IOrderService:IValidator<Order>
     {
-        Order GetById(int id);
+        Order GetById(double id);
         List<Order> GetAll();
         List<Order> GetOrders(string userId);
         bool Create(Order entity);
