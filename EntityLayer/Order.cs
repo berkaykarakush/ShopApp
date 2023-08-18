@@ -6,7 +6,7 @@
         {
             OrderItems = new List<OrderItem>();
             Random random = new Random();
-            double rnd = random.NextDouble();
+            OrderId = random.Next(111111111, 999999999);
         }
         public double OrderId { get; set; }
         public string? OrderNumber { get; set; }

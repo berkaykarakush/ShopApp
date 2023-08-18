@@ -93,9 +93,9 @@ namespace BusinessLayer.Concrete
             return false;
 
         }
-        public bool Update(Product entity, double[] categoryIds)
+        public bool Update(Product entity, List<double> categoryIds)
         {
-            if (categoryIds.Length == 0)
+            if (categoryIds.Count() == 0)
             {
                 ErrorMessage += "Urun icin en az bir kategori secmelisiniz.\n";
                 return false;
@@ -124,11 +124,11 @@ namespace BusinessLayer.Concrete
                 ErrorMessage += "Urun aciklamasi bos birakilamaz\n";
                 isValid = false;
             }
-            if (entity.ImageUrl == null)
-            {
-                ErrorMessage += "Urun resmi bos birakilamaz.\n";
-                isValid = false;
-            }
+            //if (entity.ImageUrls == null)
+            //{
+            //    ErrorMessage += "Urun resmi bos birakilamaz.\n";
+            //    isValid = false;
+            //}
 
             return isValid;
         }

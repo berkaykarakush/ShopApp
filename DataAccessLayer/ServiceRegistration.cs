@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.EFCore;
+using DataAccessLayer.CQRS.Commands;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -16,6 +17,9 @@ namespace DataAccessLayer
             //serviceCollection.AddScoped<IOrderRepository, EFCoreOrderRepository>();
             //serviceCollection.AddScoped<ICartRepository, EFCoreCartRepository>();
             serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
+            serviceCollection.AddTransient<CreateProductCommandHandler>();
+
+
 
         }
     }

@@ -39,12 +39,23 @@ namespace PresentationLayer.Identity
                         PhoneNumber = "5435432323",
                         IpAddress = GetPublicIPAddress.GetIPAddress(),
                         RegistrationDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
-                        LastOrderDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
-                        FirstOrderDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
-                        LastLoginDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
-                        LastLogoutDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                        FirstOrderDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
                 };
-                user.UserDetails.Add(new UserDetail { UserId = user.Id, LastOrderDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") });
+                user.UserDetails.Add(new UserDetail
+                {
+                    UserId = user.Id,
+                    LastOrderDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                    LastLoginDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                    LastLogoutDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                });
+                user.UserAddresses.Add(new UserAddress 
+                {
+                    UserId = user.Id,
+                    Country = "Germany",
+                    City = "Berlin",
+                    Address = "Straße des 17. Juni 135",
+                    ZipCode = "10623"
+                });
 
                 var result = await userManager.CreateAsync(user, password);
                 if (result.Succeeded)

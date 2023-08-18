@@ -10,5 +10,6 @@ namespace PresentationLayer.Identity
             
         }
         public DbSet<UserDetail> UserDetails { get; set; }
+        public DbSet<UserAddress> UserAddresses { get; set; }
     }
 }

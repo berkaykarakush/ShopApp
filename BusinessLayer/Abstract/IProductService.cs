@@ -14,7 +14,7 @@ namespace BusinessLayer.Abstract
         Product GetProductDetails(string url);
         bool Create(Product entity);
         bool Update(Product entity);
-        bool Update(Product entity, double[] categoryIds);
+        bool Update(Product entity, List<double> categoryIds);
         void Delete(Product entity);
         int GetCountByCategory(string category);
         int GetCountTopSalesProduct();

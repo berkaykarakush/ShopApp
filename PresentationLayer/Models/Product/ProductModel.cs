@@ -5,9 +5,13 @@ namespace PresentationLayer.Models
 {
     public class ProductModel
     {
+        public ProductModel()
+        {
+            SelectedCategories = new List<Category>();
+        }
         [Required]
         public double ProductId { get; set; }
-        
+
         [Required]
         [MinLength(1)]
         [DataType(DataType.Text)]
@@ -26,13 +30,13 @@ namespace PresentationLayer.Models
         [Required]
         [DataType(DataType.Html)]
         public string Description { get; set; }
-        
+
         [DataType(DataType.ImageUrl)]
         public string? ImageUrl { get; set; }
         public bool IsApproved { get; set; }
         public bool IsHome { get; set; }
         public string CreatedDate { get; set; }
         public string UpdatedDate { get; set; }
-        public List<Category>? SelectedCategories { get; internal set; }
+        public List<Category> SelectedCategories { get; internal set; }
     }
 }

@@ -79,57 +79,132 @@ namespace DataAccessLayer.Migrations
                     b.HasData(
                         new
                         {
-                            CategoryId = 1.0,
+                            CategoryId = 111111112.0,
                             Name = "category 1",
                             Url = "category-1"
                         },
                         new
                         {
-                            CategoryId = 2.0,
+                            CategoryId = 111111113.0,
                             Name = "category 2",
                             Url = "category-2"
                         },
                         new
                         {
-                            CategoryId = 3.0,
+                            CategoryId = 111111114.0,
                             Name = "category 3",
                             Url = "category-3"
                         },
                         new
                         {
-                            CategoryId = 4.0,
+                            CategoryId = 111111115.0,
                             Name = "category 4",
                             Url = "category-4"
                         },
                         new
                         {
-                            CategoryId = 5.0,
+                            CategoryId = 111111116.0,
                             Name = "category 5",
                             Url = "category-5"
                         },
                         new
                         {
-                            CategoryId = 6.0,
+                            CategoryId = 111111117.0,
                             Name = "category 6",
                             Url = "category-6"
                         },
                         new
                         {
-                            CategoryId = 7.0,
+                            CategoryId = 111111118.0,
                             Name = "category 7",
                             Url = "category-7"
                         },
                         new
                         {
-                            CategoryId = 8.0,
+                            CategoryId = 111111119.0,
                             Name = "category 8",
                             Url = "category-8"
                         },
                         new
                         {
-                            CategoryId = 9.0,
+                            CategoryId = 111111120.0,
                             Name = "category 9",
                             Url = "category-9"
+                        });
+                });
+
+            modelBuilder.Entity("EntityLayer.ImageUrl", b =>
+                {
+                    b.Property<double>("Id")
+                        .HasColumnType("float");
+
+                    b.Property<double>("ProductId")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ImageUrls");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 111111112.0,
+                            ProductId = 111111112.0,
+                            Url = "1.jpg"
+                        },
+                        new
+                        {
+                            Id = 111111113.0,
+                            ProductId = 111111113.0,
+                            Url = "1.jpg"
+                        },
+                        new
+                        {
+                            Id = 111111114.0,
+                            ProductId = 111111114.0,
+                            Url = "1.jpg"
+                        },
+                        new
+                        {
+                            Id = 111111115.0,
+                            ProductId = 111111115.0,
+                            Url = "1.jpg"
+                        },
+                        new
+                        {
+                            Id = 111111116.0,
+                            ProductId = 111111116.0,
+                            Url = "1.jpg"
+                        },
+                        new
+                        {
+                            Id = 111111117.0,
+                            ProductId = 111111117.0,
+                            Url = "1.jpg"
+                        },
+                        new
+                        {
+                            Id = 111111118.0,
+                            ProductId = 111111118.0,
+                            Url = "1.jpg"
+                        },
+                        new
+                        {
+                            Id = 111111119.0,
+                            ProductId = 111111119.0,
+                            Url = "1.jpg"
+                        },
+                        new
+                        {
+                            Id = 111111120.0,
+                            ProductId = 111111120.0,
+                            Url = "1.jpg"
                         });
                 });
 
@@ -239,10 +314,6 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsApproved")
                         .HasColumnType("bit");
 
@@ -254,9 +325,12 @@ namespace DataAccessLayer.Migrations
                         .HasMaxLength(80)
                         .HasColumnType("nvarchar(80)");
 
-                    b.Property<double?>("Price")
-                        .IsRequired()
+                    b.Property<double>("Price")
                         .HasColumnType("float");
+
+                    b.Property<string>("ProductImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -279,737 +353,737 @@ namespace DataAccessLayer.Migrations
                     b.HasData(
                         new
                         {
-                            ProductId = 1.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111112.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 1",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 1",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 1,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 1,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-1"
                         },
                         new
                         {
-                            ProductId = 2.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111113.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 2",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 2",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 2,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 2,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-2"
                         },
                         new
                         {
-                            ProductId = 3.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111114.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 3",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 3",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 3,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 3,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-3"
                         },
                         new
                         {
-                            ProductId = 4.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111115.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 4",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 4",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 4,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 4,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-4"
                         },
                         new
                         {
-                            ProductId = 5.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111116.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 5",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 5",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 5,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 5,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-5"
                         },
                         new
                         {
-                            ProductId = 6.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111117.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 6",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 6",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 6,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 6,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-6"
                         },
                         new
                         {
-                            ProductId = 7.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111118.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 7",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 7",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 7,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 7,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-7"
                         },
                         new
                         {
-                            ProductId = 8.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111119.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 8",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 8",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 8,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 8,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-8"
                         },
                         new
                         {
-                            ProductId = 9.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111120.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 9",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 9",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 9,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 9,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-9"
                         },
                         new
                         {
-                            ProductId = 10.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111121.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 10",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 10",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 10,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 10,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-10"
                         },
                         new
                         {
-                            ProductId = 11.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111122.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 11",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 11",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 11,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 11,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-11"
                         },
                         new
                         {
-                            ProductId = 12.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111123.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 12",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 12",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 12,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 12,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-12"
                         },
                         new
                         {
-                            ProductId = 13.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111124.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 13",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 13",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 13,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 13,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-13"
                         },
                         new
                         {
-                            ProductId = 14.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111125.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 14",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 14",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 14,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 14,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-14"
                         },
                         new
                         {
-                            ProductId = 15.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111126.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 15",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 15",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 15,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 15,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-15"
                         },
                         new
                         {
-                            ProductId = 16.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111127.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 16",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 16",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 16,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 16,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-16"
                         },
                         new
                         {
-                            ProductId = 17.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111128.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 17",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 17",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 17,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 17,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-17"
                         },
                         new
                         {
-                            ProductId = 18.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111129.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 18",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 18",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 18,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 18,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-18"
                         },
                         new
                         {
-                            ProductId = 19.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111130.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 19",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 19",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 19,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 19,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-19"
                         },
                         new
                         {
-                            ProductId = 20.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111131.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 20",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 20",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 20,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 20,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-20"
                         },
                         new
                         {
-                            ProductId = 21.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111132.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 21",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 21",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 21,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 21,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-21"
                         },
                         new
                         {
-                            ProductId = 22.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111133.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 22",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 22",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 22,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 22,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-22"
                         },
                         new
                         {
-                            ProductId = 23.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111134.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 23",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 23",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 23,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 23,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-23"
                         },
                         new
                         {
-                            ProductId = 24.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111135.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 24",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 24",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 24,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 24,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-24"
                         },
                         new
                         {
-                            ProductId = 25.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111136.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 25",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 25",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 25,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 25,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-25"
                         },
                         new
                         {
-                            ProductId = 26.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111137.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 26",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 26",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 26,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 26,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-26"
                         },
                         new
                         {
-                            ProductId = 27.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111138.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 27",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 27",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 27,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 27,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-27"
                         },
                         new
                         {
-                            ProductId = 28.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111139.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 28",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 28",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 28,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 28,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-28"
                         },
                         new
                         {
-                            ProductId = 29.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111140.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 29",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 29",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 29,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 29,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-29"
                         },
                         new
                         {
-                            ProductId = 30.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111141.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 30",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 30",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 30,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 30,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-30"
                         },
                         new
                         {
-                            ProductId = 31.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111142.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 31",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 31",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 31,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 31,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-31"
                         },
                         new
                         {
-                            ProductId = 32.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111143.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 32",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 32",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 32,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 32,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-32"
                         },
                         new
                         {
-                            ProductId = 33.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111144.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 33",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 33",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 33,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 33,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-33"
                         },
                         new
                         {
-                            ProductId = 34.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111145.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 34",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 34",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 34,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 34,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-34"
                         },
                         new
                         {
-                            ProductId = 35.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111146.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 35",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 35",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 35,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 35,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-35"
                         },
                         new
                         {
-                            ProductId = 36.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111147.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 36",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 36",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 36,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 36,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-36"
                         },
                         new
                         {
-                            ProductId = 37.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111148.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 37",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 37",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 37,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 37,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-37"
                         },
                         new
                         {
-                            ProductId = 38.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111149.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 38",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 38",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 38,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 38,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-38"
                         },
                         new
                         {
-                            ProductId = 39.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111150.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 39",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 39",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 39,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 39,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-39"
                         },
                         new
                         {
-                            ProductId = 40.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111151.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 40",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 40",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 40,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 40,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-40"
                         },
                         new
                         {
-                            ProductId = 41.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111152.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 41",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 41",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 41,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 41,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-41"
                         },
                         new
                         {
-                            ProductId = 42.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111153.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 42",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 42",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 42,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 42,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-42"
                         },
                         new
                         {
-                            ProductId = 43.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111154.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 43",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 43",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 43,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 43,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-43"
                         },
                         new
                         {
-                            ProductId = 44.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111155.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 44",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 44",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 44,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 44,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-44"
                         },
                         new
                         {
-                            ProductId = 45.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111156.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 45",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 45",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 45,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 45,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-45"
                         },
                         new
                         {
-                            ProductId = 46.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111157.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 46",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 46",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 46,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 46,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-46"
                         },
                         new
                         {
-                            ProductId = 47.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111158.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 47",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 47",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 47,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 47,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-47"
                         },
                         new
                         {
-                            ProductId = 48.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111159.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 48",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 48",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 48,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 48,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-48"
                         },
                         new
                         {
-                            ProductId = 49.0,
-                            CreatedDate = "2023/08/15 17:20:36",
+                            ProductId = 111111160.0,
+                            CreatedDate = "2023/08/17 16:50:59",
                             Description = "urun aciklamasi 49",
-                            ImageUrl = "1.jpg",
                             IsApproved = true,
                             IsHome = false,
                             Name = "urun 49",
                             Price = 10.0,
+                            ProductImage = "1.jpg",
                             Quantity = 49,
-                            SalesCount = 0,
-                            UpdatedDate = "2023/08/15 17:20:36",
+                            SalesCount = 49,
+                            UpdatedDate = "2023/08/17 16:50:59",
                             Url = "urun-49"
                         });
                 });
@@ -1034,57 +1108,57 @@ namespace DataAccessLayer.Migrations
                     b.HasData(
                         new
                         {
-                            CategoryId = 1.0,
-                            ProductId = 1.0,
-                            Id = 0.074962908062155442
+                            CategoryId = 111111112.0,
+                            ProductId = 111111112.0,
+                            Id = 116557806.0
                         },
                         new
                         {
-                            CategoryId = 2.0,
-                            ProductId = 2.0,
-                            Id = 0.053908470734938763
+                            CategoryId = 111111113.0,
+                            ProductId = 111111113.0,
+                            Id = 752698525.0
                         },
                         new
                         {
-                            CategoryId = 3.0,
-                            ProductId = 3.0,
-                            Id = 0.50657643527102592
+                            CategoryId = 111111114.0,
+                            ProductId = 111111114.0,
+                            Id = 685307395.0
                         },
                         new
                         {
-                            CategoryId = 4.0,
-                            ProductId = 4.0,
-                            Id = 0.10249034288847125
+                            CategoryId = 111111115.0,
+                            ProductId = 111111115.0,
+                            Id = 563304109.0
                         },
                         new
                         {
-                            CategoryId = 5.0,
-                            ProductId = 5.0,
-                            Id = 0.24261805974186945
+                            CategoryId = 111111116.0,
+                            ProductId = 111111116.0,
+                            Id = 722072845.0
                         },
                         new
                         {
-                            CategoryId = 6.0,
-                            ProductId = 6.0,
-                            Id = 0.40044998854791214
+                            CategoryId = 111111117.0,
+                            ProductId = 111111117.0,
+                            Id = 880317711.0
                         },
                         new
                         {
-                            CategoryId = 7.0,
-                            ProductId = 7.0,
-                            Id = 0.59959590546627461
+                            CategoryId = 111111118.0,
+                            ProductId = 111111118.0,
+                            Id = 365620929.0
                         },
                         new
                         {
-                            CategoryId = 8.0,
-                            ProductId = 8.0,
-                            Id = 0.28030444441775559
+                            CategoryId = 111111119.0,
+                            ProductId = 111111119.0,
+                            Id = 390540500.0
                         },
                         new
                         {
-                            CategoryId = 9.0,
-                            ProductId = 9.0,
-                            Id = 0.84461017102497216
+                            CategoryId = 111111120.0,
+                            ProductId = 111111120.0,
+                            Id = 946048035.0
                         });
                 });
 
@@ -1103,6 +1177,17 @@ namespace DataAccessLayer.Migrations
                         .IsRequired();
 
                     b.Navigation("Cart");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("EntityLayer.ImageUrl", b =>
+                {
+                    b.HasOne("EntityLayer.Product", "Product")
+                        .WithMany("ImageUrls")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Product");
                 });
@@ -1162,6 +1247,8 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.Product", b =>
                 {
+                    b.Navigation("ImageUrls");
+
                     b.Navigation("ProductCategories");
                 });
 #pragma warning restore 612, 618

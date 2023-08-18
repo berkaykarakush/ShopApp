@@ -18,6 +18,7 @@ namespace DataAccessLayer.Concrete.EFCore
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<ImageUrl> ImageUrls { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

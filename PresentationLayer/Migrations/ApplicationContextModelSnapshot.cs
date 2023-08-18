@@ -186,16 +186,7 @@ namespace PresentationLayer.Migrations
                     b.Property<string>("IpAddress")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LastLoginDate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastLogoutDate")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastOrderDate")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -224,9 +215,6 @@ namespace PresentationLayer.Migrations
                     b.Property<string>("RegistrationDate")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ResetPasswordDate")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -250,12 +238,49 @@ namespace PresentationLayer.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("PresentationLayer.Identity.UserAddress", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ZipCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserAddresses");
+                });
+
             modelBuilder.Entity("PresentationLayer.Identity.UserDetail", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("LastLoginDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastLogoutDate")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LastOrderDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ResetPasswordDate")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
@@ -320,6 +345,17 @@ namespace PresentationLayer.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("PresentationLayer.Identity.UserAddress", b =>
+                {
+                    b.HasOne("PresentationLayer.Identity.User", "User")
+                        .WithMany("UserAddresses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("PresentationLayer.Identity.UserDetail", b =>
                 {
                     b.HasOne("PresentationLayer.Identity.User", "User")
@@ -333,6 +369,8 @@ namespace PresentationLayer.Migrations
 
             modelBuilder.Entity("PresentationLayer.Identity.User", b =>
                 {
+                    b.Navigation("UserAddresses");
+
                     b.Navigation("UserDetails");
                 });
 #pragma warning restore 612, 618

@@ -17,7 +17,7 @@ namespace DataAccessLayer.Concrete.EFCore
         }
         public void DeleteFromCategory(double productId, double categoryId)
         {
-            var cmd = "delete from productcategory where ProductId=@p0 and CategoryId=@p1";
+            var cmd = "delete from ProductCategories where ProductId=@p0 and CategoryId=@p1";
             ShopContext.Database.ExecuteSqlRaw(cmd, productId, categoryId);
         }
 

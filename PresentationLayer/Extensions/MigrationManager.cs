@@ -2,8 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using PresentationLayer.Identity;
 
-namespace PresentationLayer.Extensions
-{
+namespace PresentationLayer.Extensions 
+{ 
     public static class MigrationManager
     {
         public static IHost MigrateDatabase(this IHost host)

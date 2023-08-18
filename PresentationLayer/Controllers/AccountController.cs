@@ -1,17 +1,13 @@
 ﻿using BusinessLayer.Abstract;
-using Iyzipay.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using PresentationLayer.EmailServices;
 using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
-using System;
-using System.Net;
-using System.Runtime.CompilerServices;
+using PresentationLayer.ViewModels;
 
 namespace PresentationLayer.Controllers
 {
@@ -55,7 +51,6 @@ namespace PresentationLayer.Controllers
                 return View(model);
             }
 
-            //var user = await _userManager.FindByNameAsync(model.UserName);
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
@@ -72,8 +67,12 @@ namespace PresentationLayer.Controllers
             var result = await _signInManager.PasswordSignInAsync(user, model.Password, false , false);
             if (result.Succeeded)
             {
-                TempData["UserId"] = user.Id;
-                user.LastLoginDate = DateTime.Now.ToString("yyyy/MM//dd HH:mm:ss");
+                user.UserDetails.Add(new UserDetail
+                {
+                    UserId = user.Id,
+                    LastLoginDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                });
+
                 //send mail if you sign in on new device
                 if (user.IpAddress != GetPublicIPAddress.GetIPAddress())
                 {
@@ -181,8 +180,11 @@ namespace PresentationLayer.Controllers
             var user = await _userManager.FindByIdAsync(userId);
             if (user != null)
             {
-                user.LastLogoutDate = DateTime.Now.ToString("yyyy/mm/dd HH:mm:ss");
-
+                user.UserDetails.Add(new UserDetail
+                {
+                    UserId = user.Id,
+                    LastLogoutDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                });
                 await _userManager.UpdateAsync(user);
 
                 await _signInManager.SignOutAsync();
@@ -315,7 +317,6 @@ namespace PresentationLayer.Controllers
             }
 
             var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
-            string changedTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
             if (result.Succeeded)
             {
                 TempData.Put("message", new AlertMessage()
@@ -325,12 +326,16 @@ namespace PresentationLayer.Controllers
                     AlertType = AlertTypeEnum.Success
                 });
 
-                user.ResetPasswordDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                user.UserDetails.Add(new UserDetail() 
+                { 
+                    Id = user.Id,
+                    ResetPasswordDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                });
 
                 await _userManager.UpdateAsync(user);
 
                 //send email saying reset password
-                await _emailSender.SendEmailAsync(model.Email,"Your password has been changed",$"Your password has been changed on {changedTime}.");
+                await _emailSender.SendEmailAsync(model.Email,"Your password has been changed",$"Your password has been changed on {DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}.");
                 return RedirectToAction("Login", "Account");
             }
 

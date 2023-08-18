@@ -5,7 +5,7 @@
         public Cart()
         {
             Random random = new();
-            CartId = random.NextDouble();
+            CartId = random.Next(111111111,999999999);
         }
         public double CartId { get; set; }
         public string UserId { get; set; }

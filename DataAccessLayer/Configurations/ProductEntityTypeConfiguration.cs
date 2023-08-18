@@ -31,7 +31,7 @@ namespace DataAccessLayer.Configurations
 
 
             //ImageUrl
-            builder.Property(p => p.ImageUrl).IsRequired();
+            //builder.Property(p => p.ImageUrl).IsRequired();
         }
     }
 }

@@ -16,7 +16,7 @@
     </div>
     <div class="form-group">
         <label for="ImageUrl">ImageUrl</label>
-        <input asp-for="ImageUrl" value="@Model.ImageUrl" class="form-control">
+        <input asp-for="ImageUrls" value="@Model.ImageUrls.Select(x => x.Url)" class="form-control">
     </div>
     @* <div class="form-group">
     <label for="CategoryId">CategoryId</label>

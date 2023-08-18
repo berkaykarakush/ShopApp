@@ -2,7 +2,7 @@
 
 <div class="card position-relative mb-2">
     <a asp-controller="shop" asp-action="Details" asp-route-url="@Model.Url">
-        <img asp-append-version="true" class="card-img-top" src="~/img/@Model.ImageUrl" alt="">
+        <img asp-append-version="true" class="card-img-top" src="~/img/@Model.ImageUrls.Select(c => c.Url)" alt="">
     </a>
     <span >
         <form asp-controller="#" asp-action="#" method="post">

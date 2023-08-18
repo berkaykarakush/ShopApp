@@ -2,6 +2,7 @@
 using EntityLayer;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Models;
+using PresentationLayer.ViewModels;
 
 namespace PresentationLayer.Controllers
 {
@@ -18,9 +19,9 @@ namespace PresentationLayer.Controllers
         public IActionResult TopSalesList(int page = 1)
         {
             const int pageSize = 15;
-            var productViewModel = new ProductListViewModel()
+            var productViewModel = new ListProductVM()
             {
-                PageInfo = new PageInfo()
+                PageInfo = new ViewModels.PageInfo()
                 {
                     CurrentPage = page,
                     ItemsPerPage = pageSize,
@@ -35,9 +36,9 @@ namespace PresentationLayer.Controllers
         public IActionResult List(string category, int page=1)
         {
             const int pageSize = 15;    
-            var productViewModel = new ProductListViewModel()
+            var productViewModel = new ListProductVM()
             {
-                PageInfo = new PageInfo()
+                PageInfo = new ViewModels.PageInfo()
                 {
                     CurrentPage = page,
                     ItemsPerPage = pageSize,

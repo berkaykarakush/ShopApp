@@ -10,6 +10,7 @@ namespace DataAccessLayer.Concrete.EFCore
         {
 
         }
+
         private ShopContext ShopContext
         {
             get { return _context as ShopContext; }
@@ -111,7 +112,7 @@ namespace DataAccessLayer.Concrete.EFCore
             throw new NotImplementedException();
         }
 
-        public void Update(Product entity, double[] categoryIds)
+        public bool Update(Product entity, List<double> categoryIds)
         {
             var product = ShopContext.Products
                 .Include(p => p.ProductCategories)
@@ -124,17 +125,25 @@ namespace DataAccessLayer.Concrete.EFCore
                 product.Price = entity.Price;
                 product.Quantity = entity.Quantity;
                 product.Description = entity.Description;
-                product.ImageUrl= entity.ImageUrl;  
                 product.IsHome = entity.IsHome;
                 product.IsApproved = entity.IsApproved;
                 product.UpdatedDate = entity.UpdatedDate;
+
+                product.ImageUrls = entity.ImageUrls.Select(i => new ImageUrl()
+                {
+                    ProductId = entity.ProductId,
+                    Product = product,
+
+                }).ToList();
 
                 product.ProductCategories = categoryIds.Select(c => new ProductCategory()
                 {
                     ProductId = entity.ProductId,
                     CategoryId = c
                 }).ToList();
+                return true;
             }
+            return false;
         }
     }
 }

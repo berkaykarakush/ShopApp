@@ -1,4 +1,4 @@
-﻿@model ProductListViewModel
+﻿@model ListProductVM
 <h1>Products</h1>
 <hr class="mb-3"/>
 <div class="row mb-3">
@@ -29,7 +29,7 @@
                     {
                         <tr>
                             <td>@item.ProductId</td>
-                            <td><img src="~/img/@item.ImageUrl" width="80"></td>
+                            <td><a href="#"><img src="~/img/@item.ProductImage" alt="@item.ProductImage" width="80"></a></td>
                             <td>@item.Name</td>
                             <td>@item.Price</td>
                             <td>

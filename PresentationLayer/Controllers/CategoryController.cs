@@ -1,30 +1,31 @@
-﻿using BusinessLayer.Abstract;
-using EntityLayer;
+﻿using DataAccessLayer.CQRS.Commands;
+using DataAccessLayer.CQRS.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
 using PresentationLayer.Models;
+using PresentationLayer.ViewModels;
 
 namespace PresentationLayer.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ICategoryService _categoryService;
+        private readonly IMediator _mediator;
 
-        public CategoryController(ICategoryService categoryService)
+        public CategoryController(IMediator mediator)
         {
-            _categoryService = categoryService;
+            _mediator = mediator;
         }
-        
+
         [Authorize(Roles = "Admin")]
         [HttpGet]
-        public IActionResult ListCategory()
+        public async Task<IActionResult> ListCategory(ListCategoryQueryRequest listCategoryQueryRequest)
         {
-            return View(new CategoryListViewModel()
-            {
-                Categories = _categoryService.GetAll()
-            });
+            ListCategoryQueryResponse response = await _mediator.Send(listCategoryQueryRequest);
+            CategoryListViewModel categoryListViewModel = new CategoryListViewModel() { Categories = response.Categories };
+            return View(categoryListViewModel);
         }
 
         [Authorize(Roles ="Admin")]
@@ -36,127 +37,119 @@ namespace PresentationLayer.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult CreateCategory(CategoryModel model)
+        public async Task<IActionResult> CreateCategory(CreateCategoryCommandRequest createCategoryCommandRequest)
         {
-            if (ModelState.IsValid)
-            {
-                var entity = new Category
-                {
-                    Name = NameEditExtensions.NameEdit(model.Name),
-                    Url = UrlNameEditExtensions.UrlNameEdit(model.Name),
-                };
+            createCategoryCommandRequest.Name = NameEditExtensions.NameEdit(createCategoryCommandRequest.Name);
+            createCategoryCommandRequest.Url = UrlNameEditExtensions.UrlNameEdit(createCategoryCommandRequest.Name);
 
-                if (_categoryService.Create(entity))
+            CreateCategoryCommandResponse response = await _mediator.Send(createCategoryCommandRequest);
+
+            if (response.IsSuccess)
+                TempData.Put("message", new AlertMessage()
                 {
-                    TempData.Put("message", new AlertMessage()
-                    {
-                        Title = "Category Eklendi",
-                        Message = $"{entity.Name} isimli category eklendi",
-                        AlertType = AlertTypeEnum.Success
-                    });
-                }
-                else
+                    Title = "Transaction Successfull!",
+                    Message = $"{createCategoryCommandRequest.Name} category has been created",
+                    AlertType = AlertTypeEnum.Success
+                });
+
+            else
+                TempData.Put("message", new AlertMessage()
                 {
-                    TempData.Put("message", new AlertMessage()
-                    {
-                        Title = "Category Eklenemedi",
-                        Message = $"{entity.Name} isimli category zaten mevcut lutfen yeni bir isim giriniz",
-                        AlertType = AlertTypeEnum.Danger
-                    });
-                    return View(model);
-                }
-                return RedirectToAction("ListCategory", "Category");
-            }
-            return View(model);
+                    Title = "Error!",
+                    Message = $"Failed to create {createCategoryCommandRequest.Name} category",
+                    AlertType = AlertTypeEnum.Danger
+                });
+
+            return RedirectToAction("ListCategory","Category");
         }
         
         [Authorize(Roles = "Admin")]
         [HttpGet]
-        public IActionResult EditCategory(int? id)
+        public async Task<IActionResult> EditCategory(EditCategoryQueryRequest editCategoryQueryRequest)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var entity = _categoryService.GetByIdWithProducts((int)id);
-            if (entity == null)
-            {
-                return NotFound();
-            }
-
-            var model = new CategoryModel()
-            {
-                CategoryId = entity.CategoryId,
-                Name = entity.Name,
-                Url = entity.Url,
-                Products = entity.ProductCategories.Select(p => p.Product).ToList()
-            };
-            return View(model);
+            EditCategoryQueryResponse response = await _mediator.Send(editCategoryQueryRequest);
+            CategoryVM categoryVM = new CategoryVM();
+            categoryVM = response;
+            return View(categoryVM);
         }
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult EditCategory(CategoryModel model)
+        public async Task<IActionResult> EditCategory(EditCategoryCommandRequest editCategoryCommandRequest)
         {
-            if (ModelState.IsValid)
+            editCategoryCommandRequest.Name = NameEditExtensions.NameEdit(editCategoryCommandRequest.Name);
+            editCategoryCommandRequest.Url = UrlNameEditExtensions.UrlNameEdit(editCategoryCommandRequest.Name);
+            EditCategoryCommandResponse response = await _mediator.Send(editCategoryCommandRequest);
+            
+            CategoryVM categoryVM = new CategoryVM();
+            categoryVM = response;
+
+            if (response.IsSuccess)
             {
-                var entity = _categoryService.GetById(model.CategoryId);
-                if (entity == null)
-                {
-                    return NotFound();
-                }
-
-                entity.Name = NameEditExtensions.NameEdit(entity.Name);
-                entity.Url = UrlNameEditExtensions.UrlNameEdit(entity.Name);
-
-                if (_categoryService.Update(entity))
-                {
-                    TempData.Put("message", new AlertMessage()
-                    {
-                        Title = "Category Guncellendi",
-                        Message = $"{entity.Name} isimli category guncellendi.",
-                        AlertType = AlertTypeEnum.Success
-                    });
-                    return RedirectToAction("ListCategory", "Category");
-                }
                 TempData.Put("message", new AlertMessage()
                 {
-                    Title = "Category Guncellenemedi",
-                    Message = $"{entity.Name} isimli category zaten mevcut lutfen yeni bir isim giriniz.",
-                    AlertType = AlertTypeEnum.Danger
+                    Title = "Category Name Updated",
+                    Message = $"{editCategoryCommandRequest.Name} category has been updated",
+                    AlertType = AlertTypeEnum.Success
                 });
-                return View(model);
-            }
-            return View(model);
-        }
-
-        [Authorize(Roles = "Admin")]
-        [HttpPost]
-        public IActionResult DeleteCategory(int categoryId)
-        {
-            var entity = _categoryService.GetById(categoryId);
-            if (entity != null)
-            {
-                _categoryService.Delete(entity);
+                return View(categoryVM);
             }
 
             TempData.Put("message", new AlertMessage()
             {
-                Title = "Category Silindi",
-                Message = $"{entity.Name} isimli category silindi.",
+                Title = "Category name could not be updated",
+                Message = $"{editCategoryCommandRequest.Name} category has not been updated",
                 AlertType = AlertTypeEnum.Danger
             });
+
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public async Task<IActionResult> DeleteCategory(DeleteCategoryCommandRequest deleteCategoryCommandRequest)
+        {
+
+            DeleteCategoryCommandResponse response = await _mediator.Send(deleteCategoryCommandRequest);
+            if (response.IsSuccess)
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Category Deleted",
+                    Message = $"{response.Name} category has been deleted successfully",
+                    AlertType = AlertTypeEnum.Success
+                });
+            else
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Category not deleted!",
+                    Message = $"{response.Name} category could not be deleted successfully",
+                    AlertType = AlertTypeEnum.Danger
+                });
 
             return RedirectToAction("ListCategory", "Category");
         }
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult DeleteFromCategory(int productId, int categoryId)
+        public async Task<IActionResult> DeleteFromCategory(DeleteFromCategoryCommandRequest deleteFromCategoryCommandRequest)
         {
-            _categoryService.DeleteFromCategory(productId, categoryId);
-            return Redirect("/admin/categories/" + categoryId);
+            DeleteFromCategoryCommandResponse response = await _mediator.Send(deleteFromCategoryCommandRequest);
+            if (response.IsSuccess)
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Transaction Successfull",
+                    Message = $"Deleted!",
+                    AlertType = AlertTypeEnum.Success
+                });
+            else
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Error!",
+                    Message = $"Please try again later!",
+                    AlertType = AlertTypeEnum.Danger
+                });
+
+            return Redirect("/admin/categories/" + deleteFromCategoryCommandRequest.categoryId);
         }
     }
 }

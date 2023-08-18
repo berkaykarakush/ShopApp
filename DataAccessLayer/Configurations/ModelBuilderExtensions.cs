@@ -16,7 +16,7 @@ namespace DataAccessLayer.Configurations
             for (int i = 1; i < 10; i++)
             {
                 builder.Entity<Category>().HasData(
-                    new Category() { CategoryId = i, Name = $"category {i}", Url = $"category-{i}" }
+                    new Category() { CategoryId = i+111111111, Name = $"category {i}", Url = $"category-{i}" }
                 );
             }
                 
@@ -24,18 +24,29 @@ namespace DataAccessLayer.Configurations
             for (int i = 1; i < 50; i++)
             {
                 builder.Entity<Product>().HasData(
-                    new Product() { ProductId = i, Name = $"urun {i}", Url = $"urun-{i}", Price = 10, Description = $"urun aciklamasi {i}", ImageUrl = "1.jpg", IsApproved = true, CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), IsHome = false, Quantity = i, SalesCount = 0, UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")}
+                    new Product() { ProductId = i+111111111, Name = $"urun {i}", Url = $"urun-{i}", Price = 10, Description = $"urun aciklamasi {i}", IsApproved = true, CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), IsHome = false, Quantity = i, SalesCount = i, UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), ProductImage = "1.jpg"}
                 );
-
             }
 
             //ProductCategory
             for (int i = 1; i < 10; i++)
             {
                 builder.Entity<ProductCategory>().HasData(
-                    new ProductCategory() { CategoryId = i, ProductId = i }
+                    new ProductCategory() { CategoryId = i + 111111111, ProductId = i + 111111111 }
                 );
             }
+
+            for (int i = 1; i < 10; i++)
+            {
+                builder.Entity<ImageUrl>().HasData(
+                new ImageUrl() 
+                { 
+                    Id = i + 111111111,
+                    ProductId = i + 111111111,
+                    Url = "1.jpg"
+                });
+            }
+
         }
     }
 }

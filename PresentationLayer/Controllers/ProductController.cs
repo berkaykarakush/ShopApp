@@ -1,51 +1,31 @@
-﻿using BusinessLayer.Abstract;
-using EntityLayer;
+﻿using DataAccessLayer.CQRS.Commands;
+using DataAccessLayer.CQRS.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
-using PresentationLayer.Models;
+using PresentationLayer.ViewModels;
 
 namespace PresentationLayer.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly IProductService _productService;
-        private readonly ICategoryService _categoryService;
-        public ProductController(IProductService productService, ICategoryService categoryService)
-        {
-            _productService = productService;
-            _categoryService = categoryService;
-        }
+        IMediator _mediator;
 
-        //[HttpGet]
-        //[Authorize(Roles = "Admin")]
-        //public IActionResult ListProduct(string category, int page = 1)
-        //{
-        //    const int pageSize = 100;
-        //    var productViewModel = new ProductListViewModel()
-        //    {
-        //        PageInfo = new PageInfo()
-        //        {
-        //            CurrentPage = page,
-        //            ItemsPerPage = pageSize,
-        //            CurrentCategory = category,
-        //            TotalItems = _productService.GetCountByCategory(category)
-        //        },
-        //        Products = _productService.GetProductsByCategory(category, page, pageSize)
-        //    };
-        //    return View(productViewModel);
-        //}
+        public ProductController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
-        public IActionResult ListProduct()
+        public async Task<IActionResult> ListProduct(ListProductQueryRequest listProductQueryRequest)
         {
-            var productViewModel = new ProductListViewModel()
-            {
-                Products = _productService.GetAll()
-            };
-            return View(productViewModel);
+            ListProductQueryResponse  response = await _mediator.Send(listProductQueryRequest);
+            ListProductVM listProductVM = new ListProductVM();
+            listProductVM = response;
+            return View(listProductVM);
         }
 
         [HttpGet]
@@ -57,141 +37,108 @@ namespace PresentationLayer.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> CreateProduct(ProductModel model, IFormFile file)
+        public async Task<IActionResult> CreateProduct(CreateProductCommandRequest createProductCommandRequest, IFormFileCollection files)
         {
+            var imageUrls = await ImageNameEditExtensions.ImageNameEdit(files, UrlNameEditExtensions.UrlNameEdit(createProductCommandRequest.Name));
+            createProductCommandRequest.Name = NameEditExtensions.NameEdit(createProductCommandRequest.Name);
+            createProductCommandRequest.Url = UrlNameEditExtensions.UrlNameEdit(createProductCommandRequest.Name);
+            createProductCommandRequest.ProductImage = imageUrls[0].Url.ToString();
+
+            foreach (var imageUrl in imageUrls) 
+                createProductCommandRequest.ImageUrls.Add(imageUrl);
+
             if (ModelState.IsValid)
             {
-                var entity = new Product
-                {
-                    ProductId = model.ProductId,
-                    Name = NameEditExtensions.NameEdit(model.Name),
-                    Url = UrlNameEditExtensions.UrlNameEdit(model.Name),
-                    Description = model.Description,
-                    Price = model.Price,
-                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
-                    ImageUrl = model.ImageUrl,
-                    Quantity = model.Quantity,
-                    ProductCategories = ViewBag.Categories,
-                    IsApproved = true
-                };
-                entity.ImageUrl = await ImageNameEditExtensions.ImageNameEdit(file, UrlNameEditExtensions.UrlNameEdit(model.Name));
-                
-
-                if (_productService.Create(entity))
+                CreateProductCommandResponse response = await _mediator.Send(createProductCommandRequest);
+                if (response.IsSuccess)
                 {
                     TempData.Put("message", new AlertMessage()
                     {
-                        Title = "Islem Basarili",
-                        Message = $"{entity.Name} urun eklendi",
+                        Title = "Transaction Successfull",
+                        Message = $"Product {response.ProductId} added.",
                         AlertType = AlertTypeEnum.Success
                     });
-                    return RedirectToAction("ListProduct", "Product");
+                    return RedirectToAction("Index", "Home");
                 }
+
                 TempData.Put("message", new AlertMessage()
                 {
-                    Title = "Hata",
-                    Message = "urun adi girmelisiniz",
+                    Title = "Error",
+                    Message = "An error occured while adding the product. Please, try again later!",
                     AlertType = AlertTypeEnum.Danger
                 });
-                return View(model);
+                return View(response);
             }
-            return View(model);
+            TempData.Put("message", new AlertMessage()
+            {
+                Title = "Error",
+                Message = "You entered incomplete information!",
+                AlertType = AlertTypeEnum.Danger
+            });
+            return View();
         }
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
-        public IActionResult EditProduct(int? id)
+        public async Task<IActionResult> EditProduct(EditProductQueryRequest editProductQueryRequest)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var entity = _productService.GetByIdWithCategories((int)id);
-            if (entity == null)
-            {
-                return NotFound();
-            }
-
-            var model = new ProductModel()
-            {
-                ProductId = entity.ProductId,
-                Name = entity.Name,
-                Url = entity.Url,
-                Price = entity.Price,
-                Quantity = entity.Quantity,
-                Description = entity.Description,
-                ImageUrl = entity.ImageUrl,
-                IsApproved = entity.IsApproved,
-                IsHome = entity.IsHome,
-                UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
-                SelectedCategories = entity.ProductCategories.Select(pc => pc.Category).ToList()
-            };
-
-            ViewBag.Categories = _categoryService.GetAll();
-            return View(model);
+            EditProductQueryResponse response = await _mediator.Send(editProductQueryRequest);
+            EditProductVM editProductVM = new EditProductVM();
+            editProductVM = response;//implicit type conversion
+            return View(editProductVM);
         }
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> EditProduct(ProductModel model, double[] categoryIds, IFormFile file)
+        public async Task<IActionResult> EditProduct(EditProductCommandRequest editProductCommandRequest, double[] categoryIds, IFormFileCollection files)
         {
+            var imageUrls = await ImageNameEditExtensions.ImageNameEdit(files, UrlNameEditExtensions.UrlNameEdit(editProductCommandRequest.Name));
+            editProductCommandRequest.Name = NameEditExtensions.NameEdit(editProductCommandRequest.Name);
+            editProductCommandRequest.Url = UrlNameEditExtensions.UrlNameEdit(editProductCommandRequest.Name);
+            editProductCommandRequest.ProductImage = imageUrls[0].Url.ToString();
+            editProductCommandRequest.ImageUrls.AddRange(imageUrls);
+
             if (ModelState.IsValid)
             {
-                var entity = _productService.GetById(model.ProductId);
-                if (entity == null)
-                {
-                    return NotFound();
-                }
-
-                entity.Name = NameEditExtensions.NameEdit(model.Name);
-                entity.Url = UrlNameEditExtensions.UrlNameEdit(model.Name);
-                entity.Price = model.Price;
-                entity.Quantity= model.Quantity;
-                entity.Description = model.Description;
-                entity.IsApproved = model.IsApproved;
-                entity.IsHome = model.IsHome;
-                entity.UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-                entity.ImageUrl = await ImageNameEditExtensions.ImageNameEdit(file, UrlNameEditExtensions.UrlNameEdit(model.Name));
-
-                if (_productService.Update(entity, categoryIds))
-                {
-                    TempData.Put("message", new AlertMessage()
-                    {
-                        Title = "Islem Basarili",
-                        Message = $"{entity.Name} isimli urun guncellendi.",
-                        AlertType = AlertTypeEnum.Success
-                    });
-                    return RedirectToAction("ListProduct", "Product");
-                }
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Hata",
-                    Message = _productService.ErrorMessage.ToString(),
-                    AlertType = AlertTypeEnum.Danger
-                });
-            }
-            ViewBag.Categories = _categoryService.GetAll();
-            return View(model);
-        }
-
-        [HttpPost]
-        [Authorize(Roles = "Admin")]
-        public IActionResult DeleteProduct(int productId)
-        {
-            var entity = _productService.GetById(productId);
-            if (entity != null)
-            {
-                _productService.Delete(entity);
+                EditProductCommandResponse response = await _mediator.Send(editProductCommandRequest);
+                response.ImageUrls = editProductCommandRequest.ImageUrls;
+                EditProductVM editProductVM = new EditProductVM();
+                editProductVM = response;
+                return View(editProductVM);
             }
 
             TempData.Put("message", new AlertMessage()
             {
-                Title = "Urun Silindi",
-                Message = $"{entity.Name} isimli urun silindi.",
-                AlertType = AlertTypeEnum.Danger
+                Title = "Transaction Successfull",
+                Message = $"Product {editProductCommandRequest.ProductId} added.",
+                AlertType = AlertTypeEnum.Success
             });
-            return RedirectToAction("ListProduct", "Product");
+            return View();
         }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteProduct(DeleteProductCommandRequest deleteProductCommandRequest)
+        {
+            DeleteProductCommandResponse response = await _mediator.Send(deleteProductCommandRequest);
+
+            if (response.IsSuccess)
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Product Deleted",
+                    Message = $"Item named {response.Name} has been deleted successfully!",
+                    AlertType = AlertTypeEnum.Success
+                });
+            else
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Product not deleted",
+                    Message = $"There was an error trying to delete the item {response.Name}. Please, try again later!",
+                    AlertType = AlertTypeEnum.Danger
+                });
+
+            return RedirectToAction("ListProduct", "Product");
+
+    }
     }
 }

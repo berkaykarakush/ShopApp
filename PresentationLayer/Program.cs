@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Identity;
 using PresentationLayer.Identity;
 using PresentationLayer.Extensions;
 using Microsoft.AspNetCore.HttpOverrides;
+using MediatR;
+using System.Reflection;
+using DataAccessLayer.CQRS.Commands;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +18,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDataAccessLayerServices();
 builder.Services.AddBusinessLayerServices();
 builder.Services.AddPresentationLayerServices();
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateProductCommandHandler).GetTypeInfo().Assembly));
 
 //builder.WebHost.CaptureStartupErrors(true);
 //builder.WebHost.UseSetting("detailedErrors","true");

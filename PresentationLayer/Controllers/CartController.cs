@@ -12,6 +12,7 @@ using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
+using PresentationLayer.ViewModels;
 using System.Data;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
@@ -51,8 +52,8 @@ namespace PresentationLayer.Controllers
                     CartItemId = c.ProductId,
                     Name = c.Product.Name,
                     Price = (double)c.Product.Price,
-                    Quantity = c.Quantity,
-                    ImageUrl = c.Product.ImageUrl
+                    Quantity = c.Quantity
+                    //ImageUrl = c.Product.ImageUrl
                 }).ToList()
 
                 
@@ -61,7 +62,7 @@ namespace PresentationLayer.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult AddToCart(int productId, int quantity)
+        public IActionResult AddToCart(double productId, int quantity)
         {
             var userId = _userManager.GetUserId(User);
             _cartService.AddToCart(userId, productId, quantity);
@@ -70,7 +71,7 @@ namespace PresentationLayer.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult DeleteFromCart(int productId)
+        public IActionResult DeleteFromCart(double productId)
         {
             var userId = _userManager.GetUserId(User);
             _cartService.DeleteFromCart(userId, productId);
@@ -93,7 +94,6 @@ namespace PresentationLayer.Controllers
                     Name = c.Product.Name,
                     Price = (double)c.Product.Price,
                     Quantity = c.Quantity,
-                    ImageUrl = c.Product.ImageUrl
                 }).ToList()
             };
             return View(orderModel);
@@ -118,9 +118,22 @@ namespace PresentationLayer.Controllers
                         Name = c.Product.Name,
                         Price = (double)c.Product.Price,
                         Quantity = c.Quantity,
-                        ImageUrl = c.Product.ImageUrl,
+                        //ImageUrl = c.Product.ImageUrl,
                     }).ToList()
                 };
+                var user = await _userManager.FindByIdAsync(userId);
+                if (user != null)
+                {
+                    user.UserAddresses.Add(new UserAddress()
+                    {
+                        UserId = userId,
+                        Address = model.Address,
+                        City = model.City,
+                        Country = model.City,
+                        ZipCode = model.ZipCode
+                    });
+                    await _userManager.UpdateAsync(user);
+                }
 
                 var payment = PaymentProcess(model);
                 if (payment.Status == "success")

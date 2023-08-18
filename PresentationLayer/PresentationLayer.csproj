@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ViewModels\Product\CreateProductVM.cs~RF2862aaf9.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Iyzipay" Version="2.1.55" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9">
@@ -24,7 +28,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="VIewModels\" />
+    <Folder Include="ViewModels\Account\" />
+    <Folder Include="ViewModels\Cart\" />
+    <Folder Include="ViewModels\Role\" />
+    <Folder Include="ViewModels\Order\" />
   </ItemGroup>
 
 </Project>
