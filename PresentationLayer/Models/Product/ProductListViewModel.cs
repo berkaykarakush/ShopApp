@@ -1,10 +1,10 @@
-﻿using EntityLayer;
+﻿using PresentationLayer.ViewModels;
 
-namespace PresentationLayer.Models      
+namespace PresentationLayer.Models
 {
     public class ProductListViewModel
     {
-        public PageInfo PageInfo { get; set; }
-        public List<Product> Products { get; set; }
+        public PageInfoVM PageInfo { get; set; }
+        public List<ProductVM> Products { get; set; }
     }
 }

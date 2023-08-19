@@ -1,30 +1,30 @@
-﻿using BusinessLayer.Abstract;
+﻿using AutoMapper;
+using DataAccessLayer.CQRS.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Models;
-using PresentationLayer.ViewModels;
 
 namespace PresentationLayer.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IProductService _productService;
+        private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
 
-        public HomeController(ILogger<HomeController> logger, IProductService productService)
+        public HomeController(ILogger<HomeController> logger, IMediator mediator, IMapper mapper)
         {
             _logger = logger;
-            _productService = productService;
+            _mediator = mediator;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index(HomeIndexQueryRequest homeIndexQueryRequest)
         {
-            var productViewModel = new ProductListViewModel()
-            {
-                Products = _productService.GetHomePageProducts()
-            };
-
-            return View(productViewModel);
+            HomeIndexQueryResponse response = await _mediator.Send(homeIndexQueryRequest);
+            ProductListViewModel productListViewModel = _mapper.Map<ProductListViewModel>(response);
+            return View(productListViewModel);
         }
 
         [HttpGet]

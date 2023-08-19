@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.CQRS.Commands;
+﻿using AutoMapper;
+using DataAccessLayer.CQRS.Commands;
 using DataAccessLayer.CQRS.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -13,10 +14,11 @@ namespace PresentationLayer.Controllers
     public class CategoryController : Controller
     {
         private readonly IMediator _mediator;
-
-        public CategoryController(IMediator mediator)
+        private readonly IMapper _mapper;
+        public CategoryController(IMediator mediator, IMapper mapper)
         {
             _mediator = mediator;
+            _mapper = mapper;
         }
 
         [Authorize(Roles = "Admin")]
@@ -68,8 +70,7 @@ namespace PresentationLayer.Controllers
         public async Task<IActionResult> EditCategory(EditCategoryQueryRequest editCategoryQueryRequest)
         {
             EditCategoryQueryResponse response = await _mediator.Send(editCategoryQueryRequest);
-            CategoryVM categoryVM = new CategoryVM();
-            categoryVM = response;
+            CategoryVM categoryVM = _mapper.Map<CategoryVM>(response);
             return View(categoryVM);
         }
 
@@ -80,9 +81,8 @@ namespace PresentationLayer.Controllers
             editCategoryCommandRequest.Name = NameEditExtensions.NameEdit(editCategoryCommandRequest.Name);
             editCategoryCommandRequest.Url = UrlNameEditExtensions.UrlNameEdit(editCategoryCommandRequest.Name);
             EditCategoryCommandResponse response = await _mediator.Send(editCategoryCommandRequest);
-            
-            CategoryVM categoryVM = new CategoryVM();
-            categoryVM = response;
+
+            CategoryVM categoryVM = _mapper.Map<CategoryVM>(response);
 
             if (response.IsSuccess)
             {

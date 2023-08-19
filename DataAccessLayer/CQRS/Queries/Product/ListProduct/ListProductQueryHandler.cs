@@ -19,7 +19,7 @@ namespace DataAccessLayer.CQRS.Queries
             return new ListProductQueryResponse
             {
                 Products = allProducts,
-                Success = true
+                IsSuccess = true
             };
         }
     }

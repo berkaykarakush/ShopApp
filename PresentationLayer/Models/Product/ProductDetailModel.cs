@@ -1,10 +1,11 @@
 ﻿using EntityLayer;
+using PresentationLayer.ViewModels;
 
 namespace PresentationLayer.Models
 {
     public class ProductDetailModel
     {
-        public Product Product { get; set; }
-        public List<Category> Categories { get; set; }
+        public ProductVM Product { get; set; }
+        public List<CategoryVM> Categories { get; set; }
     }
 }

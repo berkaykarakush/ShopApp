@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.CQRS.Commands;
+﻿using AutoMapper;
+using DataAccessLayer.CQRS.Commands;
 using DataAccessLayer.CQRS.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -12,10 +13,11 @@ namespace PresentationLayer.Controllers
     public class ProductController : Controller
     {
         IMediator _mediator;
-
-        public ProductController(IMediator mediator)
+        IMapper _mapper;
+        public ProductController(IMediator mediator, IMapper mapper)
         {
             _mediator = mediator;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -23,8 +25,7 @@ namespace PresentationLayer.Controllers
         public async Task<IActionResult> ListProduct(ListProductQueryRequest listProductQueryRequest)
         {
             ListProductQueryResponse  response = await _mediator.Send(listProductQueryRequest);
-            ListProductVM listProductVM = new ListProductVM();
-            listProductVM = response;
+            ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
             return View(listProductVM);
         }
 

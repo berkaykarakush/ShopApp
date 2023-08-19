@@ -1,8 +1,8 @@
 ﻿using DataAccessLayer.Concrete.EFCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 using PresentationLayer.EmailServices;
+using System.Reflection;
 
 namespace PresentationLayer.Identity
 {
@@ -22,6 +22,9 @@ namespace PresentationLayer.Identity
 
             serviceCollection.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration._configuration.GetSection("ConnectionStrings:MsSQLConnection").Value));
             serviceCollection.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
+
+            //AutoMapper
+            serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());   
 
             //identity settings
             serviceCollection.Configure<IdentityOptions>(options =>

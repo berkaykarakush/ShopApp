@@ -1,8 +1,8 @@
-﻿@model Product
+﻿@model ProductVM
 
 <div class="card position-relative mb-2">
     <a asp-controller="shop" asp-action="Details" asp-route-url="@Model.Url">
-        <img asp-append-version="true" class="card-img-top" src="~/img/@Model.ImageUrls.Select(c => c.Url)" alt="">
+        <img asp-append-version="true" class="card-img-top" src="~/img/@Model.ProductImage" alt="@Model.ProductImage">
     </a>
     <span >
         <form asp-controller="#" asp-action="#" method="post">

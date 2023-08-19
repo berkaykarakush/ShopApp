@@ -1,22 +1,12 @@
-﻿using DataAccessLayer.CQRS.Queries;
-using EntityLayer;
-
-namespace PresentationLayer.ViewModels
+﻿namespace PresentationLayer.ViewModels
 {
     public class ListProductVM
     {
         public ListProductVM()
         {
-            Products = new List<Product>();
+            Products = new List<ProductVM>();
         }
-        public PageInfo? PageInfo { get; set; }
-        public List<Product> Products { get; set; }
-
-        public static implicit operator ListProductVM(ListProductQueryResponse v)
-        {
-            ListProductVM result = new ListProductVM();
-            result.Products = v.Products;
-            return result;
-        }
+        public PageInfoVM? PageInfo { get; set; }
+        public List<ProductVM> Products { get; set; }
     }
 }
