@@ -2,8 +2,10 @@
 using DataAccessLayer.CQRS.Commands;
 using DataAccessLayer.CQRS.Queries;
 using EntityLayer;
+using PresentationLayer.Identity;
 using PresentationLayer.Models;
 using PresentationLayer.ViewModels;
+using System.Runtime.CompilerServices;
 
 namespace PresentationLayer.Mapping
 {
@@ -28,12 +30,27 @@ namespace PresentationLayer.Mapping
             CreateMap<ProductVM, List<Product>>().ReverseMap();
             
             CreateMap<HomeIndexQueryResponse, ProductListViewModel>().ReverseMap();
+            
+            CreateMap<EditProductQueryResponse, EditProductVM>().ReverseMap();
+
+            CreateMap<EditProductCommandResponse, EditProductVM>().ReverseMap();
+
 
 
             //Category
             CreateMap<EditCategoryQueryResponse, CategoryVM>().ReverseMap();
 
             CreateMap<EditCategoryCommandResponse, CategoryVM>().ReverseMap();
+
+            //Account
+            CreateMap<LoginQueryResponse, LoginModel>().ReverseMap();
+
+            //Cart
+            CreateMap<CartIndexQueryResponse, CartModel>().ReverseMap();
+            CreateMap<CartItem, CartItemModel>().ReverseMap();
+            CreateMap<CheckoutQueryResponse, OrderModel>().ReverseMap();
+            CreateMap<Cart, CartModel>().ReverseMap();
+
         }
     }
 }

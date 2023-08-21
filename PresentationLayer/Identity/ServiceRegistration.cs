@@ -1,7 +1,8 @@
-﻿using DataAccessLayer.Concrete.EFCore;
+﻿using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete.EFCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using PresentationLayer.EmailServices;
 using System.Reflection;
 
 namespace PresentationLayer.Identity
@@ -10,15 +11,7 @@ namespace PresentationLayer.Identity
     {
         public static void AddPresentationLayerServices(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddScoped<IEmailSender, EmailSender>(i=> new EmailSender
-                (
-                    Configuration._configuration.GetSection("EmailSender:Host").Value,
-                    Configuration._configuration.GetSection("EmailSender:Port").Value,
-                    Configuration._configuration.GetSection("EmailSender:EnableSSl").Value,
-                    Configuration._configuration.GetSection("EmailSender:Username").Value,
-                    Configuration._configuration.GetSection("EmailSender:Password").Value
-                )
-            );
+            
 
             serviceCollection.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration._configuration.GetSection("ConnectionStrings:MsSQLConnection").Value));
             serviceCollection.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();

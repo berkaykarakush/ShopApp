@@ -32,7 +32,7 @@ namespace PresentationLayer.Models
         public string Description { get; set; }
 
         [DataType(DataType.ImageUrl)]
-        public string? ImageUrl { get; set; }
+        public string? ProductImage { get; set; }
         public bool IsApproved { get; set; }
         public bool IsHome { get; set; }
         public string CreatedDate { get; set; }

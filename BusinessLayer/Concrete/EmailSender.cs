@@ -1,7 +1,8 @@
-﻿using System.Net;
+﻿using BusinessLayer.Abstract;
+using System.Net;
 using System.Net.Mail;
 
-namespace PresentationLayer.EmailServices
+namespace BusinessLayer.Concrete
 {
     public class EmailSender : IEmailSender
     {
@@ -26,7 +27,7 @@ namespace PresentationLayer.EmailServices
                 Credentials = new NetworkCredential(_username, _password),
                 EnableSsl = bool.Parse(_enableSSl)
             };
-            return client.SendMailAsync(new MailMessage(_username, email, subject, htmlMessage) 
+            return client.SendMailAsync(new MailMessage(_username, email, subject, htmlMessage)
             {
                 IsBodyHtml = true
             });

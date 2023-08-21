@@ -29,5 +29,6 @@ namespace DataAccessLayer.CQRS.Queries
         public string UpdatedDate { get; set; }
         public List<Category> Categories { get; set; }
         public List<Category> SelectedCategories { get; internal set; }
+        public bool IsSuccess { get; set; }
     }
 }

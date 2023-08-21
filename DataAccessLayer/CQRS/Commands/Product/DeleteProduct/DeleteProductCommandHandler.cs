@@ -1,5 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
+using EntityLayer;
 using MediatR;
+using System.Net.Http.Headers;
 
 namespace DataAccessLayer.CQRS.Commands
 {
@@ -14,12 +16,20 @@ namespace DataAccessLayer.CQRS.Commands
 
         public async Task<DeleteProductCommandResponse> Handle(DeleteProductCommandRequest request, CancellationToken cancellationToken)
         {
-            var entity = _unitOfWork.Products.GetById(request.productId);
-            var name = entity.Name;
-
-            _unitOfWork.Products.Delete(entity);
-            _unitOfWork.Save();
-
+            string name = string.Empty;
+            try
+            {
+                var entity = _unitOfWork.Products.GetById(request.productId);
+                name = entity.Name;
+                _unitOfWork.Products.Delete(entity);
+                _unitOfWork.Save();
+            }
+            catch (Exception ex)
+            {
+                await Console.Out.WriteLineAsync(ex.Message);
+                return new DeleteProductCommandResponse() { IsSuccess = false };
+            }
+            
             return new DeleteProductCommandResponse()
             {
                 Name = name,

@@ -1,21 +1,22 @@
-﻿using BusinessLayer.Abstract;
+﻿using AutoMapper;
+using BusinessLayer.Abstract;
 using DataAccessLayer.Concrete.EFCore;
+using DataAccessLayer.CQRS.Queries;
 using EntityLayer;
 using Iyzipay;
 using Iyzipay.Model;
 using Iyzipay.Request;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using PresentationLayer.EmailServices;
 using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
 using PresentationLayer.ViewModels;
 using System.Data;
-using System.Runtime.InteropServices;
-using System.Runtime.Serialization;
+
 
 namespace PresentationLayer.Controllers
 {
@@ -25,39 +26,40 @@ namespace PresentationLayer.Controllers
         private readonly IOrderService _orderService;
         private readonly IEmailSender _emailSender;
         private readonly IProductService _productService;
-        
+        private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
         private UserManager<User> _userManager;
 
-        public CartController(ICartService cartService, UserManager<User> userManager, IOrderService orderService, IEmailSender emailSender, IProductService productService)
+        public CartController(ICartService cartService, UserManager<User> userManager, IOrderService orderService, IEmailSender emailSender, IProductService productService, IMediator mediator, IMapper mapper)
         {
             _cartService = cartService;
             _userManager = userManager;
             _orderService = orderService;
             _emailSender = emailSender;
             _productService = productService;
+            _mediator = mediator;
+            _mapper = mapper;
         }
 
         [Authorize]
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index(CartIndexQueryRequest cartIndexQueryRequest)
         {
             var cart = _cartService.GetCartByUserId(_userManager.GetUserId(User));
-            return View(new CartModel()
-            {
-                CartId = cart.CartId,
-                CartItems = cart.CartItems.Select(c => new CartItemModel()
-                {
-                    ProductQuantity = c.Product.Quantity,
-                    ProductId = c.ProductId,
-                    CartItemId = c.ProductId,
-                    Name = c.Product.Name,
-                    Price = (double)c.Product.Price,
-                    Quantity = c.Quantity
-                    //ImageUrl = c.Product.ImageUrl
-                }).ToList()
+            cartIndexQueryRequest.Cart = cart;
 
-                
-            });
+            CartIndexQueryResponse response = await _mediator.Send(cartIndexQueryRequest);
+            CartModel cartModel = _mapper.Map<CartModel>(response);
+
+            if (!response.IsSuccess)
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Error!",
+                    Message = "Please try again later!",
+                    AlertType = AlertTypeEnum.Danger
+                });
+
+            return View(cartModel);
         }
 
         [Authorize]
@@ -73,29 +75,29 @@ namespace PresentationLayer.Controllers
         [HttpPost]
         public IActionResult DeleteFromCart(double productId)
         {
-            var userId = _userManager.GetUserId(User);
+            string userId = _userManager.GetUserId(User);
             _cartService.DeleteFromCart(userId, productId);
             return RedirectToAction("Index", "Cart");
         }
 
         [Authorize]
         [HttpGet]
-        public IActionResult Checkout()
+        public async Task<IActionResult> Checkout(CheckoutQueryRequest checkoutQueryRequest)
         {
-            var cart = _cartService.GetCartByUserId(_userManager.GetUserId(User));
-            var orderModel = new OrderModel();
-            orderModel.CartModel = new CartModel()
-            {
-                CartId = cart.CartId,
-                CartItems = cart.CartItems.Select(c => new CartItemModel()
+            Cart cart = _cartService.GetCartByUserId(_userManager.GetUserId(User));
+            checkoutQueryRequest.Cart = cart;
+            CheckoutQueryResponse response = await _mediator.Send(checkoutQueryRequest);
+            OrderModel orderModel = _mapper.Map<OrderModel>(response);
+            orderModel.CartModel = _mapper.Map<CartModel>(response.Cart);
+
+            if (!response.IsSuccess)
+                TempData.Put("message", new AlertMessage()
                 {
-                    ProductId = c.ProductId,
-                    CartItemId = c.ProductId,
-                    Name = c.Product.Name,
-                    Price = (double)c.Product.Price,
-                    Quantity = c.Quantity,
-                }).ToList()
-            };
+                    Title = "Error!",
+                    Message = "Please try again later!",
+                    AlertType = AlertTypeEnum.Danger
+                });
+
             return View(orderModel);
         }
 
@@ -115,10 +117,10 @@ namespace PresentationLayer.Controllers
                     {
                         ProductId = c.ProductId,
                         CartItemId = c.ProductId,
-                        Name = c.Product.Name,
+                        ProductName = c.Product.Name,
                         Price = (double)c.Product.Price,
                         Quantity = c.Quantity,
-                        //ImageUrl = c.Product.ImageUrl,
+                        ProductImage = c.Product.ProductImage
                     }).ToList()
                 };
                 var user = await _userManager.FindByIdAsync(userId);
@@ -139,7 +141,7 @@ namespace PresentationLayer.Controllers
                 if (payment.Status == "success")
                 {
                     SaveOrder(model, payment, userId);
-                    OrderState(model, EnumOrderState.waiting);
+                    await OrderState(model, EnumOrderState.waiting);
                     DecreaseQuantity(model);
                     ClearCart(model.CartModel.CartId);
                     IncreaseProductSaleCount(model);
@@ -260,8 +262,7 @@ namespace PresentationLayer.Controllers
             request.PaidPrice = model.CartModel.TotalPrice().ToString();
             request.Currency = Currency.TRY.ToString();
             request.Installment = 1;
-            //request.BasketId = "B67832";
-            request.BasketId = $"B{model.CartModel.CartId}";
+            request.BasketId = model.CartModel.CartId.ToString();
             request.PaymentChannel = PaymentChannel.WEB.ToString();
             request.PaymentGroup = PaymentGroup.PRODUCT.ToString();
 
@@ -292,7 +293,7 @@ namespace PresentationLayer.Controllers
             buyer.Ip = GetPublicIPAddress.GetIPAddress();
             buyer.City = model.City;
             buyer.Country = model.Country;
-            buyer.ZipCode = "34732";
+            buyer.ZipCode = model.ZipCode;
             request.Buyer = buyer;
 
             Address shippingAddress = new Address();
@@ -300,7 +301,7 @@ namespace PresentationLayer.Controllers
             shippingAddress.City = model.City;
             shippingAddress.Country = model.Country;
             shippingAddress.Description = model.Address;
-            shippingAddress.ZipCode = "34742";
+            shippingAddress.ZipCode = model.ZipCode;
             request.ShippingAddress = shippingAddress;
 
             Address billingAddress = new Address();
@@ -308,7 +309,7 @@ namespace PresentationLayer.Controllers
             billingAddress.City = model.City;
             billingAddress.Country = model.Country;
             billingAddress.Description = model.Address;
-            billingAddress.ZipCode = "34742";
+            billingAddress.ZipCode = model.ZipCode;
             request.BillingAddress = billingAddress;
 
             List<BasketItem> basketItems = new List<BasketItem>();
@@ -318,7 +319,7 @@ namespace PresentationLayer.Controllers
             {
                 basketItem = new BasketItem();
                 basketItem.Id = item.ProductId.ToString();
-                basketItem.Name = item.Name.ToString();
+                basketItem.Name = item.ProductName.ToString();
                 basketItem.Category1 = "Collectibles";
                 basketItem.Category2 = "Accessories";
                 basketItem.ItemType = BasketItemType.PHYSICAL.ToString();

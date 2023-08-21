@@ -27,6 +27,7 @@ namespace BusinessLayer.Concrete
                     if (product.Quantity < quantity)
                     {
                         ErrorMessage += "Has no product\n";
+                        cart.CartItems[index].Quantity = product.Quantity;
                     }
 
                     cart.CartItems.Add(new CartItem() 
@@ -38,15 +39,16 @@ namespace BusinessLayer.Concrete
                 }
                 else
                 {
-                    if (product.Quantity < quantity)
-                        cart.CartItems[index].Quantity += quantity;
-                    else
+                    cart.CartItems[index].Quantity += quantity;
+
+                    if (product.Quantity < cart.CartItems[index].Quantity)
                     {
                         ErrorMessage += "Has no product\n";
                         cart.CartItems[index].Quantity = product.Quantity;
-                    }
 
+                    }
                 }
+
                 _unitOfWork.Carts.Update(cart);
                 _unitOfWork.Save();
             }

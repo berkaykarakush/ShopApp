@@ -6,6 +6,7 @@ namespace DataAccessLayer.CQRS.Queries
     {
         public TopSalesListQueryResponse()
         {
+            PageInfo = new PageInfo();
             Products = new List<Product>();
         }
         public PageInfo PageInfo { get; set; }

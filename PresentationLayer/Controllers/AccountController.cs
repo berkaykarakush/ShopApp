@@ -1,8 +1,10 @@
-﻿using BusinessLayer.Abstract;
+﻿using AutoMapper;
+using BusinessLayer.Abstract;
+using DataAccessLayer.CQRS.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using PresentationLayer.EmailServices;
 using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
@@ -18,15 +20,18 @@ namespace PresentationLayer.Controllers
         private readonly SignInManager<User> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ICartService _cartService;
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IEmailSender emailSender, ICartService cartService, RoleManager<IdentityRole> roleManager)
+        private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IEmailSender emailSender, ICartService cartService, RoleManager<IdentityRole> roleManager, IMediator mediator, IMapper mapper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _cartService = cartService;
             _roleManager = roleManager;
+            _mediator = mediator;
+            _mapper = mapper;
         }
-
         [HttpGet]
         public IActionResult Index()
         {
@@ -34,15 +39,23 @@ namespace PresentationLayer.Controllers
         }
         
         [HttpGet]
-        public IActionResult Login(string ReturnUrl=null)
+        public async Task<IActionResult> Login(LoginQueryRequest loginQueryRequest)
         {
-            return View(new LoginModel()
-            {
-                ReturnUrl = ReturnUrl
-            });
+            LoginQueryResponse response = await _mediator.Send(loginQueryRequest);
+            LoginModel loginModel = _mapper.Map<LoginModel>(response);
+            
+            if (!response.IsSuccess)
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Error!",
+                    Message = "Please try again later!",
+                    AlertType = AlertTypeEnum.Danger
+                });
+
+            return View(loginModel);
         }
         
-        [HttpPost]
+        [HttpPost] 
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel model)
         {
@@ -139,9 +152,8 @@ namespace PresentationLayer.Controllers
         [HttpGet]
         public async Task<IActionResult> Manage()
         {
-            var userId = _userManager.GetUserId(User);
-            var user = await _userManager.FindByIdAsync(userId);
-
+            string userId = _userManager.GetUserId(User);
+            User user = await _userManager.FindByIdAsync(userId);
             return View(new ManageModel()
             {
                 UserId = user.Id,
@@ -149,10 +161,10 @@ namespace PresentationLayer.Controllers
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Phone = user.PhoneNumber
-                //Address
-                //City
-                //Country
-                //ZipCode 
+                //Address = user.UserAddresses.Select(a => a.Address).ToString(),
+                //City = user.UserAddresses.Select(c => c.City).ToString(),
+                //Country = user.UserAddresses.Select(c => c.Country).ToString(),
+                //ZipCode = user.UserAddresses.Select(z => z.ZipCode).ToString()
             });
         }
 

@@ -27,6 +27,15 @@ namespace PresentationLayer.Controllers
         {
             ListCategoryQueryResponse response = await _mediator.Send(listCategoryQueryRequest);
             CategoryListViewModel categoryListViewModel = new CategoryListViewModel() { Categories = response.Categories };
+
+            if (!response.IsSuccess)
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Error!",
+                    Message = "Please try again later!",
+                    AlertType = AlertTypeEnum.Danger
+                });
+
             return View(categoryListViewModel);
         }
 
@@ -71,6 +80,15 @@ namespace PresentationLayer.Controllers
         {
             EditCategoryQueryResponse response = await _mediator.Send(editCategoryQueryRequest);
             CategoryVM categoryVM = _mapper.Map<CategoryVM>(response);
+
+            if (!response.IsSuccess)
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Error!",
+                    Message = "Please try again later!",
+                    AlertType = AlertTypeEnum.Danger
+                });
+
             return View(categoryVM);
         }
 

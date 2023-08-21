@@ -26,6 +26,14 @@ namespace PresentationLayer.Controllers
         {
             ListProductQueryResponse  response = await _mediator.Send(listProductQueryRequest);
             ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
+            if (!response.IsSuccess)
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Error!",
+                    Message = "Please try again later!",
+                    AlertType = AlertTypeEnum.Danger
+                });
+
             return View(listProductVM);
         }
 
@@ -84,8 +92,16 @@ namespace PresentationLayer.Controllers
         public async Task<IActionResult> EditProduct(EditProductQueryRequest editProductQueryRequest)
         {
             EditProductQueryResponse response = await _mediator.Send(editProductQueryRequest);
-            EditProductVM editProductVM = new EditProductVM();
-            editProductVM = response;//implicit type conversion
+            EditProductVM editProductVM = _mapper.Map<EditProductVM>(response);
+
+            if (!response.IsSuccess)
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Error!",
+                    Message = "Please try again later!",
+                    AlertType = AlertTypeEnum.Danger
+                });
+
             return View(editProductVM);
         }
 
@@ -103,8 +119,16 @@ namespace PresentationLayer.Controllers
             {
                 EditProductCommandResponse response = await _mediator.Send(editProductCommandRequest);
                 response.ImageUrls = editProductCommandRequest.ImageUrls;
-                EditProductVM editProductVM = new EditProductVM();
-                editProductVM = response;
+                EditProductVM editProductVM = _mapper.Map<EditProductVM>(response);
+
+                if (!response.IsSuccess)
+                    TempData.Put("message", new AlertMessage()
+                    {
+                        Title = "Error",
+                        Message = "Please, try again later!",
+                        AlertType = AlertTypeEnum.Danger
+                    });
+
                 return View(editProductVM);
             }
 

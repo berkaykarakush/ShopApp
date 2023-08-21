@@ -2,7 +2,10 @@
 using DataAccessLayer.CQRS.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using PresentationLayer.Enums;
+using PresentationLayer.Extensions;
 using PresentationLayer.Models;
+using PresentationLayer.ViewModels;
 
 namespace PresentationLayer.Controllers
 {
@@ -24,6 +27,15 @@ namespace PresentationLayer.Controllers
         {
             HomeIndexQueryResponse response = await _mediator.Send(homeIndexQueryRequest);
             ProductListViewModel productListViewModel = _mapper.Map<ProductListViewModel>(response);
+
+            if (!response.IsSuccess)
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Error!",
+                    Message = "Please try again later!",
+                    AlertType = AlertTypeEnum.Danger
+                });
+
             return View(productListViewModel);
         }
 

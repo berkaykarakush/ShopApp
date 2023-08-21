@@ -12,22 +12,32 @@ namespace DataAccessLayer.CQRS.Commands
         }
         public async Task<CreateProductCommandResponse> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
         {
-            _unitOfWork.Products.Create(new EntityLayer.Product() 
+            try
             {
-                ProductId = request.ProductId,
-                Name = request.Name,
-                Url = request.Url,
-                ProductImage = request.ProductImage,
-                ImageUrls = request.ImageUrls,
-                Quantity = request.Quantity,
-                CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
-                Description = request.Description,
-                IsApproved = request.IsApproved,
-                IsHome = request.IsHome,
-                Price   = request.Price,
-                SalesCount = request.SalesCount,
-            });
-            _unitOfWork.Save();
+                _unitOfWork.Products.Create(new EntityLayer.Product()
+                {
+                    ProductId = request.ProductId,
+                    Name = request.Name,
+                    Url = request.Url,
+                    ProductImage = request.ProductImage,
+                    ImageUrls = request.ImageUrls,
+                    Quantity = request.Quantity,
+                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                    Description = request.Description,
+                    IsApproved = request.IsApproved,
+                    IsHome = request.IsHome,
+                    Price = request.Price,
+                    SalesCount = request.SalesCount,
+                });
+
+                _unitOfWork.Save();
+            }
+            catch (Exception ex)
+            {
+                await Console.Out.WriteLineAsync(ex.Message);
+                return new CreateProductCommandResponse() { IsSuccess = false };
+            }
+
 
             return new() { IsSuccess = true, ProductId = request.ProductId};
         }

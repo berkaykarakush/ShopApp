@@ -5,7 +5,11 @@ namespace PresentationLayer.Models
 {
     public class OrderModel
     {
-        public string UserId { get; set; }
+        public OrderModel()
+        {
+            CartModel = new CartModel();
+        }
+        public string? UserId { get; set; }
 
         [Required]
         public string? FirstName { get; set; }
@@ -47,6 +51,6 @@ namespace PresentationLayer.Models
        
         [Required]
         public string? Cvc { get; set; }
-        public CartModel? CartModel { get; set; }
+        public CartModel CartModel { get; set; }
     }
 }

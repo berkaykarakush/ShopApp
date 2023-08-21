@@ -26,6 +26,7 @@ namespace DataAccessLayer.CQRS.Queries
             catch (Exception ex)
             {
                 await Console.Out.WriteLineAsync(ex.Message);
+                return new EditProductQueryResponse() { IsSuccess = false };
             }
             
             var response = new EditProductQueryResponse();
@@ -40,8 +41,8 @@ namespace DataAccessLayer.CQRS.Queries
             response.IsHome = product.IsHome;
             response.Categories.AddRange(_unitOfWork.Categories.GetAll());
             response.SelectedCategories.AddRange(product.ProductCategories.Select(pc => pc.Category).ToList());
+            response.IsSuccess = true;
             return response;
-            
         }
     }
 }

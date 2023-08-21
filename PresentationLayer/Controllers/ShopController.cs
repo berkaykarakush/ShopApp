@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
-using BusinessLayer.Abstract;
 using DataAccessLayer.CQRS.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using PresentationLayer.Enums;
+using PresentationLayer.Extensions;
 using PresentationLayer.Models;
 using PresentationLayer.ViewModels;
 
@@ -10,26 +11,30 @@ namespace PresentationLayer.Controllers
 {
     public class ShopController : Controller
     {
-        private readonly IProductService _productService;
         private readonly IMediator _mediator;
         readonly IMapper _mapper;
-        public ShopController(IProductService productService, IMediator mediator, IMapper mapper)
+        public ShopController(IMediator mediator, IMapper mapper)
         {
-            _productService = productService;
             _mediator = mediator;
             _mapper = mapper;
         }
+
         [HttpGet]
         public async Task<IActionResult> TopSalesList(TopSalesListQueryRequest topSalesListQueryRequest)
         {
             TopSalesListQueryResponse response = await _mediator.Send(topSalesListQueryRequest);
-
-            if (!response.IsSuccess)
-                return NotFound();
-
             ProductListViewModel productViewModel = _mapper.Map<ProductListViewModel>(response);
             ProductVM productVM = _mapper.Map<ProductVM>(response.Products);
             productViewModel.Products.Add(productVM);
+
+            if (!response.IsSuccess)
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Error!",
+                    Message = "Please, try again later!",
+                    AlertType = AlertTypeEnum.Danger
+                });
+
             return View(productViewModel);
         }
 
@@ -37,17 +42,31 @@ namespace PresentationLayer.Controllers
         public async Task<IActionResult> List(ShopListQueryRequest shopListQueryRequest)
         {
             ShopListQueryResponse response = await _mediator.Send(shopListQueryRequest);
-            if (!response.IsSuccess)
-                return NotFound();
             ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
+            
+            if (!response.IsSuccess)
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Error!",
+                    Message = "Please, try again later!",
+                    AlertType = AlertTypeEnum.Danger
+                });
+
             return View(listProductVM);
         }
         [HttpGet]
         public async Task<IActionResult> Details(ShopDetailsQueryRequest shopDetailsQueryRequest)
         {
             ShopDetailsQueryResponse response = await _mediator.Send(shopDetailsQueryRequest);
+
             if (!response.IsSuccess)
-                return NotFound();
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Error!",
+                    Message = "Please, try again later!",
+                    AlertType = AlertTypeEnum.Danger
+                });
+
             ProductDetailModel productDetailModel = _mapper.Map<ProductDetailModel>(response);
             return View(productDetailModel);
         }
@@ -56,8 +75,15 @@ namespace PresentationLayer.Controllers
         public async Task<IActionResult> Search(ShopSearchQueryRequest shopSearchQueryRequest)
         {
             ShopSearchQueryResponse response = await _mediator.Send(shopSearchQueryRequest);
+
             if (!response.IsSuccess)
-                return NotFound();
+                TempData.Put("message", new AlertMessage()
+                {
+                    Title = "Error!",
+                    Message = "Please, try again later!",
+                    AlertType = AlertTypeEnum.Danger
+                });
+
             ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
             return View(listProductVM);
         }

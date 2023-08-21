@@ -1,4 +1,4 @@
-﻿namespace PresentationLayer.EmailServices
+﻿namespace BusinessLayer.Abstract
 {
     public interface IEmailSender
     {

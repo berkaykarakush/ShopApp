@@ -33,13 +33,13 @@
                 {
                     <tr>
                         <td>
-                            <img src="~/img//@cartItem.ImageUrl" width="100">
+                            <img src="~/img//@cartItem.ProductImage" width="100">
                         </td>
-                        <td>@cartItem.Name</td>
+                        <td>@cartItem.ProductName</td>
                         <td>@cartItem.Price TL</td>
                         <td>
-                            @if (cartItem.ProductQuantity < cartItem.Quantity)
-                                @cartItem.ProductQuantity
+                            @if (cartItem.Stock < cartItem.Quantity)
+                                @cartItem.Stock
                             else
                                 @cartItem.Quantity    
                         </td>
