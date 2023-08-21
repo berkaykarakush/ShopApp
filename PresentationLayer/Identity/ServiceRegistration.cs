@@ -11,7 +11,7 @@ namespace PresentationLayer.Identity
     {
         public static void AddPresentationLayerServices(this IServiceCollection serviceCollection)
         {
-            
+         //TODO Global Error Handler    
 
             serviceCollection.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration._configuration.GetSection("ConnectionStrings:MsSQLConnection").Value));
             serviceCollection.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();

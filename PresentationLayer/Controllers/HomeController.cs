@@ -11,20 +11,21 @@ namespace PresentationLayer.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
+        private readonly Serilog.ILogger _logger;
 
-        public HomeController(ILogger<HomeController> logger, IMediator mediator, IMapper mapper)
+        public HomeController(IMediator mediator, IMapper mapper, Serilog.ILogger logger)
         {
-            _logger = logger;
             _mediator = mediator;
             _mapper = mapper;
+            _logger = logger;
         }
 
         [HttpGet]
         public async Task<IActionResult> Index(HomeIndexQueryRequest homeIndexQueryRequest)
         {
+            _logger.Information("Home Index trigged");
             HomeIndexQueryResponse response = await _mediator.Send(homeIndexQueryRequest);
             ProductListViewModel productListViewModel = _mapper.Map<ProductListViewModel>(response);
 

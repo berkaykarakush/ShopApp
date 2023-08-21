@@ -22,16 +22,18 @@ namespace PresentationLayer.Controllers
         private readonly ICartService _cartService;
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IEmailSender emailSender, ICartService cartService, RoleManager<IdentityRole> roleManager, IMediator mediator, IMapper mapper)
+
+        public AccountController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, SignInManager<User> signInManager, IEmailSender emailSender, ICartService cartService, IMediator mediator, IMapper mapper)
         {
             _userManager = userManager;
+            _roleManager = roleManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _cartService = cartService;
-            _roleManager = roleManager;
             _mediator = mediator;
             _mapper = mapper;
         }
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -45,12 +47,14 @@ namespace PresentationLayer.Controllers
             LoginModel loginModel = _mapper.Map<LoginModel>(response);
             
             if (!response.IsSuccess)
+            {
                 TempData.Put("message", new AlertMessage()
                 {
                     Title = "Error!",
                     Message = "Please try again later!",
                     AlertType = AlertTypeEnum.Danger
                 });
+            }
 
             return View(loginModel);
         }
@@ -97,8 +101,9 @@ namespace PresentationLayer.Controllers
 
                     return Redirect(model.ReturnUrl ?? "~/");
                 }
-
+                
                 await _userManager.UpdateAsync(user);
+
                 return Redirect(model.ReturnUrl??"~/");
             }
 
@@ -144,7 +149,7 @@ namespace PresentationLayer.Controllers
                 await _emailSender.SendEmailAsync(model.Email, "Welcome to ShopApp", $"Hello, {user.UserName} </br> Welcome to the ShopApp!");
                 return RedirectToAction("Login","Account");
             }
-            
+               
             ModelState.AddModelError("", "This email address is already in use!");
             return View(model);
         }

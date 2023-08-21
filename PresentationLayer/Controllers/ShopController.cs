@@ -6,6 +6,7 @@ using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
 using PresentationLayer.Models;
 using PresentationLayer.ViewModels;
+using Serilog;
 
 namespace PresentationLayer.Controllers
 {
@@ -13,10 +14,13 @@ namespace PresentationLayer.Controllers
     {
         private readonly IMediator _mediator;
         readonly IMapper _mapper;
-        public ShopController(IMediator mediator, IMapper mapper)
+        private ILogger<ShopController> _logger;
+
+        public ShopController(IMediator mediator, IMapper mapper, ILogger<ShopController> logger)
         {
             _mediator = mediator;
             _mapper = mapper;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -26,7 +30,8 @@ namespace PresentationLayer.Controllers
             ProductListViewModel productViewModel = _mapper.Map<ProductListViewModel>(response);
             ProductVM productVM = _mapper.Map<ProductVM>(response.Products);
             productViewModel.Products.Add(productVM);
-
+            _logger.LogInformation("LIST PRODUCT");
+            Log.Information("LIST PRODUCT SERILOG");
             if (!response.IsSuccess)
                 TempData.Put("message", new AlertMessage()
                 {
