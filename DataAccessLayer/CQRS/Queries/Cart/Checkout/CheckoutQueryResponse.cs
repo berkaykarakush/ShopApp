@@ -4,7 +4,7 @@ namespace DataAccessLayer.CQRS.Queries
 {
     public class CheckoutQueryResponse
     {
-        public bool IsSuccess { get; set; }
+        public bool IsSuccess { get; set; } = false;
         public string? UserId { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }

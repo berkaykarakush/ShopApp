@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using PresentationLayer.ViewModels;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
 
@@ -19,6 +18,7 @@ namespace PresentationLayer.Controllers
             _orderService = orderService;
             _userManager = userManager;
         }
+
         public IActionResult GetOrders()
         {
             var userId = _userManager.GetUserId(User);
@@ -49,7 +49,7 @@ namespace PresentationLayer.Controllers
                     Name = o.Product.Name,
                     Price = (double)o.Price,
                     Quantity = o.Quantity,
-                    //ImageUrl = o.Product.ImageUrl
+                    ProductImage = o.Product.ProductImage
                 }).ToList();
 
                 orderListModel.Add(orderModel);

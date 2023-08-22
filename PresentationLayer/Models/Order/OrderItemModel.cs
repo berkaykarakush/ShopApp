@@ -7,7 +7,7 @@ namespace PresentationLayer.Models
         public double OrderItemId { get; set; }
         public double Price { get; set; }
         public string Name { get; set; }
-        public string ImageUrl { get; set; }
+        public string ProductImage { get; set; }
         public int Quantity { get; set; }
     }
 }

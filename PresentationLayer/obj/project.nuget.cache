@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "40qqyLVRQlhGHbX6tI0z6iuuqxLK5H4KNoDlij0GBnbO0JJjnIWP7yKolWFUzHkhXfEAL31tbbodjyVZg+X9Mg==",
+  "dgSpecHash": "nXsg+6Jrngf4lMRev8KqITavh5Ciha2wgMEePwzk5FyIRin7k5sW78Mc1CyBLQdMHLHV+gp3d9/NjiWeFcFnYw==",
   "success": true,
   "projectFilePath": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\PresentationLayer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\berka\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\berka\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\berka\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\berka\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",

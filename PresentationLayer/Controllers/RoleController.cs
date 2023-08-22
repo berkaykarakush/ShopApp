@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Enums;
-using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
-using PresentationLayer.ViewModels;
 
 namespace PresentationLayer.Controllers
 {
@@ -13,11 +12,13 @@ namespace PresentationLayer.Controllers
     {
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<User> _userManager;
+        private readonly INotyfService _notyfService;
 
-        public RoleController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager)
+        public RoleController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, INotyfService notyfService)
         {
             _roleManager = roleManager;
             _userManager = userManager;
+            _notyfService = notyfService;
         }
 
         [Authorize(Roles = "Admin")]
@@ -43,31 +44,13 @@ namespace PresentationLayer.Controllers
                 var result = await _roleManager.CreateAsync(new IdentityRole(model.Name));
                 if (result.Succeeded)
                 {
-                    TempData.Put("message", new AlertMessage()
-                    {
-                        Title = "Islem Basarili",
-                        Message = $"{model.Name} isimli role basariyla olusturuldu.",
-                        AlertType = AlertTypeEnum.Success
-                    });
+                    _notyfService.Success($"Transaction Successfull - Role {model.Name} added");
                     return RedirectToAction("ListRole", "Role");
                 }
                 else
-                {
-                    var erros = result.Errors;
-                    TempData.Put("message", new AlertMessage()
-                    {
-                        Title = "Islem Basarisiz!",
-                        Message = $"{erros}",
-                        AlertType = AlertTypeEnum.Danger
-                    });
-                }
+                    _notyfService.Error(NotfyMessageEnum.Error);
             }
-            TempData.Put("message", new AlertMessage()
-            {
-                Title = "Islem Basarisiz!",
-                Message = $"Role olusturulamadi. Lutfen tekrar deneyiniz.",
-                AlertType = AlertTypeEnum.Danger
-            });
+            _notyfService.Error(NotfyMessageEnum.Error);
             return View(model);
         }
 
@@ -141,25 +124,14 @@ namespace PresentationLayer.Controllers
         public async Task<IActionResult> DeleteRole(string id)
         {
             var role = await _roleManager.FindByIdAsync(id);
+
             if (role != null)
             {
                 await _roleManager.DeleteAsync(role);
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Islem Basarili",
-                    Message = $"{role.Name} isimli role basariyla silinmistir.\n",
-                    AlertType = AlertTypeEnum.Success
-                });
+                _notyfService.Success($"Transaction Successfull - Role {role.Name} has been deleted successfully!");
             }
             else
-            {
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Islem Basarisiz",
-                    Message = $"{role.Name} isimli role silinemedi. Lutfen daha sonra tekrar deneyiniz.\n",
-                    AlertType = AlertTypeEnum.Danger
-                });
-            }
+                _notyfService.Error(NotfyMessageEnum.Error);
 
             return RedirectToAction("ListRole", "Role");
         }

@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using EntityLayer;
 using MediatR;
+using Serilog;
 
 namespace DataAccessLayer.CQRS.Commands
 {
@@ -18,14 +19,13 @@ namespace DataAccessLayer.CQRS.Commands
             try
             {
               _unitOfWork.Categories.DeleteFromCategory(request.productId, request.categoryId);
+              _unitOfWork.Save();
             }
             catch (Exception ex)
             {
-                await Console.Out.WriteLineAsync(ex.Message);
-                return new DeleteFromCategoryCommandResponse() {IsSuccess = false };
+                Log.Error(ex, ex.Message);
             }
 
-            _unitOfWork.Save();
             return new DeleteFromCategoryCommandResponse() 
             {
                 categoryId = request.categoryId,

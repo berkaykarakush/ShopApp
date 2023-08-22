@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Enums;
-using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
-using PresentationLayer.ViewModels;
 using PresentationLayer.Models;
 
 namespace PresentationLayer.Controllers
@@ -13,11 +12,12 @@ namespace PresentationLayer.Controllers
     {
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<User> _userManager;
-
-        public UserController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager)
+        private readonly INotyfService  _notyfService;
+        public UserController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, INotyfService notyfService)
         {
             _roleManager = roleManager;
             _userManager = userManager;
+            _notyfService = notyfService;
         }
 
         [Authorize(Roles = "Admin")]
@@ -49,12 +49,7 @@ namespace PresentationLayer.Controllers
                 });
             }
 
-            TempData.Put("message", new AlertMessage()
-            {
-                Title = "Islem Basarisiz",
-                Message = $"Kullanici bilgileri guncellenirken bir hata ile karsilasildi. Lutfen daha sonra tekrar deneyiniz. ",
-                AlertType = AlertTypeEnum.Danger
-            });
+            _notyfService.Error(NotfyMessageEnum.Error);
             return RedirectToAction("ListUser", "User");
         }
 
@@ -81,12 +76,7 @@ namespace PresentationLayer.Controllers
                         await _userManager.AddToRolesAsync(user, selectedRoles.Except(userRoles).ToArray<string>());
                         await _userManager.RemoveFromRolesAsync(user, userRoles.Except(selectedRoles).ToArray<string>());
 
-                        TempData.Put("message", new AlertMessage()
-                        {
-                            Title = "Islem Basarili",
-                            Message = $"Kullanici bilgileri guncellendi.",
-                            AlertType = AlertTypeEnum.Success
-                        });
+                        _notyfService.Success("Transaction Successfull - User data updated.");
                         return RedirectToAction("ListUser", "User");
                     }
                 }

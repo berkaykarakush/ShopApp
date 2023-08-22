@@ -25,12 +25,14 @@
         </div>
     </main>
 
-    <footer class="py-5 bg-dark text-white text-center">
+    <footer class="py-5 bg-dark text-white text-center" style="position: relative;bottom: 0;width: 100%;height: 50px;">
         Shop App
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js" ></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    @RenderSection("Scripts",false)
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await Component.InvokeAsync("Notyf")
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

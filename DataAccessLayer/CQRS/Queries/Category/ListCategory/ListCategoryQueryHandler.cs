@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using EntityLayer;
 using MediatR;
+using Serilog;
 
 namespace DataAccessLayer.CQRS.Queries
 {
@@ -23,8 +24,7 @@ namespace DataAccessLayer.CQRS.Queries
             }
             catch (Exception ex)
             {
-                await Console.Out.WriteLineAsync(ex.Message);
-                return new ListCategoryQueryResponse() { IsSuccess = false};            
+                Log.Error(ex, ex.Message);     
             }
 
             return new ListCategoryQueryResponse() { IsSuccess = true, Categories = allCategories };

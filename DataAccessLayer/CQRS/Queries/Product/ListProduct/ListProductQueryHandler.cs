@@ -1,6 +1,8 @@
 ﻿using DataAccessLayer.Abstract;
+using EntityLayer;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace DataAccessLayer.CQRS.Queries
 {
@@ -17,22 +19,20 @@ namespace DataAccessLayer.CQRS.Queries
 
         public async Task<ListProductQueryResponse> Handle(ListProductQueryRequest request, CancellationToken cancellationToken)
         {
+            List<Product> allProducts = new List<Product>();
             try
             {
-                _logger.LogInformation("LIST PRODUCT");
-                var allProducts = _unitOfWork.Products.GetAll();
-
-                return new ListProductQueryResponse
-                {
-                    Products = allProducts,
-                    IsSuccess = true
-                };
+                allProducts = _unitOfWork.Products.GetAll();
             }
             catch (Exception ex)
             {
-                await Console.Out.WriteLineAsync(ex.Message);
-                return new ListProductQueryResponse() { IsSuccess = false };    
+                Log.Error(ex, ex.Message); 
             }
+            return new ListProductQueryResponse
+            {
+                Products = allProducts,
+                IsSuccess = true
+            };
         }
     }
 }

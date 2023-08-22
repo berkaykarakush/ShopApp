@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vOVeVqUyZP1tG3zER1/dsZZ0qmYaBox7z+hi+iEgjagjTups74wBJRWIDCKjiouQ/P2F9PWRC4suvNhvlOpD5A==",
+  "dgSpecHash": "ewZnR1f2NyypQhSDEL2u0Zcqta9NoQcQZZjq4nqc+Xlf/AR6HOg3nYr7ddh4yd3S3b6i2KMlgKk3IVvqKBitag==",
   "success": true,
   "projectFilePath": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\BusinessLayer\\BusinessLayer.csproj",
   "expectedPackageFiles": [
@@ -40,6 +40,7 @@
     "C:\\Users\\berka\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\berka\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\berka\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\berka\\.nuget\\packages\\serilog\\3.0.1\\serilog.3.0.1.nupkg.sha512",
     "C:\\Users\\berka\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\berka\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",
     "C:\\Users\\berka\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.0\\system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512",

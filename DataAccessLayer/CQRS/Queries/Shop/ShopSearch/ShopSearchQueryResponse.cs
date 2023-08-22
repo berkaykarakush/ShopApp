@@ -9,6 +9,6 @@ namespace DataAccessLayer.CQRS.Queries
             Products = new List<Product>();
         }
         public List<Product> Products { get; set; }
-        public bool IsSuccess { get; set; }
+        public bool IsSuccess { get; set; } = false;
     }
 }

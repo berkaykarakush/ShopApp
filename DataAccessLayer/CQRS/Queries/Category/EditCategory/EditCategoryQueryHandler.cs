@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using EntityLayer;
 using MediatR;
+using Serilog;
 
 namespace DataAccessLayer.CQRS.Queries
 {
@@ -19,11 +20,11 @@ namespace DataAccessLayer.CQRS.Queries
             try
             {
                 entity = _unitOfWork.Categories.GetByIdWithProducts(request.Id);
+
             }
             catch (Exception ex)
             {
-                await Console.Out.WriteLineAsync(ex.Message);
-                return new EditCategoryQueryResponse() { IsSuccess = false };
+                Log.Error(ex, ex.Message);
             }
 
             return new EditCategoryQueryResponse() { 

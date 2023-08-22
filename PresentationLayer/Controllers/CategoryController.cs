@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
 using DataAccessLayer.CQRS.Commands;
 using DataAccessLayer.CQRS.Queries;
 using MediatR;
@@ -15,10 +16,12 @@ namespace PresentationLayer.Controllers
     {
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
-        public CategoryController(IMediator mediator, IMapper mapper)
+        private readonly INotyfService _notyfService;
+        public CategoryController(IMediator mediator, IMapper mapper, INotyfService notyfService)
         {
             _mediator = mediator;
             _mapper = mapper;
+            _notyfService = notyfService;
         }
 
         [Authorize(Roles = "Admin")]
@@ -29,12 +32,7 @@ namespace PresentationLayer.Controllers
             CategoryListViewModel categoryListViewModel = new CategoryListViewModel() { Categories = response.Categories };
 
             if (!response.IsSuccess)
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error!",
-                    Message = "Please try again later!",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error(NotfyMessageEnum.Error);
 
             return View(categoryListViewModel);
         }
@@ -56,21 +54,10 @@ namespace PresentationLayer.Controllers
             CreateCategoryCommandResponse response = await _mediator.Send(createCategoryCommandRequest);
 
             if (response.IsSuccess)
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Transaction Successfull!",
-                    Message = $"{createCategoryCommandRequest.Name} category has been created",
-                    AlertType = AlertTypeEnum.Success
-                });
+                _notyfService.Success($"Transaction Successfull - {createCategoryCommandRequest.Name} category has been created");
 
             else
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error!",
-                    Message = $"Failed to create {createCategoryCommandRequest.Name} category",
-                    AlertType = AlertTypeEnum.Danger
-                });
-
+                _notyfService.Error($"Error - Failed to create {createCategoryCommandRequest.Name} category");
             return RedirectToAction("ListCategory","Category");
         }
         
@@ -82,12 +69,7 @@ namespace PresentationLayer.Controllers
             CategoryVM categoryVM = _mapper.Map<CategoryVM>(response);
 
             if (!response.IsSuccess)
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error!",
-                    Message = "Please try again later!",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error(NotfyMessageEnum.Error);
 
             return View(categoryVM);
         }
@@ -104,22 +86,11 @@ namespace PresentationLayer.Controllers
 
             if (response.IsSuccess)
             {
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Category Name Updated",
-                    Message = $"{editCategoryCommandRequest.Name} category has been updated",
-                    AlertType = AlertTypeEnum.Success
-                });
+                _notyfService.Success($"Transaction Successfull - {editCategoryCommandRequest.Name} category has been updated");
                 return View(categoryVM);
             }
-
-            TempData.Put("message", new AlertMessage()
-            {
-                Title = "Category name could not be updated",
-                Message = $"{editCategoryCommandRequest.Name} category has not been updated",
-                AlertType = AlertTypeEnum.Danger
-            });
-
+            
+            _notyfService.Error($"Error - {editCategoryCommandRequest.Name} category has not been updated");
             return View();
         }
 
@@ -130,19 +101,9 @@ namespace PresentationLayer.Controllers
 
             DeleteCategoryCommandResponse response = await _mediator.Send(deleteCategoryCommandRequest);
             if (response.IsSuccess)
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Category Deleted",
-                    Message = $"{response.Name} category has been deleted successfully",
-                    AlertType = AlertTypeEnum.Success
-                });
+                _notyfService.Success($"Transaction Successfull - {response.Name} category has been deleted successfully");
             else
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Category not deleted!",
-                    Message = $"{response.Name} category could not be deleted successfully",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error($"Error - {response.Name} category could not be deleted successfully");
 
             return RedirectToAction("ListCategory", "Category");
         }
@@ -152,20 +113,11 @@ namespace PresentationLayer.Controllers
         public async Task<IActionResult> DeleteFromCategory(DeleteFromCategoryCommandRequest deleteFromCategoryCommandRequest)
         {
             DeleteFromCategoryCommandResponse response = await _mediator.Send(deleteFromCategoryCommandRequest);
+
             if (response.IsSuccess)
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Transaction Successfull",
-                    Message = $"Deleted!",
-                    AlertType = AlertTypeEnum.Success
-                });
+                _notyfService.Success("Transaction Successfull - Category Deleted");
             else
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error!",
-                    Message = $"Please try again later!",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error(NotfyMessageEnum.Error);
 
             return Redirect("/admin/categories/" + deleteFromCategoryCommandRequest.categoryId);
         }

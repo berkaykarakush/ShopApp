@@ -4,7 +4,7 @@ namespace DataAccessLayer.CQRS.Queries
 {
     public class CartIndexQueryResponse
     {
-        public bool IsSuccess { get; set; }
+        public bool IsSuccess { get; set; } = false;
         public double CartId { get; set; }
         public Product? ProductModel { get; set; }
         public List<CartItem>? CartItems { get; set; }

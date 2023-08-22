@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.Abstract;
 using MediatR;
+using Serilog;
 
 namespace DataAccessLayer.CQRS.Commands
 {
@@ -34,10 +35,8 @@ namespace DataAccessLayer.CQRS.Commands
             }
             catch (Exception ex)
             {
-                await Console.Out.WriteLineAsync(ex.Message);
-                return new CreateProductCommandResponse() { IsSuccess = false };
+                Log.Error(ex, ex.Message);
             }
-
 
             return new() { IsSuccess = true, ProductId = request.ProductId};
         }

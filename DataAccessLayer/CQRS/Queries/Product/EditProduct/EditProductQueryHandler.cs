@@ -4,6 +4,7 @@ using EntityLayer;
 using MediatR;
 using System.Diagnostics;
 using System;
+using Serilog;
 
 namespace DataAccessLayer.CQRS.Queries
 {
@@ -25,8 +26,7 @@ namespace DataAccessLayer.CQRS.Queries
             }
             catch (Exception ex)
             {
-                await Console.Out.WriteLineAsync(ex.Message);
-                return new EditProductQueryResponse() { IsSuccess = false };
+                Log.Error(ex, ex.Message);
             }
             
             var response = new EditProductQueryResponse();

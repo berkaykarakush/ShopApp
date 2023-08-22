@@ -1,3 +1,4 @@
+using AspNetCoreHero.ToastNotification.Extensions;
 using BusinessLayer;
 using BusinessLayer.Abstract;
 using DataAccessLayer;
@@ -7,12 +8,14 @@ using MediatR;
 using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Data.SqlClient;
 using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
 using Serilog;
-using Serilog.Formatting.Compact;
+using Serilog.Events;
 using Serilog.Sinks.MSSqlServer;
 using System.Reflection;
+using System.Security.Policy;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,36 +25,26 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDataAccessLayerServices();
 builder.Services.AddBusinessLayerServices();
 builder.Services.AddPresentationLayerServices();
+
+//MediatR
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateProductCommandHandler).GetTypeInfo().Assembly));
-builder.Services.AddSerilog(logger: Log.Logger);
 
+//Serilog Configuration
+Log.Logger = new LoggerConfiguration()
+        .MinimumLevel.Information()
+        .Enrich.FromLogContext()
+        .WriteTo.Console()
+        .WriteTo.Seq(Configuration._configuration.GetSection("Seq:ServerURL").Value)
+        .WriteTo.MSSqlServer(Configuration._configuration.GetSection("ConnectionStrings:MsSQLConnection").Value, sinkOptions: new MSSqlServerSinkOptions { TableName = "Logs", AutoCreateSqlTable = true }, null, null, LogEventLevel.Information, null, columnOptions: null, null, null)
+        .WriteTo.File("logs/log.txt")
+        .WriteTo.Seq(Configuration._configuration.GetSection("Seq:ServerURL").Value)
+        .CreateLogger();
 
-var logDB = Configuration._configuration.GetSection("ConnectionStrings:MsSQLConnection").Value;
-var sinkOpts = new MSSqlServerSinkOptions();
-sinkOpts.TableName = "Logs";
-sinkOpts.SchemaName = "dbo";
-sinkOpts.AutoCreateSqlTable = true;
-sinkOpts.AutoCreateSqlDatabase = true;
-var columnOpts = new ColumnOptions();
-columnOpts.Store.Add(StandardColumn.LogEvent);
-columnOpts.LogEvent.DataLength = 2048;
-columnOpts.TimeStamp.NonClusteredIndex = true;
+//Serilog
+builder.Host.UseSerilog();
 
-var log = new LoggerConfiguration()
-    .MinimumLevel.Information()
-    .WriteTo.File(new CompactJsonFormatter(), "Log.json", rollingInterval: RollingInterval.Day)
-    .WriteTo.Console(restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Information)
-    .WriteTo.MSSqlServer(
-            connectionString: logDB,
-            sinkOptions: sinkOpts,
-            columnOptions: columnOpts,
-            restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Information
-     )
-    .WriteTo.Seq(Configuration._configuration.GetSection("Seq:ServerURL").Value)
-    .CreateLogger();
-
-builder.Host.UseSerilog(log);
-//builder.Services.AddLogging();
+//Default log - Bulit in
+builder.Services.AddLogging();
 
 builder.Services.AddHttpLogging(logging =>
 {
@@ -67,7 +60,7 @@ builder.Services.AddHttpLogging(logging =>
 
 try
 {
-    log.Information("Starting web application");
+    Log.Information("Starting web application");
     var app = builder.Build();
     app.UseSerilogRequestLogging();
     app.UseHttpLogging();
@@ -93,12 +86,23 @@ try
         ForwardedHeaders = ForwardedHeaders.XForwardedFor |
         ForwardedHeaders.XForwardedProto
     });
+    //Custom Extensions
+    app.UseConfigureExceptionHandler();
 
     app.UseHttpsRedirection();
+
     app.UseStaticFiles();
+
     app.UseAuthentication();
+
     app.UseRouting();
+
     app.UseAuthorization();
+
+    //Toast Notification
+    app.UseNotyf();
+
+    app.UseStatusCodePagesWithReExecute("/Error", "?statusCode={0}");
 
     app.MapControllerRoute(
         name: "adminPanel",
@@ -199,9 +203,9 @@ try
 }
 catch (Exception ex)
 {
-    log.Fatal(ex, "Application terminated unexpectedly!");
+    Log.Fatal(ex, "Application terminated unexpectedly!");
 }
 finally
 {
-    log.Dispose();
+    Log.CloseAndFlush();
 }

@@ -1,7 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using EntityLayer;
 using MediatR;
-using Microsoft.EntityFrameworkCore.Metadata;
+using Serilog;
 
 namespace DataAccessLayer.CQRS.Queries
 {
@@ -23,8 +23,7 @@ namespace DataAccessLayer.CQRS.Queries
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return new HomeIndexQueryResponse() { IsSuccess = false };
+                Log.Error(ex, ex.Message);
             }
 
             return new HomeIndexQueryResponse() 

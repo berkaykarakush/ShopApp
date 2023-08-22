@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using EntityLayer;
 using MediatR;
+using Serilog;
 
 namespace DataAccessLayer.CQRS.Queries
 {
@@ -22,10 +23,9 @@ namespace DataAccessLayer.CQRS.Queries
                 products = _unitOfWork.Products.GetProductsByCategory(request.category, request.page, pageSize);
                 totalItems = _unitOfWork.Products.GetCountByCategory(request.category);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                return new ShopListQueryResponse() { IsSuccess = false };
+                Log.Error(ex, ex.Message);
             }
 
             return new ShopListQueryResponse()

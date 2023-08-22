@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using EntityLayer;
 using MediatR;
+using Serilog;
 
 namespace DataAccessLayer.CQRS.Commands
 {
@@ -19,18 +20,17 @@ namespace DataAccessLayer.CQRS.Commands
             try
             {
                 entity = _unitOfWork.Categories.GetById(request.CategoryId);
+                entity.CategoryId = request.CategoryId;
+                entity.Name = request.Name;
+                entity.Url = request.Url;
+
+                _unitOfWork.Categories.Update(entity);
+                _unitOfWork.Save();
             }
             catch (Exception ex)
             {
-                await Console.Out.WriteLineAsync(ex.Message);
-                return new EditCategoryCommandResponse() { IsSuccess = false };
+                Log.Error(ex, ex.Message);
             }
-            entity.CategoryId = request.CategoryId;
-            entity.Name = request.Name;
-            entity.Url = request.Url;
-
-            _unitOfWork.Categories.Update(entity);
-            _unitOfWork.Save();
 
             return new EditCategoryCommandResponse()
             {

@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
 using BusinessLayer.Abstract;
 using DataAccessLayer.CQRS.Queries;
 using MediatR;
@@ -22,8 +23,8 @@ namespace PresentationLayer.Controllers
         private readonly ICartService _cartService;
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
-
-        public AccountController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, SignInManager<User> signInManager, IEmailSender emailSender, ICartService cartService, IMediator mediator, IMapper mapper)
+        private readonly INotyfService _notyfService;
+        public AccountController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, SignInManager<User> signInManager, IEmailSender emailSender, ICartService cartService, IMediator mediator, IMapper mapper, INotyfService notyfService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -32,6 +33,7 @@ namespace PresentationLayer.Controllers
             _cartService = cartService;
             _mediator = mediator;
             _mapper = mapper;
+            _notyfService = notyfService;
         }
 
         [HttpGet]
@@ -45,16 +47,9 @@ namespace PresentationLayer.Controllers
         {
             LoginQueryResponse response = await _mediator.Send(loginQueryRequest);
             LoginModel loginModel = _mapper.Map<LoginModel>(response);
-            
+
             if (!response.IsSuccess)
-            {
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error!",
-                    Message = "Please try again later!",
-                    AlertType = AlertTypeEnum.Danger
-                });
-            }
+                _notyfService.Error(NotfyMessageEnum.Error);
 
             return View(loginModel);
         }
@@ -206,21 +201,12 @@ namespace PresentationLayer.Controllers
 
                 await _signInManager.SignOutAsync();
 
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Logged Out",
-                    Message = "Your account has been securely closed.",
-                    AlertType = AlertTypeEnum.Success
-                });
+                _notyfService.Success("Logged Out - Your account has been securely closed.");
+
                 return RedirectToAction("Index", "Home");
             }
 
-            TempData.Put("message", new AlertMessage()
-            {
-                Title = "Error",
-                Message = "Failed to log out",
-                AlertType = AlertTypeEnum.Danger
-            });
+            _notyfService.Error("Error  - Failed to log out");
             return RedirectToAction("Index", "Home");
         }
 
@@ -229,12 +215,8 @@ namespace PresentationLayer.Controllers
         {
             if (userId == null || token == null)
             {
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error",
-                    Message = "Invalid Token",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error("Error  - Invalid Token");
+
                 return View();
             }
 
@@ -276,12 +258,7 @@ namespace PresentationLayer.Controllers
         {
             if (string.IsNullOrEmpty(model.Email))
             {
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Warning",
-                    Message = "Please enter an e-mail address",
-                    AlertType = AlertTypeEnum.Warning
-                });
+                _notyfService.Warning("Warning - Please enter an e-mail address");
                 return View();
             }
 
@@ -294,12 +271,7 @@ namespace PresentationLayer.Controllers
         {
             if (userId == null || token == null)
             {
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Warning",
-                    Message = "Please try again in few minutes",
-                    AlertType = AlertTypeEnum.Warning
-                });
+                _notyfService.Error(NotfyMessageEnum.Error);
                 return View();
             }
 
@@ -312,24 +284,14 @@ namespace PresentationLayer.Controllers
         {
             if (!ModelState.IsValid)
             {
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Warning",
-                    Message = "Please check to information and try again.",
-                    AlertType = AlertTypeEnum.Warning
-                });
+                _notyfService.Warning("Warning - Please check to information and try again.");
                 return View(model);
             }
 
             var user = await _userManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error",
-                    Message = "The e-mail address entered was not found.",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error("Error - The e-mail address entered was not found.");
                 return View(model);
             }
 
@@ -356,12 +318,7 @@ namespace PresentationLayer.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
-            TempData.Put("message", new AlertMessage()
-            {
-                Title = "Error",
-                Message = "An unexpected error occured, please try again later.",
-                AlertType = AlertTypeEnum.Danger
-            });
+            _notyfService.Error(NotfyMessageEnum.Error);
             return View(model);
         }
 
@@ -387,20 +344,10 @@ namespace PresentationLayer.Controllers
 
                 //confirmed email
                 await _emailSender.SendEmailAsync(user.Email, "Confirm your account", $"Please click on the <a href='https://localhost:7087{url}'>link</a> to confirm your e-mail account!");
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Transaction Successfull",
-                    Message = "The e-mail address entered was not found.",
-                    AlertType = AlertTypeEnum.Success
-                });
+                _notyfService.Error("Error - The e-mail address entered was not found.");
                 return RedirectToAction("ListUser","User");
             }
-            TempData.Put("message", new AlertMessage()
-            {
-                Title = "Error",
-                Message = "Please try again a few minutes.",
-                AlertType = AlertTypeEnum.Danger
-            });
+            _notyfService.Error(NotfyMessageEnum.Error);
             return RedirectToAction("ListUser","User");
         }
 
@@ -411,24 +358,14 @@ namespace PresentationLayer.Controllers
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
             {
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error",
-                    Message = "User not found",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error("Error - User not found.");
                 return View();
             }
 
             var generateToken = await _userManager.GeneratePasswordResetTokenAsync(user);
             if (generateToken == null)
             {
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Warning",
-                    Message = "Please try again in few minutes",
-                    AlertType = AlertTypeEnum.Warning
-                });
+                _notyfService.Error(NotfyMessageEnum.Error);
                 return View();
             }
 
@@ -439,12 +376,14 @@ namespace PresentationLayer.Controllers
             });
 
             await _emailSender.SendEmailAsync(email, "Reset Your Password ", $"Please click the <a href='https://localhost:7087{url}'>link</a> to reset your password.");
+
             TempData.Put("message", new AlertMessage()
             {
                 Title = "Transaction Successfull",
                 Message = "Password reset request sent, please check your e-mail.",
                 AlertType = AlertTypeEnum.Success
             });
+
             return RedirectToAction("ListUser", "User");
         }
 

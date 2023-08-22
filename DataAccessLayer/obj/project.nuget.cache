@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Zc8+guTknDBjz0eyrIhwzrG7e6ZzQQIqzjMz0KAK9GDkL8H5U1SqcW8sL4N83Hn5yrabNao4ojWHK7/A2qZo6Q==",
+  "dgSpecHash": "C2f/JuySldHjsOOHrXIkUa5wurmt9An8ojrSg58CKkxyz0pzKEjLFEl7qsug6jc8dj+jcHco8YZnGu2lPvDwMg==",
   "success": true,
   "projectFilePath": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\DataAccessLayer\\DataAccessLayer.csproj",
   "expectedPackageFiles": [
@@ -45,6 +45,7 @@
     "C:\\Users\\berka\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\berka\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\berka\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\berka\\.nuget\\packages\\serilog\\3.0.1\\serilog.3.0.1.nupkg.sha512",
     "C:\\Users\\berka\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\berka\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\berka\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",

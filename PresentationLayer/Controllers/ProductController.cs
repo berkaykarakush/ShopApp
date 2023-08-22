@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
 using DataAccessLayer.CQRS.Commands;
 using DataAccessLayer.CQRS.Queries;
 using MediatR;
@@ -12,12 +13,14 @@ namespace PresentationLayer.Controllers
 {
     public class ProductController : Controller
     {
-        IMediator _mediator;
-        IMapper _mapper;
-        public ProductController(IMediator mediator, IMapper mapper)
+        private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
+        private readonly INotyfService _notyfService;
+        public ProductController(IMediator mediator, IMapper mapper, INotyfService notyfService)
         {
             _mediator = mediator;
             _mapper = mapper;
+            _notyfService = notyfService;
         }
 
         [HttpGet]
@@ -26,13 +29,9 @@ namespace PresentationLayer.Controllers
         {
             ListProductQueryResponse  response = await _mediator.Send(listProductQueryRequest);
             ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
+
             if (!response.IsSuccess)
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error!",
-                    Message = "Please try again later!",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error(NotfyMessageEnum.Error);
 
             return View(listProductVM);
         }
@@ -61,29 +60,15 @@ namespace PresentationLayer.Controllers
                 CreateProductCommandResponse response = await _mediator.Send(createProductCommandRequest);
                 if (response.IsSuccess)
                 {
-                    TempData.Put("message", new AlertMessage()
-                    {
-                        Title = "Transaction Successfull",
-                        Message = $"Product {response.ProductId} added.",
-                        AlertType = AlertTypeEnum.Success
-                    });
+                    _notyfService.Success($"Transaction Successfull - Product {response.ProductId} added.");
                     return RedirectToAction("Index", "Home");
                 }
 
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error",
-                    Message = "An error occured while adding the product. Please, try again later!",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error(NotfyMessageEnum.Error);
                 return View(response);
             }
-            TempData.Put("message", new AlertMessage()
-            {
-                Title = "Error",
-                Message = "You entered incomplete information!",
-                AlertType = AlertTypeEnum.Danger
-            });
+
+            _notyfService.Error("Error - You entered incomplete information!");
             return View();
         }
 
@@ -95,12 +80,7 @@ namespace PresentationLayer.Controllers
             EditProductVM editProductVM = _mapper.Map<EditProductVM>(response);
 
             if (!response.IsSuccess)
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error!",
-                    Message = "Please try again later!",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error(NotfyMessageEnum.Error);
 
             return View(editProductVM);
         }
@@ -122,22 +102,11 @@ namespace PresentationLayer.Controllers
                 EditProductVM editProductVM = _mapper.Map<EditProductVM>(response);
 
                 if (!response.IsSuccess)
-                    TempData.Put("message", new AlertMessage()
-                    {
-                        Title = "Error",
-                        Message = "Please, try again later!",
-                        AlertType = AlertTypeEnum.Danger
-                    });
+                    _notyfService.Error(NotfyMessageEnum.Error);
 
                 return View(editProductVM);
             }
-
-            TempData.Put("message", new AlertMessage()
-            {
-                Title = "Transaction Successfull",
-                Message = $"Product {editProductCommandRequest.ProductId} added.",
-                AlertType = AlertTypeEnum.Success
-            });
+            _notyfService.Success($"Transaction Successfull - Product {editProductCommandRequest.ProductId} added.");
             return View();
         }
 
@@ -148,22 +117,11 @@ namespace PresentationLayer.Controllers
             DeleteProductCommandResponse response = await _mediator.Send(deleteProductCommandRequest);
 
             if (response.IsSuccess)
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Product Deleted",
-                    Message = $"Item named {response.Name} has been deleted successfully!",
-                    AlertType = AlertTypeEnum.Success
-                });
+                _notyfService.Success($"Transaction Successfull - Item named {response.Name} has been deleted successfully!");
             else
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Product not deleted",
-                    Message = $"There was an error trying to delete the item {response.Name}. Please, try again later!",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error($"Error - There was an error trying to delete the item {response.Name}. Please, try again later!");
 
             return RedirectToAction("ListProduct", "Product");
-
-    }
+        }
     }
 }

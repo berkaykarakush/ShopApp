@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Abstract;
+﻿using AspNetCoreHero.ToastNotification;
+using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete.EFCore;
 using Microsoft.AspNetCore.Identity;
@@ -11,11 +12,12 @@ namespace PresentationLayer.Identity
     {
         public static void AddPresentationLayerServices(this IServiceCollection serviceCollection)
         {
-         //TODO Global Error Handler    
+         
 
             serviceCollection.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration._configuration.GetSection("ConnectionStrings:MsSQLConnection").Value));
             serviceCollection.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
 
+            serviceCollection.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.TopRight; });
             //AutoMapper
             serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());   
 

@@ -2,6 +2,7 @@
 using DataAccessLayer.Abstract;
 using EntityLayer;
 using MediatR;
+using Serilog;
 
 namespace DataAccessLayer.CQRS.Queries
 {
@@ -27,8 +28,7 @@ namespace DataAccessLayer.CQRS.Queries
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return new TopSalesListQueryResponse() { IsSuccess = false };
+                Log.Error(ex, ex.Message);
             }
 
             return new TopSalesListQueryResponse()

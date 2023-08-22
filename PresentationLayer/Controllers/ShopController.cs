@@ -1,12 +1,11 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
 using DataAccessLayer.CQRS.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Enums;
-using PresentationLayer.Extensions;
 using PresentationLayer.Models;
 using PresentationLayer.ViewModels;
-using Serilog;
 
 namespace PresentationLayer.Controllers
 {
@@ -14,13 +13,13 @@ namespace PresentationLayer.Controllers
     {
         private readonly IMediator _mediator;
         readonly IMapper _mapper;
-        private ILogger<ShopController> _logger;
+        private readonly INotyfService _notyfService;
 
-        public ShopController(IMediator mediator, IMapper mapper, ILogger<ShopController> logger)
+        public ShopController(IMediator mediator, IMapper mapper, INotyfService notyfService)
         {
             _mediator = mediator;
             _mapper = mapper;
-            _logger = logger;
+            _notyfService = notyfService;
         }
 
         [HttpGet]
@@ -30,15 +29,9 @@ namespace PresentationLayer.Controllers
             ProductListViewModel productViewModel = _mapper.Map<ProductListViewModel>(response);
             ProductVM productVM = _mapper.Map<ProductVM>(response.Products);
             productViewModel.Products.Add(productVM);
-            _logger.LogInformation("LIST PRODUCT");
-            Log.Information("LIST PRODUCT SERILOG");
+
             if (!response.IsSuccess)
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error!",
-                    Message = "Please, try again later!",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error(NotfyMessageEnum.Error);
 
             return View(productViewModel);
         }
@@ -48,15 +41,9 @@ namespace PresentationLayer.Controllers
         {
             ShopListQueryResponse response = await _mediator.Send(shopListQueryRequest);
             ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
-            
-            if (!response.IsSuccess)
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error!",
-                    Message = "Please, try again later!",
-                    AlertType = AlertTypeEnum.Danger
-                });
 
+            if (!response.IsSuccess)
+                _notyfService.Error(NotfyMessageEnum.Error);
             return View(listProductVM);
         }
         [HttpGet]
@@ -65,12 +52,7 @@ namespace PresentationLayer.Controllers
             ShopDetailsQueryResponse response = await _mediator.Send(shopDetailsQueryRequest);
 
             if (!response.IsSuccess)
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error!",
-                    Message = "Please, try again later!",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error(NotfyMessageEnum.Error);
 
             ProductDetailModel productDetailModel = _mapper.Map<ProductDetailModel>(response);
             return View(productDetailModel);
@@ -82,12 +64,7 @@ namespace PresentationLayer.Controllers
             ShopSearchQueryResponse response = await _mediator.Send(shopSearchQueryRequest);
 
             if (!response.IsSuccess)
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error!",
-                    Message = "Please, try again later!",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error(NotfyMessageEnum.Error);
 
             ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
             return View(listProductVM);

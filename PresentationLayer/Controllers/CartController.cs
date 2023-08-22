@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
 using BusinessLayer.Abstract;
 using DataAccessLayer.Concrete.EFCore;
 using DataAccessLayer.CQRS.Queries;
@@ -14,7 +15,6 @@ using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
-using PresentationLayer.ViewModels;
 using System.Data;
 
 
@@ -29,8 +29,8 @@ namespace PresentationLayer.Controllers
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
         private UserManager<User> _userManager;
-
-        public CartController(ICartService cartService, UserManager<User> userManager, IOrderService orderService, IEmailSender emailSender, IProductService productService, IMediator mediator, IMapper mapper)
+        private readonly INotyfService _notyfService;
+        public CartController(ICartService cartService, UserManager<User> userManager, IOrderService orderService, IEmailSender emailSender, IProductService productService, IMediator mediator, IMapper mapper, INotyfService notyfService)
         {
             _cartService = cartService;
             _userManager = userManager;
@@ -39,6 +39,7 @@ namespace PresentationLayer.Controllers
             _productService = productService;
             _mediator = mediator;
             _mapper = mapper;
+            _notyfService = notyfService;
         }
 
         [Authorize]
@@ -52,12 +53,7 @@ namespace PresentationLayer.Controllers
             CartModel cartModel = _mapper.Map<CartModel>(response);
 
             if (!response.IsSuccess)
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error!",
-                    Message = "Please try again later!",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error(NotfyMessageEnum.Error);
 
             return View(cartModel);
         }
@@ -91,12 +87,7 @@ namespace PresentationLayer.Controllers
             orderModel.CartModel = _mapper.Map<CartModel>(response.Cart);
 
             if (!response.IsSuccess)
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error!",
-                    Message = "Please try again later!",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error(NotfyMessageEnum.Error);
 
             return View(orderModel);
         }
@@ -145,23 +136,11 @@ namespace PresentationLayer.Controllers
                     DecreaseQuantity(model);
                     ClearCart(model.CartModel.CartId);
                     IncreaseProductSaleCount(model);
-                    TempData.Put("message", new AlertMessage()
-                    {
-                        Title = "Transaction Successfull",
-                        Message = $"Your payment transaction number {payment.PaymentId} has been completed.",
-                        AlertType = AlertTypeEnum.Success
-                    });
+                    _notyfService.Success($"Transaction Successfull - Your payment transaction number {payment.PaymentId} has been completed.");
                     return View("Success");
                 }
                 else
-                {
-                    TempData.Put("message", new AlertMessage()
-                    {
-                        Title = "Error",
-                        Message = $"{payment.ErrorCode} - {payment.ErrorMessage}",
-                        AlertType = AlertTypeEnum.Danger
-                    });
-                }
+                    _notyfService.Error($"Error - {payment.ErrorCode} - {payment.ErrorMessage}");
             }
             return View(model);
         }
@@ -188,12 +167,7 @@ namespace PresentationLayer.Controllers
 
                 if (product.Quantity < i.Quantity)
                 {
-                    TempData.Put("message", new AlertMessage()
-                    {
-                        Title = "Error",
-                        Message = $"{product.Name} - Quantity entered is more than the product in the stock.",
-                        AlertType = AlertTypeEnum.Danger
-                    });
+                    _notyfService.Error($"Error - {product.Name} - Quantity entered is more than the product in the stock.");
                 }
 
                 if (product.Quantity > 0)
@@ -201,13 +175,7 @@ namespace PresentationLayer.Controllers
                     product.Quantity -= i.Quantity;
                     _productService.Update(product);
                 }
-
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error",
-                    Message = $"{product.Name} has no stock.",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error($"Error - {product.Name} has no stock.");
             }
         }
 

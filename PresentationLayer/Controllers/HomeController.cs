@@ -1,11 +1,10 @@
-﻿using AutoMapper;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
 using DataAccessLayer.CQRS.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Enums;
-using PresentationLayer.Extensions;
 using PresentationLayer.Models;
-using PresentationLayer.ViewModels;
 
 namespace PresentationLayer.Controllers
 {
@@ -13,29 +12,22 @@ namespace PresentationLayer.Controllers
     {
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
-        private readonly Serilog.ILogger _logger;
-
-        public HomeController(IMediator mediator, IMapper mapper, Serilog.ILogger logger)
+        private readonly INotyfService _notyfService;
+        public HomeController(IMediator mediator, IMapper mapper, INotyfService notyfService)
         {
             _mediator = mediator;
             _mapper = mapper;
-            _logger = logger;
+            _notyfService = notyfService;
         }
 
         [HttpGet]
         public async Task<IActionResult> Index(HomeIndexQueryRequest homeIndexQueryRequest)
         {
-            _logger.Information("Home Index trigged");
             HomeIndexQueryResponse response = await _mediator.Send(homeIndexQueryRequest);
             ProductListViewModel productListViewModel = _mapper.Map<ProductListViewModel>(response);
 
             if (!response.IsSuccess)
-                TempData.Put("message", new AlertMessage()
-                {
-                    Title = "Error!",
-                    Message = "Please try again later!",
-                    AlertType = AlertTypeEnum.Danger
-                });
+                _notyfService.Error(NotfyMessageEnum.Error);
 
             return View(productListViewModel);
         }

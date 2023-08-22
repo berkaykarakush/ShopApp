@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using EntityLayer;
 using MediatR;
+using Serilog;
 using System;
 using System.Net.Http.Headers;
 
@@ -24,8 +25,7 @@ namespace DataAccessLayer.CQRS.Queries
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return new ShopDetailsQueryResponse() { IsSuccess = false };
+                Log.Error(ex, ex.Message);
             }
 
             return new ShopDetailsQueryResponse()

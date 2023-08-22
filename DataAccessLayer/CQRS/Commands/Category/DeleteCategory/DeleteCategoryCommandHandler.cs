@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using EntityLayer;
 using MediatR;
+using Serilog;
 
 namespace DataAccessLayer.CQRS.Commands
 {
@@ -16,20 +17,19 @@ namespace DataAccessLayer.CQRS.Commands
         public async Task<DeleteCategoryCommandResponse> Handle(DeleteCategoryCommandRequest request, CancellationToken cancellationToken)
         {
             Category entity = new Category();
+            string name = string.Empty;
             try
             {
                 entity = _unitOfWork.Categories.GetById(request.categoryId);
+                name = entity.Name;
+
+                _unitOfWork.Categories.Delete(entity);
+                _unitOfWork.Save();
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return new DeleteCategoryCommandResponse() { IsSuccess = false};
+                Log.Error(ex, ex.Message);
             }
-
-            string name = entity.Name;
-
-            _unitOfWork.Categories.Delete(entity);
-            _unitOfWork.Save();
 
             return new DeleteCategoryCommandResponse()
             {

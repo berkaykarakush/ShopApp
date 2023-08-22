@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using EntityLayer;
 using MediatR;
+using Serilog;
 using System.Net.Http.Headers;
 
 namespace DataAccessLayer.CQRS.Commands
@@ -26,8 +27,7 @@ namespace DataAccessLayer.CQRS.Commands
             }
             catch (Exception ex)
             {
-                await Console.Out.WriteLineAsync(ex.Message);
-                return new DeleteProductCommandResponse() { IsSuccess = false };
+                Log.Error(ex, ex.Message);
             }
             
             return new DeleteProductCommandResponse()

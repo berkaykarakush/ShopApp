@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Concrete.EFCore;
 using Microsoft.EntityFrameworkCore;
 using PresentationLayer.Identity;
+using Serilog;
 
 namespace PresentationLayer.Extensions 
 { 
@@ -18,8 +19,7 @@ namespace PresentationLayer.Extensions
                     }
                     catch (Exception ex)
                     {
-                        //TODO Loglama
-                        Console.Write(ex.InnerException.Message.ToString());
+                        Log.Fatal(ex, "Application Context Migrate Database Error");
                     }
                 }
                 using (var shopContext = scope.ServiceProvider.GetRequiredService<ShopContext>())
@@ -30,7 +30,7 @@ namespace PresentationLayer.Extensions
                     }
                     catch (Exception ex)
                     {
-                        //TODO loglama
+                        Log.Fatal(ex, "Shop Context Migrate Database Error");
                         throw;
                     }
                 }
