@@ -1,8 +1,92 @@
-﻿<header>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Shop App</h1>
-            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque id, eum explicabo sed est hic corrupti et impedit, quasi quis alias, qui provident natus enim tempore? Nesciunt repellendus debitis minus!</p>
+﻿<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+    <div class="row container-fluid">
+        <div class="col-md-3 container-fluid">
+            <ul class="navbar-nav">
+                <a asp-controller="Home" asp-action="Index" class="h1 navbar-brand text-danger" style="font-size: 40px;">Shopapp</a>
+            </ul>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="col-md-6 mt-3 container-fluid">
+            <form class="d-flex" role="search">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" style="font-size: 25px;">
+                <button class="btn btn-lg btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="col-md-3 container-fluid">
+            <div class="collapse navbar-collapse mt-3" style="float: right;" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    @*login successfull*@
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        //is admin
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-user"></i> @User.Identity.Name
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="admin" asp-action="index">Dashboard</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Orders" asp-action="GetOrders">Orders</a></li>
+                                    <li><a class="dropdown-item" href="#">Favorites</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="account" asp-action="logout">
+                                            <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        // not admin
+                        else
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-user"></i> @User.Identity.Name
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="account" asp-action="manage">Manage</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-controller="account" asp-action="logout">
+                                         <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        <li class="nav-item">
+                            <a asp-controller="cart" asp-action="index" class="nav-link"><i class="fa-solid fa-cart-shopping"></i> Basket</a>
+                        </li>
+                    }
+                    else//login unseccessfull
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user"></i> Login
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="account" asp-action="login">
+                                            <i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-controller="account" asp-action="registert">
+                                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Register</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="cart" asp-action="index" class="nav-link">
+                                <i class="fa-solid fa-cart-shopping"></i> Basket
+                            </a>
+                        </li>
+                        }
+                </ul>
+            </div>
+        </div>
         </div>
     </div>
-</header>
+</nav>
