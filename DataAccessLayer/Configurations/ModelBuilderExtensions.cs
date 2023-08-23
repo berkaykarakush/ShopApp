@@ -42,8 +42,24 @@ namespace DataAccessLayer.Configurations
                 new ImageUrl() 
                 { 
                     Id = i + 111111111,
+                    CampaignId = i + 111111111,
                     ProductId = i + 111111111,
                     Url = "1.jpg"
+                });
+            }
+
+            for (int i = 1; i < 10; i++)
+            {
+                builder.Entity<Campaign>().HasData(
+                new Campaign()
+                {
+                    CampaignId = i + 111111111,
+                    CampaignImage = "1.jpg",
+                    Code = "23sdasdasd",
+                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                    Description = $"Description: {i + 111111111}",
+                    IsHome = true,
+                    Name = $"Campaign {i + 111111111}"
                 });
             }
 

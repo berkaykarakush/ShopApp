@@ -10,6 +10,7 @@ namespace BusinessLayer.Concrete
 
         public CampaignManager(IUnitOfWork unitOfWork)
         {
+            ErrorMessage = string.Empty;
             _unitOfWork = unitOfWork;
         }
 
@@ -17,12 +18,19 @@ namespace BusinessLayer.Concrete
 
         public bool Create(Campaign entity)
         {
-            throw new NotImplementedException();
+            if (Validation(entity))
+            {
+                _unitOfWork.Campaigns.Create(entity);
+                _unitOfWork.Save();
+                return true;
+            }
+            return false;
         }
 
         public void Delete(Campaign entity)
         {
-            throw new NotImplementedException();
+            _unitOfWork.Campaigns.Delete(entity);
+            _unitOfWork.Save();
         }
 
         public List<Campaign> GetAll()
@@ -32,17 +40,33 @@ namespace BusinessLayer.Concrete
 
         public Campaign GetById(double id)
         {
-            throw new NotImplementedException();
+            return _unitOfWork.Campaigns.GetById(id);
         }
-
         public bool Update(Campaign entity)
         {
-            throw new NotImplementedException();
+            if (Validation(entity))
+            {
+                _unitOfWork.Campaigns.Update(entity);
+                _unitOfWork.Save();
+                return true;
+            }
+            return false;
         }
 
         public bool Validation(Campaign entity)
         {
-            throw new NotImplementedException();
+            bool isValid = true;
+            if (string.IsNullOrEmpty(entity.Name))
+            {
+                ErrorMessage += "Campaign name is not null!";
+                isValid = false;
+            }
+            if (string.IsNullOrEmpty(entity.Description))
+            {
+                ErrorMessage += "Campaign description is not null!";
+                isValid = false;
+            }
+            return isValid;
         }
     }
 }

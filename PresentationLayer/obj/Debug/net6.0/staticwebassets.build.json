@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SBkBnMPpmuL4L9XTPpV2zjd9WN258qg5MztAMJflEzQ=",
+  "Hash": "LDSLCquyTKAv/Fl9wjLlGWVXzBJMWIIL4nP+Vl2iu1c=",
   "Source": "PresentationLayer",
   "BasePath": "_content/PresentationLayer",
   "Mode": "Default",
@@ -1664,6 +1664,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\iphone-14-pro-max-256-gb-derin-pembe-9.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\ogrencilere-ucretsiz-telefon-1.jpg",
+      "SourceId": "PresentationLayer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\",
+      "BasePath": "_content/PresentationLayer",
+      "RelativePath": "img/ogrencilere-ucretsiz-telefon-1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\ogrencilere-ucretsiz-telefon-1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\ogrencilere-ucretsiz-telefon-2.jpg",
+      "SourceId": "PresentationLayer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\",
+      "BasePath": "_content/PresentationLayer",
+      "RelativePath": "img/ogrencilere-ucretsiz-telefon-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\ogrencilere-ucretsiz-telefon-2.jpg"
     },
     {
       "Identity": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\samsung s12 pro max 512 gb-1.jpg",

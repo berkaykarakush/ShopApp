@@ -53,6 +53,11 @@ namespace PresentationLayer.Mapping
 
             //Campaign
             CreateMap<Campaign, HomeSliderVM>().ReverseMap();
+            CreateMap<Campaign, CreateCampaignVM>().ReverseMap();
+            CreateMap<ListCampaignQueryResponse, ListCampaignVM>().ReverseMap();
+            CreateMap<EditCampaignQueryResponse, EditCampaignVM>().ReverseMap();
+
+
 
         }
     }

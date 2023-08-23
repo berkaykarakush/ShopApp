@@ -12,7 +12,7 @@ using PresentationLayer.Identity;
 namespace PresentationLayer.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230817074401_mig_1")]
+    [Migration("20230823173720_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />

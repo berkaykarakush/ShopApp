@@ -130,6 +130,11 @@ try
         defaults: new { controller = "Cart", action = "Index" });
 
     app.MapControllerRoute(
+       name: "adminCampaigns",
+       pattern: "admin/campaign/list",
+       defaults: new { controller = "Campaign", action = "ListCampaign" });
+
+    app.MapControllerRoute(
         name: "adminUsers",
         pattern: "admin/user/list",
         defaults: new { controller = "User", action = "ListUser" });
@@ -138,6 +143,7 @@ try
         name: "adminEditUser",
         pattern: "admin/user/{id?}",
         defaults: new { controller = "User", action = "EditUser" });
+
 
     app.MapControllerRoute(
         name: "adminRoles",
@@ -148,6 +154,16 @@ try
         name: "adminRoleCreate",
         pattern: "admin/role/create",
         defaults: new { controller = "Role", action = "CreateRole" });
+
+    app.MapControllerRoute(
+       name: "adminCampaignCreate",
+       pattern: "admin/campaign/create",
+       defaults: new { controller = "Campaign", action = "CreateCampaign" });
+
+    app.MapControllerRoute(
+      name: "adminEditCampaign",
+      pattern: "admin/campaign/{id?}",
+      defaults: new { controller = "Campaign", action = "EditCampaign" });
 
     app.MapControllerRoute(
         name: "adminEditRole",
