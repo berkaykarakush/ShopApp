@@ -19,6 +19,7 @@ namespace DataAccessLayer.Concrete.EFCore
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<ImageUrl> ImageUrls { get; set; }
+        public DbSet<Campaign> Campaigns { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

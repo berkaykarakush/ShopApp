@@ -13,6 +13,7 @@ namespace BusinessLayer
             serviceCollection.AddScoped<ICategoryService, CategoryManager>();
             serviceCollection.AddScoped<IOrderService, OrderManager>();
             serviceCollection.AddScoped<ICartService, CartManager>();
+            serviceCollection.AddScoped<ICampaignService, CampaignManager>();
             serviceCollection.AddScoped<IEmailSender, EmailSender>(i => new EmailSender
                 (
                     Configuration._configuration.GetSection("EmailSender:Host").Value,

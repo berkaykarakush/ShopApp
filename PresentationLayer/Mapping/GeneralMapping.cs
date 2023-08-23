@@ -51,6 +51,9 @@ namespace PresentationLayer.Mapping
             CreateMap<CheckoutQueryResponse, OrderModel>().ReverseMap();
             CreateMap<Cart, CartModel>().ReverseMap();
 
+            //Campaign
+            CreateMap<Campaign, HomeSliderVM>().ReverseMap();
+
         }
     }
 }

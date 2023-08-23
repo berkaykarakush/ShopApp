@@ -26,8 +26,10 @@ builder.Services.AddDataAccessLayerServices();
 builder.Services.AddBusinessLayerServices();
 builder.Services.AddPresentationLayerServices();
 
-//MediatR
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateProductCommandHandler).GetTypeInfo().Assembly));
+//CORS Policy
+builder.Services.AddCors(options => 
+   options.AddPolicy("myclients", builder =>
+   builder.WithOrigins("https://localhost:7087","http://localhost:7087").AllowAnyMethod().AllowAnyOrigin()));
 
 //Serilog Configuration
 Log.Logger = new LoggerConfiguration()
@@ -93,9 +95,12 @@ try
 
     app.UseStaticFiles();
 
-    app.UseAuthentication();
-
     app.UseRouting();
+
+    //CORS Policy
+    app.UseCors("myclients");
+
+    app.UseAuthentication();
 
     app.UseAuthorization();
 

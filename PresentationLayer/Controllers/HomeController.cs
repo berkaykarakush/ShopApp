@@ -20,6 +20,15 @@ namespace PresentationLayer.Controllers
             _notyfService = notyfService;
         }
 
+        //TODO campain 
+        //TODO odeme sayfasinda varsa indirim kuponu
+        //TODO orders process
+        //TODO SignalR
+        //TODO manage settings
+        //TODO footer editing
+        //TODO navbar editing
+        //TODO add open source email library 
+        
         [HttpGet]
         public async Task<IActionResult> Index(HomeIndexQueryRequest homeIndexQueryRequest)
         {

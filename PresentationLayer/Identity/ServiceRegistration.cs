@@ -1,7 +1,6 @@
 ﻿using AspNetCoreHero.ToastNotification;
-using BusinessLayer.Abstract;
-using BusinessLayer.Concrete;
 using DataAccessLayer.Concrete.EFCore;
+using DataAccessLayer.CQRS.Commands;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -18,8 +17,13 @@ namespace PresentationLayer.Identity
             serviceCollection.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
 
             serviceCollection.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.TopRight; });
+
             //AutoMapper
-            serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());   
+            serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+            //MediatR
+            serviceCollection.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateProductCommandHandler).GetTypeInfo().Assembly));
+
 
             //identity settings
             serviceCollection.Configure<IdentityOptions>(options =>

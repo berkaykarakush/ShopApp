@@ -1,7 +1,6 @@
 ﻿using DataAccessLayer.Abstract;
 using EntityLayer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
 
 namespace DataAccessLayer.Concrete.EFCore
 {
