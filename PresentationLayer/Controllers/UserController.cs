@@ -1,8 +1,10 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Enums;
+using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
 
@@ -13,11 +15,13 @@ namespace PresentationLayer.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<User> _userManager;
         private readonly INotyfService  _notyfService;
-        public UserController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, INotyfService notyfService)
+        private readonly IMapper _mapper;
+        public UserController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, INotyfService notyfService, IMapper mapper)
         {
             _roleManager = roleManager;
             _userManager = userManager;
             _notyfService = notyfService;
+            _mapper = mapper;
         }
 
         [Authorize(Roles = "Admin")]
@@ -85,6 +89,57 @@ namespace PresentationLayer.Controllers
             var roles = _roleManager.Roles.Select(r => r.Name);
             ViewBag.Roles = roles;
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateUser(ManageModel model)
+        {
+            var userDetailsModel = model.UserDetailsModel;
+            var user = await _userManager.FindByIdAsync(userDetailsModel.UserId);
+
+            if (user == null)
+            {
+                _notyfService.Error(NotfyMessageEnum.Error);
+                return RedirectToAction("Manage", "Account");
+            }
+
+            user.FirstName = NameEditExtensions.NameEdit(userDetailsModel.FirstName);
+            user.LastName = NameEditExtensions.NameEdit(userDetailsModel.LastName);
+            user.Email = userDetailsModel.Email;
+            user.PhoneNumber = userDetailsModel.PhoneNumber;
+            user.EmailConfirmed = userDetailsModel.EmailConfirmed;
+
+            await _userManager.UpdateAsync(user);
+
+            _notyfService.Success("Trantaction Successfull - User information updated!");
+            return RedirectToAction("Manage", "Account");
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> CreateAddress(ManageModel model)
+        {
+            var userAddressModel = model.UserAddressModel;
+            if (userAddressModel == null)
+            {
+
+                _notyfService.Error(NotfyMessageEnum.Error);
+                return RedirectToAction("Manage", "Account");
+            }
+
+            var user = await _userManager.FindByIdAsync(userAddressModel.UserId);
+            userAddressModel.User = user;
+            if (user == null)
+            {
+                _notyfService.Error(NotfyMessageEnum.Error);
+                return RedirectToAction("Manage", "Account");
+            }
+
+
+            user.UserAddresses.Add(_mapper.Map<UserAddress>(userAddressModel));
+            await _userManager.UpdateAsync(user);
+
+            return RedirectToAction("Manage","Account");
         }
     }
 }

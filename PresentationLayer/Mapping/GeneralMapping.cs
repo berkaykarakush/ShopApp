@@ -14,32 +14,22 @@ namespace PresentationLayer.Mapping
         public GeneralMapping()
         {
             //Product
-            CreateMap<ListProductQueryResponse, ListProductVM>().ReverseMap();
-
-            CreateMap<ShopListQueryResponse, ListProductVM>().ReverseMap();
-
-            CreateMap<EntityLayer.PageInfo, PageInfoVM>().ReverseMap();
-
-            CreateMap<ShopSearchQueryResponse, ListProductVM>().ReverseMap();
-
-            CreateMap<ShopDetailsQueryResponse, ProductDetailModel>().ReverseMap();
-
-            CreateMap<TopSalesListQueryResponse, ProductListViewModel>().ReverseMap();
-
             CreateMap<ProductVM, Product>().ReverseMap();
             CreateMap<ProductVM, List<Product>>().ReverseMap();
-            
+            CreateMap<EntityLayer.PageInfo, PageInfoVM>().ReverseMap();
+            CreateMap<ListProductQueryResponse, ListProductVM>().ReverseMap();
+            CreateMap<ShopListQueryResponse, ListProductVM>().ReverseMap();
+            CreateMap<ShopDetailsQueryResponse, ProductDetailModel>().ReverseMap();
+            CreateMap<ShopSearchQueryResponse, ListProductVM>().ReverseMap();
+            CreateMap<TopSalesListQueryResponse, ProductListViewModel>().ReverseMap();
             CreateMap<HomeIndexQueryResponse, ProductListViewModel>().ReverseMap();
-            
             CreateMap<EditProductQueryResponse, EditProductVM>().ReverseMap();
-
             CreateMap<EditProductCommandResponse, EditProductVM>().ReverseMap();
-
-
+            CreateMap<ProductCategory, ProductCategoryVM>().ReverseMap();
 
             //Category
+            CreateMap<Category, CategoryVM>().ReverseMap();
             CreateMap<EditCategoryQueryResponse, CategoryVM>().ReverseMap();
-
             CreateMap<EditCategoryCommandResponse, CategoryVM>().ReverseMap();
 
             //Account
@@ -57,7 +47,8 @@ namespace PresentationLayer.Mapping
             CreateMap<ListCampaignQueryResponse, ListCampaignVM>().ReverseMap();
             CreateMap<EditCampaignQueryResponse, EditCampaignVM>().ReverseMap();
 
-
+            //User
+            CreateMap<UserAddress, UserAddressModel>().ReverseMap();
 
         }
     }

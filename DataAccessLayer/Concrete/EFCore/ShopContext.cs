@@ -9,7 +9,7 @@ namespace DataAccessLayer.Concrete.EFCore
     {
         public ShopContext(DbContextOptions<ShopContext> options):base(options)
         {
-            
+            this.Database.SetCommandTimeout(999999);
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }

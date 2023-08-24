@@ -8,8 +8,8 @@ namespace PresentationLayer.Identity
     {
         public User()
         {
-            UserDetails = new List<UserDetail>();
             UserAddresses = new List<UserAddress>();
+            UserDetails = new List<UserDetail>();
         }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
@@ -17,7 +17,7 @@ namespace PresentationLayer.Identity
         public string? ConfirmEmailDate { get; set; }
         public string? IpAddress { get; set; }
         public string? FirstOrderDate { get; set; }
-        public List<UserAddress> UserAddresses { get; set; }
+        public List<UserAddress>? UserAddresses { get; set; }
         public List<UserDetail>? UserDetails { get; set; }
 
     }

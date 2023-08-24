@@ -4,9 +4,9 @@
     {
         public Order()
         {
-            OrderItems = new List<OrderItem>();
             Random random = new Random();
             OrderId = random.Next(111111111, 999999999);
+            OrderItems = new List<OrderItem>();
         }
         public double OrderId { get; set; }
         public string? OrderNumber { get; set; }

@@ -36,16 +36,19 @@ namespace DataAccessLayer.Configurations
                 );
             }
 
-            for (int i = 1; i < 10; i++)
+            for (int i = 1; i < 5; i++)
             {
-                builder.Entity<ImageUrl>().HasData(
-                new ImageUrl() 
-                { 
-                    Id = i + 111111111,
-                    CampaignId = i + 111111111,
-                    ProductId = i + 111111111,
-                    Url = "1.jpg"
-                });
+                for (int j = 1; j < 75; j+=6)
+                {
+                    builder.Entity<ImageUrl>().HasData(
+                    new ImageUrl()
+                    {
+                        Id = i + j + 111111111,
+                        CampaignId = i + 111111111,
+                        ProductId = i + 111111111,
+                        Url = "1.jpg"
+                    });
+                }
             }
 
             for (int i = 1; i < 10; i++)

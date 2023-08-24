@@ -64,11 +64,14 @@ namespace DataAccessLayer.Concrete.EFCore
 
         public Product GetProductDetails(string url)
         {
-            return ShopContext.Products
+            var q = ShopContext.Products
                 .Where(p => p.Url == url)
                 .Include(p => p.ProductCategories)
-                .ThenInclude(pc => pc.Category)
-                .FirstOrDefault();
+                .ThenInclude(p => p.Category)
+                .Include(p => p.ImageUrls)
+                .AsQueryable();
+
+            return q.FirstOrDefault();
         }
 
         public List<Product> GetProductsByCategory(string name, int page, int pageSize)

@@ -144,6 +144,10 @@ try
         pattern: "admin/user/{id?}",
         defaults: new { controller = "User", action = "EditUser" });
 
+    app.MapControllerRoute(
+       name: "UpdateUser",
+       pattern: "user/updateuser",
+       defaults: new { controller = "User", action = "UpdateUser" });
 
     app.MapControllerRoute(
         name: "adminRoles",

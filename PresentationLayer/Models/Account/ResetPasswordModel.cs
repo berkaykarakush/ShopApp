@@ -5,16 +5,19 @@ namespace PresentationLayer.Models
     public class ResetPasswordModel
     {
         [Required]
-        public string Token { get; set; }
+        public string? Token { get; set; }
         [Required]
         [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
+        [Display(Prompt = "john@email.com")]
+        public string? Email { get; set; }
         [Required]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        [Display(Prompt = "********")]
+        public string? Password { get; set; }
         [Required]
         [DataType(DataType.Password)]
         [Compare("Password")]
-        public string RePassword { get; set; }
+        [Display(Prompt = "********")]
+        public string? RePassword { get; set; }
     }
 }

@@ -154,35 +154,20 @@ namespace PresentationLayer.Controllers
         {
             string userId = _userManager.GetUserId(User);
             User user = await _userManager.FindByIdAsync(userId);
-            return View(new ManageModel()
+            ManageModel manageModel = new ManageModel();
+            manageModel.UserDetailsModel = new UserDetailsModel() 
             {
-                UserId = user.Id,
-                Email = user.Email,
+                UserId = userId,
+                UserDetailId = userId,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
-                Phone = user.PhoneNumber
-                //Address = user.UserAddresses.Select(a => a.Address).ToString(),
-                //City = user.UserAddresses.Select(c => c.City).ToString(),
-                //Country = user.UserAddresses.Select(c => c.Country).ToString(),
-                //ZipCode = user.UserAddresses.Select(z => z.ZipCode).ToString()
-            });
-        }
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber,
+                EmailConfirmed = user.EmailConfirmed
+            };
+            manageModel.UserAddressModels.AddRange(_mapper.Map<List<UserAddressModel>>(user.UserAddresses));
 
-        [HttpPost]
-        public async Task<IActionResult> Manage(ManageModel model)
-        {
-            var user = await _userManager.FindByIdAsync(model.UserId);
-            if (user != null)
-            {
-                user.FirstName = model.FirstName;
-                user.LastName = model.LastName;
-                user.PhoneNumber = model.Phone;
-                user.Email = model.Email;
-
-                await _userManager.UpdateAsync(user);
-                RedirectToAction("Manage","Account");
-            }
-            return View(model);
+            return View(manageModel);
         }
 
         [HttpGet]
@@ -386,6 +371,5 @@ namespace PresentationLayer.Controllers
 
             return RedirectToAction("ListUser", "User");
         }
-
     }
 }

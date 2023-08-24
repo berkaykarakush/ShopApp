@@ -9,8 +9,8 @@
         }
         public double Id { get; set; }
         public double CategoryId { get; set; }
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
         public double ProductId { get; set; }
-        public Product Product { get; set; }
+        public Product? Product { get; set; }
     }
 }

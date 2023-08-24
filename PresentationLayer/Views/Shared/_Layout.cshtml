@@ -16,11 +16,17 @@
 
     <main class="my-3">
         <div class="container">
-            @if (TempData["message"] != null)
-            {
-                <partial name="_ResultMessage" model="@(TempData.Get<AlertMessage>("message"))" />
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    @if (TempData["message"] != null)
+                    {
+                        <partial name="_ResultMessage" model="@(TempData.Get<AlertMessage>("message"))" />
                 
-            }
+                    }
+                </div>
+                <div class="col-md-3"></div>
+            </div>
             @RenderBody()
         </div>
     </main>

@@ -7,7 +7,7 @@ namespace PresentationLayer.Identity
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options):base(options)
         {
-            
+            this.Database.SetCommandTimeout(999999);
         }
         public DbSet<UserDetail> UserDetails { get; set; }
         public DbSet<UserAddress> UserAddresses { get; set; }

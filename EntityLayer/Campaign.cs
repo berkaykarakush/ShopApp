@@ -6,6 +6,7 @@
         {
             Random random = new();
             CampaignId = random.Next(111111111, 999999999);
+            ImageUrls = new List<ImageUrl>();
         }
         public double CampaignId { get; set; }
         public string? Name { get; set; }

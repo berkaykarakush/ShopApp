@@ -54,8 +54,8 @@ namespace PresentationLayer.Controllers
             if (!response.IsSuccess)
                 _notyfService.Error(NotfyMessageEnum.Error);
 
-            ProductDetailModel productDetailModel = _mapper.Map<ProductDetailModel>(response);
-            return View(productDetailModel);
+            ProductDetailModel model  = _mapper.Map<ProductDetailModel>(response);
+            return View(model);
         }
 
         [HttpGet]
