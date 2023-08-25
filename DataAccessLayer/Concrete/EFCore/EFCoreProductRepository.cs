@@ -77,6 +77,7 @@ namespace DataAccessLayer.Concrete.EFCore
         public List<Product> GetProductsByCategory(string name, int page, int pageSize)
         {
             var products = ShopContext.Products
+                .Include(p => p.ImageUrls)
                 .Where(p => p.IsApproved)
                 .AsQueryable();
 

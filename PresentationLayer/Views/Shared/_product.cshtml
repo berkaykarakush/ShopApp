@@ -1,9 +1,30 @@
 ﻿@model ProductVM
 
 <div class="card position-relative mb-2">
-    <a asp-controller="shop" asp-action="Details" asp-route-url="@Model.Url">
-        <img asp-append-version="true" class="card-img-top" src="~/img/@Model.ProductImage" alt="@Model.ProductImage">
-    </a>
+    @*carousel - start*@
+    <div id="product-carousel" class="carousel-dark carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @foreach (var item in Model.ImageUrls)
+            {
+                <div class="carousel-item active">
+                    <a asp-controller="shop" asp-action="Details" asp-route-url="@Model.Url">
+                        <img src="~/img/@item.Url" class="card-img-top w-100" alt="@item.Url" style="height: 500px;">
+                    </a>
+                </div>
+            }
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#product-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#product-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    @*carousel - end*@
+    @*fav icon - start*@
     <span >
         <form asp-controller="#" asp-action="#" method="post">
             <input type="hidden" name="productId" value="@Model.ProductId">
@@ -12,24 +33,26 @@
                 </button>
         </form>
     </span>
+    @*fav icon - end*@
     <div class="card-body">
-        <h5 class="card-title">@Model.Name</h5>
-        <small class="text-muted">
-            <i class="fas fa-lira-sign"></i>@Model.Price
-        </small>
+        <a href="#" class="nav-link form-inline"><h5 class="card-title">Brand @Model.Name</h5></a>
+        <a href="#" class="h4 nav-link">
+            <strong>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                4.8
+            </strong>
+        </a>
+        <strong>@Model.Price.00 TL</strong>
     </div>
-    <div class="card-footer text-center">
-        <a asp-controller="shop" asp-action="Details" asp-route-url="@Model.Url" class="btn btn-primary btn-sm">Details</a>
-        @if (User.Identity.IsAuthenticated)
-        {
-            <form asp-controller="Cart" asp-action="AddToCart" method="post" style="display: inline;">
-                <input type="hidden" name="productId" value="@Model.ProductId">
-                <input type="hidden" name="quantity" value="1" min="1" step="1" max="@Model.Quantity">
-                @if (Model.Quantity > 0)
-                {
-                    <button type="submit" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.ProductId" class="btn btn-primary btn-sm" >Add To Cart</button>
-                }
-            </form>
-        }
-    </div>
-</div>   
+</div> 
+
+@section Scripts
+    {
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}

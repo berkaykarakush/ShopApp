@@ -36,9 +36,10 @@ namespace DataAccessLayer.Configurations
                 );
             }
 
-            for (int i = 1; i < 5; i++)
+            //ImageUrls
+            for (int i = 1; i < 50; i++)
             {
-                for (int j = 1; j < 75; j+=6)
+                for (int j = 1; j < 5; j+=6)
                 {
                     builder.Entity<ImageUrl>().HasData(
                     new ImageUrl()
@@ -51,7 +52,8 @@ namespace DataAccessLayer.Configurations
                 }
             }
 
-            for (int i = 1; i < 10; i++)
+            //Campaings
+            for (int i = 1; i < 50; i++)
             {
                 builder.Entity<Campaign>().HasData(
                 new Campaign()

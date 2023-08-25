@@ -29,8 +29,9 @@ namespace PresentationLayer.Controllers
         //TODO details product rate
         //TODO product brand
         //TODO product categories
+        //TODO checout form add contract*
         
-        
+
         [HttpGet]
         public async Task<IActionResult> Index(HomeIndexQueryRequest homeIndexQueryRequest)
         {
