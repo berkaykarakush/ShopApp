@@ -1,27 +1,30 @@
 ﻿@model ProductDetailModel
+@*links - start*@
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        @foreach (var item in Model.Categories)
+        {
+            <li class="breadcrumb-item">
+                <a asp-controller="Shop" asp-action="list" asp-route-category="@item.Url" class="p-0 mb-3 nav-link">@item.Name</a>
+            </li>  
+        }
+    </ol>
+</nav>
+@*links - end*@
 
-<div class="row">
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            @foreach (var item in Model.Categories)
-            {
-                <li class="breadcrumb-item">
-                        <a asp-controller="Shop" asp-action="list" asp-route-category="@item.Url" class="btn btn-link p-0 mb-3">@item.Name</a>
-                </li>  
-            }
-        </ol>
-    </nav>
-    <div class="col-md-5">
-        <div class="card">
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-6">
+            @*carousel - start*@
             <div id="product-carousel" class="carousel-dark carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                  @foreach (var item in Model.Product.ImageUrls)
-                    {
-                        <div class="carousel-item active">
-                            <img src="~/img/@item.Url" class="card-img-top w-100" alt="@item.Url" style="height: 500px;">
-                        </div>
-                    }
-                </div>
+                @foreach (var item in Model.Product.ImageUrls)
+                {
+                    <div class="carousel-item active">
+                        <img src="~/img/@item.Url" class="card-img-top w-100 m-4" alt="@item.Url" style="height: 500px;">
+                    </div>
+                }
+                </div>  
                 <button class="carousel-control-prev" type="button" data-bs-target="#product-carousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
@@ -29,9 +32,11 @@
 
                 <button class="carousel-control-next" type="button" data-bs-target="#product-carousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="bg-dark visually-hidden">Next</span>
+                    <span class="visually-hidden">Next</span>
                 </button>
             </div>
+            @*carousel - end*@
+            @*product images - start*@
             <div class="card-body">
                 <div class="row mt-4">
                     <div class="col-md-2"></div>
@@ -39,48 +44,61 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="card border-0">
-                                    <img  src="~/img/@Model.Product.ProductImage" class="card-img-top w-100" alt="@Model.Product.ProductImage" style="height: 50px; width: 5px;">
+                                    <img src="~/img/@Model.Product.ProductImage" class="card-img-top w-100" alt="@Model.Product.ProductImage" style="height: 50px; width: 5px;">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="card border-0">
-                                    <img  src="~/img/@Model.Product.ProductImage" class="card-img-top w-100" alt="@Model.Product.ProductImage" style="height: 50px;width: 5px;">
+                                    <img src="~/img/@Model.Product.ProductImage" class="card-img-top w-100" alt="@Model.Product.ProductImage" style="height: 50px;width: 5px;">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="card border-0">
-                                    <img  src="~/img/@Model.Product.ProductImage" class="card-img-top w-100" alt="@Model.Product.ProductImage" style="height: 50px;width: 5px;">
+                                    <img src="~/img/@Model.Product.ProductImage" class="card-img-top w-100" alt="@Model.Product.ProductImage" style="height: 50px;width: 5px;">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="card border-0">
-                                    <img  src="~/img/@Model.Product.ProductImage" class="card-img-top w-100" alt="@Model.Product.ProductImage" style="height: 50px;width: 5px;">
+                                    <img src="~/img/@Model.Product.ProductImage" class="card-img-top w-100" alt="@Model.Product.ProductImage" style="height: 50px;width: 5px;">
                                 </div>
                             </div>
                         </div>
                     </div>
-                 
                     <div class="col-md-2"></div>
                 </div>
             </div>
+            @*product images - end*@
         </div>
-    </div>
-    <div class="col-md-7">
-        <div class="row" style="height: 500px;">
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <h1 class="h2 card-title">@Model.Product.Name</h1>
-                                <h5 class="card-title text-success">********</h5>
-                                <h5 class="card-title">3434 yorum</h5>
+        <div class="col-md-6 bg-light">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        @*product details - start*@
+                        <div class="col-md-12 m-4">
+                            <h1 class="h2 card-title">@Model.Product.Name</h1>
+                            <a href="#" class="h4 nav-link text-danger"><strong>Brand</strong></a>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="#" class="h4 nav-link">
+                                        <strong>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            <i class="fa-solid fa-star text-warning"></i>
+                                            4.8
+                                        </strong> 
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="h4 nav-link"><strong>3434 Comment</strong></a>
+                                </div>
+                                <h1 class="card-title text-danger mt-2">@Model.Product.Price.00 TL</h1>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                       <div class="card mt-4">
-                            <h5 class="card-title text-danger m-4">@Model.Product.Price <i class="fas fa-lira-sign" style="color:black;"></i></h5>
+                        @*product details - end*@
+                        @*add to cart and fav button - start*@
+                        <div class="col-md-12 m-4">
                             @if (Model.Product.Quantity > 0)
                             {
                                 <div class="row">
@@ -126,24 +144,32 @@
                                     </div>
                                 </div>
                             }
-                       </div>
+                        </div>
+                        @*add to cart and fav button - end*@
+                    </div>
                 </div>
+               @*seller - start*@
+                <div class="col-md-6 float-end">
+                    <div class="row float-end m-4">
+                        <a href="#" class="h4 nav-link text-primary"><strong>Seller Name</strong></a>
+                        <a href="#" class="h4 nav-link">
+                            <strong>
+                                <i class="fa-solid fa-star text-warning"></i>
+                                <i class="fa-solid fa-star text-warning"></i>
+                                <i class="fa-solid fa-star text-warning"></i>
+                                <i class="fa-solid fa-star text-warning"></i>
+                                <i class="fa-solid fa-star text-warning"></i>
+                                4.8
+                            </strong> 
+                        </a>
+                    </div>
                 </div>
+               @*seller - end*@
             </div>
-            <div class="col-md-6">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h1 class="h5 card-title">Satici Adi</h1>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Magaza Git</a>
-                </div>
-            </div>
-        </div>
         </div>
     </div>
 </div>
-
+@*description - start*@
 <div class="row mt-4">
     <div class="col-md-12">
         <div class="card mt-4">
@@ -155,12 +181,12 @@
         </div>
     </div>
 </div>
-
-
+@*description - end*@
+@*comment - start*@
 <div class="row mt-4">
     <div class="col-md-12">
         <div class="card mt-4">
-            <h1 class="h-4 mt-4 card-title text-center">Yorumlar</h1>
+            <h1 class="h-4 mt-4 card-title text-center">Comments</h1>
             <hr class="m-4" />
             <div class="card-body">
                 <div class="row">
@@ -196,21 +222,72 @@
                             </form>
                         </div>
                         </div>
+                        @*comment list - start*@
                     <div class="col-md-12 mt-4">
-                        <div class="card">
-                            <img src="..." class="card-img-top" alt="...">
+
+                        <div class="card border-0">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h5 class="card-title">John Doe</h5>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <a class="h4 nav-link">
+                                            <strong>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                4.8
+                                            </strong>
+                                        </a>
+                                    </div>
+                                </div>
+                                <p class="card-text mt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             </div>
                         </div>
+                        
+                        <hr />
+
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h5 class="card-title">John Doe</h5>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <a class="h4 nav-link">
+                                            <strong>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                <i class="fa-solid fa-star text-warning"></i>
+                                                4.8
+                                            </strong>
+                                        </a>
+                                    </div>
+                                </div>
+                                <p class="card-text mt-2">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 col-6 mx-auto mt-4">
+                            <button class="btn btn-warning" type="submit">
+                                <strong>All Comments</strong>
+                            </button>
+                        </div>
+                        
+
+                        @*comment list - end*@
                     </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+@*comment - end*@
 
 @section Scripts
 {

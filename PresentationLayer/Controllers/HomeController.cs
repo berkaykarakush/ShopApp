@@ -23,9 +23,13 @@ namespace PresentationLayer.Controllers
         //TODO odeme sayfasinda varsa indirim kuponu
         //TODO orders process
         //TODO SignalR
-        //TODO manage settings
-        //TODO footer editing
         //TODO add open source email library 
+        //TODO comment process
+        //TODO seller added
+        //TODO details product rate
+        //TODO product brand
+        //TODO product categories
+        
         
         [HttpGet]
         public async Task<IActionResult> Index(HomeIndexQueryRequest homeIndexQueryRequest)
