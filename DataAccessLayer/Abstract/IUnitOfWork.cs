@@ -7,6 +7,7 @@
         IOrderRepository Orders { get; }
         IProductRepository Products { get; }
         ICampaignRepository Campaigns { get; }
+        IBrandRepository Brands { get; }
         void Save();
     }
 }

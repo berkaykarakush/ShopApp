@@ -21,12 +21,14 @@ namespace DataAccessLayer.Concrete.EFCore
                 .Where(p => p.ProductId == id)
                 .Include(p => p.ProductCategories)
                 .ThenInclude(pc => pc.Category)
+                .Include(p => p.ImageUrls)
                 .FirstOrDefault();
         }
 
         public int GetCountByCategory(string category)
         {
             var products = ShopContext.Products
+                .Include(p => p.ImageUrls)
                 .Where(p => p.IsApproved)
                 .AsQueryable();
 
@@ -45,6 +47,7 @@ namespace DataAccessLayer.Concrete.EFCore
         public int GetCountTopSalesProduct()
         {
             return ShopContext.Products
+                .Include (p => p.ImageUrls)
                 .Where(p => p.IsApproved)
                 .OrderByDescending(p => p.SalesCount)
                 .Count();
@@ -53,13 +56,16 @@ namespace DataAccessLayer.Concrete.EFCore
         public List<Product> GetHomePageProducts()
         {
             return ShopContext.Products
+                .Include(p => p.ImageUrls)
                 .Where(p => p.IsApproved && p.IsHome)
                 .ToList();
         }
 
         public List<Product> GetPopularProducts()
         {
-             return ShopContext.Products.ToList();
+             return ShopContext.Products
+                .Include(p => p.ImageUrls)
+                .ToList();
         }
 
         public Product GetProductDetails(string url)
@@ -96,6 +102,7 @@ namespace DataAccessLayer.Concrete.EFCore
         public List<Product> GetSearchResult(string searchString)
         {
             var products = ShopContext.Products
+                .Include(p => p.ImageUrls)
                 .Where(p => p.IsApproved && (p.Name.ToLower().Contains(searchString) || p.Description.ToLower().Contains(searchString)))
                 .AsQueryable();
 
@@ -105,6 +112,7 @@ namespace DataAccessLayer.Concrete.EFCore
         public List<Product> GetTopSalesProducts(int page, int pageSize)
         {
             var products = ShopContext.Products
+                .Include(p => p.ImageUrls)
                 .OrderByDescending(p => p.SalesCount)
                 .AsQueryable();
 
@@ -119,6 +127,7 @@ namespace DataAccessLayer.Concrete.EFCore
         public bool Update(Product entity, List<double> categoryIds)
         {
             var product = ShopContext.Products
+                .Include (p => p.ImageUrls)
                 .Include(p => p.ProductCategories)
                 .FirstOrDefault(p => p.ProductId == entity.ProductId);
 

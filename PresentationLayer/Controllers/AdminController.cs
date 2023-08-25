@@ -7,7 +7,7 @@ namespace PresentationLayer.Controllers
     public class AdminController : Controller
     {
        [HttpGet]
-       public IActionResult Index()
+       public IActionResult Dashboard()
         {
             return View();
         }

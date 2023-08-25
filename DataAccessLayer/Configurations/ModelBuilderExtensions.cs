@@ -12,11 +12,12 @@ namespace DataAccessLayer.Configurations
         public static void Seed(this ModelBuilder builder)
         {
 
+
             //Category
             for (int i = 1; i < 10; i++)
             {
                 builder.Entity<Category>().HasData(
-                    new Category() { CategoryId = i+111111111, Name = $"category {i}", Url = $"category-{i}" }
+                    new Category() {CategoryId = i + 111111111,   Name = $"category {i}", Url = $"category-{i}" }
                 );
             }
                 
@@ -24,7 +25,7 @@ namespace DataAccessLayer.Configurations
             for (int i = 1; i < 50; i++)
             {
                 builder.Entity<Product>().HasData(
-                    new Product() { ProductId = i+111111111, Name = $"urun {i}", Url = $"urun-{i}", Price = 10, Description = $"urun aciklamasi {i}", IsApproved = true, CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), IsHome = false, Quantity = i, SalesCount = i, UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), ProductImage = "1.jpg"}
+                    new Product() { ProductId = i+111111111, Name = $"urun {i}", Url = $"urun-{i}", Price = 10, Description = $"urun aciklamasi {i}", IsApproved = true, CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), IsHome = false, Quantity = i, SalesCount = i, UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), ProductImage = "1.jpg", BrandId = i + 111111111 }
                 );
             }
 
@@ -44,7 +45,7 @@ namespace DataAccessLayer.Configurations
                     builder.Entity<ImageUrl>().HasData(
                     new ImageUrl()
                     {
-                        Id = i + j + 111111111,
+                        ImageUrlId = i + j + 111111111,
                         CampaignId = i + 111111111,
                         ProductId = i + 111111111,
                         Url = "1.jpg"
@@ -66,6 +67,20 @@ namespace DataAccessLayer.Configurations
                     IsHome = true,
                     Name = $"Campaign {i + 111111111}"
                 });
+            }
+
+            //Brand
+            for (int i = 1; i < 50; i++)
+            {
+                builder.Entity<Brand>().HasData
+                (
+                    new Brand()
+                    {
+                        BrandId = i + 111111111,
+                        Name = $"Brand {i}",
+                        Url = $"brand-{i}",
+                    }
+                );
             }
 
         }

@@ -1,0 +1,19 @@
+﻿@model ListBrandVM
+
+
+
+@foreach (var item in Model.Brands)
+{
+    <p>BrandId: @item.BrandId</p>
+    <p>Name: @item.Name</p>
+    <p>Url: @item.Url</p>
+    <p>CreatedDate: @item.CreatedDate</p>
+    <p>UpdatedDate: @item.UpdatedDate</p>
+
+    @foreach (var product in item.Products)
+    {
+        <p>Product: @product.ProductId</p>
+        <p>Product: @product.Name</p>
+    }
+    
+}

@@ -8,8 +8,9 @@ namespace DataAccessLayer.Configurations
     {
         public void Configure(EntityTypeBuilder<Order> builder)
         {
-            //Primary key
-            builder.HasKey(o => o.OrderId);
+            //Primary Key
+            builder.HasKey(c => c.OrderId);
+
 
             //Order Number
             builder.Property(o => o.OrderNumber).IsRequired();

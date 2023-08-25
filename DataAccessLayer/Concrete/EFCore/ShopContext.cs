@@ -20,6 +20,7 @@ namespace DataAccessLayer.Concrete.EFCore
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<ImageUrl> ImageUrls { get; set; }
         public DbSet<Campaign> Campaigns { get; set; }
+        public DbSet<Brand> Brands { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,6 +32,8 @@ namespace DataAccessLayer.Concrete.EFCore
             modelBuilder.ApplyConfiguration(new CartItemEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new OrderEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new OrderItemEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new BrandEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new ImageurlTypeConfiguration());
 
             //seed data
             modelBuilder.Seed();

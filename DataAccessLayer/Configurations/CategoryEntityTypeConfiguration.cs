@@ -8,9 +8,8 @@ namespace DataAccessLayer.Configurations
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            //Primary key
+            //Primary Key
             builder.HasKey(c => c.CategoryId);
-
             //name
             builder.Property(c => c.Name).IsRequired();
 

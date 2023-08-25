@@ -1,5 +1,4 @@
-﻿<h1>Index</h1>
-<div class="row">
+﻿<div class="row">
     <div class="col-md-12">
         @*list*@
         <a asp-controller="Product" asp-action="ListProduct" class="btn btn-success">All Products</a>
@@ -8,10 +7,12 @@
         <a asp-controller="User" asp-action="ListUser" class="btn btn-success">All Users</a>
         <a asp-controller="Order" asp-action="GetOrders" class="btn btn-success">All Orders</a>
         <a asp-controller="Campaign" asp-action="ListCampaign" class="btn btn-success">All Campaign</a>
+        <a asp-controller="Brand" asp-action="ListBrand" class="btn btn-success">All Brands</a>
         @*add*@
         <a asp-controller="Product" asp-action="CreateProduct" class="btn btn-primary">Add Product</a>
         <a asp-controller="Category" asp-action="CreateCategory" class="btn btn-primary">Add Category</a>
         <a asp-controller="Role" asp-action="CreateRole" class="btn btn-primary">Add Role</a>
         <a asp-controller="Campaign" asp-action="CreateCampaign" class="btn btn-primary">Add Campaign</a>
+        <a asp-controller="Brand" asp-action="CreateBrand" class="btn btn-primary">Add Brand</a>
     </div>
 </div>

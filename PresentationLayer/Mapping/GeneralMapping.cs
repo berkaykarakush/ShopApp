@@ -50,6 +50,12 @@ namespace PresentationLayer.Mapping
             //User
             CreateMap<UserAddress, UserAddressModel>().ReverseMap();
 
+            //Brand
+            CreateMap<Brand, BrandVM>().ReverseMap();
+            CreateMap<ListBrandQueryResponse, ListBrandVM>().ReverseMap();
+            CreateMap<UpdateBrandQueryResponse, UpdateBrandVM>().ReverseMap();
+            CreateMap<Brand, UpdateBrandVM>().ReverseMap();
+
         }
     }
 }

@@ -12,6 +12,8 @@
         public Product? Product { get; set; }
         public double CartId { get; set; }
         public Cart? Cart { get; set; }
+        public string? CreatedDate { get; set; }
+        public string? UpdatedDate { get; set; }
         public int Quantity { get; set; }
         public int Stock { get; set; }
         public double Price { get; set; }

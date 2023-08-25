@@ -22,6 +22,324 @@ namespace DataAccessLayer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("EntityLayer.Brand", b =>
+                {
+                    b.Property<double>("BrandId")
+                        .HasColumnType("float");
+
+                    b.Property<string>("CreatedDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BrandId");
+
+                    b.ToTable("Brands");
+
+                    b.HasData(
+                        new
+                        {
+                            BrandId = 111111112.0,
+                            Name = "Brand 1",
+                            Url = "brand-1"
+                        },
+                        new
+                        {
+                            BrandId = 111111113.0,
+                            Name = "Brand 2",
+                            Url = "brand-2"
+                        },
+                        new
+                        {
+                            BrandId = 111111114.0,
+                            Name = "Brand 3",
+                            Url = "brand-3"
+                        },
+                        new
+                        {
+                            BrandId = 111111115.0,
+                            Name = "Brand 4",
+                            Url = "brand-4"
+                        },
+                        new
+                        {
+                            BrandId = 111111116.0,
+                            Name = "Brand 5",
+                            Url = "brand-5"
+                        },
+                        new
+                        {
+                            BrandId = 111111117.0,
+                            Name = "Brand 6",
+                            Url = "brand-6"
+                        },
+                        new
+                        {
+                            BrandId = 111111118.0,
+                            Name = "Brand 7",
+                            Url = "brand-7"
+                        },
+                        new
+                        {
+                            BrandId = 111111119.0,
+                            Name = "Brand 8",
+                            Url = "brand-8"
+                        },
+                        new
+                        {
+                            BrandId = 111111120.0,
+                            Name = "Brand 9",
+                            Url = "brand-9"
+                        },
+                        new
+                        {
+                            BrandId = 111111121.0,
+                            Name = "Brand 10",
+                            Url = "brand-10"
+                        },
+                        new
+                        {
+                            BrandId = 111111122.0,
+                            Name = "Brand 11",
+                            Url = "brand-11"
+                        },
+                        new
+                        {
+                            BrandId = 111111123.0,
+                            Name = "Brand 12",
+                            Url = "brand-12"
+                        },
+                        new
+                        {
+                            BrandId = 111111124.0,
+                            Name = "Brand 13",
+                            Url = "brand-13"
+                        },
+                        new
+                        {
+                            BrandId = 111111125.0,
+                            Name = "Brand 14",
+                            Url = "brand-14"
+                        },
+                        new
+                        {
+                            BrandId = 111111126.0,
+                            Name = "Brand 15",
+                            Url = "brand-15"
+                        },
+                        new
+                        {
+                            BrandId = 111111127.0,
+                            Name = "Brand 16",
+                            Url = "brand-16"
+                        },
+                        new
+                        {
+                            BrandId = 111111128.0,
+                            Name = "Brand 17",
+                            Url = "brand-17"
+                        },
+                        new
+                        {
+                            BrandId = 111111129.0,
+                            Name = "Brand 18",
+                            Url = "brand-18"
+                        },
+                        new
+                        {
+                            BrandId = 111111130.0,
+                            Name = "Brand 19",
+                            Url = "brand-19"
+                        },
+                        new
+                        {
+                            BrandId = 111111131.0,
+                            Name = "Brand 20",
+                            Url = "brand-20"
+                        },
+                        new
+                        {
+                            BrandId = 111111132.0,
+                            Name = "Brand 21",
+                            Url = "brand-21"
+                        },
+                        new
+                        {
+                            BrandId = 111111133.0,
+                            Name = "Brand 22",
+                            Url = "brand-22"
+                        },
+                        new
+                        {
+                            BrandId = 111111134.0,
+                            Name = "Brand 23",
+                            Url = "brand-23"
+                        },
+                        new
+                        {
+                            BrandId = 111111135.0,
+                            Name = "Brand 24",
+                            Url = "brand-24"
+                        },
+                        new
+                        {
+                            BrandId = 111111136.0,
+                            Name = "Brand 25",
+                            Url = "brand-25"
+                        },
+                        new
+                        {
+                            BrandId = 111111137.0,
+                            Name = "Brand 26",
+                            Url = "brand-26"
+                        },
+                        new
+                        {
+                            BrandId = 111111138.0,
+                            Name = "Brand 27",
+                            Url = "brand-27"
+                        },
+                        new
+                        {
+                            BrandId = 111111139.0,
+                            Name = "Brand 28",
+                            Url = "brand-28"
+                        },
+                        new
+                        {
+                            BrandId = 111111140.0,
+                            Name = "Brand 29",
+                            Url = "brand-29"
+                        },
+                        new
+                        {
+                            BrandId = 111111141.0,
+                            Name = "Brand 30",
+                            Url = "brand-30"
+                        },
+                        new
+                        {
+                            BrandId = 111111142.0,
+                            Name = "Brand 31",
+                            Url = "brand-31"
+                        },
+                        new
+                        {
+                            BrandId = 111111143.0,
+                            Name = "Brand 32",
+                            Url = "brand-32"
+                        },
+                        new
+                        {
+                            BrandId = 111111144.0,
+                            Name = "Brand 33",
+                            Url = "brand-33"
+                        },
+                        new
+                        {
+                            BrandId = 111111145.0,
+                            Name = "Brand 34",
+                            Url = "brand-34"
+                        },
+                        new
+                        {
+                            BrandId = 111111146.0,
+                            Name = "Brand 35",
+                            Url = "brand-35"
+                        },
+                        new
+                        {
+                            BrandId = 111111147.0,
+                            Name = "Brand 36",
+                            Url = "brand-36"
+                        },
+                        new
+                        {
+                            BrandId = 111111148.0,
+                            Name = "Brand 37",
+                            Url = "brand-37"
+                        },
+                        new
+                        {
+                            BrandId = 111111149.0,
+                            Name = "Brand 38",
+                            Url = "brand-38"
+                        },
+                        new
+                        {
+                            BrandId = 111111150.0,
+                            Name = "Brand 39",
+                            Url = "brand-39"
+                        },
+                        new
+                        {
+                            BrandId = 111111151.0,
+                            Name = "Brand 40",
+                            Url = "brand-40"
+                        },
+                        new
+                        {
+                            BrandId = 111111152.0,
+                            Name = "Brand 41",
+                            Url = "brand-41"
+                        },
+                        new
+                        {
+                            BrandId = 111111153.0,
+                            Name = "Brand 42",
+                            Url = "brand-42"
+                        },
+                        new
+                        {
+                            BrandId = 111111154.0,
+                            Name = "Brand 43",
+                            Url = "brand-43"
+                        },
+                        new
+                        {
+                            BrandId = 111111155.0,
+                            Name = "Brand 44",
+                            Url = "brand-44"
+                        },
+                        new
+                        {
+                            BrandId = 111111156.0,
+                            Name = "Brand 45",
+                            Url = "brand-45"
+                        },
+                        new
+                        {
+                            BrandId = 111111157.0,
+                            Name = "Brand 46",
+                            Url = "brand-46"
+                        },
+                        new
+                        {
+                            BrandId = 111111158.0,
+                            Name = "Brand 47",
+                            Url = "brand-47"
+                        },
+                        new
+                        {
+                            BrandId = 111111159.0,
+                            Name = "Brand 48",
+                            Url = "brand-48"
+                        },
+                        new
+                        {
+                            BrandId = 111111160.0,
+                            Name = "Brand 49",
+                            Url = "brand-49"
+                        });
+                });
+
             modelBuilder.Entity("EntityLayer.Campaign", b =>
                 {
                     b.Property<double>("CampaignId")
@@ -58,7 +376,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111112.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111112",
                             IsHome = true,
                             Name = "Campaign 111111112"
@@ -68,7 +386,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111113.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111113",
                             IsHome = true,
                             Name = "Campaign 111111113"
@@ -78,7 +396,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111114.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111114",
                             IsHome = true,
                             Name = "Campaign 111111114"
@@ -88,7 +406,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111115.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111115",
                             IsHome = true,
                             Name = "Campaign 111111115"
@@ -98,7 +416,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111116.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111116",
                             IsHome = true,
                             Name = "Campaign 111111116"
@@ -108,7 +426,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111117.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111117",
                             IsHome = true,
                             Name = "Campaign 111111117"
@@ -118,7 +436,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111118.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111118",
                             IsHome = true,
                             Name = "Campaign 111111118"
@@ -128,7 +446,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111119.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111119",
                             IsHome = true,
                             Name = "Campaign 111111119"
@@ -138,7 +456,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111120.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111120",
                             IsHome = true,
                             Name = "Campaign 111111120"
@@ -148,7 +466,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111121.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111121",
                             IsHome = true,
                             Name = "Campaign 111111121"
@@ -158,7 +476,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111122.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111122",
                             IsHome = true,
                             Name = "Campaign 111111122"
@@ -168,7 +486,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111123.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111123",
                             IsHome = true,
                             Name = "Campaign 111111123"
@@ -178,7 +496,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111124.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111124",
                             IsHome = true,
                             Name = "Campaign 111111124"
@@ -188,7 +506,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111125.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111125",
                             IsHome = true,
                             Name = "Campaign 111111125"
@@ -198,7 +516,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111126.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111126",
                             IsHome = true,
                             Name = "Campaign 111111126"
@@ -208,7 +526,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111127.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111127",
                             IsHome = true,
                             Name = "Campaign 111111127"
@@ -218,7 +536,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111128.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111128",
                             IsHome = true,
                             Name = "Campaign 111111128"
@@ -228,7 +546,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111129.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111129",
                             IsHome = true,
                             Name = "Campaign 111111129"
@@ -238,7 +556,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111130.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111130",
                             IsHome = true,
                             Name = "Campaign 111111130"
@@ -248,7 +566,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111131.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111131",
                             IsHome = true,
                             Name = "Campaign 111111131"
@@ -258,7 +576,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111132.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111132",
                             IsHome = true,
                             Name = "Campaign 111111132"
@@ -268,7 +586,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111133.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111133",
                             IsHome = true,
                             Name = "Campaign 111111133"
@@ -278,7 +596,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111134.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111134",
                             IsHome = true,
                             Name = "Campaign 111111134"
@@ -288,7 +606,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111135.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111135",
                             IsHome = true,
                             Name = "Campaign 111111135"
@@ -298,7 +616,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111136.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111136",
                             IsHome = true,
                             Name = "Campaign 111111136"
@@ -308,7 +626,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111137.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111137",
                             IsHome = true,
                             Name = "Campaign 111111137"
@@ -318,7 +636,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111138.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111138",
                             IsHome = true,
                             Name = "Campaign 111111138"
@@ -328,7 +646,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111139.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111139",
                             IsHome = true,
                             Name = "Campaign 111111139"
@@ -338,7 +656,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111140.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111140",
                             IsHome = true,
                             Name = "Campaign 111111140"
@@ -348,7 +666,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111141.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111141",
                             IsHome = true,
                             Name = "Campaign 111111141"
@@ -358,7 +676,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111142.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111142",
                             IsHome = true,
                             Name = "Campaign 111111142"
@@ -368,7 +686,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111143.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111143",
                             IsHome = true,
                             Name = "Campaign 111111143"
@@ -378,7 +696,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111144.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111144",
                             IsHome = true,
                             Name = "Campaign 111111144"
@@ -388,7 +706,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111145.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111145",
                             IsHome = true,
                             Name = "Campaign 111111145"
@@ -398,7 +716,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111146.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111146",
                             IsHome = true,
                             Name = "Campaign 111111146"
@@ -408,7 +726,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111147.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111147",
                             IsHome = true,
                             Name = "Campaign 111111147"
@@ -418,7 +736,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111148.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111148",
                             IsHome = true,
                             Name = "Campaign 111111148"
@@ -428,7 +746,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111149.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111149",
                             IsHome = true,
                             Name = "Campaign 111111149"
@@ -438,7 +756,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111150.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111150",
                             IsHome = true,
                             Name = "Campaign 111111150"
@@ -448,7 +766,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111151.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111151",
                             IsHome = true,
                             Name = "Campaign 111111151"
@@ -458,7 +776,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111152.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111152",
                             IsHome = true,
                             Name = "Campaign 111111152"
@@ -468,7 +786,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111153.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111153",
                             IsHome = true,
                             Name = "Campaign 111111153"
@@ -478,7 +796,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111154.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111154",
                             IsHome = true,
                             Name = "Campaign 111111154"
@@ -488,7 +806,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111155.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111155",
                             IsHome = true,
                             Name = "Campaign 111111155"
@@ -498,7 +816,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111156.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111156",
                             IsHome = true,
                             Name = "Campaign 111111156"
@@ -508,7 +826,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111157.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111157",
                             IsHome = true,
                             Name = "Campaign 111111157"
@@ -518,7 +836,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111158.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111158",
                             IsHome = true,
                             Name = "Campaign 111111158"
@@ -528,7 +846,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111159.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111159",
                             IsHome = true,
                             Name = "Campaign 111111159"
@@ -538,7 +856,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111160.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/08/25 12:24:37",
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "Description: 111111160",
                             IsHome = true,
                             Name = "Campaign 111111160"
@@ -549,6 +867,12 @@ namespace DataAccessLayer.Migrations
                 {
                     b.Property<double>("CartId")
                         .HasColumnType("float");
+
+                    b.Property<string>("CreatedDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -566,6 +890,9 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<double>("CartId")
                         .HasColumnType("float");
+
+                    b.Property<string>("CreatedDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
@@ -585,6 +912,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<int>("Stock")
                         .HasColumnType("int");
 
+                    b.Property<string>("UpdatedDate")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("CartItemId");
 
                     b.HasIndex("CartId");
@@ -599,8 +929,14 @@ namespace DataAccessLayer.Migrations
                     b.Property<double>("CategoryId")
                         .HasColumnType("float");
 
+                    b.Property<string>("CreatedDate")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedDate")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Url")
@@ -670,19 +1006,25 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.ImageUrl", b =>
                 {
-                    b.Property<double>("Id")
+                    b.Property<double>("ImageUrlId")
                         .HasColumnType("float");
 
                     b.Property<double>("CampaignId")
                         .HasColumnType("float");
 
+                    b.Property<string>("CreatedDate")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("ProductId")
                         .HasColumnType("float");
+
+                    b.Property<string>("UpdatedDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Url")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ImageUrlId");
 
                     b.HasIndex("CampaignId");
 
@@ -693,343 +1035,343 @@ namespace DataAccessLayer.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 111111113.0,
+                            ImageUrlId = 111111113.0,
                             CampaignId = 111111112.0,
                             ProductId = 111111112.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111114.0,
+                            ImageUrlId = 111111114.0,
                             CampaignId = 111111113.0,
                             ProductId = 111111113.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111115.0,
+                            ImageUrlId = 111111115.0,
                             CampaignId = 111111114.0,
                             ProductId = 111111114.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111116.0,
+                            ImageUrlId = 111111116.0,
                             CampaignId = 111111115.0,
                             ProductId = 111111115.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111117.0,
+                            ImageUrlId = 111111117.0,
                             CampaignId = 111111116.0,
                             ProductId = 111111116.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111118.0,
+                            ImageUrlId = 111111118.0,
                             CampaignId = 111111117.0,
                             ProductId = 111111117.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111119.0,
+                            ImageUrlId = 111111119.0,
                             CampaignId = 111111118.0,
                             ProductId = 111111118.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111120.0,
+                            ImageUrlId = 111111120.0,
                             CampaignId = 111111119.0,
                             ProductId = 111111119.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111121.0,
+                            ImageUrlId = 111111121.0,
                             CampaignId = 111111120.0,
                             ProductId = 111111120.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111122.0,
+                            ImageUrlId = 111111122.0,
                             CampaignId = 111111121.0,
                             ProductId = 111111121.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111123.0,
+                            ImageUrlId = 111111123.0,
                             CampaignId = 111111122.0,
                             ProductId = 111111122.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111124.0,
+                            ImageUrlId = 111111124.0,
                             CampaignId = 111111123.0,
                             ProductId = 111111123.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111125.0,
+                            ImageUrlId = 111111125.0,
                             CampaignId = 111111124.0,
                             ProductId = 111111124.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111126.0,
+                            ImageUrlId = 111111126.0,
                             CampaignId = 111111125.0,
                             ProductId = 111111125.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111127.0,
+                            ImageUrlId = 111111127.0,
                             CampaignId = 111111126.0,
                             ProductId = 111111126.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111128.0,
+                            ImageUrlId = 111111128.0,
                             CampaignId = 111111127.0,
                             ProductId = 111111127.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111129.0,
+                            ImageUrlId = 111111129.0,
                             CampaignId = 111111128.0,
                             ProductId = 111111128.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111130.0,
+                            ImageUrlId = 111111130.0,
                             CampaignId = 111111129.0,
                             ProductId = 111111129.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111131.0,
+                            ImageUrlId = 111111131.0,
                             CampaignId = 111111130.0,
                             ProductId = 111111130.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111132.0,
+                            ImageUrlId = 111111132.0,
                             CampaignId = 111111131.0,
                             ProductId = 111111131.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111133.0,
+                            ImageUrlId = 111111133.0,
                             CampaignId = 111111132.0,
                             ProductId = 111111132.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111134.0,
+                            ImageUrlId = 111111134.0,
                             CampaignId = 111111133.0,
                             ProductId = 111111133.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111135.0,
+                            ImageUrlId = 111111135.0,
                             CampaignId = 111111134.0,
                             ProductId = 111111134.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111136.0,
+                            ImageUrlId = 111111136.0,
                             CampaignId = 111111135.0,
                             ProductId = 111111135.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111137.0,
+                            ImageUrlId = 111111137.0,
                             CampaignId = 111111136.0,
                             ProductId = 111111136.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111138.0,
+                            ImageUrlId = 111111138.0,
                             CampaignId = 111111137.0,
                             ProductId = 111111137.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111139.0,
+                            ImageUrlId = 111111139.0,
                             CampaignId = 111111138.0,
                             ProductId = 111111138.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111140.0,
+                            ImageUrlId = 111111140.0,
                             CampaignId = 111111139.0,
                             ProductId = 111111139.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111141.0,
+                            ImageUrlId = 111111141.0,
                             CampaignId = 111111140.0,
                             ProductId = 111111140.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111142.0,
+                            ImageUrlId = 111111142.0,
                             CampaignId = 111111141.0,
                             ProductId = 111111141.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111143.0,
+                            ImageUrlId = 111111143.0,
                             CampaignId = 111111142.0,
                             ProductId = 111111142.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111144.0,
+                            ImageUrlId = 111111144.0,
                             CampaignId = 111111143.0,
                             ProductId = 111111143.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111145.0,
+                            ImageUrlId = 111111145.0,
                             CampaignId = 111111144.0,
                             ProductId = 111111144.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111146.0,
+                            ImageUrlId = 111111146.0,
                             CampaignId = 111111145.0,
                             ProductId = 111111145.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111147.0,
+                            ImageUrlId = 111111147.0,
                             CampaignId = 111111146.0,
                             ProductId = 111111146.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111148.0,
+                            ImageUrlId = 111111148.0,
                             CampaignId = 111111147.0,
                             ProductId = 111111147.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111149.0,
+                            ImageUrlId = 111111149.0,
                             CampaignId = 111111148.0,
                             ProductId = 111111148.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111150.0,
+                            ImageUrlId = 111111150.0,
                             CampaignId = 111111149.0,
                             ProductId = 111111149.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111151.0,
+                            ImageUrlId = 111111151.0,
                             CampaignId = 111111150.0,
                             ProductId = 111111150.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111152.0,
+                            ImageUrlId = 111111152.0,
                             CampaignId = 111111151.0,
                             ProductId = 111111151.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111153.0,
+                            ImageUrlId = 111111153.0,
                             CampaignId = 111111152.0,
                             ProductId = 111111152.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111154.0,
+                            ImageUrlId = 111111154.0,
                             CampaignId = 111111153.0,
                             ProductId = 111111153.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111155.0,
+                            ImageUrlId = 111111155.0,
                             CampaignId = 111111154.0,
                             ProductId = 111111154.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111156.0,
+                            ImageUrlId = 111111156.0,
                             CampaignId = 111111155.0,
                             ProductId = 111111155.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111157.0,
+                            ImageUrlId = 111111157.0,
                             CampaignId = 111111156.0,
                             ProductId = 111111156.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111158.0,
+                            ImageUrlId = 111111158.0,
                             CampaignId = 111111157.0,
                             ProductId = 111111157.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111159.0,
+                            ImageUrlId = 111111159.0,
                             CampaignId = 111111158.0,
                             ProductId = 111111158.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111160.0,
+                            ImageUrlId = 111111160.0,
                             CampaignId = 111111159.0,
                             ProductId = 111111159.0,
                             Url = "1.jpg"
                         },
                         new
                         {
-                            Id = 111111161.0,
+                            ImageUrlId = 111111161.0,
                             CampaignId = 111111160.0,
                             ProductId = 111111160.0,
                             Url = "1.jpg"
@@ -1053,6 +1395,9 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedDate")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -1092,6 +1437,9 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UpdatedDate")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -1106,6 +1454,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<double>("OrderItemId")
                         .HasColumnType("float");
 
+                    b.Property<string>("CreatedDate")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("OrderId")
                         .HasColumnType("float");
 
@@ -1117,6 +1468,9 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
+
+                    b.Property<string>("UpdatedDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OrderItemId");
 
@@ -1130,6 +1484,9 @@ namespace DataAccessLayer.Migrations
             modelBuilder.Entity("EntityLayer.Product", b =>
                 {
                     b.Property<double>("ProductId")
+                        .HasColumnType("float");
+
+                    b.Property<double>("BrandId")
                         .HasColumnType("float");
 
                     b.Property<double?>("CategoryId")
@@ -1176,6 +1533,8 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("ProductId");
 
+                    b.HasIndex("BrandId");
+
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
@@ -1184,7 +1543,8 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ProductId = 111111112.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111112.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 1",
                             IsApproved = true,
                             IsHome = false,
@@ -1193,13 +1553,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 1,
                             SalesCount = 1,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-1"
                         },
                         new
                         {
                             ProductId = 111111113.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111113.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 2",
                             IsApproved = true,
                             IsHome = false,
@@ -1208,13 +1569,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 2,
                             SalesCount = 2,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-2"
                         },
                         new
                         {
                             ProductId = 111111114.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111114.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 3",
                             IsApproved = true,
                             IsHome = false,
@@ -1223,13 +1585,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 3,
                             SalesCount = 3,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-3"
                         },
                         new
                         {
                             ProductId = 111111115.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111115.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 4",
                             IsApproved = true,
                             IsHome = false,
@@ -1238,13 +1601,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 4,
                             SalesCount = 4,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-4"
                         },
                         new
                         {
                             ProductId = 111111116.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111116.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 5",
                             IsApproved = true,
                             IsHome = false,
@@ -1253,13 +1617,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 5,
                             SalesCount = 5,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-5"
                         },
                         new
                         {
                             ProductId = 111111117.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111117.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 6",
                             IsApproved = true,
                             IsHome = false,
@@ -1268,13 +1633,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 6,
                             SalesCount = 6,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-6"
                         },
                         new
                         {
                             ProductId = 111111118.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111118.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 7",
                             IsApproved = true,
                             IsHome = false,
@@ -1283,13 +1649,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 7,
                             SalesCount = 7,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-7"
                         },
                         new
                         {
                             ProductId = 111111119.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111119.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 8",
                             IsApproved = true,
                             IsHome = false,
@@ -1298,13 +1665,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 8,
                             SalesCount = 8,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-8"
                         },
                         new
                         {
                             ProductId = 111111120.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111120.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 9",
                             IsApproved = true,
                             IsHome = false,
@@ -1313,13 +1681,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 9,
                             SalesCount = 9,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-9"
                         },
                         new
                         {
                             ProductId = 111111121.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111121.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 10",
                             IsApproved = true,
                             IsHome = false,
@@ -1328,13 +1697,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 10,
                             SalesCount = 10,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-10"
                         },
                         new
                         {
                             ProductId = 111111122.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111122.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 11",
                             IsApproved = true,
                             IsHome = false,
@@ -1343,13 +1713,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 11,
                             SalesCount = 11,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-11"
                         },
                         new
                         {
                             ProductId = 111111123.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111123.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 12",
                             IsApproved = true,
                             IsHome = false,
@@ -1358,13 +1729,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 12,
                             SalesCount = 12,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-12"
                         },
                         new
                         {
                             ProductId = 111111124.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111124.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 13",
                             IsApproved = true,
                             IsHome = false,
@@ -1373,13 +1745,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 13,
                             SalesCount = 13,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-13"
                         },
                         new
                         {
                             ProductId = 111111125.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111125.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 14",
                             IsApproved = true,
                             IsHome = false,
@@ -1388,13 +1761,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 14,
                             SalesCount = 14,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-14"
                         },
                         new
                         {
                             ProductId = 111111126.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111126.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 15",
                             IsApproved = true,
                             IsHome = false,
@@ -1403,13 +1777,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 15,
                             SalesCount = 15,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-15"
                         },
                         new
                         {
                             ProductId = 111111127.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111127.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 16",
                             IsApproved = true,
                             IsHome = false,
@@ -1418,13 +1793,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 16,
                             SalesCount = 16,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-16"
                         },
                         new
                         {
                             ProductId = 111111128.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111128.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 17",
                             IsApproved = true,
                             IsHome = false,
@@ -1433,13 +1809,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 17,
                             SalesCount = 17,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-17"
                         },
                         new
                         {
                             ProductId = 111111129.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111129.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 18",
                             IsApproved = true,
                             IsHome = false,
@@ -1448,13 +1825,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 18,
                             SalesCount = 18,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-18"
                         },
                         new
                         {
                             ProductId = 111111130.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111130.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 19",
                             IsApproved = true,
                             IsHome = false,
@@ -1463,13 +1841,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 19,
                             SalesCount = 19,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-19"
                         },
                         new
                         {
                             ProductId = 111111131.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111131.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 20",
                             IsApproved = true,
                             IsHome = false,
@@ -1478,13 +1857,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 20,
                             SalesCount = 20,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-20"
                         },
                         new
                         {
                             ProductId = 111111132.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111132.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 21",
                             IsApproved = true,
                             IsHome = false,
@@ -1493,13 +1873,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 21,
                             SalesCount = 21,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-21"
                         },
                         new
                         {
                             ProductId = 111111133.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111133.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 22",
                             IsApproved = true,
                             IsHome = false,
@@ -1508,13 +1889,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 22,
                             SalesCount = 22,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-22"
                         },
                         new
                         {
                             ProductId = 111111134.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111134.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 23",
                             IsApproved = true,
                             IsHome = false,
@@ -1523,13 +1905,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 23,
                             SalesCount = 23,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-23"
                         },
                         new
                         {
                             ProductId = 111111135.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111135.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 24",
                             IsApproved = true,
                             IsHome = false,
@@ -1538,13 +1921,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 24,
                             SalesCount = 24,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-24"
                         },
                         new
                         {
                             ProductId = 111111136.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111136.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 25",
                             IsApproved = true,
                             IsHome = false,
@@ -1553,13 +1937,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 25,
                             SalesCount = 25,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-25"
                         },
                         new
                         {
                             ProductId = 111111137.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111137.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 26",
                             IsApproved = true,
                             IsHome = false,
@@ -1568,13 +1953,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 26,
                             SalesCount = 26,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-26"
                         },
                         new
                         {
                             ProductId = 111111138.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111138.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 27",
                             IsApproved = true,
                             IsHome = false,
@@ -1583,13 +1969,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 27,
                             SalesCount = 27,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-27"
                         },
                         new
                         {
                             ProductId = 111111139.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111139.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 28",
                             IsApproved = true,
                             IsHome = false,
@@ -1598,13 +1985,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 28,
                             SalesCount = 28,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-28"
                         },
                         new
                         {
                             ProductId = 111111140.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111140.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 29",
                             IsApproved = true,
                             IsHome = false,
@@ -1613,13 +2001,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 29,
                             SalesCount = 29,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-29"
                         },
                         new
                         {
                             ProductId = 111111141.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111141.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 30",
                             IsApproved = true,
                             IsHome = false,
@@ -1628,13 +2017,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 30,
                             SalesCount = 30,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-30"
                         },
                         new
                         {
                             ProductId = 111111142.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111142.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 31",
                             IsApproved = true,
                             IsHome = false,
@@ -1643,13 +2033,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 31,
                             SalesCount = 31,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-31"
                         },
                         new
                         {
                             ProductId = 111111143.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111143.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 32",
                             IsApproved = true,
                             IsHome = false,
@@ -1658,13 +2049,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 32,
                             SalesCount = 32,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-32"
                         },
                         new
                         {
                             ProductId = 111111144.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111144.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 33",
                             IsApproved = true,
                             IsHome = false,
@@ -1673,13 +2065,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 33,
                             SalesCount = 33,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-33"
                         },
                         new
                         {
                             ProductId = 111111145.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111145.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 34",
                             IsApproved = true,
                             IsHome = false,
@@ -1688,13 +2081,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 34,
                             SalesCount = 34,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-34"
                         },
                         new
                         {
                             ProductId = 111111146.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111146.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 35",
                             IsApproved = true,
                             IsHome = false,
@@ -1703,13 +2097,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 35,
                             SalesCount = 35,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-35"
                         },
                         new
                         {
                             ProductId = 111111147.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111147.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 36",
                             IsApproved = true,
                             IsHome = false,
@@ -1718,13 +2113,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 36,
                             SalesCount = 36,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-36"
                         },
                         new
                         {
                             ProductId = 111111148.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111148.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 37",
                             IsApproved = true,
                             IsHome = false,
@@ -1733,13 +2129,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 37,
                             SalesCount = 37,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-37"
                         },
                         new
                         {
                             ProductId = 111111149.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111149.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 38",
                             IsApproved = true,
                             IsHome = false,
@@ -1748,13 +2145,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 38,
                             SalesCount = 38,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-38"
                         },
                         new
                         {
                             ProductId = 111111150.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111150.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 39",
                             IsApproved = true,
                             IsHome = false,
@@ -1763,13 +2161,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 39,
                             SalesCount = 39,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-39"
                         },
                         new
                         {
                             ProductId = 111111151.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111151.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 40",
                             IsApproved = true,
                             IsHome = false,
@@ -1778,13 +2177,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 40,
                             SalesCount = 40,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-40"
                         },
                         new
                         {
                             ProductId = 111111152.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111152.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 41",
                             IsApproved = true,
                             IsHome = false,
@@ -1793,13 +2193,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 41,
                             SalesCount = 41,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-41"
                         },
                         new
                         {
                             ProductId = 111111153.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111153.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 42",
                             IsApproved = true,
                             IsHome = false,
@@ -1808,13 +2209,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 42,
                             SalesCount = 42,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-42"
                         },
                         new
                         {
                             ProductId = 111111154.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111154.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 43",
                             IsApproved = true,
                             IsHome = false,
@@ -1823,13 +2225,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 43,
                             SalesCount = 43,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-43"
                         },
                         new
                         {
                             ProductId = 111111155.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111155.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 44",
                             IsApproved = true,
                             IsHome = false,
@@ -1838,13 +2241,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 44,
                             SalesCount = 44,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-44"
                         },
                         new
                         {
                             ProductId = 111111156.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111156.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 45",
                             IsApproved = true,
                             IsHome = false,
@@ -1853,13 +2257,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 45,
                             SalesCount = 45,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-45"
                         },
                         new
                         {
                             ProductId = 111111157.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111157.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 46",
                             IsApproved = true,
                             IsHome = false,
@@ -1868,13 +2273,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 46,
                             SalesCount = 46,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-46"
                         },
                         new
                         {
                             ProductId = 111111158.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111158.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 47",
                             IsApproved = true,
                             IsHome = false,
@@ -1883,13 +2289,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 47,
                             SalesCount = 47,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-47"
                         },
                         new
                         {
                             ProductId = 111111159.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111159.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 48",
                             IsApproved = true,
                             IsHome = false,
@@ -1898,13 +2305,14 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 48,
                             SalesCount = 48,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-48"
                         },
                         new
                         {
                             ProductId = 111111160.0,
-                            CreatedDate = "2023/08/25 12:24:37",
+                            BrandId = 111111160.0,
+                            CreatedDate = "2023/08/25 18:22:42",
                             Description = "urun aciklamasi 49",
                             IsApproved = true,
                             IsHome = false,
@@ -1913,7 +2321,7 @@ namespace DataAccessLayer.Migrations
                             ProductImage = "1.jpg",
                             Quantity = 49,
                             SalesCount = 49,
-                            UpdatedDate = "2023/08/25 12:24:37",
+                            UpdatedDate = "2023/08/25 18:22:42",
                             Url = "urun-49"
                         });
                 });
@@ -1926,8 +2334,14 @@ namespace DataAccessLayer.Migrations
                     b.Property<double>("ProductId")
                         .HasColumnType("float");
 
-                    b.Property<double>("Id")
+                    b.Property<string>("CreatedDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("ProductCategoryId")
                         .HasColumnType("float");
+
+                    b.Property<string>("UpdatedDate")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CategoryId", "ProductId");
 
@@ -1940,55 +2354,55 @@ namespace DataAccessLayer.Migrations
                         {
                             CategoryId = 111111112.0,
                             ProductId = 111111112.0,
-                            Id = 713128898.0
+                            ProductCategoryId = 438248899.0
                         },
                         new
                         {
                             CategoryId = 111111113.0,
                             ProductId = 111111113.0,
-                            Id = 891727345.0
+                            ProductCategoryId = 298855716.0
                         },
                         new
                         {
                             CategoryId = 111111114.0,
                             ProductId = 111111114.0,
-                            Id = 440185405.0
+                            ProductCategoryId = 546198384.0
                         },
                         new
                         {
                             CategoryId = 111111115.0,
                             ProductId = 111111115.0,
-                            Id = 154272362.0
+                            ProductCategoryId = 665569515.0
                         },
                         new
                         {
                             CategoryId = 111111116.0,
                             ProductId = 111111116.0,
-                            Id = 919090910.0
+                            ProductCategoryId = 859114545.0
                         },
                         new
                         {
                             CategoryId = 111111117.0,
                             ProductId = 111111117.0,
-                            Id = 709690931.0
+                            ProductCategoryId = 339349276.0
                         },
                         new
                         {
                             CategoryId = 111111118.0,
                             ProductId = 111111118.0,
-                            Id = 699112209.0
+                            ProductCategoryId = 299288613.0
                         },
                         new
                         {
                             CategoryId = 111111119.0,
                             ProductId = 111111119.0,
-                            Id = 809237321.0
+                            ProductCategoryId = 511810561.0
                         },
                         new
                         {
                             CategoryId = 111111120.0,
                             ProductId = 111111120.0,
-                            Id = 948425953.0
+                            ProductCategoryId = 994306361.0
                         });
                 });
 
@@ -2051,9 +2465,17 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.Product", b =>
                 {
+                    b.HasOne("EntityLayer.Brand", "Brand")
+                        .WithMany("Products")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("EntityLayer.Category", null)
                         .WithMany("Products")
                         .HasForeignKey("CategoryId");
+
+                    b.Navigation("Brand");
                 });
 
             modelBuilder.Entity("EntityLayer.ProductCategory", b =>
@@ -2073,6 +2495,11 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("EntityLayer.Brand", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("EntityLayer.Campaign", b =>
