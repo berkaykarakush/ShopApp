@@ -2,6 +2,7 @@
 using DataAccessLayer.Abstract;
 using EntityLayer;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace BusinessLayer.Concrete
 {
@@ -14,7 +15,7 @@ namespace BusinessLayer.Concrete
             _unitOfWork = unitOfWork;
         }
 
-        public string ErrorMessage { get; set; }
+        public string ErrorMessage { get; set; } = string.Empty;
         public List<Order> GetAll()
         {
            return _unitOfWork.Orders.GetAll();
@@ -67,36 +68,43 @@ namespace BusinessLayer.Concrete
         public bool Validation(Order entity)
         {
             bool isValid = true;
-            if (string.IsNullOrEmpty(entity.FirstName))
+            if (entity != null)
             {
-                ErrorMessage += $"FirstName is reqiured.\n";
-                return false;
+                if (string.IsNullOrEmpty(entity.FirstName))
+                {
+                    ErrorMessage += $"FirstName is reqiured.\n";
+                    return false;
+                }
+                if (string.IsNullOrEmpty(entity.LastName))
+                {
+                    ErrorMessage += $"LastName is reqiured.\n";
+                    return false;
+                }
+                if (string.IsNullOrEmpty(entity.Address))
+                {
+                    ErrorMessage += $"Address is reqiured.\n";
+                    return false;
+                }
+                if (string.IsNullOrEmpty(entity.City))
+                {
+                    ErrorMessage += $"City is reqiured.\n";
+                    return false;
+                }
+                if (string.IsNullOrEmpty(entity.Phone))
+                {
+                    ErrorMessage += $"Phone is reqiured.\n";
+                    return false;
+                }
+                if (string.IsNullOrEmpty(entity.Email))
+                {
+                    ErrorMessage += $"Email is reqiured.\n";
+                    return false;
+                }
             }
-            if (string.IsNullOrEmpty(entity.LastName))
-            {
-                ErrorMessage += $"LastName is reqiured.\n";
-                return false;
-            }
-            if (string.IsNullOrEmpty(entity.Address))
-            {
-                ErrorMessage += $"Address is reqiured.\n";
-                return false;
-            } 
-            if (string.IsNullOrEmpty(entity.City))
-            {
-                ErrorMessage += $"City is reqiured.\n";
-                return false;
-            }
-            if (string.IsNullOrEmpty(entity.Phone))
-            {
-                ErrorMessage += $"Phone is reqiured.\n";
-                return false;
-            }
-            if (string.IsNullOrEmpty(entity.Email))
-            {
-                ErrorMessage += $"Email is reqiured.\n";
-                return false;
-            }
+            else
+                isValid = false;
+
+            ErrorMessage += "Error - Null reference!";
             return isValid;
         }
     }

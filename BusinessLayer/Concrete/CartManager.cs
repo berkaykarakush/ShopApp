@@ -13,7 +13,7 @@ namespace BusinessLayer.Concrete
             _unitOfWork = unitOfWork;
         }
 
-        public string ErrorMessage { get; set; }
+        public string ErrorMessage { get; set; } = string.Empty;
 
         public void AddToCart(string userId, double productId, int quantity)
         {
@@ -92,16 +92,24 @@ namespace BusinessLayer.Concrete
         public bool Validation(Cart entity)
         {
             bool isValid = true;
-            if (entity.CartId == null)
+
+            if(entity != null)
             {
-                ErrorMessage += "CartId bilgisine erisilemedi lutfen tekrar deneyiniz.\n";
-                isValid = false;
+                if (0 < entity.CartId)
+                {
+                    ErrorMessage += "CartId bilgisine erisilemedi lutfen tekrar deneyiniz.\n";
+                    isValid = false;
+                }
+                if (entity.UserId == null)
+                {
+                    ErrorMessage += "UserId bilgisine erisilemdi lutfen tekrar deneyiniz.\n";
+                    isValid = false;
+                }
             }
-            if (entity.UserId == null)
-            {
-                ErrorMessage += "UserId bilgisine erisilemdi lutfen tekrar deneyiniz.\n";
+            else
                 isValid = false;
-            }
+
+            ErrorMessage += "Error - Null reference!";
             return isValid;
         }
     }

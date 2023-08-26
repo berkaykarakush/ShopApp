@@ -13,7 +13,7 @@ namespace BusinessLayer.Concrete
             _unitOfWork = unitOfWork;
         }
 
-        public string ErrorMessage { get; set; }
+        public string ErrorMessage { get; set; } = string.Empty;
 
         public bool Create(Category entity)
         {
@@ -80,16 +80,23 @@ namespace BusinessLayer.Concrete
         public bool Validation(Category entity)
         {
             bool isValid = true;
-            if (string.IsNullOrEmpty(entity.Name))
+            if (entity != null)
             {
-                ErrorMessage += "Category ismi bos birakilamaz.\n";
-                isValid = false;
+                if (string.IsNullOrEmpty(entity.Name))
+                {
+                    ErrorMessage += "Category ismi bos birakilamaz.\n";
+                    isValid = false;
+                }
+                if (string.IsNullOrEmpty(entity.Url))
+                {
+                    ErrorMessage += "Category url alani bos birakilamaz.\n";
+                    isValid = false;
+                }
             }
-            if (string.IsNullOrEmpty(entity.Url))
-            {
-                ErrorMessage += "Category url alani bos birakilamaz.\n";
+            else
                 isValid = false;
-            }
+
+            ErrorMessage += "Error - Null reference!";
             return isValid;
         }
     }

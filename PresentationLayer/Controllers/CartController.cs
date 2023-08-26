@@ -64,7 +64,11 @@ namespace PresentationLayer.Controllers
         {
             var userId = _userManager.GetUserId(User);
             _cartService.AddToCart(userId, productId, quantity);
-            return RedirectToAction("Index");
+
+            var product = _productService.GetById(productId);
+
+            _notyfService.Success("Transaction Successfull - Product added to cart");
+            return RedirectToAction("Details", "Shop",new ShopDetailsQueryRequest() { Url = product.Url});
         }
 
         [Authorize]

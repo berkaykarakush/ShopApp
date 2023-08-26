@@ -31,7 +31,6 @@ Log.Logger = new LoggerConfiguration()
         .MinimumLevel.Information()
         .Enrich.FromLogContext()
         .WriteTo.Console()
-        .WriteTo.Seq(Configuration._configuration.GetSection("Seq:ServerURL").Value)
         .WriteTo.MSSqlServer(Configuration._configuration.GetSection("ConnectionStrings:MsSQLConnection").Value, sinkOptions: new MSSqlServerSinkOptions { TableName = "Logs", AutoCreateSqlTable = true }, null, null, LogEventLevel.Information, null, columnOptions: null, null, null)
         .WriteTo.Seq(Configuration._configuration.GetSection("Seq:ServerURL").Value)
         .CreateLogger();

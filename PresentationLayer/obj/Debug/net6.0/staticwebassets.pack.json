@@ -45,6 +45,10 @@
       "PackagePath": "staticwebassets\\img\\creditcard.png"
     },
     {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\urun-1-1.jpg",
+      "PackagePath": "staticwebassets\\img\\urun-1-1.jpg"
+    },
+    {
       "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

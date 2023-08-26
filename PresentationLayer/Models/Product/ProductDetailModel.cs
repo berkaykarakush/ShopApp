@@ -7,5 +7,7 @@ namespace PresentationLayer.Models
     {
         public ProductVM Product { get; set; }
         public List<CategoryVM> Categories { get; set; }
+        public CommentVM Comment { get; set; }
+        public ICollection<CreateCommentVM> Comments { get; set; }
     }
 }

@@ -83,6 +83,24 @@ namespace DataAccessLayer.Configurations
                 );
             }
 
+            //Comment
+            for (int i = 1; i < 50; i++)
+            {
+                builder.Entity<Comment>().HasData
+                (
+                    new Comment()
+                    {
+                        CommentId = i + 111111111,
+                        CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                        Description = $"description - {i}",
+                        ProductId = i + 111111111,
+                        UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
+                        UserFirstname = "John",
+                        UserLastname = "Doe",
+                    }
+                );
+            }
+
         }
     }
 }

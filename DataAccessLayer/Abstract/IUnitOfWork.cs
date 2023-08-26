@@ -8,6 +8,7 @@
         IProductRepository Products { get; }
         ICampaignRepository Campaigns { get; }
         IBrandRepository Brands { get; }
+        ICommentRepository Comments { get; }
         void Save();
     }
 }

@@ -32,6 +32,7 @@ namespace DataAccessLayer.CQRS.Queries
             {
                 Product = product,
                 Categories = product.ProductCategories.Select(c => c.Category).ToList(),
+                Comments = product.Comments,
                 IsSuccess = true
             };
         }

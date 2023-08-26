@@ -13,7 +13,7 @@ namespace BusinessLayer.Concrete
             _unitOfWork = unitOfWork;
         }
 
-        public string ErrorMessage { get; set; }
+        public string ErrorMessage { get; set; } = string.Empty;
 
         public bool Create(Brand entity)
         {
@@ -59,12 +59,18 @@ namespace BusinessLayer.Concrete
         {
             bool isValid = true;
 
-            if (string.IsNullOrEmpty(entity.Name))
+            if (entity != null)
             {
-                ErrorMessage += "Brand name is required";
-                isValid = false;
+                if (string.IsNullOrEmpty(entity.Name))
+                {
+                    ErrorMessage += "Brand name is required";
+                    isValid = false;
+                }
             }
+            else
+                isValid = false;
 
+            ErrorMessage += "Error - Null Reference!";
             return isValid;
         }
     }

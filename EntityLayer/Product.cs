@@ -23,5 +23,6 @@
         public double BrandId { get; set; }
         public List<ImageUrl>? ImageUrls { get; set; }
         public List<ProductCategory>? ProductCategories { get; set; }
+        public ICollection<Comment>? Comments { get; set; }
     }
 }

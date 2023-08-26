@@ -12,7 +12,7 @@ namespace BusinessLayer.Concrete
         {
             _unitOfWork = unitOfWork;
         }
-        public string ErrorMessage { get; set; }
+        public string ErrorMessage { get; set; } = string.Empty;
 
         public bool Create(Product entity)
         {
@@ -108,28 +108,34 @@ namespace BusinessLayer.Concrete
         public bool Validation(Product entity)
         {
             var isValid = true;
-            
-            if (string.IsNullOrEmpty(entity.Name))
-            {
-                ErrorMessage += "urun ismi bos birakilamaz.\n";
-                isValid = false;
-            }
-            if (entity.Price < 1)
-            {
-                ErrorMessage += "urun fiyati 1'den az olamaz.\n";
-                isValid = false;
-            }
-            if (string.IsNullOrEmpty(entity.Description))
-            {
-                ErrorMessage += "Urun aciklamasi bos birakilamaz\n";
-                isValid = false;
-            }
-            //if (entity.ImageUrls == null)
-            //{
-            //    ErrorMessage += "Urun resmi bos birakilamaz.\n";
-            //    isValid = false;
-            //}
 
+            if (entity != null)
+            {
+                if (string.IsNullOrEmpty(entity.Name))
+                {
+                    ErrorMessage += "urun ismi bos birakilamaz.\n";
+                    isValid = false;
+                }
+                if (entity.Price < 1)
+                {
+                    ErrorMessage += "urun fiyati 1'den az olamaz.\n";
+                    isValid = false;
+                }
+                if (string.IsNullOrEmpty(entity.Description))
+                {
+                    ErrorMessage += "Urun aciklamasi bos birakilamaz\n";
+                    isValid = false;
+                }
+                //if (entity.ImageUrls == null)
+                //{
+                //    ErrorMessage += "Urun resmi bos birakilamaz.\n";
+                //    isValid = false;
+                //}
+            }
+            else
+                isValid = false;    
+
+            ErrorMessage = "Error - Null reference!";
             return isValid;
         }
     }

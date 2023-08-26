@@ -21,6 +21,7 @@ namespace DataAccessLayer.Concrete.EFCore
         public DbSet<ImageUrl> ImageUrls { get; set; }
         public DbSet<Campaign> Campaigns { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

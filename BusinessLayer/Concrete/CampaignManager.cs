@@ -10,11 +10,10 @@ namespace BusinessLayer.Concrete
 
         public CampaignManager(IUnitOfWork unitOfWork)
         {
-            ErrorMessage = string.Empty;
             _unitOfWork = unitOfWork;
         }
 
-        public string ErrorMessage { get; set; }
+        public string ErrorMessage { get; set; } = string.Empty;
 
         public bool Create(Campaign entity)
         {
@@ -56,16 +55,23 @@ namespace BusinessLayer.Concrete
         public bool Validation(Campaign entity)
         {
             bool isValid = true;
-            if (string.IsNullOrEmpty(entity.Name))
+            if (entity != null)
             {
-                ErrorMessage += "Campaign name is not null!";
-                isValid = false;
+                if (string.IsNullOrEmpty(entity.Name))
+                {
+                    ErrorMessage += "Campaign name is not null!";
+                    isValid = false;
+                }
+                if (string.IsNullOrEmpty(entity.Description))
+                {
+                    ErrorMessage += "Campaign description is not null!";
+                    isValid = false;
+                }
             }
-            if (string.IsNullOrEmpty(entity.Description))
-            {
-                ErrorMessage += "Campaign description is not null!";
+            else
                 isValid = false;
-            }
+
+            ErrorMessage += "Error - Null reference!";
             return isValid;
         }
     }

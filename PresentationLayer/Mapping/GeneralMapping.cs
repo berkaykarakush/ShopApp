@@ -56,6 +56,14 @@ namespace PresentationLayer.Mapping
             CreateMap<UpdateBrandQueryResponse, UpdateBrandVM>().ReverseMap();
             CreateMap<Brand, UpdateBrandVM>().ReverseMap();
 
+
+            //Comment
+            CreateMap<Comment, CommentVM>().ReverseMap();
+            CreateMap<Comment, CreateCommentVM>().ReverseMap();
+            CreateMap<Comment, EditCommentVM>().ReverseMap();
+            CreateMap<ListCommentQueryResponse, ListCommentVM>().ReverseMap();
+            CreateMap<EditCommentQueryResponse, EditCommentVM>().ReverseMap();
+            CreateMap<ProductDetailModel, CreateCommentVM>().ReverseMap();
         }
     }
 }

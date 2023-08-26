@@ -22,6 +22,8 @@ namespace DataAccessLayer.Concrete.EFCore
                 .Include(p => p.ProductCategories)
                 .ThenInclude(pc => pc.Category)
                 .Include(p => p.ImageUrls)
+                .Include(p => p.Brand)
+                .Include(p => p.Comments)
                 .FirstOrDefault();
         }
 
@@ -35,10 +37,10 @@ namespace DataAccessLayer.Concrete.EFCore
             if (!string.IsNullOrEmpty(category))
             {
                 products = products
-                                    .Include(p => p.ProductCategories)
-                                    .ThenInclude(p => p.Category)
-                                    .Where(p => p.ProductCategories.Any(
-                                        a => a.Category.Url == category.ToLower()));
+                                .Include(p => p.ProductCategories)
+                                .ThenInclude(p => p.Category)
+                                .Where(p => p.ProductCategories
+                                    .Any(a => a.Category.Url == category.ToLower()));
             }
 
             return products.Count();
@@ -57,6 +59,7 @@ namespace DataAccessLayer.Concrete.EFCore
         {
             return ShopContext.Products
                 .Include(p => p.ImageUrls)
+                .Include(p => p.Brand)
                 .Where(p => p.IsApproved && p.IsHome)
                 .ToList();
         }
@@ -64,26 +67,30 @@ namespace DataAccessLayer.Concrete.EFCore
         public List<Product> GetPopularProducts()
         {
              return ShopContext.Products
+                .Include(p => p.Brand)
                 .Include(p => p.ImageUrls)
                 .ToList();
         }
 
         public Product GetProductDetails(string url)
         {
-            var q = ShopContext.Products
+            return ShopContext.Products
                 .Where(p => p.Url == url)
+                .Include(p => p.ImageUrls)
+                .Include(p => p.Brand)
+                .Include(p => p.Comments)
                 .Include(p => p.ProductCategories)
                 .ThenInclude(p => p.Category)
-                .Include(p => p.ImageUrls)
-                .AsQueryable();
+                .FirstOrDefault();
 
-            return q.FirstOrDefault();
         }
 
         public List<Product> GetProductsByCategory(string name, int page, int pageSize)
         {
             var products = ShopContext.Products
                 .Include(p => p.ImageUrls)
+                .Include(p => p.Brand)
+                .Include(p => p.Comments)
                 .Where(p => p.IsApproved)
                 .AsQueryable();
 
@@ -103,6 +110,7 @@ namespace DataAccessLayer.Concrete.EFCore
         {
             var products = ShopContext.Products
                 .Include(p => p.ImageUrls)
+                .Include(p => p.Brand)
                 .Where(p => p.IsApproved && (p.Name.ToLower().Contains(searchString) || p.Description.ToLower().Contains(searchString)))
                 .AsQueryable();
 
@@ -113,6 +121,7 @@ namespace DataAccessLayer.Concrete.EFCore
         {
             var products = ShopContext.Products
                 .Include(p => p.ImageUrls)
+                .Include(p => p.Brand)
                 .OrderByDescending(p => p.SalesCount)
                 .AsQueryable();
 
@@ -129,6 +138,8 @@ namespace DataAccessLayer.Concrete.EFCore
             var product = ShopContext.Products
                 .Include (p => p.ImageUrls)
                 .Include(p => p.ProductCategories)
+                .Include(p => p.Brand)
+                .Include(p => p.Comments)
                 .FirstOrDefault(p => p.ProductId == entity.ProductId);
 
             if (product != null)
@@ -141,6 +152,9 @@ namespace DataAccessLayer.Concrete.EFCore
                 product.IsHome = entity.IsHome;
                 product.IsApproved = entity.IsApproved;
                 product.UpdatedDate = entity.UpdatedDate;
+                product.Brand = entity.Brand;
+                product.BrandId = entity.BrandId;
+                product.ProductImage = entity.ProductImage;
 
                 product.ImageUrls = entity.ImageUrls.Select(i => new ImageUrl()
                 {
@@ -154,6 +168,13 @@ namespace DataAccessLayer.Concrete.EFCore
                     ProductId = entity.ProductId,
                     CategoryId = c
                 }).ToList();
+
+                product.Comments = (ICollection<Comment>?)entity.Comments.Select(c => new Comment()
+                {
+                    ProductId = product.ProductId,
+                    Product = product
+                });
+
                 return true;
             }
             return false;
