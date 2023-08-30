@@ -32,5 +32,7 @@ namespace DataAccessLayer.CQRS.Commands
         public string CreatedDate { get; set; }
         public string UpdatedDate { get; set; }
         public List<Category> SelectedCategories { get; internal set; }
+        public double CategoryId { get; set; }
+        public double BrandId { get; set; }
     }
 }

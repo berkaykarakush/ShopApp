@@ -46,6 +46,7 @@ namespace PresentationLayer.Controllers
                 _notyfService.Error(NotfyMessageEnum.Error);
             return View(listProductVM);
         }
+
         [HttpGet]
         public async Task<IActionResult> Details(ShopDetailsQueryRequest shopDetailsQueryRequest)
         {

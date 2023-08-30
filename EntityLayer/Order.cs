@@ -4,8 +4,7 @@
     {
         public Order()
         {
-            Random random = new();
-            OrderId = random.Next(111111111, 999999999);
+            OrderId = new Random().Next(111111111, 999999999);
         }
         public double OrderId { get; set; }
         public string? OrderNumber { get; set; }

@@ -13,10 +13,6 @@
       "PackagePath": "staticwebassets\\img\\1.jpg"
     },
     {
-      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\1.jpg.jpg",
-      "PackagePath": "staticwebassets\\img\\1.jpg.jpg"
-    },
-    {
       "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\2.jpg",
       "PackagePath": "staticwebassets\\img\\2.jpg"
     },
@@ -43,10 +39,6 @@
     {
       "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\creditcard.png",
       "PackagePath": "staticwebassets\\img\\creditcard.png"
-    },
-    {
-      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\urun-1-1.jpg",
-      "PackagePath": "staticwebassets\\img\\urun-1-1.jpg"
     },
     {
       "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\js\\site.js",

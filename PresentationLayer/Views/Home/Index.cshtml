@@ -5,13 +5,11 @@
         @await Component.InvokeAsync("Campaign")
     </div>
 </div>
-
-<div class="row">
-    <div class="col-md-2 mb-3">
-        @await Component.InvokeAsync("Categories")
-        <partial name="_search">
+<div class="card text-center mt-5">
+    <div class="card-header">
+        New
     </div>
-    <div class="col-md-10 mt-3">
+    <div class="card-body">
         <div class="row">
             @foreach (var product in Model.Products)
             {

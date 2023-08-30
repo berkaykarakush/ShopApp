@@ -4,8 +4,9 @@
     {
         public Product()
         {
-            Random random = new();
-            ProductId = random.Next(111111111, 999999999);
+            ProductId = new Random().Next(111111111, 999999999);
+            ProductCategories = new List<ProductCategory>();
+            ImageUrls = new List<ImageUrl>();
         }
         public double ProductId { get; set; }
         public string? Name { get; set; }
@@ -19,8 +20,8 @@
         public string? ProductImage { get; set; }
         public bool IsApproved { get; set; }
         public bool IsHome { get; set; }
-        public Brand? Brand { get; set; }
         public double BrandId { get; set; }
+        public Brand? Brand { get; set; }
         public List<ImageUrl>? ImageUrls { get; set; }
         public List<ProductCategory>? ProductCategories { get; set; }
         public ICollection<Comment>? Comments { get; set; }

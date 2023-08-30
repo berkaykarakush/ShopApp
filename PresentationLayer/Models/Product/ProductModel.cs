@@ -38,5 +38,11 @@ namespace PresentationLayer.Models
         public string CreatedDate { get; set; }
         public string UpdatedDate { get; set; }
         public List<Category> SelectedCategories { get; internal set; }
+
+        public double BrandId { get; set; }
+        public BrandVM Brand { get; set; }
+        public List<ImageUrl> ImageUrls { get; set; }
+        public List<ProductCategoryVM> ProductCategories { get; set; }
+        public ICollection<CommentVM>? Comments { get; set; }
     }
 }

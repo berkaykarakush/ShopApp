@@ -135,7 +135,11 @@ namespace PresentationLayer.Controllers
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                await _userManager.AddToRoleAsync(user, "Customer");
+                var customer = new IdentityRole();
+                customer.Name = "Customer";
+                customer.NormalizedName = "CUSTOMER";
+                await _roleManager.CreateAsync(customer);
+                await _userManager.AddToRoleAsync(user, customer.Name);
 
                 //generate token
                 await SendConfirmMail(user.Id);
@@ -145,6 +149,53 @@ namespace PresentationLayer.Controllers
                 return RedirectToAction("Login","Account");
             }
                
+            ModelState.AddModelError("", "This email address is already in use!");
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult SellerRegister()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SellerRegister(SellerRegisterModel model)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = new User()
+            {
+                FirstName = NameEditExtensions.NameEdit(model.FirstName),
+                LastName = NameEditExtensions.NameEdit(model.LastName),
+                UserName = $"{model.FirstName}{model.LastName}",
+                PhoneNumber = model.Phone,
+                Email = model.Email,
+                IpAddress = GetPublicIPAddress.GetIPAddress(),
+                RegistrationDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+            };
+
+            var result = await _userManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                var seller = new IdentityRole();
+                seller.Name = "Seller";
+                seller.NormalizedName = "SELLER";
+                await _roleManager.CreateAsync(seller);
+                await _userManager.AddToRoleAsync(user, seller.Name);
+
+                //generate token
+                await SendConfirmMail(user.Id);
+
+                //send mail saying welcome
+                await _emailSender.SendEmailAsync(model.Email, "Welcome to ShopApp", $"Hello, {user.UserName} </br> Welcome to the ShopApp!");
+                return RedirectToAction("Login", "Account");
+            }
+
             ModelState.AddModelError("", "This email address is already in use!");
             return View(model);
         }
@@ -329,7 +380,7 @@ namespace PresentationLayer.Controllers
 
                 //confirmed email
                 await _emailSender.SendEmailAsync(user.Email, "Confirm your account", $"Please click on the <a href='https://localhost:7087{url}'>link</a> to confirm your e-mail account!");
-                _notyfService.Error("Error - The e-mail address entered was not found.");
+
                 return RedirectToAction("ListUser","User");
             }
             _notyfService.Error(NotfyMessageEnum.Error);

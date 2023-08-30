@@ -3,6 +3,6 @@
     public class CreateProductCommandResponse
     {
         public double ProductId { get; set; }
-        public bool IsSuccess { get; set; } = false;
+        public bool IsSuccess { get; set; }     
     }
 }

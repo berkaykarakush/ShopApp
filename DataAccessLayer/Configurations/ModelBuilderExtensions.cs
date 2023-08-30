@@ -46,7 +46,7 @@ namespace DataAccessLayer.Configurations
                     new ImageUrl()
                     {
                         ImageUrlId = i + j + 111111111,
-                        CampaignId = i + 111111111,
+                        //CampaignId = i + 111111111,
                         ProductId = i + 111111111,
                         Url = "1.jpg"
                     });

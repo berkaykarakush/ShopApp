@@ -40,9 +40,11 @@ namespace PresentationLayer.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
-        public IActionResult CreateProduct()
+        public async Task<IActionResult> CreateProduct(CreateProductQueryRequest createProductQueryRequest)
         {
-            return View();
+            CreateProductQueryResponse response = await _mediator.Send(createProductQueryRequest);
+            CreateProductVM createProductVM = _mapper.Map<CreateProductVM>(response);
+            return View(createProductVM);
         }
 
         [HttpPost]

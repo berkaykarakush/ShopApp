@@ -4,8 +4,7 @@
     {
         public Comment()
         {
-            Random random = new Random();
-            CommentId = random.Next(111111111, 999999999);
+            CommentId = new Random().Next(111111111, 999999999);
         }
         public double CommentId { get; set; }
         public double ProductId { get; set; }

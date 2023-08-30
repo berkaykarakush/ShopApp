@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Abstract;
+using EntityLayer;
 using MediatR;
 using Serilog;
 
@@ -11,11 +12,18 @@ namespace DataAccessLayer.CQRS.Commands
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<CreateProductCommandResponse> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
+        public Task<CreateProductCommandResponse> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
         {
             try
             {
-                _unitOfWork.Products.Create(new EntityLayer.Product()
+                var category = _unitOfWork.Categories.GetById(request.CategoryId);
+                var brand = _unitOfWork.Brands.GetById(request.BrandId);
+
+                if (category == null && brand == null)
+                    return Task.FromResult(new CreateProductCommandResponse() { IsSuccess = false });
+
+
+                var product = new Product()
                 {
                     ProductId = request.ProductId,
                     Name = request.Name,
@@ -29,16 +37,32 @@ namespace DataAccessLayer.CQRS.Commands
                     IsHome = request.IsHome,
                     Price = request.Price,
                     SalesCount = request.SalesCount,
-                });
+                    Brand = brand,
+                    BrandId = brand.BrandId
+                };
 
+                var productCategory = new ProductCategory()
+                {
+                    Category = category,
+                    CategoryId = category.CategoryId,
+                    Product = product,
+                    ProductId = product.ProductId,
+                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                };
+
+                if (productCategory != null)
+                    product.ProductCategories.Add(productCategory);
+
+                _unitOfWork.Products.Create(product);
                 _unitOfWork.Save();
+                return Task.FromResult(new CreateProductCommandResponse() { IsSuccess = true, ProductId = request.ProductId });
             }
             catch (Exception ex)
             {
                 Log.Error(ex, ex.Message);
             }
 
-            return new() { IsSuccess = true, ProductId = request.ProductId};
+            return Task.FromResult(new CreateProductCommandResponse() { IsSuccess = false});
         }
     }
 }

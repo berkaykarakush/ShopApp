@@ -146,7 +146,7 @@ namespace PresentationLayer.Controllers
                 else
                     _notyfService.Error($"Error - {payment.ErrorCode} - {payment.ErrorMessage}");
             }
-            return View(model);
+            return RedirectToAction("Checkout", "Cart");
         }
 
         private void IncreaseProductSaleCount(OrderModel model)

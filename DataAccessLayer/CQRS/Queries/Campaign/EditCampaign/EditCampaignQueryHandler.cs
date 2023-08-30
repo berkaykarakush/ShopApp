@@ -28,7 +28,7 @@ namespace DataAccessLayer.CQRS.Queries
                 response.CreatedDate = campign.CreatedDate;
                 response.UpdatedDate = campign.UpdatedDate;
                 response.CampaignImage = campign.CampaignImage;
-                response.ImageUrls = campign.ImageUrls;
+                //response.ImageUrls = campign.ImageUrls;
                 response.IsSuccess = true;
             }
             catch (Exception ex)

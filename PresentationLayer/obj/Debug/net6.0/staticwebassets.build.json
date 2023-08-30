@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tMB2YvM8EHxuJmEzHFYLcOvG8tmwcmZ9Y9PcDFFRuW8=",
+  "Hash": "2FUbtbXDOuyPsfsFAs/RZ6SIV6LMHQWtMUo9tkdaVJY=",
   "Source": "PresentationLayer",
   "BasePath": "_content/PresentationLayer",
   "Mode": "Default",
@@ -136,23 +136,6 @@
       "OriginalItemSpec": "wwwroot\\img\\1.jpg"
     },
     {
-      "Identity": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\1.jpg.jpg",
-      "SourceId": "PresentationLayer",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\",
-      "BasePath": "_content/PresentationLayer",
-      "RelativePath": "img/1.jpg.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\1.jpg.jpg"
-    },
-    {
       "Identity": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\2.jpg",
       "SourceId": "PresentationLayer",
       "SourceType": "Discovered",
@@ -270,23 +253,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\creditcard.png"
-    },
-    {
-      "Identity": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\urun-1-1.jpg",
-      "SourceId": "PresentationLayer",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\",
-      "BasePath": "_content/PresentationLayer",
-      "RelativePath": "img/urun-1-1.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\urun-1-1.jpg"
     },
     {
       "Identity": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\js\\site.js",

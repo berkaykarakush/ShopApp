@@ -6,8 +6,7 @@ namespace EntityLayer
     {
         public OrderItem()
         {
-            Random random = new();
-            OrderItemId = random.Next(111111111, 999999999);
+            OrderItemId = new Random().Next(111111111, 999999999);
         }
         public double OrderItemId { get; set; }
         public double OrderId { get; set; }

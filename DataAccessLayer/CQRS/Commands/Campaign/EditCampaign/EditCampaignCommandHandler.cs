@@ -24,7 +24,7 @@ namespace DataAccessLayer.CQRS.Commands
                 campaign.Description = request.Description;
                 campaign.UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
                 campaign.CampaignImage = request.CampaignImage;
-                campaign.ImageUrls = request.ImageUrls;
+                //campaign.ImageUrls = request.ImageUrls;
 
                 _unitOfWork.Campaigns.Update(campaign);
                 _unitOfWork.Save();

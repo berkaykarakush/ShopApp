@@ -1,6 +1,14 @@
 ﻿<nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container">
     <div class="row container-fluid">
+       @if (!User.IsInRole("Seller"))
+        {
+            <span>
+                <a asp-controller="Account" asp-action="SellerRegister" class="text-right nav-link position-relative float-end">
+                    Sell in ShopApp
+                </a>
+            </span>
+        }
         <div class="col-md-3 container-fluid">
             <ul class="navbar-nav">
                 <a asp-controller="Home" asp-action="Index" class="h1 navbar-brand text-danger" style="font-size: 40px;">Shopapp</a>

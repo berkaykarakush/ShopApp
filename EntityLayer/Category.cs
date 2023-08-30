@@ -4,8 +4,7 @@
     {
         public Category()
         {
-            Random random = new();
-            CategoryId = random.Next(111111111, 999999999);
+            CategoryId = new Random().Next(111111111, 999999999);
         }
         public double CategoryId { get; set; }
         public string? Name { get; set; }

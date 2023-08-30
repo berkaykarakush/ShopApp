@@ -26,7 +26,6 @@ namespace PresentationLayer.Controllers
         //TODO add open source email library 
         //TODO seller added
         //TODO details product rate
-        //TODO product brand
         //TODO product categories
         //TODO checout form add contract
         
