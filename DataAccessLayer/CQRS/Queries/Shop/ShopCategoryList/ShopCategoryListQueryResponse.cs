@@ -2,9 +2,9 @@
 
 namespace DataAccessLayer.CQRS.Queries
 {
-    public class ShopListQueryResponse
+    public class ShopCategoryListQueryResponse
     {
-        public ShopListQueryResponse()
+        public ShopCategoryListQueryResponse()
         {
             Products = new List<Product>();
         }

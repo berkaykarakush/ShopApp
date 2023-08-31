@@ -37,14 +37,20 @@ namespace PresentationLayer.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> List(ShopListQueryRequest shopListQueryRequest)
+        public async Task<IActionResult> CategoryList(ShopCategoryListQueryRequest shopListQueryRequest)
         {
-            ShopListQueryResponse response = await _mediator.Send(shopListQueryRequest);
+            ShopCategoryListQueryResponse response = await _mediator.Send(shopListQueryRequest);
             ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
 
             if (!response.IsSuccess)
                 _notyfService.Error(NotfyMessageEnum.Error);
             return View(listProductVM);
+        }
+
+        [HttpGet]
+        public IActionResult Category2List() 
+        {
+            return View();
         }
 
         [HttpGet]

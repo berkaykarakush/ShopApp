@@ -14,15 +14,22 @@ namespace DataAccessLayer.Configurations
 
 
             //Category
-            for (int i = 1; i < 10; i++)
-            {
-                builder.Entity<Category>().HasData(
-                    new Category() {CategoryId = i + 111111111,   Name = $"category {i}", Url = $"category-{i}" }
-                );
-            }
+            
+            builder.Entity<Category>().HasData(
+                new Category() { CategoryId = 111111111, Name = "Woman", Url = "woman" },
+                new Category() { CategoryId = 111111112, Name = "Man", Url = "man" },
+                new Category() { CategoryId = 111111113, Name = "Mom & Child", Url = "mom-child" },
+                new Category() { CategoryId = 111111114, Name = "Home & Furniture", Url = "home-furniture" },
+                new Category() { CategoryId = 111111115, Name = "Supermarket", Url = "supermarket" },
+                new Category() { CategoryId = 111111116, Name = "Cosmetics", Url = "cosmetics" },
+                new Category() { CategoryId = 111111117, Name = "Shoe & Bag", Url = "shoe-bag" },
+                new Category() { CategoryId = 111111118, Name = "Electronics", Url = "electronics" },
+                new Category() { CategoryId = 111111119, Name = "Sport & Outdoor", Url = "sport-outdoor" },
+                new Category() { CategoryId = 111111120, Name = "Book & Instrument", Url = "book-instrument" }
+            );
                 
             //Product
-            for (int i = 1; i < 50; i++)
+            for (int i = 0; i < 50; i++)
             {
                 builder.Entity<Product>().HasData(
                     new Product() { ProductId = i+111111111, Name = $"urun {i}", Url = $"urun-{i}", Price = 10, Description = $"urun aciklamasi {i}", IsApproved = true, CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), IsHome = false, Quantity = i, SalesCount = i, UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), ProductImage = "1.jpg", BrandId = i + 111111111 }
@@ -30,7 +37,7 @@ namespace DataAccessLayer.Configurations
             }
 
             //ProductCategory
-            for (int i = 1; i < 10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 builder.Entity<ProductCategory>().HasData(
                     new ProductCategory() { CategoryId = i + 111111111, ProductId = i + 111111111 }
@@ -38,9 +45,9 @@ namespace DataAccessLayer.Configurations
             }
 
             //ImageUrls
-            for (int i = 1; i < 50; i++)
+            for (int i = 0; i < 50; i++)
             {
-                for (int j = 1; j < 5; j+=6)
+                for (int j = 0; j < 5; j+=6)
                 {
                     builder.Entity<ImageUrl>().HasData(
                     new ImageUrl()
@@ -54,7 +61,7 @@ namespace DataAccessLayer.Configurations
             }
 
             //Campaings
-            for (int i = 1; i < 50; i++)
+            for (int i = 0; i < 50; i++)
             {
                 builder.Entity<Campaign>().HasData(
                 new Campaign()
@@ -70,7 +77,7 @@ namespace DataAccessLayer.Configurations
             }
 
             //Brand
-            for (int i = 1; i < 50; i++)
+            for (int i = 0; i < 50; i++)
             {
                 builder.Entity<Brand>().HasData
                 (
@@ -83,8 +90,17 @@ namespace DataAccessLayer.Configurations
                 );
             }
 
+            //Category2
+            for (int i = 0; i < 10; i++)
+            {
+                builder.Entity<Category2>().HasData
+                (
+                    new Category2() { Category2Id = i + 111111111, CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), Name = $"category2 {i}", Url=$"category2-{i}", CategoryId = i + 111111111}
+                );
+            }
+
             //Comment
-            for (int i = 1; i < 50; i++)
+            for (int i = 0; i < 50; i++)
             {
                 builder.Entity<Comment>().HasData
                 (

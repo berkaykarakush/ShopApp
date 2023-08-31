@@ -221,6 +221,12 @@ try
         defaults: new { controller = "Shop", action = "List" });
 
     app.MapControllerRoute(
+        name: "products",
+        pattern: "products/{category?}/{category2?}",
+        defaults: new { controller = "Shop", action = "Category2" });
+
+
+    app.MapControllerRoute(
         name: "productsDetails",
         pattern: "{url}",
         defaults: new { controller = "Shop", action = "List" });
@@ -245,6 +251,23 @@ try
         defaults: new { controller = "Category", action = "EditCategory" });
     #endregion
 
+    #region Category2 Route
+    app.MapControllerRoute(
+        name: "adminCategory2",
+        pattern: "admin/category2",
+        defaults: new { controller = "Category2", action = "ListCategory2" });
+
+    app.MapControllerRoute(
+        name: "adminCreateCategory2",
+        pattern: "admin/category2/create",
+        defaults: new { controller = "Category2", action = "CreateCategory2" });
+
+
+    app.MapControllerRoute(
+        name: "adminEditCategory2",
+        pattern: "admin/category2/{category2Id?}",
+        defaults: new { controller = "Category2", action = "EditCategory2" });
+    #endregion
     app.MapControllerRoute(
         name: "search",
         pattern: "search",

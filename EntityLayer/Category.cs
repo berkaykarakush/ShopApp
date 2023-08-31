@@ -13,6 +13,7 @@
         public string? UpdatedDate { get; set; }
         public List<ProductCategory>? ProductCategories { get; set; }
         public List<Product>? Products { get; set; }
+        public List<Category2>? Categories2 { get; set; }
 
     }
 }

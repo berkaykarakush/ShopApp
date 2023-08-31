@@ -9,6 +9,7 @@
         ICampaignRepository Campaigns { get; }
         IBrandRepository Brands { get; }
         ICommentRepository Comments { get; }
+        ICategory2Repository Categories2 { get; }
         void Save();
     }
 }

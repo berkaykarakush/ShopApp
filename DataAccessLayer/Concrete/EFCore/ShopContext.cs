@@ -1,7 +1,6 @@
 ﻿using DataAccessLayer.Configurations;
 using EntityLayer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace DataAccessLayer.Concrete.EFCore
 {
@@ -13,6 +12,7 @@ namespace DataAccessLayer.Concrete.EFCore
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Category2> Categories2 { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartItem> CartItems { get; set; }

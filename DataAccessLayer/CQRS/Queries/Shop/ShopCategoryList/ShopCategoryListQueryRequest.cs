@@ -2,9 +2,9 @@
 
 namespace DataAccessLayer.CQRS.Queries
 {
-    public class ShopListQueryRequest: IRequest<ShopListQueryResponse>
+    public class ShopCategoryListQueryRequest: IRequest<ShopCategoryListQueryResponse>
     {
-        public ShopListQueryRequest()
+        public ShopCategoryListQueryRequest()
         {
             page = 1;
         }

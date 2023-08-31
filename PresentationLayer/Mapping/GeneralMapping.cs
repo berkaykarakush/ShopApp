@@ -18,7 +18,7 @@ namespace PresentationLayer.Mapping
             CreateMap<ProductVM, List<Product>>().ReverseMap();
             CreateMap<EntityLayer.PageInfo, PageInfoVM>().ReverseMap();
             CreateMap<ListProductQueryResponse, ListProductVM>().ReverseMap();
-            CreateMap<ShopListQueryResponse, ListProductVM>().ReverseMap();
+            CreateMap<ShopCategoryListQueryResponse, ListProductVM>().ReverseMap();
             CreateMap<ShopDetailsQueryResponse, ProductDetailModel>().ReverseMap();
             CreateMap<ShopSearchQueryResponse, ListProductVM>().ReverseMap();
             CreateMap<TopSalesListQueryResponse, ProductListViewModel>().ReverseMap();
@@ -34,6 +34,11 @@ namespace PresentationLayer.Mapping
             CreateMap<EditCategoryQueryResponse, CategoryVM>().ReverseMap();
             CreateMap<EditCategoryCommandResponse, CategoryVM>().ReverseMap();
 
+            //Category2
+            CreateMap<CreateCategory2QueryResponse, CreateCategory2VM>().ReverseMap();
+            CreateMap<ListCategory2QueryResponse, Category2ListVM>().ReverseMap();
+            CreateMap<Category2, Category2VM>().ReverseMap();
+            CreateMap<EditCategory2QueryResponse, EditCategory2VM>().ReverseMap();
             //Account
             CreateMap<LoginQueryResponse, LoginModel>().ReverseMap();
 

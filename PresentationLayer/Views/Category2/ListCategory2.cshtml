@@ -1,0 +1,59 @@
+﻿@model Category2ListVM
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>Admin Categories</h1>
+        <a class="btn btn-outline-primary" asp-controller="Category2" asp-action="CreateCategory2">Add Category</a>
+        <table id="category2Table" class="table table-bordered mt-4">
+            <thead>
+                <tr>
+                    <td style="width: 30px;">Id</td>
+                    <td>Name</td>
+                    <td style="width: 150px;"></td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Categories2 != null)
+                {
+                    @if (Model.Categories2.Count > 0)
+                    {
+                        @foreach (var item in Model.Categories2)
+                        {
+                            <tr>
+                                <td>@item.Category2Id</td>
+                                <td>@item.Name</td>
+
+                                <td>
+                                    <a asp-controller="Category2" asp-action="EditCategory2" asp-route-category2id="@item.Category2Id" class="btn btn-primary btn-sm mr-2">Edit</a>
+
+                                    <form asp-controller="Category2" asp-action="DeleteCategory2" method="post" style="display: inline;">
+                                        <input type="hidden" name="Category2Id" value="@item.Category2Id">
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <div class="alert alert-warning">
+                            <h3>No categories</h3>
+                        </div>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Css{
+    <script src="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"></script>
+}
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        new DataTable('#category2Table');
+    </script>
+}

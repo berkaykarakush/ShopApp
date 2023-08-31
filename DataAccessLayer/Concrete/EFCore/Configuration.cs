@@ -9,7 +9,7 @@ namespace DataAccessLayer.Concrete.EFCore
 {
     public static class Configuration
     {
-        public static IConfiguration _configuration;
+        public static IConfiguration? _configuration;
         /// <summary>
         /// Provides static access to the framework's services provider
         /// </summary>

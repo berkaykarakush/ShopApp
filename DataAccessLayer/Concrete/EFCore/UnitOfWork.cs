@@ -17,6 +17,7 @@ namespace DataAccessLayer.Concrete.EFCore
         private EFCoreCampaignRepository _campaignRepository;
         private EFCoreBrandRepository _brandRepository;
         private EFCoreCommentRepository _commentRepository;
+        private EFCoreCategory2Repository _category2Repository;
         public ICartRepository Carts => _cartRepository = _cartRepository ?? new EFCoreCartRepository(_context);
 
         public ICategoryRepository Categories => _categoryRepository = _categoryRepository ?? new EFCoreCategoryRepository(_context);
@@ -28,6 +29,8 @@ namespace DataAccessLayer.Concrete.EFCore
         public ICampaignRepository Campaigns => _campaignRepository = _campaignRepository ?? new EFCoreCampaignRepository(_context);
         public IBrandRepository Brands => _brandRepository = _brandRepository ?? new EFCoreBrandRepository(_context);
         public ICommentRepository Comments => _commentRepository = _commentRepository ?? new EFCoreCommentRepository(_context);
+        public ICategory2Repository Categories2 => _category2Repository = _category2Repository ?? new EFCoreCategory2Repository(_context);
+
         public void Dispose()
         {
             _context.Dispose();

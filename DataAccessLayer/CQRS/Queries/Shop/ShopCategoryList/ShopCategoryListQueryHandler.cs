@@ -5,15 +5,15 @@ using Serilog;
 
 namespace DataAccessLayer.CQRS.Queries
 {
-    public class ShopListQueryHandler : IRequestHandler<ShopListQueryRequest, ShopListQueryResponse>
+    public class ShopCategoryListQueryHandler : IRequestHandler<ShopCategoryListQueryRequest, ShopCategoryListQueryResponse>
     {
         private readonly IUnitOfWork _unitOfWork;
-        public ShopListQueryHandler(IUnitOfWork unitOfWork)
+        public ShopCategoryListQueryHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<ShopListQueryResponse> Handle(ShopListQueryRequest request, CancellationToken cancellationToken)
+        public async Task<ShopCategoryListQueryResponse> Handle(ShopCategoryListQueryRequest request, CancellationToken cancellationToken)
         {
             const int pageSize = 15;
             List<Product> products = new List<Product>();
@@ -28,7 +28,7 @@ namespace DataAccessLayer.CQRS.Queries
                 Log.Error(ex, ex.Message);
             }
 
-            return new ShopListQueryResponse()
+            return new ShopCategoryListQueryResponse()
             {
                 PageInfo = new PageInfo()
                 {
