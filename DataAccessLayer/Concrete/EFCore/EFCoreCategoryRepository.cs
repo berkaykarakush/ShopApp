@@ -24,9 +24,9 @@ namespace DataAccessLayer.Concrete.EFCore
         {
             return ShopContext.Categories
                 .Where(p => p.CategoryId == categoryId)
-                .Include(p => p.ProductCategories)
-                .ThenInclude(p => p.Product)
-                 .FirstOrDefault();
+                .Include(p => p.Products)
+                //.Include(p => p.Category2)
+                .FirstOrDefault();
         }
 
         public bool GetByName(string name)

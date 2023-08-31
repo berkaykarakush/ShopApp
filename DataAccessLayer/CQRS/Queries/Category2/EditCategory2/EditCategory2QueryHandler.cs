@@ -27,7 +27,7 @@ namespace DataAccessLayer.CQRS.Queries
                 {
                     IsSuccess = true,
                     Category = category2.Category,
-                    CategoryId = category2.CategoryId,
+                    CategoryId = (double)category2.CategoryId,
                     Category2Id = category2.Category2Id,
                     Name = category2.Name,
                     Url = category2.Url,

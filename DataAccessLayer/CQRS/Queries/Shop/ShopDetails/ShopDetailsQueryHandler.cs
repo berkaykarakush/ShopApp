@@ -16,25 +16,23 @@ namespace DataAccessLayer.CQRS.Queries
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<ShopDetailsQueryResponse> Handle(ShopDetailsQueryRequest request, CancellationToken cancellationToken)
+        public Task<ShopDetailsQueryResponse> Handle(ShopDetailsQueryRequest request, CancellationToken cancellationToken)
         {
-            Product product = new Product();
             try
             {
-                product = _unitOfWork.Products.GetProductDetails(request.Url);
+                Product product = _unitOfWork.Products.GetProductDetails(request.Url);
+
+                if (product == null)
+                    return Task.FromResult(new ShopDetailsQueryResponse() { IsSuccess = false });
+
+                return Task.FromResult(new ShopDetailsQueryResponse() { IsSuccess = true, Product = product, Comments = product.Comments });
+
             }
             catch (Exception ex)
             {
-                Log.Error(ex, ex.Message);
+                Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-
-            return new ShopDetailsQueryResponse()
-            {
-                Product = product,
-                Categories = product.ProductCategories.Select(c => c.Category).ToList(),
-                Comments = product.Comments,
-                IsSuccess = true
-            };
+            return Task.FromResult(new ShopDetailsQueryResponse() { IsSuccess = false });
         }
     }
 }

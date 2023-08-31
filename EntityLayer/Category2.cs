@@ -11,8 +11,10 @@
         public string? Url { get; set; }
         public string? CreatedDate { get; set; }
         public string? UpdatedDate { get; set; }
-        public double CategoryId { get; set; }
-        public Category Category { get; set; }
+
+        public double? CategoryId { get; set; }
+        public Category? Category { get; set; }
+
         public List<Product>? Products { get; set; }
 
     }

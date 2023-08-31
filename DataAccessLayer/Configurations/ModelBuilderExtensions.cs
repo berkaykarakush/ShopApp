@@ -27,20 +27,42 @@ namespace DataAccessLayer.Configurations
                 new Category() { CategoryId = 111111119, Name = "Sport & Outdoor", Url = "sport-outdoor" },
                 new Category() { CategoryId = 111111120, Name = "Book & Instrument", Url = "book-instrument" }
             );
-                
+            for (int i = 0; i < 40; i++)
+            {
+                builder.Entity<Category>().HasData
+                (
+                    new Category() { CategoryId = i + 111111121, Name = $"category {i}", Url = $"category-{i}", CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") }
+                );
+            }
+
+            //Category2
+            for (int i = 0; i < 50; i++)
+            {
+                builder.Entity<Category2>().HasData
+                (
+                    new Category2() { Category2Id = i + 111111111, CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), Name = $"category2 {i}", Url = $"category2-{i}", CategoryId = i + 111111111 }
+                );
+            }
+
+            //Brand
+            for (int i = 0; i < 50; i++)
+            {
+                builder.Entity<Brand>().HasData
+                (
+                    new Brand()
+                    {
+                        BrandId = i + 111111111,
+                        Name = $"Brand {i}",
+                        Url = $"brand-{i}",
+                    }
+                );
+            }
+
             //Product
             for (int i = 0; i < 50; i++)
             {
                 builder.Entity<Product>().HasData(
-                    new Product() { ProductId = i+111111111, Name = $"urun {i}", Url = $"urun-{i}", Price = 10, Description = $"urun aciklamasi {i}", IsApproved = true, CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), IsHome = false, Quantity = i, SalesCount = i, UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), ProductImage = "1.jpg", BrandId = i + 111111111 }
-                );
-            }
-
-            //ProductCategory
-            for (int i = 0; i < 10; i++)
-            {
-                builder.Entity<ProductCategory>().HasData(
-                    new ProductCategory() { CategoryId = i + 111111111, ProductId = i + 111111111 }
+                    new Product() { ProductId = i+111111111, Name = $"urun {i}", Url = $"urun-{i}", Price = 10, Description = $"urun aciklamasi {i}", IsApproved = true, CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), IsHome = false, Quantity = i, SalesCount = i, UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), ProductImage = "1.jpg", BrandId = i + 111111111, CategoryId = i + 111111111, Category2Id = i + 111111111 }
                 );
             }
 
@@ -76,29 +98,6 @@ namespace DataAccessLayer.Configurations
                 });
             }
 
-            //Brand
-            for (int i = 0; i < 50; i++)
-            {
-                builder.Entity<Brand>().HasData
-                (
-                    new Brand()
-                    {
-                        BrandId = i + 111111111,
-                        Name = $"Brand {i}",
-                        Url = $"brand-{i}",
-                    }
-                );
-            }
-
-            //Category2
-            for (int i = 0; i < 10; i++)
-            {
-                builder.Entity<Category2>().HasData
-                (
-                    new Category2() { Category2Id = i + 111111111, CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), Name = $"category2 {i}", Url=$"category2-{i}", CategoryId = i + 111111111}
-                );
-            }
-
             //Comment
             for (int i = 0; i < 50; i++)
             {
@@ -116,7 +115,6 @@ namespace DataAccessLayer.Configurations
                     }
                 );
             }
-
         }
     }
 }

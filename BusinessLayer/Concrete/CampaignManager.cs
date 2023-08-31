@@ -26,10 +26,15 @@ namespace BusinessLayer.Concrete
             return false;
         }
 
-        public void Delete(Campaign entity)
+        public bool Delete(Campaign entity)
         {
-            _unitOfWork.Campaigns.Delete(entity);
-            _unitOfWork.Save();
+            if (Validation(entity))
+            {
+                _unitOfWork.Campaigns.Create(entity);
+                _unitOfWork.Save();
+                return true;
+            }
+            return false;
         }
 
         public List<Campaign> GetAll()

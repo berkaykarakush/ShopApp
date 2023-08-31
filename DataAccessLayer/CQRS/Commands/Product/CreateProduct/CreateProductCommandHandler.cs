@@ -17,15 +17,14 @@ namespace DataAccessLayer.CQRS.Commands
             try
             {
                 var category = _unitOfWork.Categories.GetById(request.CategoryId);
+                var category2 = _unitOfWork.Categories2.GetById(request.Category2Id);
                 var brand = _unitOfWork.Brands.GetById(request.BrandId);
 
-                if (category == null && brand == null)
+                if (category == null || category2 == null || brand == null)
                     return Task.FromResult(new CreateProductCommandResponse() { IsSuccess = false });
-
 
                 var product = new Product()
                 {
-                    ProductId = request.ProductId,
                     Name = request.Name,
                     Url = request.Url,
                     ProductImage = request.ProductImage,
@@ -38,24 +37,16 @@ namespace DataAccessLayer.CQRS.Commands
                     Price = request.Price,
                     SalesCount = request.SalesCount,
                     Brand = brand,
-                    BrandId = brand.BrandId
-                };
-
-                var productCategory = new ProductCategory()
-                {
+                    BrandId = brand.BrandId,
                     Category = category,
                     CategoryId = category.CategoryId,
-                    Product = product,
-                    ProductId = product.ProductId,
-                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                    Category2 = category2,
+                    Category2Id = category2.Category2Id
                 };
-
-                if (productCategory != null)
-                    product.ProductCategories.Add(productCategory);
 
                 _unitOfWork.Products.Create(product);
                 _unitOfWork.Save();
-                return Task.FromResult(new CreateProductCommandResponse() { IsSuccess = true, ProductId = request.ProductId });
+                return Task.FromResult(new CreateProductCommandResponse() { IsSuccess = true, ProductId = product.ProductId });
             }
             catch (Exception ex)
             {

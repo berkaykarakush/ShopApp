@@ -17,6 +17,5 @@ namespace PresentationLayer.ViewModels
         public bool IsHome { get; set; }
         public string CreatedDate { get; set; }
         public string UpdatedDate { get; set; }
-        public List<ProductCategory> ProductCategories { get; set; }
     }
 }

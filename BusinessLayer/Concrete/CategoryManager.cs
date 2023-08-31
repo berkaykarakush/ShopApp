@@ -32,14 +32,17 @@ namespace BusinessLayer.Concrete
             return isValid;
         }
 
-        public void Delete(Category entity)
+        public bool Delete(Category entity)
         {
+            bool isValid = false;
             var category = _unitOfWork.Categories.GetById(entity.CategoryId);
             if (category != null)
             {
-                _unitOfWork.Categories.Delete(entity);
+                _unitOfWork.Categories.Update(entity);
                 _unitOfWork.Save();
+                isValid = true;
             }
+            return isValid;
         }
 
         public void DeleteFromCategory(double productId, double categoryId)
@@ -65,7 +68,7 @@ namespace BusinessLayer.Concrete
 
         public bool Update(Category entity)
         {
-            bool isValid = true;
+            bool isValid = false;
             var category = _unitOfWork.Categories.GetById(entity.CategoryId);
             if (category != null)
             {
@@ -73,7 +76,6 @@ namespace BusinessLayer.Concrete
                 _unitOfWork.Save();
                 isValid = true;
             }
-            isValid = false;
             return isValid;
         }
 

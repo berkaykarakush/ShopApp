@@ -25,10 +25,16 @@ namespace BusinessLayer.Concrete
             return false;
         }
 
-        public void Delete(Product entity)
+        public bool Delete(Product entity)
         {
-            _unitOfWork.Products.Delete(entity);
-            _unitOfWork.Save();
+            bool isValid = false;
+            if (Validation(entity))
+            {
+                _unitOfWork.Products.Delete(entity);
+                _unitOfWork.Save();
+                isValid = true;
+            }
+            return isValid;
         }
 
         public List<Product> GetAll()
@@ -93,18 +99,6 @@ namespace BusinessLayer.Concrete
             return false;
 
         }
-        public bool Update(Product entity, List<double> categoryIds)
-        {
-            if (categoryIds.Count() == 0)
-            {
-                ErrorMessage += "Urun icin en az bir kategori secmelisiniz.\n";
-                return false;
-            }
-            _unitOfWork.Products.Update(entity, categoryIds);
-            _unitOfWork.Save();
-            return true;
-        }
-
         public bool Validation(Product entity)
         {
             var isValid = true;

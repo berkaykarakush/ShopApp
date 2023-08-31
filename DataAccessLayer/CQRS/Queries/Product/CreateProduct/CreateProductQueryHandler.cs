@@ -18,11 +18,12 @@ namespace DataAccessLayer.CQRS.Queries
             try
             {
                 var categories = _unitOfWork.Categories.GetAll();
+                var categories2 = _unitOfWork.Categories2.GetAll();
                 var brands = _unitOfWork.Brands.GetAll();
                 if (categories == null && brands == null)
                     return Task.FromResult(new CreateProductQueryResponse() { IsSuccess = false});
 
-                return Task.FromResult(new CreateProductQueryResponse() { Categories = categories, Brands = brands, IsSuccess = true });
+                return Task.FromResult(new CreateProductQueryResponse() { Categories = categories, Categories2 = categories2, Brands = brands, IsSuccess = true });
             }
             catch (Exception ex)
             {

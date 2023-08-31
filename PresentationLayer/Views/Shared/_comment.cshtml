@@ -43,43 +43,51 @@
                             </form>
                         </div>
                     </div>
-                    @*comment list - start*@
-                    <div class="col-md-12 mt-4">
-                        @foreach (var item in Model.Comments)
-                        {
-                            <div class="card border-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <h6 class="card-title">@item.UserFirstname @item.UserLastname</h6>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <a class="h4 nav-link">
-                                                <strong>
-                                                    <i class="fa-solid fa-star text-warning"></i>
-                                                    <i class="fa-solid fa-star text-warning"></i>
-                                                    <i class="fa-solid fa-star text-warning"></i>
-                                                    <i class="fa-solid fa-star text-warning"></i>
-                                                    <i class="fa-solid fa-star text-warning"></i>
-                                                    4.8
-                                                </strong>
-                                            </a>
+                        @*comment list - start*@
+                        <div class="col-md-12 mt-4">
+                            @if (Model.Comments != null)
+                            {
+                                @foreach (var item in Model.Comments)
+                                {
+                                    <div class="card border-0">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <h6 class="card-title">@item.UserFirstname @item.UserLastname</h6>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <a class="h4 nav-link">
+                                                        <strong>
+                                                            <i class="fa-solid fa-star text-warning"></i>
+                                                            <i class="fa-solid fa-star text-warning"></i>
+                                                            <i class="fa-solid fa-star text-warning"></i>
+                                                            <i class="fa-solid fa-star text-warning"></i>
+                                                            <i class="fa-solid fa-star text-warning"></i>
+                                                            4.8
+                                                        </strong>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <p class="card-text mt-2">@item.Description</p>
                                         </div>
                                     </div>
-                                    <p class="card-text mt-2">@item.Description</p>
+                                }
+                                    <hr />
+
+                                    <div class="d-grid gap-2 col-6 mx-auto mt-4">
+                                        <button class="btn btn-warning" type="submit">
+                                            <strong>All Comments</strong>
+                                        </button>
+                                    </div>
+                            }
+                            else{
+                            <div class="card border-0">
+                                <div class="card-body">
+                                        <h4>No Comments</h4>
                                 </div>
                             </div>
-                        }
-                        <hr />
+                            }
                         </div>
-
-                        <div class="d-grid gap-2 col-6 mx-auto mt-4">
-                            <button class="btn btn-warning" type="submit">
-                                <strong>All Comments</strong>
-                            </button>
-                        </div>
-
-
                         @*comment list - end*@
                     </div>
                 </div>

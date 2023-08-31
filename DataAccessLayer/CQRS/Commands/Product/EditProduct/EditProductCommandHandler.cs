@@ -14,11 +14,17 @@ namespace DataAccessLayer.CQRS.Commands
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<EditProductCommandResponse> Handle(EditProductCommandRequest request, CancellationToken cancellationToken)
+        public  Task<EditProductCommandResponse> Handle(EditProductCommandRequest request, CancellationToken cancellationToken)
         {
             try
             {
-                Product product = _unitOfWork.Products.GetById(request.ProductId);
+                var product = _unitOfWork.Products.GetById(request.ProductId);
+                var category = _unitOfWork.Categories.GetById(request.CategoryId);
+                var category2 = _unitOfWork.Categories2.GetById(request.Category2Id);
+
+                if (product == null || category == null || category2 == null)
+                    return Task.FromResult(new EditProductCommandResponse() { IsSuccess = false });
+
                 product.Name = request.Name;
                 product.Url = request.Url;
                 product.Price = request.Price;
@@ -29,20 +35,21 @@ namespace DataAccessLayer.CQRS.Commands
                 product.IsApproved = request.IsApproved;
                 product.IsHome = request.IsHome;
                 product.UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-                product.ProductCategories = request.SelectedCategories;
-                _unitOfWork.Products.Update(product, request.CategoryIds);
+                product.Category = category;
+                product.CategoryId = category.CategoryId;
+                product.Category2 = category2;
+                product.Category2Id = category2.Category2Id;
+                
+                _unitOfWork.Products.Update(product);
                 _unitOfWork.Save();
-
+                return Task.FromResult(new EditProductCommandResponse() { IsSuccess = true });
             }
             catch (Exception ex)
             {
                 Log.Error(ex, ex.Message);
             }
-            return new EditProductCommandResponse() 
-            { 
-                ProductId = request.ProductId,
-                IsSuccess = true
-            };            
+
+            return Task.FromResult(new EditProductCommandResponse() { IsSuccess = false });
         }
     }
 }

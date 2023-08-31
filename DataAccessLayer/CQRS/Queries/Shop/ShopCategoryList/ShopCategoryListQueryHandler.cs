@@ -13,35 +13,32 @@ namespace DataAccessLayer.CQRS.Queries
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<ShopCategoryListQueryResponse> Handle(ShopCategoryListQueryRequest request, CancellationToken cancellationToken)
+        public Task<ShopCategoryListQueryResponse> Handle(ShopCategoryListQueryRequest request, CancellationToken cancellationToken)
         {
-            const int pageSize = 15;
-            List<Product> products = new List<Product>();
-            int totalItems = 0;
             try
             {
-                products = _unitOfWork.Products.GetProductsByCategory(request.category, request.page, pageSize);
-                totalItems = _unitOfWork.Products.GetCountByCategory(request.category);
+                const int pageSize = 15;
+                var products = _unitOfWork.Products.GetProductsByCategory(request.category, request.page, pageSize);
+                var totalItems = _unitOfWork.Products.GetCountByCategory(request.category);
+
+                return Task.FromResult(new ShopCategoryListQueryResponse() 
+                {
+                    IsSuccess = true,
+                    PageInfo = new PageInfo() 
+                    {
+                        ItemsPerPage = pageSize,
+                        TotalItems = totalItems,
+                        CurrentCategory = request.category,
+                        CurrentPage = request.page
+                    },
+                    Products = products
+                });
             }
             catch (Exception ex)
             {
-                Log.Error(ex, ex.Message);
+                Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-
-            return new ShopCategoryListQueryResponse()
-            {
-                PageInfo = new PageInfo()
-                {
-                    CurrentPage = request.page,
-                    ItemsPerPage = pageSize,
-                    CurrentCategory = request.category,
-                    TotalItems = totalItems
-                },
-                Products = products,
-                IsSuccess = true
-            };
-
-            //return _mapper.Map<ShopListQueryResponse>(response);
+            return Task.FromResult(new ShopCategoryListQueryResponse() { IsSuccess = false });
         }
     }
 }

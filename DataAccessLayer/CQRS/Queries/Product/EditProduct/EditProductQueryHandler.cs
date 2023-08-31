@@ -40,7 +40,6 @@ namespace DataAccessLayer.CQRS.Queries
             response.IsApproved = product.IsApproved;
             response.IsHome = product.IsHome;
             response.Categories.AddRange(_unitOfWork.Categories.GetAll());
-            response.SelectedCategories.AddRange(product.ProductCategories.Select(pc => pc.Category).ToList());
             response.IsSuccess = true;
             return response;
         }

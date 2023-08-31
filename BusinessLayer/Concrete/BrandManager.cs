@@ -27,10 +27,16 @@ namespace BusinessLayer.Concrete
             return isValid;
         }
 
-        public void Delete(Brand entity)
+        public bool Delete(Brand entity)
         {
-            _unitOfWork.Brands.Delete(entity);
-            _unitOfWork.Save();
+            bool isValid = false;
+
+            if (Validation(entity))
+            {
+                _unitOfWork.Brands.Delete(entity);
+                _unitOfWork.Save();
+            }
+            return isValid;
         }
 
         public List<Brand> GetAll()

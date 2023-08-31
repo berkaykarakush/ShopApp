@@ -31,7 +31,7 @@ namespace DataAccessLayer.CQRS.Queries
                 IsSuccess = true,
                 Name = entity.Name,
                 CategoryId = entity.CategoryId,
-                Products = entity.ProductCategories.Select(p => p.Product).ToList(),
+                //Products = entity.ProductCategories.Select(p => p.Product).ToList(),
                 Url = entity.Url
             };
         }

@@ -14,6 +14,5 @@ namespace PresentationLayer.ViewModels
 
         public string? Url { get; set; }
         public List<ProductVM>? Products { get; set; }
-        public List<ProductCategory>? ProductCategories { get; set; }
     }
 }

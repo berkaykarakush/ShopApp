@@ -1,17 +1,16 @@
 ﻿@model ProductDetailModel
 @*links - start*@
-<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        @foreach (var item in Model.Categories)
-        {
-            <li class="breadcrumb-item">
-                <a asp-controller="Shop" asp-action="list" asp-route-category="@item.Url" class="p-0 mb-3 nav-link">@item.Name</a>
-            </li>  
-        }
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb ">
+        <li class="breadcrumb-item">
+            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-danger" asp-controller="Shop" asp-action="CategoryList" asp-route-category="@Model.Product.Category.Url">@Model.Product.Category.Name</a>
+        </li>  
+        <li class="breadcrumb-item">
+            <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-danger" asp-controller="Shop" asp-action="Category2List" asp-route-category2="@Model.Product.Category2.Url">@Model.Product.Category2.Name</a>
+        </li>
     </ol>
 </nav>
 @*links - end*@
-
 <div class="card mb-3">
     <div class="row g-0">
         <div class="col-md-6">
@@ -76,7 +75,7 @@
                         @*product details - start*@
                         <div class="col-md-12 m-4">
                             <h1 class="h2 card-title">@Model.Product.Name</h1>
-                            <a href="#" class="h4 nav-link text-danger"><strong>Brand</strong></a>
+                            <a href="#" class="h4 nav-link text-danger"><strong>@Model.Product.Brand.Name</strong></a>
                             <div class="row">
                                 <div class="col">
                                     <a href="#" class="h4 nav-link">

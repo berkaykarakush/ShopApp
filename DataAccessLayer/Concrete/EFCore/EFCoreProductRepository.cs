@@ -19,8 +19,7 @@ namespace DataAccessLayer.Concrete.EFCore
         {
             return ShopContext.Products
                 .Where(p => p.ProductId == id)
-                .Include(p => p.ProductCategories)
-                .ThenInclude(pc => pc.Category)
+                .Include(p => p.Category)
                 .Include(p => p.ImageUrls)
                 .Include(p => p.Brand)
                 .Include(p => p.Comments)
@@ -37,10 +36,24 @@ namespace DataAccessLayer.Concrete.EFCore
             if (!string.IsNullOrEmpty(category))
             {
                 products = products
-                                .Include(p => p.ProductCategories)
-                                .ThenInclude(p => p.Category)
-                                .Where(p => p.ProductCategories
-                                    .Any(a => a.Category.Url == category.ToLower()));
+                                .Include(p => p.Category)
+                                .Where(p => p.Category.Url == category.ToLower());
+            }
+
+            return products.Count();
+        }
+
+        public int GetCountByCategory2(string category2)
+        {
+            var products = ShopContext.Products
+                .Include(p => p.ImageUrls)
+                .Where(p => p.IsApproved)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(category2))
+            {
+                products = products.Include(p => p.Category2)
+                                    .Where(p => p.Category2.Url == category2.ToLower());
             }
 
             return products.Count();
@@ -79,8 +92,8 @@ namespace DataAccessLayer.Concrete.EFCore
                 .Include(p => p.ImageUrls)
                 .Include(p => p.Brand)
                 .Include(p => p.Comments)
-                .Include(p => p.ProductCategories)
-                .ThenInclude(p => p.Category)
+                .Include(p => p.Category)
+                .Include(p => p.Category2)
                 .FirstOrDefault();
 
         }
@@ -97,13 +110,29 @@ namespace DataAccessLayer.Concrete.EFCore
             if (!string.IsNullOrEmpty(name))
             {
                 products = products
-                                    .Include(p => p.ProductCategories)
-                                    .ThenInclude(p => p.Category)
-                                    .Where(p => p.ProductCategories.Any(
-                                        a => a.Category.Url == name.ToLower()));
+                                    .Include(p => p.Category)
+                                    .Where(p => p.Category.Url == name.ToLower());
             }
 
             return products.Skip((page-1)*pageSize).Take(pageSize).ToList();
+        }
+
+        public List<Product> GetProductsByCategory2(string name, int page, int pageSize)
+        {
+            var products = ShopContext.Products
+                .Include(p => p.ImageUrls)
+                .Include(p => p.Brand)
+                .Include(p => p.Comments)
+                .Where(p => p.IsApproved)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                products = products.Include(p => p.Category2)
+                                    .Where(p => p.Category2.Url == name.ToLower());
+            }
+
+            return products.Skip((page - 1) * pageSize).Take(pageSize).ToList();
         }
 
         public List<Product> GetSearchResult(string searchString)
@@ -131,53 +160,6 @@ namespace DataAccessLayer.Concrete.EFCore
         public List<Product> GetTopSalesProductsWithCategory(string name, int page, int pageSize)
         {
             throw new NotImplementedException();
-        }
-
-        public bool Update(Product entity, List<double> categoryIds)
-        {
-            var product = ShopContext.Products
-                .Include (p => p.ImageUrls)
-                .Include(p => p.ProductCategories)
-                .Include(p => p.Brand)
-                .Include(p => p.Comments)
-                .FirstOrDefault(p => p.ProductId == entity.ProductId);
-
-            if (product != null)
-            {
-                product.Name = entity.Name;
-                product.Url = entity.Url;
-                product.Price = entity.Price;
-                product.Quantity = entity.Quantity;
-                product.Description = entity.Description;
-                product.IsHome = entity.IsHome;
-                product.IsApproved = entity.IsApproved;
-                product.UpdatedDate = entity.UpdatedDate;
-                product.Brand = entity.Brand;
-                product.BrandId = entity.BrandId;
-                product.ProductImage = entity.ProductImage;
-
-                product.ImageUrls = entity.ImageUrls.Select(i => new ImageUrl()
-                {
-                    ProductId = entity.ProductId,
-                    Product = product,
-
-                }).ToList();
-
-                product.ProductCategories = categoryIds.Select(c => new ProductCategory()
-                {
-                    ProductId = entity.ProductId,
-                    CategoryId = c
-                }).ToList();
-
-                product.Comments = (ICollection<Comment>?)entity.Comments.Select(c => new Comment()
-                {
-                    ProductId = product.ProductId,
-                    Product = product
-                });
-
-                return true;
-            }
-            return false;
         }
     }
 }

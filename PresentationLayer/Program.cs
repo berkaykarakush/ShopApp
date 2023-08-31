@@ -202,7 +202,7 @@ try
 
     app.MapControllerRoute(
         name: "adminProducts",
-        pattern: "admin/products",
+        pattern: "admin/product/list",
         defaults: new { controller = "Product", action = "ListProduct" });
 
     app.MapControllerRoute(
@@ -212,31 +212,15 @@ try
 
     app.MapControllerRoute(
         name: "adminEditProduct",
-        pattern: "admin/products/{id?}",
+        pattern: "admin/product/{id?}",
         defaults: new { controller = "Product", action = "EditProduct" });
-
-    app.MapControllerRoute(
-        name: "products",
-        pattern: "products/{category?}",
-        defaults: new { controller = "Shop", action = "List" });
-
-    app.MapControllerRoute(
-        name: "products",
-        pattern: "products/{category?}/{category2?}",
-        defaults: new { controller = "Shop", action = "Category2" });
-
-
-    app.MapControllerRoute(
-        name: "productsDetails",
-        pattern: "{url}",
-        defaults: new { controller = "Shop", action = "List" });
-
     #endregion
+
 
     #region Category Route
     app.MapControllerRoute(
         name: "adminCategories",
-        pattern: "admin/categories",
+        pattern: "admin/category/list",
         defaults: new { controller = "Category", action = "ListCategory" });
 
     app.MapControllerRoute(
@@ -247,14 +231,14 @@ try
 
     app.MapControllerRoute(
         name: "adminEditCategory",
-        pattern: "admin/categories/{id?}",
+        pattern: "admin/category/{id?}",
         defaults: new { controller = "Category", action = "EditCategory" });
     #endregion
 
     #region Category2 Route
     app.MapControllerRoute(
         name: "adminCategory2",
-        pattern: "admin/category2",
+        pattern: "admin/category2/list",
         defaults: new { controller = "Category2", action = "ListCategory2" });
 
     app.MapControllerRoute(
@@ -268,6 +252,24 @@ try
         pattern: "admin/category2/{category2Id?}",
         defaults: new { controller = "Category2", action = "EditCategory2" });
     #endregion
+
+    //category2 route
+    app.MapControllerRoute(
+       name: "products2",
+       pattern: "c/2/{category2?}",
+       defaults: new { controller = "Shop", action = "Category2List" });
+
+    //categort route
+    app.MapControllerRoute(
+        name: "products",
+        pattern: "c/{category?}",
+        defaults: new { controller = "Shop", action = "CategoryList" });
+
+    app.MapControllerRoute(
+        name: "productsDetails",
+        pattern: "{url}",
+        defaults: new { controller = "Shop", action = "CategoryList" });
+
     app.MapControllerRoute(
         name: "search",
         pattern: "search",

@@ -2,12 +2,7 @@
 
 namespace BusinessLayer.Abstract
 {
-    public interface ICommentService: IValidator<Comment>
+    public interface ICommentService: IValidator<Comment>, IService<Comment>
     {
-        Comment GetById(double id);
-        List<Comment> GetAll();
-        bool Create(Comment entity);
-        bool Update(Comment entity);
-        bool Delete(Comment entity);
     }
 }
