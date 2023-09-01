@@ -26,6 +26,17 @@ namespace DataAccessLayer.Concrete.EFCore
                 .FirstOrDefault();
         }
 
+        public Product GetByIdWithImageUrls(double id)
+        {
+            return ShopContext.Products
+                .Where(p => p.ProductId == id)
+                .Include(p => p.ImageUrls)
+                .Include(p => p.Brand)
+                .Include(p => p.Category)
+                .Include(p => p.Category2)
+                .FirstOrDefault();
+        }
+
         public int GetCountByBrand(string brand)
         {
             var products = ShopContext.Products

@@ -6,6 +6,7 @@ namespace DataAccessLayer.Abstract
     {
         Product GetProductDetails(string url);
         Product GetByIdWithCategories(double id);
+        Product GetByIdWithImageUrls(double id);
         List<Product> GetProductsByCategory(string name, int page, int pageSize); 
         List<Product> GetProductsByCategory2(string name, int page, int pageSize); 
         List<Product> GetProductByBrand(string name, int page, int pageSize);

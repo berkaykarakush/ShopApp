@@ -41,6 +41,38 @@
       "PackagePath": "staticwebassets\\img\\creditcard.png"
     },
     {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\urun-0-1.jpg",
+      "PackagePath": "staticwebassets\\img\\urun-0-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\urun-0-2.jpg",
+      "PackagePath": "staticwebassets\\img\\urun-0-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\urun-0-3.jpg",
+      "PackagePath": "staticwebassets\\img\\urun-0-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\urun-0-4.jpg",
+      "PackagePath": "staticwebassets\\img\\urun-0-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\urun-0-5.jpg",
+      "PackagePath": "staticwebassets\\img\\urun-0-5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\urun-0-6.jpg",
+      "PackagePath": "staticwebassets\\img\\urun-0-6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\urun-0-7.jpg",
+      "PackagePath": "staticwebassets\\img\\urun-0-7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\urun-0-8.jpg",
+      "PackagePath": "staticwebassets\\img\\urun-0-8.jpg"
+    },
+    {
       "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

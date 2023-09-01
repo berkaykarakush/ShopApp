@@ -17,12 +17,8 @@ namespace DataAccessLayer.CQRS.Commands
         public string? UpdatedDate { get; set; }
 
         public double CategoryId { get; set; }
-        public Category? Category { get; set; }
-
         public double Category2Id { get; set; }
         public double BrandId { get; set; }
-        public Brand? Brand { get; set; }
-
-        public List<ImageUrl>? ImageUrls { get; set; }
+        public List<ImageUrl>? ImageUrls { get; set; } = new List<ImageUrl>();
     }
 }

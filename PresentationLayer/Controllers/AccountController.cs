@@ -152,6 +152,7 @@ namespace PresentationLayer.Controllers
             ModelState.AddModelError("", "This email address is already in use!");
             return View(model);
         }
+        #region Seller
 
         [HttpGet]
         public IActionResult SellerRegister()
@@ -199,6 +200,7 @@ namespace PresentationLayer.Controllers
             ModelState.AddModelError("", "This email address is already in use!");
             return View(model);
         }
+        #endregion
 
         [HttpGet]
         public async Task<IActionResult> Manage()

@@ -91,24 +91,28 @@ namespace PresentationLayer.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> EditProduct(EditProductCommandRequest editProductCommandRequest, double[] categoryIds, IFormFileCollection files)
+        public async Task<IActionResult> EditProduct(EditProductCommandRequest editProductCommandRequest, IFormFileCollection files)
         {
-            var imageUrls = await ImageNameEditExtensions.ImageNameEdit(files, UrlNameEditExtensions.UrlNameEdit(editProductCommandRequest.Name));
+            if (0 < files.Count)
+            {
+                var imageUrls = await ImageNameEditExtensions.ImageNameEdit(files, UrlNameEditExtensions.UrlNameEdit(editProductCommandRequest.Name));
+                editProductCommandRequest.ProductImage = imageUrls[0].Url.ToString();
+                editProductCommandRequest.ImageUrls.AddRange(imageUrls);
+            }
+
             editProductCommandRequest.Name = NameEditExtensions.NameEdit(editProductCommandRequest.Name);
             editProductCommandRequest.Url = UrlNameEditExtensions.UrlNameEdit(editProductCommandRequest.Name);
-            editProductCommandRequest.ProductImage = imageUrls[0].Url.ToString();
-            editProductCommandRequest.ImageUrls.AddRange(imageUrls);
-
             if (ModelState.IsValid)
             {
                 EditProductCommandResponse response = await _mediator.Send(editProductCommandRequest);
-                response.ImageUrls = editProductCommandRequest.ImageUrls;
                 EditProductVM editProductVM = _mapper.Map<EditProductVM>(response);
 
                 if (!response.IsSuccess)
                     _notyfService.Error(NotfyMessageEnum.Error);
+                else
+                    _notyfService.Success("Transaction Successfull - Product Update!");
 
-                return View(editProductVM);
+                return RedirectToAction("EditProduct", "Product", new EditProductQueryRequest() { Id = editProductCommandRequest.ProductId });
             }
             _notyfService.Success($"Transaction Successfull - Product {editProductCommandRequest.ProductId} added.");
             return View();

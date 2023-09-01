@@ -17,31 +17,48 @@ namespace DataAccessLayer.CQRS.Queries
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<EditProductQueryResponse> Handle(EditProductQueryRequest request, CancellationToken cancellationToken)
+        public Task<EditProductQueryResponse> Handle(EditProductQueryRequest request, CancellationToken cancellationToken)
         {
-            Product product = new Product();
             try
             {
-                product = _unitOfWork.Products.GetByIdWithCategories(request.Id);
+                var categories = _unitOfWork.Categories.GetAll();
+                var categories2 = _unitOfWork.Categories2.GetAll();
+                var brands = _unitOfWork.Brands.GetAll();
+                var product = _unitOfWork.Products.GetByIdWithImageUrls(request.Id);
+                
+                if (product == null || categories == null || categories2 == null || brands == null)
+                    return Task.FromResult(new EditProductQueryResponse() { IsSuccess = false });
+
+                return Task.FromResult(new EditProductQueryResponse() 
+                {
+                    IsSuccess = true,
+                    Brands = brands,
+                    Categories = categories,
+                    Categories2 = categories2,
+                    Name = product.Name,
+                    Description = product.Description,
+                    ImageUrls = product.ImageUrls,
+                    IsApproved = product.IsApproved,
+                    IsHome = product.IsHome,
+                    Price = product.Price,
+                    ProductId = product.ProductId,
+                    ProductImage = product.ProductImage,
+                    Quantity = product.Quantity,
+                    Url = product.Url,
+                    BrandName = product.Brand.Name,
+                    BrandId = product.Brand.BrandId,
+                    CategoryName = product.Category.Name,
+                    CategoryId = product.Category.CategoryId,
+                    Category2Name = product.Category2.Name,
+                    Category2Id = product.Category2.Category2Id
+                });
             }
             catch (Exception ex)
             {
-                Log.Error(ex, ex.Message);
+                Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-            
-            var response = new EditProductQueryResponse();
-            response.ProductId = product.ProductId;
-            response.Name = product.Name;
-            response.Url = product.Url;
-            response.Price = product.Price;
-            response.Quantity = product.Quantity;
-            response.Description = product.Description;
-            response.ProductImage = product.ProductImage;
-            response.IsApproved = product.IsApproved;
-            response.IsHome = product.IsHome;
-            response.Categories.AddRange(_unitOfWork.Categories.GetAll());
-            response.IsSuccess = true;
-            return response;
+
+            return Task.FromResult(new EditProductQueryResponse() { IsSuccess = false });
         }
     }
 }

@@ -1,14 +1,9 @@
-﻿<div class="row">
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
     <div class="col-md-12">
-        <a asp-controller="Product" asp-action="ListProduct" class="btn btn-outline-dark">All Products</a>
-        <a asp-controller="Category" asp-action="ListCategory" class="btn btn-outline-dark">All Categories</a>
-        <a asp-controller="Category2" asp-action="ListCategory2" class="btn btn-outline-dark">All Categories2</a>
-        <a asp-controller="Role" asp-action="ListRole" class="btn btn-outline-dark">All Roles</a>
-        <a asp-controller="User" asp-action="ListUser" class="btn btn-outline-dark">All Users</a>
-        <a asp-controller="Order" asp-action="GetOrders" class="btn btn-outline-dark">All Orders</a>
-        <a asp-controller="Campaign" asp-action="ListCampaign" class="btn btn-outline-dark">All Campaign</a>
-        <a asp-controller="Brand" asp-action="ListBrand" class="btn btn-outline-dark">All Brands</a>
-        <a asp-controller="Comment" asp-action="ListComment" class="btn btn-outline-dark">All Comments</a>
+       
     </div>
     
 </div>

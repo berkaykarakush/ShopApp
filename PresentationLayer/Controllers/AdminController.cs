@@ -8,8 +8,8 @@ namespace PresentationLayer.Controllers
     {
        [HttpGet]
        public IActionResult Dashboard()
-        {
+       {
             return View();
-        }
+       }
     }
 }
