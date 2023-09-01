@@ -32,6 +32,9 @@ namespace DataAccessLayer.CQRS.Commands
                     CategoryId = category.CategoryId
                 };
 
+                if (category2 == null)
+                    return Task.FromResult(new CreateCategory2CommandResponse() { IsSuccess = false});
+
                 _unitOfWork.Categories2.Create(category2);
                 _unitOfWork.Save();
                 return Task.FromResult(new CreateCategory2CommandResponse() { IsSuccess = true });

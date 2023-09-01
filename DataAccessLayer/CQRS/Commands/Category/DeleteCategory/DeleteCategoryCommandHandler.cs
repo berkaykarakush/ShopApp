@@ -14,28 +14,24 @@ namespace DataAccessLayer.CQRS.Commands
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<DeleteCategoryCommandResponse> Handle(DeleteCategoryCommandRequest request, CancellationToken cancellationToken)
+        public Task<DeleteCategoryCommandResponse> Handle(DeleteCategoryCommandRequest request, CancellationToken cancellationToken)
         {
-            Category entity = new Category();
-            string name = string.Empty;
             try
             {
-                entity = _unitOfWork.Categories.GetById(request.categoryId);
-                name = entity.Name;
+                var entity = _unitOfWork.Categories.GetById(request.categoryId);
+
+                if (entity == null)
+                    return Task.FromResult(new DeleteCategoryCommandResponse() { IsSuccess = false});
 
                 _unitOfWork.Categories.Delete(entity);
                 _unitOfWork.Save();
+                return Task.FromResult(new DeleteCategoryCommandResponse() { Name = entity.Name, IsSuccess = true });
             }
             catch (Exception ex)
             {
-                Log.Error(ex, ex.Message);
+                Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-
-            return new DeleteCategoryCommandResponse()
-            {
-                Name = name,
-                IsSuccess = true
-            };
+            return Task.FromResult(new DeleteCategoryCommandResponse() { IsSuccess = false});
         }
     }
 }

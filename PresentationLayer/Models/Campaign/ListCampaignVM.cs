@@ -4,6 +4,6 @@ namespace PresentationLayer.Models
 { 
     public class ListCampaignVM
     {
-        public List<CreateCampaignVM> Campaigns { get; set; }
+        public List<CreateCampaignVM>? Campaigns { get; set; }
     }
 }

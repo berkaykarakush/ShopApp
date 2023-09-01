@@ -3,6 +3,7 @@ using DataAccessLayer.Abstract;
 using EntityLayer;
 using MediatR;
 using Serilog;
+using System.Runtime.InteropServices;
 
 namespace DataAccessLayer.CQRS.Queries
 {
@@ -15,33 +16,35 @@ namespace DataAccessLayer.CQRS.Queries
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<TopSalesListQueryResponse> Handle(TopSalesListQueryRequest request, CancellationToken cancellationToken)
+        public Task<TopSalesListQueryResponse> Handle(TopSalesListQueryRequest request, CancellationToken cancellationToken)
         {
             const int pageSize = 15;
-            List<Product> products = new List<Product>();
-            int totalItems = 0;
 
             try
             {
-                totalItems = _unitOfWork.Products.GetCountTopSalesProduct();
-                products = _unitOfWork.Products.GetTopSalesProducts(request.page, pageSize);
+                var totalItems = _unitOfWork.Products.GetCountTopSalesProduct();
+                var products = _unitOfWork.Products.GetTopSalesProducts(request.page, pageSize);
+
+                if (products == null || totalItems < 0)
+                    return Task.FromResult(new TopSalesListQueryResponse() { IsSuccess = false});
+
+                return Task.FromResult(new TopSalesListQueryResponse() 
+                {
+                    PageInfo = new PageInfo()
+                    {
+                        CurrentPage = request.page,
+                        ItemsPerPage = pageSize,
+                        TotalItems = totalItems
+                    },
+                    Products = products,
+                    IsSuccess = true    
+                });
             }
             catch (Exception ex)
             {
-                Log.Error(ex, ex.Message);
+                Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-
-            return new TopSalesListQueryResponse()
-            {
-                PageInfo = new PageInfo()
-                {
-                    CurrentPage = request.page,
-                    ItemsPerPage = pageSize,
-                    TotalItems = totalItems
-                },
-                Products = products,
-                IsSuccess = true    
-            };
+            return Task.FromResult(new TopSalesListQueryResponse() { IsSuccess = false});
         }
     }
 }

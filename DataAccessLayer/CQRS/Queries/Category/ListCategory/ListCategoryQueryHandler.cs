@@ -14,20 +14,24 @@ namespace DataAccessLayer.CQRS.Queries
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<ListCategoryQueryResponse> Handle(ListCategoryQueryRequest request, CancellationToken cancellationToken)
+        public Task<ListCategoryQueryResponse> Handle(ListCategoryQueryRequest request, CancellationToken cancellationToken)
         {
-            List<Category> allCategories = new List<Category>();
 
             try
             {
-                allCategories = _unitOfWork.Categories.GetAll();
+                var allCategories = _unitOfWork.Categories.GetAll();
+
+                if (allCategories == null)
+                    return Task.FromResult(new ListCategoryQueryResponse() { IsSuccess =false});
+
+                return Task.FromResult(new ListCategoryQueryResponse() { IsSuccess = true, Categories = allCategories});
             }
             catch (Exception ex)
             {
-                Log.Error(ex, ex.Message);     
+                Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");     
             }
 
-            return new ListCategoryQueryResponse() { IsSuccess = true, Categories = allCategories };
+            return Task.FromResult(new ListCategoryQueryResponse() { IsSuccess = false});
         }
     }
 }

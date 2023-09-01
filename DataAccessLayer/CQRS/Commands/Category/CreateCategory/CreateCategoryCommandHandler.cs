@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Abstract;
+using EntityLayer;
 using MediatR;
 using Serilog;
 
@@ -13,23 +14,30 @@ namespace DataAccessLayer.CQRS.Commands
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<CreateCategoryCommandResponse> Handle(CreateCategoryCommandRequest request, CancellationToken cancellationToken)
+        public Task<CreateCategoryCommandResponse> Handle(CreateCategoryCommandRequest request, CancellationToken cancellationToken)
         {
             try
             {
-                _unitOfWork.Categories.Create(new EntityLayer.Category() 
+
+                var category = new Category()
                 {
                     Name = request.Name,
                     Url = request.Url,
-                });
+                };
+
+                if (category == null)
+                    return Task.FromResult(new CreateCategoryCommandResponse() { IsSuccess = false});
+
+                _unitOfWork.Categories.Create(category);
                 _unitOfWork.Save();
+                return Task.FromResult(new CreateCategoryCommandResponse() { IsSuccess = true });
             }
             catch (Exception ex)
             {
                 Log.Error(ex, ex.Message);
             }
 
-            return new CreateCategoryCommandResponse(){ IsSuccess = true };
+            return Task.FromResult(new CreateCategoryCommandResponse() { IsSuccess = false });
             
         }
     }

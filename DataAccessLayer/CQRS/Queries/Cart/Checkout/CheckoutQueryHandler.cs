@@ -8,22 +8,31 @@ namespace DataAccessLayer.CQRS.Queries
     {
         public Task<CheckoutQueryResponse> Handle(CheckoutQueryRequest request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(new CheckoutQueryResponse
+
+            try
             {
-                Cart = new Cart()
+                return Task.FromResult(new CheckoutQueryResponse() 
                 {
-                    CartId = request.Cart.CartId,
-                    CartItems = request.Cart.CartItems.Select(c => new CartItem()
+                    Cart = new Cart()
                     {
-                        ProductId = c.ProductId,
-                        CartItemId = c.ProductId,
-                        ProductName = c.Product.Name,
-                        Price = c.Product.Price,
-                        Quantity = c.Quantity
-                    }).ToList()
-                },
-                IsSuccess = true
-            });
+                        CartId = request.Cart.CartId,
+                        CartItems = request.Cart.CartItems.Select(c => new CartItem()
+                        {
+                            ProductId = c.ProductId,
+                            CartItemId = c.ProductId,
+                            ProductName = c.Product.Name,
+                            Price = c.Product.Price,
+                            Quantity = c.Quantity
+                        }).ToList()
+                    },
+                    IsSuccess = true
+                });
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
+            }
+            return Task.FromResult(new CheckoutQueryResponse() { IsSuccess = false});
         }
     }
 }

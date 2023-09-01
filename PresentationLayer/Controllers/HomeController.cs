@@ -26,7 +26,25 @@ namespace PresentationLayer.Controllers
         //TODO add open source email library 
         //TODO details product rate
         //TODO checout form add contract
-        
+        //TODO admin register
+        //TODO admin giris ekranini admin layout'a tasi
+        //TODO seller layout 
+        //TODO seller login and register ekranini seller layout'a tasi
+        //TODO admin dasboard en cok satan urun
+        //TODO admin dasboard en cok satis yapan magaza
+        //TODO magaza olustur
+        //TODO magaza sayfasi olustur
+        //TODO yorumlara puan ekle
+        //TODO yorum puani hesapla
+        //TODO user order listeleme
+        //TODO admin tum orderlari goruntuleme
+        //TODO seller order goruntuleme
+        //TODO seller stock gorunutleme 
+        //TODO seller satis bilgilerini goruntuleme
+        //TODO seller siparis kargolandi ekleme
+        //TODO seller siparis teslim edildi ekleme
+        //TODO user kargom nerede
+        //TODO admin komisyon
 
         [HttpGet]
         public async Task<IActionResult> Index(HomeIndexQueryRequest homeIndexQueryRequest)

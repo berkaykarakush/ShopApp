@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using EntityLayer;
 using MediatR;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using Serilog;
 
 namespace DataAccessLayer.CQRS.Queries
@@ -14,23 +15,22 @@ namespace DataAccessLayer.CQRS.Queries
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<HomeIndexQueryResponse> Handle(HomeIndexQueryRequest request, CancellationToken cancellationToken)
+        public Task<HomeIndexQueryResponse> Handle(HomeIndexQueryRequest request, CancellationToken cancellationToken)
         {
-            List<Product> products = new List<Product>();
             try
             {
-                products = _unitOfWork.Products.GetHomePageProducts();
+               var products = _unitOfWork.Products.GetHomePageProducts();
+
+                if (products == null)
+                    return Task.FromResult(new HomeIndexQueryResponse() { IsSuccess = false});
+
+                return Task.FromResult(new HomeIndexQueryResponse() { IsSuccess = true, Products = products});
             }
             catch (Exception ex)
             {
-                Log.Error(ex, ex.Message);
+                Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-
-            return new HomeIndexQueryResponse() 
-            {
-                Products = products,
-                IsSuccess = true
-            };
+            return Task.FromResult(new HomeIndexQueryResponse() { IsSuccess = false} );
         }
     }
 }

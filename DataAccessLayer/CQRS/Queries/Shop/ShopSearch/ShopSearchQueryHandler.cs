@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using EntityLayer;
 using MediatR;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using Serilog;
 using System.Net.Http.Headers;
 
@@ -15,23 +16,22 @@ namespace DataAccessLayer.CQRS.Queries
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<ShopSearchQueryResponse> Handle(ShopSearchQueryRequest request, CancellationToken cancellationToken)
+        public Task<ShopSearchQueryResponse> Handle(ShopSearchQueryRequest request, CancellationToken cancellationToken)
         {
-            List<Product> products = new List<Product>();
             try
             {
-                products = _unitOfWork.Products.GetSearchResult(request.q);
+                var products = _unitOfWork.Products.GetSearchResult(request.q);
+
+                if (products == null)
+                    return Task.FromResult(new ShopSearchQueryResponse() { IsSuccess = false });
+
+                return Task.FromResult(new ShopSearchQueryResponse() { IsSuccess = true, Products = products});
             }
             catch (Exception ex)
             {
-                Log.Error(ex, ex.Message);
+                Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-
-            return new ShopSearchQueryResponse() 
-            {
-                Products = products,
-                IsSuccess = true
-            };
+            return Task.FromResult(new ShopSearchQueryResponse() { IsSuccess = false});
         }
     }
 }

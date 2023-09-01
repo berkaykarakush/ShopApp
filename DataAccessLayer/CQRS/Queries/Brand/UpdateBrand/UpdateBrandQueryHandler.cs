@@ -13,22 +13,23 @@ namespace DataAccessLayer.CQRS.Queries
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<UpdateBrandQueryResponse> Handle(UpdateBrandQueryRequest request, CancellationToken cancellationToken)
+        public Task<UpdateBrandQueryResponse> Handle(UpdateBrandQueryRequest request, CancellationToken cancellationToken)
         {
             try
             {
                 var brand = _unitOfWork.Brands.GetById(request.BrandId);
-                if (brand != null) 
-                {
-                    return new UpdateBrandQueryResponse() { Brand = brand ,IsSuccess = true };
-                }
+
+                if (brand == null)
+                    return Task.FromResult(new UpdateBrandQueryResponse() { IsSuccess = false});
+
+                return Task.FromResult(new UpdateBrandQueryResponse() { Brand = brand, IsSuccess = true });
             }
             catch (Exception ex)
             {
                 Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
 
-            return new UpdateBrandQueryResponse() { IsSuccess = false };
+            return Task.FromResult(new UpdateBrandQueryResponse() { IsSuccess = false });
         }
     }
 }

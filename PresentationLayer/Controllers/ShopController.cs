@@ -1,12 +1,10 @@
-﻿using AspNetCore;
-using AspNetCoreHero.ToastNotification.Abstractions;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using AutoMapper;
 using DataAccessLayer.CQRS.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Enums;
 using PresentationLayer.Models;
-using PresentationLayer.ViewModels;
 
 namespace PresentationLayer.Controllers
 {

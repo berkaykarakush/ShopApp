@@ -2,11 +2,7 @@
 {
     public class Comment
     {
-        public Comment()
-        {
-            CommentId = new Random().Next(111111111, 999999999);
-        }
-        public double CommentId { get; set; }
+        public double CommentId { get; set; } = new Random().Next(111111111, 999999999);
         public double ProductId { get; set; }
         public Product? Product { get; set; }
         public string? UserId { get; set; }

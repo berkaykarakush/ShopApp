@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.Abstract;
 using MediatR;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using Serilog;
 
 namespace DataAccessLayer.CQRS.Queries
@@ -18,6 +19,10 @@ namespace DataAccessLayer.CQRS.Queries
             try
             {
                 var allCategories = _unitOfWork.Categories.GetAll();
+
+                if (allCategories == null)
+                    return Task.FromResult(new CreateCategory2QueryResponse() { IsSuccess = false});
+
                 return Task.FromResult(new CreateCategory2QueryResponse() { Categories = allCategories, IsSuccess = true });
             }
             catch (Exception ex)

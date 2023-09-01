@@ -13,6 +13,5 @@ namespace PresentationLayer.Models
         [StringLength(100, MinimumLength = 5, ErrorMessage = "Url 5-100 karakter arasinda olmalidir")]
         public string? Url { get; set; }
         public List<Product>? Products { get; set; }
-        
     }
 }

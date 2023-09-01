@@ -5,11 +5,6 @@ namespace DataAccessLayer.CQRS.Commands
 {
     public class CreateCommentCommandRequest: IRequest<CreateCommentCommandResponse>
     {
-        public CreateCommentCommandRequest()
-        {
-            CommentId = new Random().Next(11111111, 999999999);
-        }
-        public double CommentId { get; set; }
         public double ProductId { get; set; }
         public Product? Product { get; set; }
         public string? UserId { get; set; }

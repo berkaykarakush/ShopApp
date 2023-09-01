@@ -5,10 +5,6 @@ namespace PresentationLayer.Models
 {
     public class ProductModel
     {
-        public ProductModel()
-        {
-            SelectedCategories = new List<Category>();
-        }
         [Required]
         public double ProductId { get; set; }
 
@@ -29,20 +25,20 @@ namespace PresentationLayer.Models
 
         [Required]
         [DataType(DataType.Html)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [DataType(DataType.ImageUrl)]
         public string? ProductImage { get; set; }
         public bool IsApproved { get; set; }
         public bool IsHome { get; set; }
-        public string CreatedDate { get; set; }
-        public string UpdatedDate { get; set; }
-        public List<Category> SelectedCategories { get; internal set; }
+        public string? CreatedDate { get; set; }
+        public string? UpdatedDate { get; set; }
+        public List<Category>? SelectedCategories { get; internal set; }
 
         public double BrandId { get; set; }
-        public BrandVM Brand { get; set; }
-        public List<ImageUrl> ImageUrls { get; set; }
-        public List<ProductCategoryVM> ProductCategories { get; set; }
-        public ICollection<CommentVM>? Comments { get; set; }
+        public BrandVM? Brand { get; set; }
+        public List<ImageUrl>? ImageUrls { get; set; }
+        public List<ProductCategoryVM>?  ProductCategories { get; set; }
+        public List<CommentVM>? Comments { get; set; }
     }
 }

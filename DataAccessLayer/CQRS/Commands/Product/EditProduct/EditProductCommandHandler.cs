@@ -22,6 +22,7 @@ namespace DataAccessLayer.CQRS.Commands
                 var category = _unitOfWork.Categories.GetById(request.CategoryId);
                 var category2 = _unitOfWork.Categories2.GetById(request.Category2Id);
                 var brand = _unitOfWork.Brands.GetById(request.BrandId);
+
                 if (product == null || category == null || category2 == null)
                     return Task.FromResult(new EditProductCommandResponse() { IsSuccess = false });
 
@@ -56,7 +57,7 @@ namespace DataAccessLayer.CQRS.Commands
             }
             catch (Exception ex)
             {
-                Log.Error(ex, ex.Message);
+                Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
 
             return Task.FromResult(new EditProductCommandResponse() { IsSuccess = false });

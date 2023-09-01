@@ -14,20 +14,24 @@ namespace DataAccessLayer.CQRS.Commands
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<DeleteCommentCommandResponse> Handle(DeleteCommentCommandRequest request, CancellationToken cancellationToken)
+        public  Task<DeleteCommentCommandResponse> Handle(DeleteCommentCommandRequest request, CancellationToken cancellationToken)
         {
             try
             {
                 var entity = _unitOfWork.Comments.GetById(request.CommentId);
+
+                if (entity == null)
+                    return Task.FromResult(new DeleteCommentCommandResponse() { IsSuccess = false });
+
                 _unitOfWork.Comments.Delete(entity);
                 _unitOfWork.Save();
-                return await Task.FromResult(new DeleteCommentCommandResponse() { IsSuccess = true});
+                return Task.FromResult(new DeleteCommentCommandResponse() { IsSuccess = true});
             }
             catch (Exception ex)
             {
                 Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-            return await Task.FromResult(new DeleteCommentCommandResponse() { IsSuccess = false });
+            return Task.FromResult(new DeleteCommentCommandResponse() { IsSuccess = false });
         }
     }
 }

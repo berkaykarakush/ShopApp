@@ -2,6 +2,6 @@
 {
     public class DeleteCampaignCommandResponse
     {
-        public bool IsSuccess { get; set; } = false;
+        public bool IsSuccess { get; set; }     
     }
 }

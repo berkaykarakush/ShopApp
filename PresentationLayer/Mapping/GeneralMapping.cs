@@ -4,8 +4,6 @@ using DataAccessLayer.CQRS.Queries;
 using EntityLayer;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
-using PresentationLayer.ViewModels;
-using System.Runtime.CompilerServices;
 
 namespace PresentationLayer.Mapping
 {
@@ -33,6 +31,7 @@ namespace PresentationLayer.Mapping
             CreateMap<Category, CategoryVM>().ReverseMap();
             CreateMap<EditCategoryQueryResponse, CategoryVM>().ReverseMap();
             CreateMap<EditCategoryCommandResponse, CategoryVM>().ReverseMap();
+            CreateMap<ListCategoryQueryResponse, CategoryListViewModel>().ReverseMap();
 
             //Category2
             CreateMap<CreateCategory2QueryResponse, CreateCategory2VM>().ReverseMap();

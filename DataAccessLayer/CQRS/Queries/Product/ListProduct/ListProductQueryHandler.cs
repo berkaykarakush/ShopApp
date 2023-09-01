@@ -17,22 +17,22 @@ namespace DataAccessLayer.CQRS.Queries
             _logger = logger;
         }
 
-        public async Task<ListProductQueryResponse> Handle(ListProductQueryRequest request, CancellationToken cancellationToken)
+        public Task<ListProductQueryResponse> Handle(ListProductQueryRequest request, CancellationToken cancellationToken)
         {
-            List<Product> allProducts = new List<Product>();
             try
             {
-                allProducts = _unitOfWork.Products.GetAll();
+                var allProducts = _unitOfWork.Products.GetAll();
+
+                if (allProducts == null)
+                    return Task.FromResult(new ListProductQueryResponse() { IsSuccess = false});
+
+                return Task.FromResult(new ListProductQueryResponse() { IsSuccess = true, Products = allProducts }); ;
             }
             catch (Exception ex)
             {
-                Log.Error(ex, ex.Message); 
+                Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}"); 
             }
-            return new ListProductQueryResponse
-            {
-                Products = allProducts,
-                IsSuccess = true
-            };
+            return Task.FromResult(new ListProductQueryResponse() { IsSuccess = false});
         }
     }
 }

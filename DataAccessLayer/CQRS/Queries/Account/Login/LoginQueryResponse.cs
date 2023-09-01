@@ -3,6 +3,6 @@
     public class LoginQueryResponse
     {
         public string? ReturnUrl { get; set; }
-        public bool IsSuccess { get; set; } = false;
+        public bool IsSuccess { get; set; }     
     }
 }

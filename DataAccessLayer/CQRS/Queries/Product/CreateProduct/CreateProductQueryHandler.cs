@@ -20,6 +20,7 @@ namespace DataAccessLayer.CQRS.Queries
                 var categories = _unitOfWork.Categories.GetAll();
                 var categories2 = _unitOfWork.Categories2.GetAll();
                 var brands = _unitOfWork.Brands.GetAll();
+
                 if (categories == null && brands == null)
                     return Task.FromResult(new CreateProductQueryResponse() { IsSuccess = false});
 

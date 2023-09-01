@@ -1,13 +1,7 @@
-﻿using PresentationLayer.ViewModels;
-
-namespace PresentationLayer.Models  
+﻿namespace PresentationLayer.Models
 {
     public class CreateCommentVM
     {
-        public CreateCommentVM()
-        {
-            CommentId = new Random().Next(111111111, 999999999);
-        }
         public double CommentId { get; set; }
         public double ProductId { get; set; }
         public ProductVM? Product { get; set; }

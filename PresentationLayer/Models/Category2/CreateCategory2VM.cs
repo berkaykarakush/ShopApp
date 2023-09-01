@@ -1,5 +1,4 @@
-﻿using PresentationLayer.ViewModels;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace PresentationLayer.Models
 {

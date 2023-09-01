@@ -14,18 +14,23 @@ namespace DataAccessLayer.CQRS.Queries
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<ListCampaignQueryResponse> Handle(ListCampaignQueryRequest request, CancellationToken cancellationToken)
+        public Task<ListCampaignQueryResponse> Handle(ListCampaignQueryRequest request, CancellationToken cancellationToken)
         {
-            List<Campaign> allCampaings = new List<Campaign>();
             try
             {
-                allCampaings = _unitOfWork.Campaigns.GetAll();
+               var allCampaings = _unitOfWork.Campaigns.GetAll();
+
+                if (allCampaings == null)
+                    return Task.FromResult(new ListCampaignQueryResponse() { IsSuccess = false});
+
+                return Task.FromResult(new ListCampaignQueryResponse() { IsSuccess = true, Campaigns = allCampaings});
+
             }
             catch (Exception ex)
             {
                 Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-            return new ListCampaignQueryResponse() { Campaigns = allCampaings, IsSuccess = true };
+            return Task.FromResult(new ListCampaignQueryResponse() { IsSuccess = false });
         }
     }
 }

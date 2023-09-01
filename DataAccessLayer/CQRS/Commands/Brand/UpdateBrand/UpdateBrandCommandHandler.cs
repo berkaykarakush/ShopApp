@@ -13,29 +13,29 @@ namespace DataAccessLayer.CQRS.Commands
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<UpdateBrandCommandResponse> Handle(UpdateBrandCommandRequest request, CancellationToken cancellationToken)
+        public Task<UpdateBrandCommandResponse> Handle(UpdateBrandCommandRequest request, CancellationToken cancellationToken)
         {
             try
             {
                 var brand = _unitOfWork.Brands.GetById(request.BrandId);
-                if (brand != null)
-                {
-                    brand.Products = request.Products;
-                    brand.Name = request.Name;
-                    brand.Url = request.Url;
-                    brand.UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                if (brand == null)
+                    return Task.FromResult(new UpdateBrandCommandResponse() { IsSuccess = false});
 
-                    _unitOfWork.Brands.Update(brand);
-                    _unitOfWork.Save();
+                brand.Products = request.Products;
+                brand.Name = request.Name;
+                brand.Url = request.Url;
+                brand.UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
-                    return new UpdateBrandCommandResponse() { IsSuccess = true };
-                }
+                _unitOfWork.Brands.Update(brand);
+                _unitOfWork.Save();
+
+                return Task.FromResult(new UpdateBrandCommandResponse() { IsSuccess = true });
             }
             catch (Exception ex) 
             {
                 Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-            return new UpdateBrandCommandResponse() { IsSuccess = false};
+            return Task.FromResult(new UpdateBrandCommandResponse() { IsSuccess = false });
         }
     }
 }

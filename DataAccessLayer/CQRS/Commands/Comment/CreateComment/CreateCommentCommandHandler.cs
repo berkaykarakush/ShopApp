@@ -14,14 +14,17 @@ namespace DataAccessLayer.CQRS.Commands
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<CreateCommentCommandResponse> Handle(CreateCommentCommandRequest request, CancellationToken cancellationToken)
+        public Task<CreateCommentCommandResponse> Handle(CreateCommentCommandRequest request, CancellationToken cancellationToken)
         {
             try
             {
                 var product = _unitOfWork.Products.GetById(request.ProductId);
-                _unitOfWork.Comments.Create(new Comment()
+
+                if (product == null)
+                    return Task.FromResult(new CreateCommentCommandResponse() { IsSuccess = false });
+
+                var comment = new Comment() 
                 {
-                    CommentId = request.CommentId,
                     CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
                     Description = request.Description,
                     UserId = request.UserId,
@@ -29,16 +32,21 @@ namespace DataAccessLayer.CQRS.Commands
                     UserLastname = request.UserLastname,
                     ProductId = request.ProductId,
                     Product = product,
-                });
+                };
+
+                if (comment == null)
+                    return Task.FromResult(new CreateCommentCommandResponse() { IsSuccess = false});
+
+                _unitOfWork.Comments.Create(comment);
                 _unitOfWork.Save();
-                return await Task.FromResult(new CreateCommentCommandResponse() { IsSuccess = true, Url= product.Url});
+                return Task.FromResult(new CreateCommentCommandResponse() { IsSuccess = true, Url= product.Url});
             }
             catch (Exception ex)
             {
                 Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
 
-            return await Task.FromResult(new CreateCommentCommandResponse() { IsSuccess = false });
+            return Task.FromResult(new CreateCommentCommandResponse() { IsSuccess = false });
         }
     }
 }

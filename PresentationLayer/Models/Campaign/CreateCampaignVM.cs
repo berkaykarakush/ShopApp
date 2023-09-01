@@ -12,6 +12,6 @@ namespace PresentationLayer.Models
         public string? CreatedDate { get; set; }
         public string? UpdatedDate { get; set; }
         public string? CampaignImage { get; set; }
-        public List<ImageUrl>? ImageUrls { get; set; }
+        public List<ImageUrl>? ImageUrls { get; set; } 
     }
 }

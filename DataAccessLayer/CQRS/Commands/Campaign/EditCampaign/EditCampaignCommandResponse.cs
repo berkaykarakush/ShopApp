@@ -2,6 +2,6 @@
 {
     public class EditCampaignCommandResponse
     {
-        public bool IsSuccess { get; set; } = false;
+        public bool IsSuccess { get; set; }     
     }
 }

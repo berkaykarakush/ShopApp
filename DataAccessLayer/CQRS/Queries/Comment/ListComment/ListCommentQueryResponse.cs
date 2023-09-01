@@ -4,7 +4,7 @@ namespace DataAccessLayer.CQRS.Queries
 {
     public class ListCommentQueryResponse
     {
-        public ICollection<Comment> Comments { get; set; }
+        public List<Comment>? Comments { get; set; } = new List<Comment>();
         public bool IsSuccess { get; set; }
     }
 }

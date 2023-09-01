@@ -20,9 +20,9 @@ namespace DataAccessLayer.CQRS.Queries
         public string? BrandName { get; set; }
         public string? CategoryName { get; set; }
         public string? Category2Name { get; set; }
-        public List<Category>? Categories { get; set; }
-        public List<Category2>? Categories2 { get; set; }
-        public List<Brand>? Brands { get; set; }
-        public List<ImageUrl>? ImageUrls { get; set; }
+        public List<Category>? Categories { get; set; } = new List<Category>();
+        public List<Category2>? Categories2 { get; set; } = new List<Category2>();
+        public List<Brand>? Brands { get; set; } = new List<Brand>();
+        public List<ImageUrl>? ImageUrls { get; set; } = new List<ImageUrl>();
     }
 }

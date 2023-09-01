@@ -1,14 +1,8 @@
-﻿using EntityLayer;
-
-namespace PresentationLayer.Models
+﻿namespace PresentationLayer.Models
 {
     public class CategoryListViewModel
     {
-        public CategoryListViewModel()
-        {
-            Categories = new List<Category>();
-        }
-        public List<Category> Categories { get; set; }
+        public List<CategoryVM>? Categories { get; set; }
 
     }
 }

@@ -2,11 +2,7 @@
 {
     public class Category2
     {
-        public Category2()
-        {
-            Category2Id = new Random().Next(111111111, 999999999);
-        }
-        public double Category2Id { get; set; }
+        public double Category2Id { get; set; } = new Random().Next(111111111, 999999999);
         public string? Name { get; set; }
         public string? Url { get; set; }
         public string? CreatedDate { get; set; }

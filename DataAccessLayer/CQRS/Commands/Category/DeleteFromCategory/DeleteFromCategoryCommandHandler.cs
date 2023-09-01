@@ -14,23 +14,22 @@ namespace DataAccessLayer.CQRS.Commands
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<DeleteFromCategoryCommandResponse> Handle(DeleteFromCategoryCommandRequest request, CancellationToken cancellationToken)
+        public Task<DeleteFromCategoryCommandResponse> Handle(DeleteFromCategoryCommandRequest request, CancellationToken cancellationToken)
         {
             try
             {
+                if (request.productId < 0 || request.categoryId < 0)
+                    return Task.FromResult(new DeleteFromCategoryCommandResponse() { IsSuccess = false});
+
               _unitOfWork.Categories.DeleteFromCategory(request.productId, request.categoryId);
               _unitOfWork.Save();
+              return Task.FromResult(new DeleteFromCategoryCommandResponse() { IsSuccess = true, categoryId = request.categoryId });
             }
             catch (Exception ex)
             {
-                Log.Error(ex, ex.Message);
+                Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-
-            return new DeleteFromCategoryCommandResponse() 
-            {
-                categoryId = request.categoryId,
-                IsSuccess = true
-            };
+            return Task.FromResult(new DeleteFromCategoryCommandResponse() { IsSuccess = false });
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using EntityLayer;
-using PresentationLayer.Models;
 
-namespace PresentationLayer.ViewModels  
+namespace PresentationLayer.Models
 {
     public class ProductVM
     {
@@ -27,7 +26,7 @@ namespace PresentationLayer.ViewModels
         public double? Category2Id { get; set; }
         public Category2VM? Category2 { get; set; }
 
-        public List<ImageUrl>? ImageUrls { get; set; }
-        public ICollection<CommentVM>? Comments { get; set; }
+        public List<ImageUrl>? ImageUrls { get; set; } = new List<ImageUrl>();
+        public List<CommentVM>? Comments { get; set; } = new List<CommentVM>();
     }
 }

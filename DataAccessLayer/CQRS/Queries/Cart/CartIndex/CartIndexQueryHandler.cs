@@ -6,26 +6,37 @@ namespace DataAccessLayer.CQRS.Queries
 {
     public class CartIndexQueryHandler : IRequestHandler<CartIndexQueryRequest, CartIndexQueryResponse>
     {
-        public async Task<CartIndexQueryResponse> Handle(CartIndexQueryRequest request, CancellationToken cancellationToken)
+        public  Task<CartIndexQueryResponse> Handle(CartIndexQueryRequest request, CancellationToken cancellationToken)
         {
-            var cart = request.Cart;
-
-            return new CartIndexQueryResponse()
+            try
             {
-                CartId = cart.CartId,
-                CartItems = cart.CartItems.Select(c => new CartItem()
+                var cart = request.Cart;
+
+                if (cart == null)
+                    return Task.FromResult(new CartIndexQueryResponse() { IsSuccess = false });
+
+                return Task.FromResult(new CartIndexQueryResponse() 
                 {
-                    Stock = c.Product.Quantity,
-                    ProductId = c.ProductId,
-                    CartItemId = c.ProductId,
-                    Product = c.Product,
-                    Price = c.Product.Price,
-                    ProductName = c.Product.Name,
-                    Quantity = c.Quantity,
-                    ProductImage = c.Product.ProductImage
-                }).ToList(),
-                IsSuccess = true
-            };
+                    CartId = cart.CartId,
+                    CartItems = cart.CartItems.Select(c => new CartItem()
+                    {
+                        Stock = c.Product.Quantity,
+                        ProductId = c.ProductId,
+                        CartItemId = c.ProductId,
+                        Product = c.Product,
+                        Price = c.Product.Price,
+                        ProductName = c.Product.Name,
+                        Quantity = c.Quantity,
+                        ProductImage = c.Product.ProductImage
+                    }).ToList(),
+                    IsSuccess = true
+                });
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
+            }
+            return Task.FromResult(new CartIndexQueryResponse() { IsSuccess =false});
         }
     }
 }

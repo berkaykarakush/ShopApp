@@ -1,7 +1,6 @@
 ﻿using EntityLayer;
-using PresentationLayer.ViewModels;
 
-namespace PresentationLayer.Models  
+namespace PresentationLayer.Models
 {
     public class Category2VM
     {

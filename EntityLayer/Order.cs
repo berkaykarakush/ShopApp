@@ -2,11 +2,7 @@
 {
     public class Order
     {
-        public Order()
-        {
-            OrderId = new Random().Next(111111111, 999999999);
-        }
-        public double OrderId { get; set; }
+        public double OrderId { get; set; } = new Random().Next(111111111, 999999999);
         public string? OrderNumber { get; set; }
         public DateTime OrderDate { get; set; }
         public string? CreatedDate { get; set; }

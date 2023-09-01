@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
 using PresentationLayer.Models;
-using PresentationLayer.ViewModels;
 
 namespace PresentationLayer.Controllers
 {
@@ -29,7 +28,7 @@ namespace PresentationLayer.Controllers
         public async Task<IActionResult> ListCategory(ListCategoryQueryRequest listCategoryQueryRequest)
         {
             ListCategoryQueryResponse response = await _mediator.Send(listCategoryQueryRequest);
-            CategoryListViewModel categoryListViewModel = new CategoryListViewModel() { Categories = response.Categories };
+            CategoryListViewModel categoryListViewModel = _mapper.Map<CategoryListViewModel>(response);
 
             if (!response.IsSuccess)
                 _notyfService.Error(NotfyMessageEnum.Error);

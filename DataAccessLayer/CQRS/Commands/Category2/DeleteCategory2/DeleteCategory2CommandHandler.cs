@@ -29,7 +29,6 @@ namespace DataAccessLayer.CQRS.Commands
             catch (Exception ex)
             {
                 Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
-                throw;
             }
             return Task.FromResult(new DeleteCategory2CommandResponse() { IsSuccess = false });
         }

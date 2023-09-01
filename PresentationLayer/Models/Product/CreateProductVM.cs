@@ -1,13 +1,9 @@
-﻿using DataAccessLayer.CQRS.Commands;
-using DataAccessLayer.CQRS.Queries;
-using EntityLayer;
-using PresentationLayer.Models;
+﻿using EntityLayer;
 
-namespace PresentationLayer.ViewModels
+namespace PresentationLayer.Models  
 {
-    public class EditProductVM
+    public class CreateProductVM
     {
-        public double ProductId { get; set; }
         public string? Name { get; set; }
         public string? Url { get; set; }
         public double Price { get; set; }
@@ -18,12 +14,10 @@ namespace PresentationLayer.ViewModels
         public bool IsApproved { get; set; }
         public bool IsHome { get; set; }
         public string? CreatedDate { get; set; }
+
         public double BrandId { get; set; }
         public double CategoryId { get; set; }
         public double Category2Id { get; set; }
-        public string BrandName { get; set; }
-        public string CategoryName { get; set; }
-        public string Category2Name { get; set; }
         public List<ImageUrl>? ImageUrls { get; set; }
         public List<CategoryVM>? Categories { get; set; }
         public List<Category2VM>? Categories2 { get; set; }

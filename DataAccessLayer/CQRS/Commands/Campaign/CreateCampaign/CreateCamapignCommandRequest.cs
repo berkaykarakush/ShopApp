@@ -5,11 +5,6 @@ namespace DataAccessLayer.CQRS.Commands
 {
     public class CreateCamapignCommandRequest: IRequest<CreateCamapignCommandResponse>
     {
-        public CreateCamapignCommandRequest()
-        {
-            ImageUrls = new List<ImageUrl>();
-        }
-        public double CampaignId { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Code { get; set; }
@@ -17,6 +12,6 @@ namespace DataAccessLayer.CQRS.Commands
         public string? CreatedDate { get; set; }
         public string? UpdatedDate { get; set; }
         public string? CampaignImage { get; set; }
-        public List<ImageUrl> ImageUrls { get; set; }
+        public List<ImageUrl>? ImageUrls { get; set; }
     }
 }

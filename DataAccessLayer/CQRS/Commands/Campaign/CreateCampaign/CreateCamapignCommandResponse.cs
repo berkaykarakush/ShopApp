@@ -2,6 +2,6 @@
 {
     public class CreateCamapignCommandResponse
     {
-        public bool IsSuccess { get; set; } = false;
+        public bool IsSuccess { get; set; }     
     }
 }

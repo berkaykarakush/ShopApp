@@ -13,12 +13,16 @@ namespace DataAccessLayer.CQRS.Queries
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<EditCommentQueryResponse> Handle(EditCommentQueryRequest request, CancellationToken cancellationToken)
+        public Task<EditCommentQueryResponse> Handle(EditCommentQueryRequest request, CancellationToken cancellationToken)
         {
             try
             {
                 var entity = _unitOfWork.Comments.GetById(request.CommentId);
-                return await Task.FromResult(new EditCommentQueryResponse()
+
+                if (entity == null)
+                    return Task.FromResult(new EditCommentQueryResponse() { IsSuccess = false});
+
+                return Task.FromResult(new EditCommentQueryResponse()
                 {
                     CommentId = entity.CommentId,
                     CreatedDate = entity.CreatedDate,
@@ -34,7 +38,7 @@ namespace DataAccessLayer.CQRS.Queries
             {
                 Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-            return await Task.FromResult(new EditCommentQueryResponse() { IsSuccess = false });
+            return Task.FromResult(new EditCommentQueryResponse() { IsSuccess = false });
         }
     }
 }

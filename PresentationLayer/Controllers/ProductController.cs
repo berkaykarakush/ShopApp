@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
-using PresentationLayer.ViewModels;
+using PresentationLayer.Models;
 
 namespace PresentationLayer.Controllers
 {

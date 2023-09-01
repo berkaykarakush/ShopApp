@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using EntityLayer;
 using MediatR;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Serilog;
 
 namespace DataAccessLayer.CQRS.Commands
@@ -14,28 +15,27 @@ namespace DataAccessLayer.CQRS.Commands
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<EditCategoryCommandResponse> Handle(EditCategoryCommandRequest request, CancellationToken cancellationToken)
+        public Task<EditCategoryCommandResponse> Handle(EditCategoryCommandRequest request, CancellationToken cancellationToken)
         {
-            Category entity = new Category();
             try
             {
-                entity = _unitOfWork.Categories.GetById(request.CategoryId);
+                var entity = _unitOfWork.Categories.GetById(request.CategoryId);
+                if (entity == null)
+                    return Task.FromResult(new EditCategoryCommandResponse() { IsSuccess = false });
+
                 entity.CategoryId = request.CategoryId;
                 entity.Name = request.Name;
                 entity.Url = request.Url;
 
                 _unitOfWork.Categories.Update(entity);
                 _unitOfWork.Save();
+                return Task.FromResult(new EditCategoryCommandResponse() { IsSuccess = true });
             }
             catch (Exception ex)
             {
-                Log.Error(ex, ex.Message);
+                Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-
-            return new EditCategoryCommandResponse()
-            {
-                IsSuccess = true
-            };
+            return Task.FromResult(new EditCategoryCommandResponse() { IsSuccess = false });
         }
     }
 }

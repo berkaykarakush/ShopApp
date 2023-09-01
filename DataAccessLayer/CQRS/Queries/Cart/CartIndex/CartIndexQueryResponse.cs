@@ -4,10 +4,10 @@ namespace DataAccessLayer.CQRS.Queries
 {
     public class CartIndexQueryResponse
     {
-        public bool IsSuccess { get; set; } = false;
+        public bool IsSuccess { get; set; }     
         public double CartId { get; set; }
-        public Product? ProductModel { get; set; }
-        public List<CartItem>? CartItems { get; set; }
+        public Product? ProductModel { get; set; } 
+        public List<CartItem>? CartItems { get; set; } = new List<CartItem>();
         public decimal TotalPrice()
         {
             if (CartItems != null)

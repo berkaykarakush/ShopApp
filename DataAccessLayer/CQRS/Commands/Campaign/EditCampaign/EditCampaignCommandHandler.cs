@@ -13,11 +13,15 @@ namespace DataAccessLayer.CQRS.Commands
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<EditCampaignCommandResponse> Handle(EditCampaignCommandRequest request, CancellationToken cancellationToken)
+        public Task<EditCampaignCommandResponse> Handle(EditCampaignCommandRequest request, CancellationToken cancellationToken)
         {
             try
             {
                 var campaign = _unitOfWork.Campaigns.GetById(request.CampaignId);
+
+                if (campaign == null)
+                    return Task.FromResult(new EditCampaignCommandResponse() { IsSuccess = false});
+
                 campaign.Name = request.Name;
                 campaign.IsHome = request.IsHome;
                 campaign.Code = request.Code;
@@ -28,12 +32,13 @@ namespace DataAccessLayer.CQRS.Commands
 
                 _unitOfWork.Campaigns.Update(campaign);
                 _unitOfWork.Save();
+                return Task.FromResult(new EditCampaignCommandResponse() { IsSuccess = true });
             }
             catch (Exception ex)
             {
                 Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-            return new EditCampaignCommandResponse() { IsSuccess = true};
+            return Task.FromResult(new EditCampaignCommandResponse() { IsSuccess = false });
         }
     }
 }

@@ -4,11 +4,7 @@ namespace EntityLayer
 {
     public class OrderItem
     {
-        public OrderItem()
-        {
-            OrderItemId = new Random().Next(111111111, 999999999);
-        }
-        public double OrderItemId { get; set; }
+        public double OrderItemId { get; set; } = new Random().Next(111111111, 999999999);
         public double OrderId { get; set; }
         public Order? Order { get; set; }
         public double ProductId { get; set; }

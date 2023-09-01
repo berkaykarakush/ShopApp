@@ -44,6 +44,9 @@ namespace DataAccessLayer.CQRS.Commands
                     Category2Id = category2.Category2Id
                 };
 
+                if (product == null)
+                    return Task.FromResult(new CreateProductCommandResponse() { IsSuccess = false});
+
                 _unitOfWork.Products.Create(product);
                 _unitOfWork.Save();
                 return Task.FromResult(new CreateProductCommandResponse() { IsSuccess = true, ProductId = product.ProductId });

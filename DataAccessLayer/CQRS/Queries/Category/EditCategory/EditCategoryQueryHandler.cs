@@ -14,26 +14,29 @@ namespace DataAccessLayer.CQRS.Queries
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<EditCategoryQueryResponse> Handle(EditCategoryQueryRequest request, CancellationToken cancellationToken)
+        public Task<EditCategoryQueryResponse> Handle(EditCategoryQueryRequest request, CancellationToken cancellationToken)
         {
-            Category entity = new Category();
             try
             {
-                entity = _unitOfWork.Categories.GetByIdWithProducts(request.Id);
+                var entity = _unitOfWork.Categories.GetByIdWithProducts(request.Id);
 
+                if (entity == null)
+                    return Task.FromResult(new EditCategoryQueryResponse() { IsSuccess = false} );
+
+                return Task.FromResult(new EditCategoryQueryResponse() 
+                {
+                    IsSuccess = true,
+                    Name = entity.Name,
+                    CategoryId = entity.CategoryId,
+                    //Products = entity.ProductCategories.Select(p => p.Product).ToList(),
+                    Url = entity.Url
+                });
             }
             catch (Exception ex)
             {
-                Log.Error(ex, ex.Message);
+                Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-
-            return new EditCategoryQueryResponse() { 
-                IsSuccess = true,
-                Name = entity.Name,
-                CategoryId = entity.CategoryId,
-                //Products = entity.ProductCategories.Select(p => p.Product).ToList(),
-                Url = entity.Url
-            };
+            return Task.FromResult(new EditCategoryQueryResponse() { IsSuccess = false});
         }
     }
 }

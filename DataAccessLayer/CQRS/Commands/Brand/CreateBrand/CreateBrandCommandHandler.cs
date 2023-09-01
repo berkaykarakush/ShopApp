@@ -15,7 +15,7 @@ namespace DataAccessLayer.CQRS.Commands
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<CreateBrandCommandResponse> Handle(CreateBrandCommandRequest request, CancellationToken cancellationToken)
+        public  Task<CreateBrandCommandResponse> Handle(CreateBrandCommandRequest request, CancellationToken cancellationToken)
         {
             try
             {
@@ -26,16 +26,19 @@ namespace DataAccessLayer.CQRS.Commands
                     Products = _unitOfWork.Products.GetAll(),
                     CreatedDate = DateTime.Now.ToString(),
                 };
+
+                if (brand == null)
+                    return Task.FromResult(new CreateBrandCommandResponse() { IsSuccess = false });
+
                 _unitOfWork.Brands.Create(brand);
                 _unitOfWork.Save();
-
-                return new CreateBrandCommandResponse() { IsSuccess = true };
+                return Task.FromResult(new CreateBrandCommandResponse() { IsSuccess = true });
             }
             catch (Exception ex)
             {
                 Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-            return new CreateBrandCommandResponse() { IsSuccess = false };
+            return Task.FromResult(new CreateBrandCommandResponse() { IsSuccess = false });
         }
     }
 }

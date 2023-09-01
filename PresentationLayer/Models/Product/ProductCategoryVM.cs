@@ -1,6 +1,4 @@
-﻿using PresentationLayer.ViewModels;
-
-namespace PresentationLayer.Models
+﻿namespace PresentationLayer.Models
 {
     public class ProductCategoryVM
     {

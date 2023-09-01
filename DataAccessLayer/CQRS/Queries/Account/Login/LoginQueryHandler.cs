@@ -4,13 +4,9 @@ namespace DataAccessLayer.CQRS.Queries
 {
     public class LoginQueryHandler : IRequestHandler<LoginQueryRequest, LoginQueryResponse>
     {
-        public async Task<LoginQueryResponse> Handle(LoginQueryRequest request, CancellationToken cancellationToken)
+        public Task<LoginQueryResponse> Handle(LoginQueryRequest request, CancellationToken cancellationToken)
         {
-            return new LoginQueryResponse()
-            {
-                    ReturnUrl = request.ReturnUrl,
-                    IsSuccess = true,
-            };
+            return Task.FromResult(new LoginQueryResponse() { IsSuccess = false, ReturnUrl = request.ReturnUrl });
         }
     }
 }

@@ -1,9 +1,7 @@
-﻿using PresentationLayer.ViewModels;
-
-namespace PresentationLayer.Models  
+﻿namespace PresentationLayer.Models
 {
     public class ListBrandVM
     {
-        public ICollection<BrandVM> Brands { get; set; }
+        public List<BrandVM>? Brands { get; set; }
     }
 }

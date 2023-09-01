@@ -13,21 +13,25 @@ namespace DataAccessLayer.CQRS.Commands
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<DeleteBrandCommandResponse> Handle(DeleteBrandCommandRequest request, CancellationToken cancellationToken)
+        public Task<DeleteBrandCommandResponse> Handle(DeleteBrandCommandRequest request, CancellationToken cancellationToken)
         {
             try
             {
                 var brand = _unitOfWork.Brands.GetById(request.BrandId);
+
+                if (brand == null)
+                    return Task.FromResult(new DeleteBrandCommandResponse() { IsSuccess = false});
+
                 _unitOfWork.Brands.Delete(brand);
                 _unitOfWork.Save();
 
-                return new DeleteBrandCommandResponse() { IsSuccess = true };
+                return Task.FromResult(new DeleteBrandCommandResponse() { IsSuccess = false });
             }
             catch (Exception ex)
             {
                 Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-            return new DeleteBrandCommandResponse() { IsSuccess = false};
+            return Task.FromResult(new DeleteBrandCommandResponse() { IsSuccess = false });
         }
     }
 }

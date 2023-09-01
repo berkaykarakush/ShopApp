@@ -3,6 +3,6 @@
     public class DeleteFromCategoryCommandResponse
     {
         public double categoryId { get; set; }
-        public bool IsSuccess { get; set; } = false;
+        public bool IsSuccess { get; set; }     
     }
 }

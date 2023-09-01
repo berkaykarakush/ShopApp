@@ -12,7 +12,7 @@ namespace DataAccessLayer.CQRS.Queries
         public string? CreatedDate { get; set; }
         public string? UpdatedDate { get; set; }
         public string? CampaignImage { get; set; }
-        public List<ImageUrl>? ImageUrls { get; set; }
-        public bool IsSuccess { get; set; } = false;    
+        public List<ImageUrl>? ImageUrls { get; set; } = new List<ImageUrl>();
+        public bool IsSuccess { get; set; } 
     }
 }

@@ -11,7 +11,7 @@ namespace DataAccessLayer.CQRS.Queries
         public string? UpdatedDate { get; set; }
         public double CategoryId { get; set; }
         public Category? Category { get; set; }
-        public List<Category>? Categories { get; set; }
+        public List<Category>? Categories { get; set; } = new List<Category>();
         public bool IsSuccess { get; set; }
     }
 }

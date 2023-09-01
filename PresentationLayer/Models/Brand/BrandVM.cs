@@ -1,5 +1,4 @@
-﻿using PresentationLayer.ViewModels;
-namespace PresentationLayer.Models  
+﻿namespace PresentationLayer.Models
 {
     public class BrandVM
     {
@@ -9,6 +8,6 @@ namespace PresentationLayer.Models
         public double BrandId { get; set; }
         public string? Name { get; set; }
         public string? Url { get; set; }
-        public ICollection<ProductVM>? Products { get; set; }
+        public List<ProductVM>? Products { get; set; }  
     }
 }

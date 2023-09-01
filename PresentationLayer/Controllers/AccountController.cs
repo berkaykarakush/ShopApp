@@ -10,7 +10,6 @@ using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
-using PresentationLayer.ViewModels;
 
 namespace PresentationLayer.Controllers
 {

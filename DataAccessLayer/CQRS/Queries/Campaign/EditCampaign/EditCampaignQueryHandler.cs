@@ -14,28 +14,36 @@ namespace DataAccessLayer.CQRS.Queries
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<EditCampaignQueryResponse> Handle(EditCampaignQueryRequest request, CancellationToken cancellationToken)
+        public Task<EditCampaignQueryResponse> Handle(EditCampaignQueryRequest request, CancellationToken cancellationToken)
         {
-            EditCampaignQueryResponse response = new EditCampaignQueryResponse();
             try
             {
                 var campign = _unitOfWork.Campaigns.GetById(request.CampaignId);
-                response.CampaignId = campign.CampaignId;
-                response.Name = campign.Name;
-                response.Description = campign.Description;
-                response.Code = campign.Code;
-                response.IsHome = campign.IsHome;
-                response.CreatedDate = campign.CreatedDate;
-                response.UpdatedDate = campign.UpdatedDate;
-                response.CampaignImage = campign.CampaignImage;
-                //response.ImageUrls = campign.ImageUrls;
-                response.IsSuccess = true;
+
+                if (campign == null)
+                    return Task.FromResult(new EditCampaignQueryResponse() { IsSuccess = false});
+
+
+                return Task.FromResult(new EditCampaignQueryResponse() 
+                {
+                    CampaignId = campign.CampaignId,
+                    Name = campign.Name,
+                    Description = campign.Description,
+                    Code = campign.Code,
+                    IsHome = campign.IsHome,
+                    CreatedDate = campign.CreatedDate,
+                    UpdatedDate = campign.UpdatedDate,
+                    CampaignImage = campign.CampaignImage,
+                    //ImageUrls = campign.ImageUrls,
+                    IsSuccess = true
+                });
+
             }
             catch (Exception ex)
             {
                 Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-            return response;
+            return Task.FromResult(new EditCampaignQueryResponse() { IsSuccess = false});
         }
     }
 }
