@@ -22,7 +22,7 @@ namespace DataAccessLayer.CQRS.Queries
                 var products = _unitOfWork.Products.GetProductsByCategory2(request.Category2, request.Page, pageSize);
                 var totalItems = _unitOfWork.Products.GetCountByCategory2(request.Category2);
 
-                if (products == null || totalItems == null)
+                if (products == null || totalItems < 0)
                     return Task.FromResult(new ShopCategory2ListQueryResponse() { IsSuccess = false });
 
                 return Task.FromResult(new ShopCategory2ListQueryResponse() 

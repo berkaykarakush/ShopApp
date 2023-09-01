@@ -27,6 +27,7 @@ namespace PresentationLayer.Mapping
             CreateMap<EditProductCommandResponse, EditProductVM>().ReverseMap();
             CreateMap<CreateProductQueryResponse, CreateProductVM>().ReverseMap();
             CreateMap<CreateProductCommandResponse, CreateProductVM>().ReverseMap();
+            CreateMap<ShopBrandListQueryResponse, ListProductVM>().ReverseMap();
 
             //Category
             CreateMap<Category, CategoryVM>().ReverseMap();

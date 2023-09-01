@@ -255,6 +255,12 @@ try
 
     //category2 route
     app.MapControllerRoute(
+       name: "productsbrand",
+       pattern: "b/{brand?}",
+       defaults: new { controller = "Shop", action = "BrandList" });
+
+    //category2 route
+    app.MapControllerRoute(
        name: "products2",
        pattern: "c/2/{category2?}",
        defaults: new { controller = "Shop", action = "Category2List" });

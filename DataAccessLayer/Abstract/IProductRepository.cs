@@ -8,6 +8,7 @@ namespace DataAccessLayer.Abstract
         Product GetByIdWithCategories(double id);
         List<Product> GetProductsByCategory(string name, int page, int pageSize); 
         List<Product> GetProductsByCategory2(string name, int page, int pageSize); 
+        List<Product> GetProductByBrand(string name, int page, int pageSize);
         List<Product> GetPopularProducts();
         List<Product> GetTopSalesProducts(int page, int pageSize);
         List<Product> GetTopSalesProductsWithCategory(string name,int page, int pageSize);
@@ -15,6 +16,7 @@ namespace DataAccessLayer.Abstract
         List<Product> GetHomePageProducts();
         int GetCountByCategory(string category);
         int GetCountByCategory2(string category2);
+        int GetCountByBrand(string brand);
         int GetCountTopSalesProduct();
     }
 }

@@ -75,7 +75,7 @@
                         @*product details - start*@
                         <div class="col-md-12 m-4">
                             <h1 class="h2 card-title">@Model.Product.Name</h1>
-                            <a href="#" class="h4 nav-link text-danger"><strong>@Model.Product.Brand.Name</strong></a>
+                            <a asp-controller="Shop" asp-action="BrandList" asp-route-brand="@Model.Product.Brand.Url" class="h4 nav-link text-danger"><strong>@Model.Product.Brand.Name</strong></a>
                             <div class="row">
                                 <div class="col">
                                     <a href="#" class="h4 nav-link">

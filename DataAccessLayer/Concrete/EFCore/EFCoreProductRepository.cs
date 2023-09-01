@@ -26,6 +26,23 @@ namespace DataAccessLayer.Concrete.EFCore
                 .FirstOrDefault();
         }
 
+        public int GetCountByBrand(string brand)
+        {
+            var products = ShopContext.Products
+                                    .Include(p => p.ImageUrls)
+                                    .Where(p => p.IsApproved)
+                                    .AsQueryable();
+
+            if (!string.IsNullOrEmpty(brand))
+            {
+                products = products.Include(p => p.Brand)
+                                   .Where(p => p.Brand.Url.ToLower() == brand.ToLower());
+            }
+
+            return products.Count();
+
+        }
+
         public int GetCountByCategory(string category)
         {
             var products = ShopContext.Products
@@ -83,6 +100,22 @@ namespace DataAccessLayer.Concrete.EFCore
                 .Include(p => p.Brand)
                 .Include(p => p.ImageUrls)
                 .ToList();
+        }
+
+        public List<Product> GetProductByBrand(string name, int page, int pageSize)
+        {
+            var products = ShopContext.Products
+                .Include(p => p.ImageUrls)
+                .Include(p => p.Comments)
+                .Where(p => p.IsApproved)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                products = products.Include(p => p.Brand)
+                                   .Where(p => p.Brand.Url.ToLower() == name.ToLower());  
+            }
+            return products.Skip((page - 1) * pageSize).Take(pageSize).ToList();
         }
 
         public Product GetProductDetails(string url)

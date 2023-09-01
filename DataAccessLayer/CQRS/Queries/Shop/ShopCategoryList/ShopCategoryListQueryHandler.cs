@@ -21,6 +21,9 @@ namespace DataAccessLayer.CQRS.Queries
                 var products = _unitOfWork.Products.GetProductsByCategory(request.category, request.page, pageSize);
                 var totalItems = _unitOfWork.Products.GetCountByCategory(request.category);
 
+                if (products == null || totalItems < 0)
+                    return Task.FromResult(new ShopCategoryListQueryResponse() { IsSuccess = false });
+
                 return Task.FromResult(new ShopCategoryListQueryResponse() 
                 {
                     IsSuccess = true,

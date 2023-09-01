@@ -1,4 +1,5 @@
-﻿using AspNetCoreHero.ToastNotification.Abstractions;
+﻿using AspNetCore;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using AutoMapper;
 using DataAccessLayer.CQRS.Queries;
 using MediatR;
@@ -55,6 +56,19 @@ namespace PresentationLayer.Controllers
 
             if (!response.IsSuccess)
                 _notyfService.Error(NotfyMessageEnum.Error);
+
+            return View(listProductVM);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> BrandList(ShopBrandListQueryRequest shopBrandListQueryRequest)
+        {
+            ShopBrandListQueryResponse response = await _mediator.Send(shopBrandListQueryRequest);
+            ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
+
+            if (!response.IsSuccess)
+                _notyfService.Error(NotfyMessageEnum.Error);
+
             return View(listProductVM);
         }
 
