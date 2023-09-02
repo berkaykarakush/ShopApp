@@ -1,0 +1,66 @@
+﻿@model ListBrandVM
+<h1>Brands</h1>
+<hr class="mb-3"/>
+<div class="row mb-3">
+    <div class="col-md-2">
+        <a class="btn btn-outline-primary" asp-area="Admin" asp-controller="Brand" asp-action="CreateBrand">Add Brand</a>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table id="brandTable" class="table table-bordered mt-4">
+            <thead>
+                <tr>
+                    <td style="width: 30px;">Id</td>
+                    <td style="width: 100px;">Name</td>
+                    <td>Description</td>
+                    <td style="width: 150px;"></td>
+                </tr>
+            </thead>
+            <tbody>
+               @if (Model.Brands.Count>0)
+                {
+                    @foreach (var item in Model.Brands)
+                    {
+                        <tr>
+                            <td>@item.BrandId</td>
+                            <td>@item.Name</td>
+                            <td>@item.Url</td>
+                            <td>
+                                <form asp-area="Admin" asp-controller="Brand" asp-action="UpdateBrand" method="get" style="display: inline;">
+                                    <input type="hidden" name="BrandId" value="@item.BrandId">
+                                    <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+                                </form>
+
+                                        <form asp-area="Admin" asp-controller="Brand" asp-action="DeleteBrand" method="post" style="display: inline;">
+                                    <input type="hidden" name="BrandId" value="@item.BrandId">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        <h3>No brands</h3>
+                    </div>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Css{
+    <script src="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"></script>
+}
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        new DataTable('#brandTable');
+    </script>
+}

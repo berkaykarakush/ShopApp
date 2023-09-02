@@ -103,29 +103,12 @@ try
     //Error Page
     app.UseStatusCodePagesWithReExecute("/Error", "?statusCode={0}");
 
-    #region Brand Route
+    //areas
     app.MapControllerRoute(
-       name: "adminBrands",
-       pattern: "admin/brand/list",
-       defaults: new { controller = "Brand", action = "ListBrand" });
+        name: "areas",
+        pattern: "{area:exists}/{controller=Home}/{action=Dashboard}/{id?}"
+    );
 
-    app.MapControllerRoute(
-       name: "adminCreateBrand",
-       pattern: "admin/brand/create",
-       defaults: new { controller = "Brand", action = "CreateBrand" });
-
-    app.MapControllerRoute(
-      name: "adminUpdateBrand",
-      pattern: "admin/brand/{id?}",
-      defaults: new { controller = "Brand", action = "UpdateBrand" });
-    #endregion
-
-    #region Admin Route
-    app.MapControllerRoute(
-        name: "adminPanel",
-        pattern: "admin",
-        defaults: new { controller = "Admin", action = "Dashboard" });
-    #endregion
 
     #region Order Route
     app.MapControllerRoute(
@@ -146,112 +129,40 @@ try
         defaults: new { controller = "Cart", action = "Index" });
     #endregion
 
-    #region Campaign Route
-    app.MapControllerRoute(
-       name: "adminCampaigns",
-       pattern: "admin/campaign/list",
-       defaults: new { controller = "Campaign", action = "ListCampaign" });
+    //app.MapControllerRoute(
+    //  name: "adminUpdateBrand",
+    //  pattern: "admin/brand/{id?}",
+    //  defaults: new { controller = "Brand", action = "UpdateBrand" });
 
-    app.MapControllerRoute(
-       name: "adminCampaignCreate",
-       pattern: "admin/campaign/create",
-       defaults: new { controller = "Campaign", action = "CreateCampaign" });
+    //app.MapControllerRoute(
+    //  name: "adminEditCampaign",
+    //  pattern: "admin/campaign/{id?}",
+    //  defaults: new { controller = "Campaign", action = "EditCampaign" });
 
-    app.MapControllerRoute(
-      name: "adminEditCampaign",
-      pattern: "admin/campaign/{id?}",
-      defaults: new { controller = "Campaign", action = "EditCampaign" });
-    #endregion
+    //app.MapControllerRoute(
+    //    name: "adminEditUser",
+    //    pattern: "admin/user/{id?}",
+    //    defaults: new { controller = "User", action = "EditUser" });
 
-    #region User Route
-    app.MapControllerRoute(
-        name: "adminUsers",
-        pattern: "admin/user/list",
-        defaults: new { controller = "User", action = "ListUser" });
+    //app.MapControllerRoute(
+    //    name: "adminEditRole",
+    //    pattern: "admin/role/{id?}",
+    //    defaults: new { controller = "Role", action = "EditRole" });
 
-    app.MapControllerRoute(
-        name: "adminEditUser",
-        pattern: "admin/user/{id?}",
-        defaults: new { controller = "User", action = "EditUser" });
+    //app.MapControllerRoute(
+    //    name: "adminEditProduct",
+    //    pattern: "admin/product/{id?}",
+    //    defaults: new { controller = "Product", action = "EditProduct" });
 
-    app.MapControllerRoute(
-       name: "UpdateUser",
-       pattern: "user/updateuser",
-       defaults: new { controller = "User", action = "UpdateUser" });
-    #endregion
+    //app.MapControllerRoute(
+    //    name: "adminEditCategory",
+    //    pattern: "admin/category/{id?}",
+    //    defaults: new { controller = "Category", action = "EditCategory" });
 
-    #region Role Route
-
-    app.MapControllerRoute(
-        name: "adminRoles",
-        pattern: "admin/role/list",
-        defaults: new { controller = "Role", action = "ListRole" });
-
-    app.MapControllerRoute(
-        name: "adminRoleCreate",
-        pattern: "admin/role/create",
-        defaults: new { controller = "Role", action = "CreateRole" });
-
-    app.MapControllerRoute(
-        name: "adminEditRole",
-        pattern: "admin/role/{id?}",
-        defaults: new { controller = "Role", action = "EditRole" });
-    #endregion
-
-    #region Product Route
-
-    app.MapControllerRoute(
-        name: "adminProducts",
-        pattern: "admin/product/list",
-        defaults: new { controller = "Product", action = "ListProduct" });
-
-    app.MapControllerRoute(
-        name: "adminCreateProduct",
-        pattern: "admin/product/create",
-        defaults: new { controller = "Product", action = "CreateProduct" });
-
-    app.MapControllerRoute(
-        name: "adminEditProduct",
-        pattern: "admin/product/{id?}",
-        defaults: new { controller = "Product", action = "EditProduct" });
-    #endregion
-
-
-    #region Category Route
-    app.MapControllerRoute(
-        name: "adminCategories",
-        pattern: "admin/category/list",
-        defaults: new { controller = "Category", action = "ListCategory" });
-
-    app.MapControllerRoute(
-        name: "adminCreateCategory",
-        pattern: "admin/category/create",
-        defaults: new { controller = "Category", action = "CreateCategory" });
-
-
-    app.MapControllerRoute(
-        name: "adminEditCategory",
-        pattern: "admin/category/{id?}",
-        defaults: new { controller = "Category", action = "EditCategory" });
-    #endregion
-
-    #region Category2 Route
-    app.MapControllerRoute(
-        name: "adminCategory2",
-        pattern: "admin/category2/list",
-        defaults: new { controller = "Category2", action = "ListCategory2" });
-
-    app.MapControllerRoute(
-        name: "adminCreateCategory2",
-        pattern: "admin/category2/create",
-        defaults: new { controller = "Category2", action = "CreateCategory2" });
-
-
-    app.MapControllerRoute(
-        name: "adminEditCategory2",
-        pattern: "admin/category2/{category2Id?}",
-        defaults: new { controller = "Category2", action = "EditCategory2" });
-    #endregion
+    //app.MapControllerRoute(
+    //    name: "adminEditCategory2",
+    //    pattern: "admin/category2/{category2Id?}",
+    //    defaults: new { controller = "Category2", action = "EditCategory2" });
 
     //category2 route
     app.MapControllerRoute(
@@ -280,6 +191,8 @@ try
         name: "search",
         pattern: "search",
         defaults: new { controller = "Shop", action = "Search" });
+
+    
 
     app.MapControllerRoute(
         name: "default",

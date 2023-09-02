@@ -28,14 +28,6 @@ namespace PresentationLayer.Controllers
             _userManager = userManager;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> ListComment(ListCommentQueryRequest listCommentQueryRequest)
-        {
-            ListCommentQueryResponse response = await _mediator.Send(listCommentQueryRequest);
-            ListCommentVM listCommentVM = _mapper.Map<ListCommentVM>(response);
-            return View(listCommentVM);
-        }
-        
         [HttpPost]
         public async Task<IActionResult> CreateComment(CreateCommentCommandRequest createCommentCommandRequest)
         {
@@ -51,44 +43,6 @@ namespace PresentationLayer.Controllers
                 _notyfService.Success("Transaction Successfull - Added comment");
 
             return RedirectToAction("Details", "Shop", new ShopDetailsQueryRequest() { Url = response.Url});
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> EditComment(EditCommentQueryRequest editCommentQueryRequest) 
-        {
-            EditCommentQueryResponse response = await _mediator.Send(editCommentQueryRequest);
-            EditCommentVM editCommentVM = _mapper.Map<EditCommentVM>(response);
-
-            if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
-
-            return View(editCommentVM);
-        }
-        [HttpPost]
-        public async Task<IActionResult> EditComment(EditCommentCommandRequest editCommentCommandRequest)
-        {
-            EditCommentCommandResponse response = await _mediator.Send(editCommentCommandRequest);
-
-            if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
-            else
-                _notyfService.Success("Transaction Successfull - Comment updated!");
-
-            return RedirectToAction("ListComment", "Comment");
-
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> DeleteComment(DeleteCommentCommandRequest deleteCommentCommandRequest) 
-        {
-            DeleteCommentCommandResponse response = await _mediator.Send(deleteCommentCommandRequest);
-
-            if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
-            else
-                _notyfService.Success("Transaction Successfull - Comment deleted!");
-
-            return RedirectToAction("ListComment","Comment");
         }
     }
 }

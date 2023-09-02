@@ -16,6 +16,134 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\berka\OneDrive\Masaüstü\ShopApp\PresentationLayer
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Brand/CreateBrand.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmRcQ3JlYXRlQnJhbmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Brand/ListBrand.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmRcTGlzdEJyYW5kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Brand/UpdateBrand.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmRcVXBkYXRlQnJhbmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Campaign/CreateCampaign.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2FtcGFpZ25cQ3JlYXRlQ2FtcGFpZ24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Campaign/EditCampaign.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2FtcGFpZ25cRWRpdENhbXBhaWduLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Campaign/ListCampaign.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2FtcGFpZ25cTGlzdENhbXBhaWduLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Category2/CreateCategory2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnkyXENyZWF0ZUNhdGVnb3J5Mi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Category2/EditCategory2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnkyXEVkaXRDYXRlZ29yeTIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Category2/ListCategory2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnkyXExpc3RDYXRlZ29yeTIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Category/CreateCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcQ3JlYXRlQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Category/EditCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcRWRpdENhdGVnb3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Category/ListCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcTGlzdENhdGVnb3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Comment/EditComment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tbWVudFxFZGl0Q29tbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Comment/ListComment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tbWVudFxMaXN0Q29tbWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Home/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Product/CreateProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxDcmVhdGVQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Product/EditProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxFZGl0UHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Product/ListProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxMaXN0UHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Role/CreateRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxDcmVhdGVSb2xlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Role/EditRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxFZGl0Um9sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Role/ListRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxMaXN0Um9sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/Shared/_navbarAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9uYXZiYXJBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/User/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxFZGl0VXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/User/ListUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxMaXN0VXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Seller/Views/Account/SellerRegister.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VsbGVyXFZpZXdzXEFjY291bnRcU2VsbGVyUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Seller/Views/Home/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VsbGVyXFZpZXdzXEhvbWVcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Seller/Views/Shared/_LayoutSeller.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VsbGVyXFZpZXdzXFNoYXJlZFxfTGF5b3V0U2VsbGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Seller/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VsbGVyXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Areas/Seller/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2VsbGVyXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -44,38 +172,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Account/SellerRegister.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTZWxsZXJSZWdpc3Rlci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Admin/Dashboard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Brand/CreateBrand.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcQ3JlYXRlQnJhbmQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Brand/ListBrand.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcTGlzdEJyYW5kLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Brand/UpdateBrand.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcVXBkYXRlQnJhbmQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Campaign/CreateCampaign.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcGFpZ25cQ3JlYXRlQ2FtcGFpZ24uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Campaign/EditCampaign.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcGFpZ25cRWRpdENhbXBhaWduLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Campaign/ListCampaign.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtcGFpZ25cTGlzdENhbXBhaWduLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Cart/Checkout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDaGVja291dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -88,104 +184,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxTdWNjZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Category2/CreateCategory2.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnkyXENyZWF0ZUNhdGVnb3J5Mi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Category2/EditCategory2.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnkyXEVkaXRDYXRlZ29yeTIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Category2/ListCategory2.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnkyXExpc3RDYXRlZ29yeTIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Category/CreateCategory.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcQ3JlYXRlQ2F0ZWdvcnkuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Category/EditCategory.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRWRpdENhdGVnb3J5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Category/ListCategory.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcTGlzdENhdGVnb3J5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Comment/EditComment.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWVudFxFZGl0Q29tbWVudC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Comment/ListComment.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWVudFxMaXN0Q29tbWVudC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Error/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcRXJyb3IuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Home/About.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Home/MyView.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNeVZpZXcuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Order/GetOrders.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcR2V0T3JkZXJzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Product/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Product/CreateProduct.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGVQcm9kdWN0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Product/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Product/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Product/EditProduct.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0UHJvZHVjdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Product/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Product/List.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxMaXN0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Product/ListProduct.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxMaXN0UHJvZHVjdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Product/Search.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxTZWFyY2guY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Role/CreateRole.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxDcmVhdGVSb2xlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Role/EditRole.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxFZGl0Um9sZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Role/ListRole.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZVxMaXN0Um9sZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Shared/Components/Campaign/Default.cshtml]
@@ -224,16 +232,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Shared/_LayoutAdmin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Shared/_navbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9uYXZiYXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Shared/_navbarAdmin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9uYXZiYXJBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Shared/_noproduct.cshtml]
@@ -274,14 +274,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/Shop/TopSalesList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxUb3BTYWxlc0xpc3QuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/User/EditUser.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0VXNlci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/User/ListUser.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMaXN0VXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/berka/OneDrive/Masaüstü/ShopApp/PresentationLayer/Views/_ViewImports.cshtml]

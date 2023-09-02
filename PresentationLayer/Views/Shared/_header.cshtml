@@ -37,7 +37,7 @@
                                     <i class="fa-solid fa-user"></i> @User.Identity.Name
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" asp-controller="admin" asp-action="index">Dashboard</a></li>
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Home" asp-action="Dashboard">Dashboard</a></li>
                                     <li><a class="dropdown-item" asp-controller="Orders" asp-action="GetOrders">Orders</a></li>
                                     <li><a class="dropdown-item" href="#">Favorites</a></li>
                                     <li><hr class="dropdown-divider"></li>
