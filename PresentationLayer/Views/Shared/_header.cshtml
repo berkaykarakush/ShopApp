@@ -4,7 +4,7 @@
        @if (!User.IsInRole("Seller"))
         {
             <span>
-                <a asp-controller="Account" asp-action="SellerRegister" class="text-right nav-link position-relative float-end">
+                <a asp-area="Seller" asp-controller="Home" asp-action="Index" class="text-right nav-link position-relative float-end">
                     Sell in ShopApp
                 </a>
             </span>
@@ -29,43 +29,28 @@
                     @*login successfull*@
                     @if (User.Identity.IsAuthenticated)
                     {
-                        //is admin
-                        @if (User.IsInRole("Admin"))
-                        {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-user"></i> @User.Identity.Name
-                                </a>
-                                <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Home" asp-action="Dashboard">Dashboard</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Orders" asp-action="GetOrders">Orders</a></li>
-                                    <li><a class="dropdown-item" href="#">Favorites</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li>
-                                        <a class="dropdown-item" asp-controller="account" asp-action="logout">
-                                            <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        }
-                        // not admin
-                        else
-                        {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa-solid fa-user"></i> @User.Identity.Name
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" asp-controller="account" asp-action="manage">Manage</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" asp-controller="account" asp-action="logout">
-                                         <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        }
+                            </a>
+                            <ul class="dropdown-menu">
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li><a class="dropdown-item" asp-area="Admin" asp-controller="Home" asp-action="Dashboard">Dashboard</a></li>
+
+                                }
+                                @if (User.IsInRole("Seller"))
+                                { 
+                                    <li><a class="dropdown-item" asp-area="Seller" asp-controller="Home" asp-action="Dashboard">Dashboard</a></li>
+                                }
+                                <li><a class="dropdown-item" asp-controller="account" asp-action="manage">Manage</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-controller="account" asp-action="logout">
+                                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a asp-controller="cart" asp-action="index" class="nav-link"><i class="fa-solid fa-cart-shopping"></i> Basket</a>
                         </li>

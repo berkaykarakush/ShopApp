@@ -28,11 +28,8 @@ namespace PresentationLayer.Controllers
         //TODO checout form add contract
         //TODO admin register
         //TODO admin giris ekranini admin layout'a tasi
-        //TODO seller layout 
-        //TODO seller login and register ekranini seller layout'a tasi
         //TODO admin dasboard en cok satan urun
         //TODO admin dasboard en cok satis yapan magaza
-        //TODO magaza olustur
         //TODO magaza sayfasi olustur
         //TODO yorumlara puan ekle
         //TODO yorum puani hesapla

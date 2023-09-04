@@ -46,10 +46,6 @@ namespace PresentationLayer.Controllers
         {
             LoginQueryResponse response = await _mediator.Send(loginQueryRequest);
             LoginModel loginModel = _mapper.Map<LoginModel>(response);
-
-            if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
-
             return View(loginModel);
         }
         

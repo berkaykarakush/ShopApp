@@ -9,48 +9,47 @@
                 <hr class="mb-3" />
                     <form asp-controller="Account" asp-action="SellerRegister" enctype="application/x-www-form-urlencoded" method="post">
                         <div asp-validation-summary="All" style="color: red;"></div>
+                        <input type="hidden" asp-for="SellerId"/>
                         <div class="form-group row mt-2">
-                            <label asp-for="FirstName" class="col-sm-2 col-form-label"></label>
+                            <label asp-for="SellerFirstName" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10">
-                                <input class="form-control" asp-for="FirstName" />
-                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            <input class="form-control" asp-for="SellerFirstName" />
+                            <span asp-validation-for="SellerFirstName" class="text-danger"></span>
                             </div>
                         </div>
+
                         <div class="form-group row mt-2">
-                            <label asp-for="LastName" class="col-sm-2 col-form-label"></label>
+                            <label asp-for="SellerLastName" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10">
-                                <input class="form-control" asp-for="LastName" />
-                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            <input class="form-control" asp-for="SellerLastName" />
+                            <span asp-validation-for="SellerLastName" class="text-danger"></span>
                             </div>
                         </div>
+
                         <div class="form-group row mt-2">
-                            <label asp-for="Email" class="col-sm-2 col-form-label"></label>
+                            <label asp-for="SellerEmail" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10">
-                                <input class="form-control" asp-for="Email" />
-                                <span asp-validation-for="Email" class="text-danger"></span>
+                            <input class="form-control" asp-for="SellerEmail" />
+                            <span asp-validation-for="SellerEmail" class="text-danger"></span>
                             </div>
                         </div>
+
                         <div class="form-group row mt-2">
-                            <label asp-for="Phone" class="col-sm-2 col-form-label"></label>
+                            <label asp-for="SellerPhone" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10">
-                                <input class="form-control" asp-for="Phone" />
-                                <span asp-validation-for="Phone" class="text-danger"></span>
+                            <input class="form-control" asp-for="SellerPhone" />
+                            <span asp-validation-for="SellerPhone" class="text-danger"></span>
                             </div>
                         </div>
+
                         <div class="form-group row mt-2">
-                            <label asp-for="Password" class="col-sm-2 col-form-label"></label>
+                            <label asp-for="StoreName" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10">
-                                <input class="form-control" asp-for="Password" />
-                                <span asp-validation-for="Password" class="text-danger"></span>
+                            <input class="form-control" asp-for="StoreName" />
+                            <span asp-validation-for="StoreName" class="text-danger"></span>
                             </div>
                         </div>
-                        <div class="form-group row mt-2">
-                            <label asp-for="RePassword" class="col-sm-2 col-form-label"></label>
-                            <div class="col-sm-10">
-                                <input class="form-control" asp-for="RePassword" />
-                                <span asp-validation-for="RePassword" class="text-danger"></span>
-                            </div>
-                        </div>
+                        
                         <div class="d-grid gap-2 m-4">
                             <button type="submit" class="btn btn-danger">Register</button>
                         </div>

@@ -17,6 +17,7 @@ namespace BusinessLayer
             serviceCollection.AddScoped<ICampaignService, CampaignManager>();
             serviceCollection.AddScoped<IBrandService, BrandManager>();
             serviceCollection.AddScoped<ICommentService, CommentManager>();
+            serviceCollection.AddScoped<IStoreService, StoreManager>();
 
             serviceCollection.AddScoped<IEmailSender, EmailSender>(i => new EmailSender
                 (

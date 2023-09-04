@@ -10,6 +10,7 @@
         IBrandRepository Brands { get; }
         ICommentRepository Comments { get; }
         ICategory2Repository Categories2 { get; }
+        IStoreRepository Stores { get; }
         void Save();
     }
 }

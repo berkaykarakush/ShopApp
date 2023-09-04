@@ -1,6 +1,9 @@
-﻿using AspNetCoreHero.ToastNotification.Abstractions;
+﻿using AspNetCore;
+using AspNetCoreHero.ToastNotification.Abstractions;
 using AutoMapper;
 using BusinessLayer.Abstract;
+using DataAccessLayer.CQRS.Commands;
+using DataAccessLayer.CQRS.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -12,6 +15,7 @@ using PresentationLayer.Models;
 
 namespace PresentationLayer.Areas.Seller.Controllers
 {
+    [Area("Seller")]
     public class AccountController : Controller
     {
         private readonly UserManager<User> _userManager;
@@ -35,51 +39,47 @@ namespace PresentationLayer.Areas.Seller.Controllers
         }
 
         [HttpGet]
-        public IActionResult SellerRegister()
+        [Authorize(Roles = "Customer")]
+        public async Task<IActionResult> SellerRegister(SellerRegisterQueryRequest sellerRegisterQueryRequest)
         {
-            return View();
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user == null)
+            {
+                _notyfService.Error(NotfyMessageEnum.Error);
+                return View();
+            }
+
+            sellerRegisterQueryRequest.SellerId = user.Id;
+            sellerRegisterQueryRequest.SellerFirstName = user.FirstName;
+            sellerRegisterQueryRequest.SellerLastName = user.LastName;
+            sellerRegisterQueryRequest.SellerEmail = user.Email;
+            sellerRegisterQueryRequest.SellerPhone = user.PhoneNumber;
+
+            SellerRegisterQueryResponse response = await _mediator.Send(sellerRegisterQueryRequest);
+            SellerRegisterModel sellerRegisterModel = _mapper.Map<SellerRegisterModel>(response);
+
+            if (!response.IsSuccess)
+            {
+                _notyfService.Error(NotfyMessageEnum.Error);
+                return View();
+            }
+
+            return View(sellerRegisterModel);
         }
 
         [HttpPost]
-        public async Task<IActionResult> SellerRegister(SellerRegisterModel model)
+        public async Task<IActionResult> SellerRegister(SellerRegisterCommandRequest sellerRegisterCommandRequest)
         {
+            
 
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            SellerRegisterCommandResponse response = await _mediator.Send(sellerRegisterCommandRequest);
+            if (!response.IsSuccess)
+                _notyfService.Error(NotfyMessageEnum.Error);
+            else
+                _notyfService.Success("Transaction Successfull - Your application has been received!");
 
-            var user = new User()
-            {
-                FirstName = NameEditExtensions.NameEdit(model.FirstName),
-                LastName = NameEditExtensions.NameEdit(model.LastName),
-                UserName = $"{model.FirstName}{model.LastName}",
-                PhoneNumber = model.Phone,
-                Email = model.Email,
-                IpAddress = GetPublicIPAddress.GetIPAddress(),
-                RegistrationDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
-            };
-
-            var result = await _userManager.CreateAsync(user, model.Password);
-            if (result.Succeeded)
-            {
-                var seller = new IdentityRole();
-                seller.Name = "Seller";
-                seller.NormalizedName = "SELLER";
-
-                await _roleManager.CreateAsync(seller);
-                await _userManager.AddToRoleAsync(user, seller.Name);
-
-                //generate token
-                await SendConfirmMail(user.Id);
-
-                //send mail saying welcome
-                await _emailSender.SendEmailAsync(model.Email, "Welcome to ShopApp", $"Hello, {user.UserName} </br> Welcome to the ShopApp!");
-                return RedirectToAction("Login", "Account");
-            }
-
-            ModelState.AddModelError("", "This email address is already in use!");
-            return View(model);
+            return Redirect("/");
         }
 
         [HttpPost]

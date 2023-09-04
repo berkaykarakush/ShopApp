@@ -77,10 +77,25 @@ namespace DataAccessLayer.Configurations
                         ImageUrlId = i + j + 111111111,
                         //CampaignId = i + 111111111,
                         ProductId = i + 111111111,
+                        StoreId = i + 111111111,
                         Url = "1.jpg"
                     });
                 }
             }
+            //Stores
+            for (int i = 0; i < 50; i++)
+            {
+                builder.Entity<Store>().HasData(
+                new Store()
+                {
+                    StoreId = i + 111111111,
+                    StoreImage = "1.jpg",
+                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                    StoreName = $"store {i}",
+                    StoreUrl = $"store-{i}"
+                });
+            }
+
 
             //Campaings
             for (int i = 0; i < 50; i++)

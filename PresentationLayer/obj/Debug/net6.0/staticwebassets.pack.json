@@ -41,6 +41,62 @@
       "PackagePath": "staticwebassets\\img\\creditcard.png"
     },
     {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\pelus-butik-1.jpg",
+      "PackagePath": "staticwebassets\\img\\pelus-butik-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\store-12222222-1.jpg",
+      "PackagePath": "staticwebassets\\img\\store-12222222-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\store-12222222-2.jpg",
+      "PackagePath": "staticwebassets\\img\\store-12222222-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\store-12222222-3.jpg",
+      "PackagePath": "staticwebassets\\img\\store-12222222-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\store-12222222-4.jpg",
+      "PackagePath": "staticwebassets\\img\\store-12222222-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\store-1414-1.jpg",
+      "PackagePath": "staticwebassets\\img\\store-1414-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\store-222-1.jpg",
+      "PackagePath": "staticwebassets\\img\\store-222-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\store-25555-1.jpg",
+      "PackagePath": "staticwebassets\\img\\store-25555-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\store-4545-1.jpg",
+      "PackagePath": "staticwebassets\\img\\store-4545-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\store-4545-2.jpg",
+      "PackagePath": "staticwebassets\\img\\store-4545-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\store-4545-3.jpg",
+      "PackagePath": "staticwebassets\\img\\store-4545-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\store-4545-4.jpg",
+      "PackagePath": "staticwebassets\\img\\store-4545-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\store-4545-5.jpg",
+      "PackagePath": "staticwebassets\\img\\store-4545-5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\img\\store-55555-1.jpg",
+      "PackagePath": "staticwebassets\\img\\store-55555-1.jpg"
+    },
+    {
       "Id": "C:\\Users\\berka\\OneDrive\\Masaüstü\\ShopApp\\PresentationLayer\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

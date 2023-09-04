@@ -1,0 +1,93 @@
+﻿@model EditStoreVM
+<h1 class="h3">Edit Store</h1>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-area="Admin" asp-controller="Store" asp-action="EditStore" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+            <input type="hidden" asp-for="SellerId"/>
+            <input type="hidden" asp-for="StoreId" />
+
+            <div class="form-group row mt-2">
+                <label asp-for="StoreName" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="StoreName" />
+                    <span asp-validation-for="StoreName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="SellerFirstName" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="SellerFirstName" />
+                    <span asp-validation-for="SellerFirstName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="SellerLastName" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="SellerLastName" />
+                    <span asp-validation-for="SellerLastName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="SellerEmail" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="SellerEmail" />
+                    <span asp-validation-for="SellerEmail" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="SellerPhone" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="SellerPhone" />
+                    <span asp-validation-for="SellerPhone" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="ImageUrls" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                     <div class="row m-1">
+                    @foreach (var item in Model.ImageUrls)
+                    {
+                        <div class="card m-1" style="width: 100px;">
+                            <img src="~/img/@item.Url" class="card-img-top" alt="@item.Url">
+                        </div>
+                    }
+                    </div>
+                    <input asp-for="ImageUrls" class="form-control" type="file" name="files" id="files">
+                    <span asp-validation-for="ImageUrls" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="IsApproved" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <select asp-for="IsApproved" name="IsApproved" class="form-select" aria-label="Default select example">
+                        <option value="@Model.IsApproved" selected>@Model.IsApproved</option>
+                        <option value="true">True</option>
+                        <option value="false">False</option>
+                    </select>
+                    <span asp-validation-for="IsApproved" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}

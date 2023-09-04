@@ -6,7 +6,7 @@ namespace DataAccessLayer.CQRS.Queries
     {
         public Task<LoginQueryResponse> Handle(LoginQueryRequest request, CancellationToken cancellationToken)
         {
-            return Task.FromResult(new LoginQueryResponse() { IsSuccess = false, ReturnUrl = request.ReturnUrl });
+            return Task.FromResult(new LoginQueryResponse() { ReturnUrl = request.ReturnUrl });
         }
     }
 }

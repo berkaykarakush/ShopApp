@@ -72,6 +72,14 @@ namespace PresentationLayer.Mapping
             CreateMap<EditCommentQueryResponse, EditCommentVM>().ReverseMap();
             CreateMap<ProductDetailModel, CreateCommentVM>().ReverseMap();
             CreateMap<ProductDetailModel, CommentVM>().ReverseMap();
+
+            //Seller
+            CreateMap<SellerRegisterQueryResponse, SellerRegisterModel>().ReverseMap();
+
+            //Store
+            CreateMap<Store, StoreVM>().ReverseMap();
+            CreateMap<ListStoreQueryResponse, ListStoreVM>().ReverseMap();
+            CreateMap<EditStoreQueryResponse, EditStoreVM>().ReverseMap();
         }
     }
 }

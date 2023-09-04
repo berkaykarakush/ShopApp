@@ -4,10 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 namespace PresentationLayer.Areas.Seller.Controllers
 {
     [Area("Seller")]
-    [Authorize(Roles = "Seller")]
     public class HomeController : Controller
     {
-        public IActionResult Dashoard()
+        public IActionResult Index()
+        {
+            return View();
+        }
+        
+        [Authorize(Roles = "Seller")]
+        public IActionResult Dashboard()
         {
             return View();
         }
