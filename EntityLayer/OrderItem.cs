@@ -9,7 +9,7 @@ namespace EntityLayer
         public Order? Order { get; set; }
         public double ProductId { get; set; }
         public Product? Product { get; set; }
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         public string? CreatedDate { get; set; }
         public string? UpdatedDate { get; set; }
         public int Quantity { get; set; }

@@ -18,7 +18,7 @@ namespace PresentationLayer.Models
         public EnumPaymentType PaymentType { get; set; }
         public EnumOrderState OrderState { get; set; }
         public List<OrderItemModel>? OrderItems { get; set; }
-        public double TotalPrice()
+        public decimal TotalPrice()
         {
             return OrderItems.Sum(o => o.Price * o.Quantity);
         }

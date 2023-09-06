@@ -11,5 +11,7 @@
         public string? Description { get; set; }
         public string? CreatedDate { get; set; }
         public string? UpdatedDate { get; set; }
+        public int CommentRate { get; set; }
+
     }
 }

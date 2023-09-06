@@ -8,7 +8,7 @@
             {
                 <div class="carousel-item active">
                     <a asp-controller="shop" asp-action="Details" asp-route-url="@Model.Url">
-                        <img src="~/img/@item.Url" class="card-img-top w-100" alt="@item.Url" style="height: 500px;">
+                        <img src="~/img/@item.Url" class="card-img-top w-100" alt="@item.Url" style="height: 400px;">
                     </a>
                 </div>
             }
@@ -38,15 +38,18 @@
         <a href="#" class="nav-link form-inline"><h5 class="card-title">@Model.Brand.Name @Model.Name</h5></a>
         <a href="#" class="h4 nav-link">
             <strong>
-                <i class="fa-solid fa-star text-warning"></i>
-                <i class="fa-solid fa-star text-warning"></i>
-                <i class="fa-solid fa-star text-warning"></i>
-                <i class="fa-solid fa-star text-warning"></i>
-                <i class="fa-solid fa-star text-warning"></i>
-                4.8
+                @for (int i = 0; i < Math.Floor(Model.ProductRate); i++)
+                {
+                    <i class="fa-solid fa-star text-warning"></i>
+                }
+                @for (int i = 0; i < 5 - Model.ProductRate; i++)
+                {
+                    <i class="fa-regular fa-star text-warning"></i>
+                }
             </strong>
+            (@Model.CommentCount)
         </a>
-        <strong>@Model.Price.00 TL</strong>
+        <strong class="text-danger">@Model.Price TL</strong>
     </div>
 </div> 
 

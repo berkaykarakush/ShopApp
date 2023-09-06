@@ -17,7 +17,7 @@ namespace PresentationLayer.Models
 
         [Required]
         [DataType(DataType.Currency)]
-        public double? Price { get; set; }
+        public decimal? Price { get; set; }
 
         [Required]
         public int Quantity { get; set; }

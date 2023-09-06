@@ -113,7 +113,7 @@ namespace PresentationLayer.Controllers
                         ProductId = c.ProductId,
                         CartItemId = c.ProductId,
                         ProductName = c.Product.Name,
-                        Price = (double)c.Product.Price,
+                        Price = c.Product.Price,
                         Quantity = c.Quantity,
                         ProductImage = c.Product.ProductImage
                     }).ToList()

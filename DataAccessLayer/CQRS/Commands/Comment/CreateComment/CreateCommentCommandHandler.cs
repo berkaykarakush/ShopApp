@@ -2,6 +2,7 @@
 using EntityLayer;
 using MediatR;
 using Serilog;
+using System.Xml.Linq;
 
 namespace DataAccessLayer.CQRS.Commands
 {
@@ -37,6 +38,34 @@ namespace DataAccessLayer.CQRS.Commands
                 if (comment == null)
                     return Task.FromResult(new CreateCommentCommandResponse() { IsSuccess = false});
 
+                if (request.Rate1)
+                    comment.CommentRate += 1;
+
+                if (request.Rate2)
+                    comment.CommentRate += 1;
+
+                if (request.Rate3)
+                    comment.CommentRate += 1;
+
+                if (request.Rate4)
+                    comment.CommentRate += 1;
+
+                if (request.Rate5)
+                    comment.CommentRate += 1;
+
+
+                //**********************
+                // One comment 1 point, one comment 3 point total 4 point 
+                // so
+                //CommentCount = 2
+                //StartCount = 4
+                //ProductRate =  4/2 = 2
+                product.CommentCount += 1; 
+                product.StarCount += comment.CommentRate; 
+                product.ProductRate = (decimal)product.StarCount / (decimal)product.CommentCount;
+                //**********************
+
+                _unitOfWork.Products.Update(product);
                 _unitOfWork.Comments.Create(comment);
                 _unitOfWork.Save();
                 return Task.FromResult(new CreateCommentCommandResponse() { IsSuccess = true, Url= product.Url});

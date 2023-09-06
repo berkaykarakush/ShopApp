@@ -1,4 +1,6 @@
-﻿namespace PresentationLayer.Models
+﻿using EntityLayer;
+
+namespace PresentationLayer.Models
 {
     public class CommentVM
     {
@@ -11,5 +13,6 @@
         public string? Description { get; set; }
         public string? CreatedDate { get; set; }
         public string? UpdatedDate { get; set; }
+        public int CommentRate { get; set; }
     }
 }

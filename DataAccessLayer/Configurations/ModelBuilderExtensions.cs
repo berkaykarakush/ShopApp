@@ -62,7 +62,7 @@ namespace DataAccessLayer.Configurations
             for (int i = 0; i < 50; i++)
             {
                 builder.Entity<Product>().HasData(
-                    new Product() { ProductId = i+111111111, Name = $"urun {i}", Url = $"urun-{i}", Price = 10, Description = $"urun aciklamasi {i}", IsApproved = true, CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), IsHome = true, Quantity = i, SalesCount = i, UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), ProductImage = "1.jpg", BrandId = i + 111111111, CategoryId = i + 111111111, Category2Id = i + 111111111 }
+                    new Product() { ProductId = i+111111111, Name = $"urun {i}", Url = $"urun-{i}", Price = 10, Description = $"urun aciklamasi {i}", IsApproved = true, CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), IsHome = true, Quantity = i, SalesCount = i, UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), ProductImage = "1.jpg", BrandId = i + 111111111, CategoryId = i + 111111111, Category2Id = i + 111111111, CommentCount = 1 }
                 );
             }
 
@@ -96,7 +96,6 @@ namespace DataAccessLayer.Configurations
                 });
             }
 
-
             //Campaings
             for (int i = 0; i < 50; i++)
             {
@@ -127,6 +126,7 @@ namespace DataAccessLayer.Configurations
                         UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                         UserFirstname = "John",
                         UserLastname = "Doe",
+                        CommentRate = 1
                     }
                 );
             }

@@ -47,7 +47,7 @@ namespace PresentationLayer.Controllers
                 {
                     OrderItemId = o.OrderItemId,
                     Name = o.Product.Name,
-                    Price = (double)o.Price,
+                    Price = o.Price,
                     Quantity = o.Quantity,
                     ProductImage = o.Product.ProductImage
                 }).ToList();

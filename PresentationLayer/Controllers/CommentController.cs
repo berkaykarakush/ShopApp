@@ -5,6 +5,7 @@ using DataAccessLayer.CQRS.Commands;
 using DataAccessLayer.CQRS.Queries;
 using EntityLayer;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer.Enums;
@@ -28,8 +29,9 @@ namespace PresentationLayer.Controllers
             _userManager = userManager;
         }
 
+        [Authorize()]
         [HttpPost]
-        public async Task<IActionResult> CreateComment(CreateCommentCommandRequest createCommentCommandRequest)
+        public async Task<IActionResult> CreateComment(CreateCommentCommandRequest createCommentCommandRequest, int[] rates)
         {
             var user = await _userManager.GetUserAsync(User);
             createCommentCommandRequest.UserId = user.Id;

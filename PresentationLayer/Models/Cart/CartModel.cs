@@ -11,7 +11,7 @@ namespace PresentationLayer.Models
         public decimal TotalPrice()
         {
             if (CartItems != null)
-                return (decimal)CartItems.Sum(c => c.Price * c.Quantity);
+                return CartItems.Sum(c => c.Price * c.Quantity);
             else
                 throw new Exception("Error");
         }

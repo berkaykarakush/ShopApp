@@ -24,15 +24,12 @@ namespace PresentationLayer.Controllers
         //TODO orders process
         //TODO SignalR
         //TODO add open source email library 
-        //TODO details product rate
         //TODO checout form add contract
         //TODO admin register
         //TODO admin giris ekranini admin layout'a tasi
         //TODO admin dasboard en cok satan urun
         //TODO admin dasboard en cok satis yapan magaza
         //TODO magaza sayfasi olustur
-        //TODO yorumlara puan ekle
-        //TODO yorum puani hesapla
         //TODO user order listeleme
         //TODO admin tum orderlari goruntuleme
         //TODO seller order goruntuleme
