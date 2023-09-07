@@ -127,9 +127,11 @@ namespace BusinessLayer.Concrete
                 //}
             }
             else
-                isValid = false;    
+            {
+                ErrorMessage = "Error - Null reference!";
+                isValid = false;
+            }
 
-            ErrorMessage = "Error - Null reference!";
             return isValid;
         }
     }

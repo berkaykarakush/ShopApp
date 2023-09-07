@@ -6,8 +6,8 @@ namespace PresentationLayer.Models
     {
         public double OrderItemId { get; set; }
         public decimal Price { get; set; }
-        public string Name { get; set; }
-        public string ProductImage { get; set; }
+        public string? Name { get; set; }
+        public string? ProductImage { get; set; }
         public int Quantity { get; set; }
     }
 }

@@ -1,4 +1,7 @@
-﻿using BusinessLayer.Abstract;
+﻿using AutoMapper;
+using BusinessLayer.Abstract;
+using DataAccessLayer.CQRS.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -7,53 +10,28 @@ using PresentationLayer.Models;
 
 namespace PresentationLayer.Controllers
 {
-    [Authorize]
+    [Authorize()]
     public class OrderController : Controller
     {
         private readonly IOrderService _orderService;
         private readonly UserManager<User> _userManager;
-
-        public OrderController(IOrderService orderService, UserManager<User> userManager)
+        private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
+        public OrderController(IOrderService orderService, UserManager<User> userManager, IMediator mediator, IMapper mapper)
         {
             _orderService = orderService;
             _userManager = userManager;
+            _mediator = mediator;
+            _mapper = mapper;
         }
 
-        public IActionResult GetOrders()
+        public async Task<IActionResult> GetOrders(GetOrdersCommandRequest getOrdersCommandRequest)
         {
             var userId = _userManager.GetUserId(User);
-            var orders = _orderService.GetOrders(userId);
+            getOrdersCommandRequest.UserId = userId;
 
-            var orderListModel = new List<OrderListModel>();
-            OrderListModel orderModel;
-
-            foreach (var order in orders)
-            {
-                orderModel = new OrderListModel();
-
-                orderModel.OrderId = order.OrderId;
-                orderModel.OrderNumber = order.OrderNumber;
-                orderModel.OrderDate = order.OrderDate;
-                orderModel.Phone = order.Phone;
-                orderModel.Address = order.Address;
-                orderModel.City = order.City;
-                orderModel.Email = order.Email;
-                orderModel.FirstName = order.FirstName;
-                orderModel.LastName = order.LastName;
-                orderModel.PaymentType = order.PaymentType;
-                orderModel.OrderState = order.OrderState;
-
-                orderModel.OrderItems = order.OrderItems.Select(o => new OrderItemModel() 
-                {
-                    OrderItemId = o.OrderItemId,
-                    Name = o.Product.Name,
-                    Price = o.Price,
-                    Quantity = o.Quantity,
-                    ProductImage = o.Product.ProductImage
-                }).ToList();
-
-                orderListModel.Add(orderModel);
-            }
+            GetOrdersCommandResponse response = await _mediator.Send(getOrdersCommandRequest);
+            OrderListModel orderListModel = _mapper.Map<OrderListModel>(response);
 
             return View(orderListModel);
         }

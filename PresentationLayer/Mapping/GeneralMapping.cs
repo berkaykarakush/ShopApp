@@ -11,7 +11,7 @@ namespace PresentationLayer.Mapping
     {
         public GeneralMapping()
         {
-            //Product
+            #region Product
             CreateMap<ProductVM, Product>().ReverseMap();
             CreateMap<ProductVM, List<Product>>().ReverseMap();
             CreateMap<EntityLayer.PageInfo, PageInfoVM>().ReverseMap();
@@ -26,45 +26,53 @@ namespace PresentationLayer.Mapping
             CreateMap<CreateProductQueryResponse, CreateProductVM>().ReverseMap();
             CreateMap<CreateProductCommandResponse, CreateProductVM>().ReverseMap();
             CreateMap<ShopBrandListQueryResponse, ListProductVM>().ReverseMap();
+            #endregion
 
-            //Category
+            #region Category
             CreateMap<Category, CategoryVM>().ReverseMap();
             CreateMap<EditCategoryQueryResponse, CategoryVM>().ReverseMap();
             CreateMap<EditCategoryCommandResponse, CategoryVM>().ReverseMap();
             CreateMap<ListCategoryQueryResponse, CategoryListViewModel>().ReverseMap();
+            #endregion
 
-            //Category2
+            #region Category2
             CreateMap<CreateCategory2QueryResponse, CreateCategory2VM>().ReverseMap();
             CreateMap<ListCategory2QueryResponse, Category2ListVM>().ReverseMap();
             CreateMap<Category2, Category2VM>().ReverseMap();
             CreateMap<EditCategory2QueryResponse, EditCategory2VM>().ReverseMap();
             CreateMap<ShopCategory2ListQueryResponse, ListProductVM>().ReverseMap();
-            //Account
-            CreateMap<LoginQueryResponse, LoginModel>().ReverseMap();
+            #endregion
 
-            //Cart
+            #region Account
+            CreateMap<LoginQueryResponse, LoginModel>().ReverseMap();
+            #endregion
+
+            #region Cart
             CreateMap<CartIndexQueryResponse, CartModel>().ReverseMap();
             CreateMap<CartItem, CartItemModel>().ReverseMap();
-            CreateMap<CheckoutQueryResponse, OrderModel>().ReverseMap();
+            CreateMap<CheckoutQueryResponse, CreateOrderVM>().ReverseMap();
             CreateMap<Cart, CartModel>().ReverseMap();
+            #endregion
 
-            //Campaign
+            #region Campaign
             CreateMap<Campaign, HomeSliderVM>().ReverseMap();
             CreateMap<Campaign, CreateCampaignVM>().ReverseMap();
             CreateMap<ListCampaignQueryResponse, ListCampaignVM>().ReverseMap();
             CreateMap<EditCampaignQueryResponse, EditCampaignVM>().ReverseMap();
+            #endregion
 
-            //User
+            #region User
             CreateMap<UserAddress, UserAddressModel>().ReverseMap();
+            #endregion
 
-            //Brand
+            #region Brand
             CreateMap<Brand, BrandVM>().ReverseMap();
             CreateMap<ListBrandQueryResponse, ListBrandVM>().ReverseMap();
             CreateMap<UpdateBrandQueryResponse, UpdateBrandVM>().ReverseMap();
             CreateMap<Brand, UpdateBrandVM>().ReverseMap();
+            #endregion
 
-
-            //Comment
+            #region Comment
             CreateMap<Comment, CommentVM>().ReverseMap();
             CreateMap<Comment, CreateCommentVM>().ReverseMap();
             CreateMap<Comment, EditCommentVM>().ReverseMap();
@@ -72,14 +80,24 @@ namespace PresentationLayer.Mapping
             CreateMap<EditCommentQueryResponse, EditCommentVM>().ReverseMap();
             CreateMap<ProductDetailModel, CreateCommentVM>().ReverseMap();
             CreateMap<ProductDetailModel, CommentVM>().ReverseMap();
+            #endregion
 
-            //Seller
+            #region Seller
             CreateMap<SellerRegisterQueryResponse, SellerRegisterModel>().ReverseMap();
+            #endregion
 
-            //Store
+            #region Store
             CreateMap<Store, StoreVM>().ReverseMap();
             CreateMap<ListStoreQueryResponse, ListStoreVM>().ReverseMap();
             CreateMap<EditStoreQueryResponse, EditStoreVM>().ReverseMap();
+            #endregion
+
+            #region Order
+            CreateMap<Order, OrderVM>().ReverseMap();
+            CreateMap<Order, CreateOrderVM>().ReverseMap();
+            CreateMap<OrderItem, OrderItemModel>().ReverseMap();
+            CreateMap<GetOrdersCommandResponse, OrderListModel>().ReverseMap();
+            #endregion
         }
     }
 }

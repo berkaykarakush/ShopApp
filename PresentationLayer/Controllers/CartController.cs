@@ -87,7 +87,7 @@ namespace PresentationLayer.Controllers
             Cart cart = _cartService.GetCartByUserId(_userManager.GetUserId(User));
             checkoutQueryRequest.Cart = cart;
             CheckoutQueryResponse response = await _mediator.Send(checkoutQueryRequest);
-            OrderModel orderModel = _mapper.Map<OrderModel>(response);
+            CreateOrderVM orderModel = _mapper.Map<CreateOrderVM>(response);
             orderModel.CartModel = _mapper.Map<CartModel>(response.Cart);
 
             if (!response.IsSuccess)
@@ -98,7 +98,7 @@ namespace PresentationLayer.Controllers
 
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Checkout(OrderModel model)
+        public async Task<IActionResult> Checkout(CreateOrderVM model)
         {
             if (ModelState.IsValid)
             {
@@ -149,7 +149,7 @@ namespace PresentationLayer.Controllers
             return RedirectToAction("Checkout", "Cart");
         }
 
-        private void IncreaseProductSaleCount(OrderModel model)
+        private void IncreaseProductSaleCount(CreateOrderVM model)
         {
             foreach (var p in model.CartModel.CartItems)
             {
@@ -163,7 +163,7 @@ namespace PresentationLayer.Controllers
         }
 
         [Authorize]
-        private void DecreaseQuantity(OrderModel model)
+        private void DecreaseQuantity(CreateOrderVM model)
         {
             foreach (var i in model.CartModel.CartItems)
             {
@@ -179,7 +179,10 @@ namespace PresentationLayer.Controllers
                     product.Quantity -= i.Quantity;
                     _productService.Update(product);
                 }
-                _notyfService.Error($"Error - {product.Name} has no stock.");
+                else
+                {
+                    _notyfService.Error($"Error - {product.Name} has no stock.");
+                }
             }
         }
 
@@ -190,7 +193,7 @@ namespace PresentationLayer.Controllers
         }
 
         [Authorize]
-        private void SaveOrder(OrderModel model, Payment payment, string userId)
+        private void SaveOrder(CreateOrderVM model, Payment payment, string userId)
         {
             var order = new Order();
             order.OrderNumber = new Random().Next(111111, 999999).ToString();
@@ -220,7 +223,7 @@ namespace PresentationLayer.Controllers
         }
 
         [Authorize]
-        private Payment PaymentProcess(OrderModel model)
+        private Payment PaymentProcess(CreateOrderVM model)
         {
             Options options = new Options();
             options.ApiKey = Configuration._configuration.GetSection("Iyzico:APIkey").Value;
@@ -304,7 +307,7 @@ namespace PresentationLayer.Controllers
         }
 
         [Authorize]
-        public async Task<EnumOrderState> OrderState(OrderModel model, EnumOrderState state)
+        public async Task<EnumOrderState> OrderState(CreateOrderVM model, EnumOrderState state)
         {
             EnumOrderState _state = state;
 

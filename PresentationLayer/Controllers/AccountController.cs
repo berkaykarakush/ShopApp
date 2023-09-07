@@ -153,6 +153,12 @@ namespace PresentationLayer.Controllers
         {
             string userId = _userManager.GetUserId(User);
             User user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                return View();
+            }
+
             ManageModel manageModel = new ManageModel();
             manageModel.UserDetailsModel = new UserDetailsModel() 
             {

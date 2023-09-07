@@ -114,7 +114,5 @@ namespace PresentationLayer.Areas.Admin.Controllers
             _notyfService.Success("Trantaction Successfull - User information updated!");
             return RedirectToAction("Manage", "Account");
         }
-
-        //TODO User delete
     }
 }

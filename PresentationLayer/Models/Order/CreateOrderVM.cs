@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EntityLayer;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace PresentationLayer.Models
 {
-    public class OrderModel
+    public class CreateOrderVM
     {
         public string? UserId { get; set; }
 

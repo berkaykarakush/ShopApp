@@ -1,57 +1,63 @@
-﻿@model List<OrderListModel>
-@{
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-}
-<h1>Orders</h1>
-<hr class="mb-3"/>
+﻿@model OrderListModel
 
-@foreach(var order in Model)
+@if (Model.Orders.Count < 1)
 {
-    <table class="table table-bordered table-sm table-hover mb-3">
-        <thead class ="p-3 mb-2 bg-danger-subtle text-emphasis-danger">
-            <tr>
-                <td colspan="2">Order Number: #@order.OrderNumber</td>
-                <td>Price</td>
-                <td>Quantity</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var orderItem in order.OrderItems)
-            {
-                <tr>
-                    <td><img src="~/img/@orderItem.ProductImage" width="80"/></td>
-                    <td>@orderItem.Name</td>
-                    <td>@orderItem.Price</td>
-                    <td>@orderItem.Quantity</td>
-                </tr>
-            }
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="2">Customer Name</td>
-                <td>@order.FirstName @order.LastName</td>
-                <td rowspan="6">Total: @order.TotalPrice().ToString("c")</td>
-            </tr>
-            <tr>
-                <td colspan="2">Adress</td>
-                <td>@order.Address</td>
-            </tr>
-            <tr>
-                <td colspan="2">Email</td>
-                <td>@order.Email</td>
-            </tr>
-            <tr>
-                <td colspan="2">Phone</td>
-                <td>@order.Phone</td>
-            </tr>
-            <tr>
-                <td colspan="2">Order State</td>
-                <td>@order.OrderState</td>
-            </tr>
-            <tr>
-                <td colspan="2">Payment Type</td>
-                <td>@order.PaymentType</td>
-            </tr>
-        </tfoot>
-    </table>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-danger" role="alert">
+                You have not ordered yet
+            </div>
+        </div>
+    </div>
+}else
+{
+    @foreach (var order in Model.Orders)
+    {
+        <div class="card mb-4">
+            <div class="card-header  text-center">
+                <div class="row m-1">
+                    <div class="col-md-3">
+                        <p><strong>Order Number</strong><br> #@order.OrderNumber</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><strong>Order Date</strong><br> @order.OrderDate.ToShortDateString() - @order.OrderDate.ToShortTimeString()</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><strong>Buyer</strong><br> @order.FirstName @order.LastName</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><strong>Total Price</strong><br> @order.TotalPrice().ToString() TL</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body m-1">
+
+                    @foreach (var orderItem in order.OrderItems)
+                    {
+                        <div class="card mb-3" style="height: 150px;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img style="height: 80px;" src="~/img/@orderItem.ProductImage" class="img-fluid rounded-start m-4" />
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <p class="card-text"><strong>Name</strong> <br>@orderItem.Name</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                            <p class="card-text"><strong>Price</strong> <br>@orderItem.Price</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                            <p class="card-text"><strong>Quantity</strong> <br>@orderItem.Quantity</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+            </div>
+        </div>
+    }
 }

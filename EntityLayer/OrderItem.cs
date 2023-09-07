@@ -13,5 +13,7 @@ namespace EntityLayer
         public string? CreatedDate { get; set; }
         public string? UpdatedDate { get; set; }
         public int Quantity { get; set; }
+        public string? Name { get; set; }
+        public string? ProductImage { get; set; }
     }
 }
