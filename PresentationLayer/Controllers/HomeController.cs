@@ -25,8 +25,6 @@ namespace PresentationLayer.Controllers
         //TODO SignalR
         //TODO add open source email library 
         //TODO checout form add contract
-        //TODO admin register
-        //TODO admin giris ekranini admin layout'a tasi
         //TODO admin dasboard en cok satan urun
         //TODO admin dasboard en cok satis yapan magaza
         //TODO magaza sayfasi olustur

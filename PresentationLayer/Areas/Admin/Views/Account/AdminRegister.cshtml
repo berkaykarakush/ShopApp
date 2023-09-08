@@ -1,0 +1,69 @@
+﻿@model AdminRegisterVM
+<div class="row mt-4">
+    <div class="col-md-2 mb-4"></div>
+    <div class="col-md-8 mt-4">
+        <div class="card mt-4 mb-4 text-center container-fluid">
+            <div class="card-body">
+                <h5 class="card-title mb-4">Hello</h5>
+                <h6 class="card-subtitle mb-4 text-body-secondary">Welcome to the ShopApp</h6>
+                <hr class="mb-3" />
+                <form asp-area="Admin" asp-controller="Account" asp-action="AdminRegister" enctype="application/x-www-form-urlencoded" method="post">
+                    <div asp-validation-summary="All" style="color: red;"></div>
+                    <div class="form-group row mt-2">
+                        <label asp-for="FirstName" class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                            <input class="form-control" asp-for="FirstName" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <label asp-for="LastName" class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                            <input class="form-control" asp-for="LastName" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <label asp-for="Email" class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                            <input class="form-control" asp-for="Email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <label asp-for="Phone" class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                            <input class="form-control" asp-for="Phone" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <label asp-for="Password" class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                            <input class="form-control" asp-for="Password" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <label asp-for="RePassword" class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                            <input class="form-control" asp-for="RePassword" />
+                            <span asp-validation-for="RePassword" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 m-4">
+                        <button type="submit" class="btn btn-danger">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 mb-4"></div>
+</div>
+
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}

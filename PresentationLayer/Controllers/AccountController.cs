@@ -120,11 +120,12 @@ namespace PresentationLayer.Controllers
             {
                 FirstName = NameEditExtensions.NameEdit(model.FirstName),
                 LastName = NameEditExtensions.NameEdit(model.LastName),
-                UserName = $"{model.FirstName}{model.LastName}",
+                UserName = $"{model.FirstName}{model.LastName}".ToLower(),
                 PhoneNumber = model.Phone,
                 Email = model.Email,
+                NormalizedEmail = $"{model.Email}".ToUpper(),
                 IpAddress = GetPublicIPAddress.GetIPAddress(),
-                RegistrationDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                RegistrationDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
             };
             
             var result = await _userManager.CreateAsync(user, model.Password);

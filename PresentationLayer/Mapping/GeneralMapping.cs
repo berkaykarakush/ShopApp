@@ -2,6 +2,7 @@
 using DataAccessLayer.CQRS.Commands;
 using DataAccessLayer.CQRS.Queries;
 using EntityLayer;
+using PresentationLayer.Areas.Seller.Models;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
 

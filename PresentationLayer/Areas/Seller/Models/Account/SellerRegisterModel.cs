@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PresentationLayer.Models  
+namespace PresentationLayer.Areas.Seller.Models
 {
     public class SellerRegisterModel
     {

@@ -8,10 +8,10 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using PresentationLayer.Areas.Seller.Models;
 using PresentationLayer.Enums;
 using PresentationLayer.Extensions;
 using PresentationLayer.Identity;
-using PresentationLayer.Models;
 
 namespace PresentationLayer.Areas.Seller.Controllers
 {
