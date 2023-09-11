@@ -26,9 +26,9 @@ namespace PresentationLayer.Areas.Admin.Controllers
             _notyfService = notyfService;
         }
 
-        public async Task<IActionResult> ListStore(ListStoreQueryRequest listStoreQueryRequest)
+        public async Task<IActionResult> ListStore(AdminListStoreQueryRequest listStoreQueryRequest)
         {
-            ListStoreQueryResponse response = await _mediator.Send(listStoreQueryRequest);
+            AdminListStoreQueryResponse response = await _mediator.Send(listStoreQueryRequest);
             ListStoreVM listStoreVM = _mapper.Map<ListStoreVM>(response);
 
             if (!response.IsSuccess)
@@ -38,9 +38,9 @@ namespace PresentationLayer.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> EditStore(EditStoreQueryRequest editStoreQueryRequest)
+        public async Task<IActionResult> EditStore(AdminEditStoreQueryRequest editStoreQueryRequest)
         {
-            EditStoreQueryResponse response = await _mediator.Send(editStoreQueryRequest);
+            AdminEditStoreQueryResponse response = await _mediator.Send(editStoreQueryRequest);
             EditStoreVM editStoreVM = _mapper.Map<EditStoreVM>(response);
 
             if (!response.IsSuccess)
@@ -50,27 +50,27 @@ namespace PresentationLayer.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditStore(EditStoreCommandRequest editStoreCommandRequest, IFormFileCollection files)
+        public async Task<IActionResult> EditStore(AdminEditStoreCommandRequest editStoreCommandRequest, IFormFileCollection files)
         {
             var imageUrls = await ImageNameEditExtensions.ImageNameEdit(files, UrlNameEditExtensions.UrlNameEdit(editStoreCommandRequest.StoreName));
             editStoreCommandRequest.StoreUrl = UrlNameEditExtensions.UrlNameEdit(editStoreCommandRequest.StoreName);
             editStoreCommandRequest.StoreImage = imageUrls[0].Url.ToString();
             editStoreCommandRequest.ImageUrls = imageUrls;
 
-            EditStoreCommandResponse response = await _mediator.Send(editStoreCommandRequest);
+            AdminEditStoreCommandResponse response = await _mediator.Send(editStoreCommandRequest);
 
             if (!response.IsSuccess)
                 _notyfService.Error(NotfyMessageEnum.Error);
             else
                 _notyfService.Success("Transaction Successfull - Store updated!");
 
-            return RedirectToAction("EditStore", "Store", new EditStoreQueryRequest() { StoreId = response.StoreId });
+            return RedirectToAction("EditStore", "Store", new AdminEditStoreQueryRequest() { StoreId = response.StoreId });
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteStore(DeleteStoreCommandRequest deleteStoreCommandRequest)
+        public async Task<IActionResult> DeleteStore(AdminDeleteStoreCommandRequest deleteStoreCommandRequest)
         {
-            DeleteStoreCommandResponse response = await _mediator.Send(deleteStoreCommandRequest);
+            AdminDeleteStoreCommandResponse response = await _mediator.Send(deleteStoreCommandRequest);
 
             if (!response.IsSuccess)
                 _notyfService.Error(NotfyMessageEnum.Error);

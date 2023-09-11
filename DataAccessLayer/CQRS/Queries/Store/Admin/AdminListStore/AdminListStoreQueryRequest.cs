@@ -3,8 +3,8 @@ using MediatR;
 
 namespace DataAccessLayer.CQRS.Queries
 {
-    public class ListStoreQueryRequest: IRequest<ListStoreQueryResponse>
+    public class AdminListStoreQueryRequest : IRequest<AdminListStoreQueryResponse>
     {
-       
+
     }
 }

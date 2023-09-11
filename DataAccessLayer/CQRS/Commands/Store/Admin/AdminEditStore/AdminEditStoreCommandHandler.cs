@@ -2,26 +2,26 @@
 using MediatR;
 using Serilog;
 
-namespace DataAccessLayer.CQRS.Commands
+namespace DataAccessLayer.CQRS.Commands 
 {
-    public class EditStoreCommandHandler : IRequestHandler<EditStoreCommandRequest, EditStoreCommandResponse>
+    public class AdminEditStoreCommandHandler : IRequestHandler<AdminEditStoreCommandRequest, AdminEditStoreCommandResponse>
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public EditStoreCommandHandler(IUnitOfWork unitOfWork)
+        public AdminEditStoreCommandHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public Task<EditStoreCommandResponse> Handle(EditStoreCommandRequest request, CancellationToken cancellationToken)
+        public Task<AdminEditStoreCommandResponse> Handle(AdminEditStoreCommandRequest request, CancellationToken cancellationToken)
         {
             try
             {
                 var store = _unitOfWork.Stores.GetByIdWithImageUrls(request.StoreId);
 
                 if (store == null)
-                    return Task.FromResult(new EditStoreCommandResponse() { IsSuccess = false });
-                
+                    return Task.FromResult(new AdminEditStoreCommandResponse() { IsSuccess = false });
+
                 store.StoreName = request.StoreName;
                 store.StoreImage = request.StoreImage;
                 store.StoreUrl = request.StoreUrl;
@@ -36,19 +36,19 @@ namespace DataAccessLayer.CQRS.Commands
 
                 store.SellerFirstName = request.SellerFirstName;
                 store.SellerLastName = request.SellerLastName;
-                store.SellerEmail = request.SellerEmail; 
+                store.SellerEmail = request.SellerEmail;
                 store.SellerPhone = request.SellerPhone;
 
                 _unitOfWork.Stores.Update(store);
                 _unitOfWork.Save();
-                return Task.FromResult(new EditStoreCommandResponse() { IsSuccess = true, StoreId = store.StoreId });
+                return Task.FromResult(new AdminEditStoreCommandResponse() { IsSuccess = true, StoreId = store.StoreId });
             }
             catch (Exception ex)
             {
                 Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
 
-            return Task.FromResult(new EditStoreCommandResponse() { IsSuccess = false});
+            return Task.FromResult(new AdminEditStoreCommandResponse() { IsSuccess = false });
         }
     }
 }

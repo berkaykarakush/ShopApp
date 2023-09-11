@@ -1,11 +1,11 @@
 ﻿using EntityLayer;
 using MediatR;
 
-namespace DataAccessLayer.CQRS.Commands
+namespace DataAccessLayer.CQRS.Commands 
 {
-    public class EditStoreCommandRequest: IRequest<EditStoreCommandResponse>
+    public class AdminEditStoreCommandRequest : IRequest<AdminEditStoreCommandResponse>
     {
-        public double StoreId { get; set; } 
+        public double StoreId { get; set; }
         public string? StoreName { get; set; }
         public string? StoreUrl { get; set; }
         public string? CreatedDate { get; set; }

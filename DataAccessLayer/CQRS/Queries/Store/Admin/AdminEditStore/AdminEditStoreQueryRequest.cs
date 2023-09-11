@@ -2,7 +2,7 @@
 
 namespace DataAccessLayer.CQRS.Queries
 {
-    public class EditStoreQueryRequest: IRequest<EditStoreQueryResponse>
+    public class AdminEditStoreQueryRequest : IRequest<AdminEditStoreQueryResponse>
     {
         public double StoreId { get; set; }
     }

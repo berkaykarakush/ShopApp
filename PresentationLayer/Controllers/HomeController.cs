@@ -29,7 +29,6 @@ namespace PresentationLayer.Controllers
         //TODO admin dasboard en cok satis yapan magaza
         //TODO magaza sayfasi olustur
         //TODO user order listeleme
-        //TODO seller order goruntuleme
         //TODO seller stock gorunutleme 
         //TODO seller satis bilgilerini goruntuleme
         //TODO seller siparis kargolandi ekleme

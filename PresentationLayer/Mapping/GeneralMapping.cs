@@ -90,8 +90,9 @@ namespace PresentationLayer.Mapping
 
             #region Store
             CreateMap<Store, StoreVM>().ReverseMap();
-            CreateMap<ListStoreQueryResponse, ListStoreVM>().ReverseMap();
-            CreateMap<EditStoreQueryResponse, EditStoreVM>().ReverseMap();
+            CreateMap<AdminListStoreQueryResponse, ListStoreVM>().ReverseMap();
+            CreateMap<AdminEditStoreQueryResponse, EditStoreVM>().ReverseMap();
+            CreateMap<SellerStoreIndexQueryResponse, StoreIndexVM>().ReverseMap();
             #endregion
 
             #region Order

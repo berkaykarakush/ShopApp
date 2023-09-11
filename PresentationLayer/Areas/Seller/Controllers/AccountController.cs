@@ -71,7 +71,8 @@ namespace PresentationLayer.Areas.Seller.Controllers
         [HttpPost]
         public async Task<IActionResult> SellerRegister(SellerRegisterCommandRequest sellerRegisterCommandRequest)
         {
-            
+            var user = await _userManager.GetUserAsync(User);
+            await _userManager.AddToRoleAsync(user, "Seller");
 
             SellerRegisterCommandResponse response = await _mediator.Send(sellerRegisterCommandRequest);
             if (!response.IsSuccess)

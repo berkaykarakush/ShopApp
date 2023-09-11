@@ -1,6 +1,6 @@
 ﻿namespace DataAccessLayer.CQRS.Commands
 {
-    public class DeleteStoreCommandResponse
+    public class SellerEditStoreCommandResponse
     {
         public bool IsSuccess { get; set; }
     }
