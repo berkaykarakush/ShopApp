@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Abstract;
 using EntityLayer;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata.Ecma335;
 
 namespace DataAccessLayer.Concrete.EFCore
 {
@@ -12,6 +13,16 @@ namespace DataAccessLayer.Concrete.EFCore
         {
             get { return _context as ShopContext; }
         }
+
+        public Order GetByOrderWithOrderItems(double orderId)
+        {
+            return ShopContext.Orders
+                .Where(o => o.OrderId == orderId)
+                .Include(o => o.OrderItems)
+                .ThenInclude(o => o.Product)
+                .FirstOrDefault();
+        }
+
         public List<Order> GetOrders(string userId)
         {
             var orders = ShopContext.Orders

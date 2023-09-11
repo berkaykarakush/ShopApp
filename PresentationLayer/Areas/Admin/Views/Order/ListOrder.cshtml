@@ -1,0 +1,86 @@
+﻿@model AdminListOrderVM
+<h1>Orders</h1>
+<hr class="mb-3" />
+
+<div class="row">
+    <div class="col-md-12">
+        <table id="orderTable" class="table table-bordered mt-4">
+            <thead>
+                <tr>
+                    <td>Order Number</td>
+                    <td>Order Date</td>
+                    <td>Custoemr</td>
+                    <td>Order State</td>
+                    <td style="width: 150px;"></td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Orders.Count > 0)
+                {
+                    @foreach (var item in Model.Orders)
+                    {
+                        <tr>
+                            <td>@item.OrderNumber</td>
+                            <td>@item.OrderDate.ToShortDateString() @item.OrderDate.ToShortTimeString() </td>
+                            <td>@item.FirstName @item.LastName</td>
+                            <td>@item.OrderState</td>
+                            <td>
+                                <form asp-area="Admin" asp-controller="Order" asp-action="EditOrder" method="get" style="display: inline;">
+                                    <input type="hidden" name="OrderId" value="@item.OrderId">
+                                    <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+                                </form>
+
+                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure you want to delete the order ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <form asp-area="Admin" asp-controller="Order" asp-action="DeleteOrder" method="post" style="display: inline;">
+                                                    <input type="hidden" name="OrderId" value="@item.OrderId">
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal -->
+
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        <h3>No orders</h3>
+                    </div>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+@section Css{
+    <script src="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"></script>
+}
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        new DataTable('#orderTable');
+    </script>
+}

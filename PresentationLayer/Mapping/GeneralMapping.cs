@@ -2,6 +2,7 @@
 using DataAccessLayer.CQRS.Commands;
 using DataAccessLayer.CQRS.Queries;
 using EntityLayer;
+using PresentationLayer.Areas.Admin.Models;
 using PresentationLayer.Areas.Seller.Models;
 using PresentationLayer.Identity;
 using PresentationLayer.Models;
@@ -94,10 +95,19 @@ namespace PresentationLayer.Mapping
             #endregion
 
             #region Order
+            //Customer
             CreateMap<Order, OrderVM>().ReverseMap();
             CreateMap<Order, CreateOrderVM>().ReverseMap();
             CreateMap<OrderItem, OrderItemModel>().ReverseMap();
             CreateMap<GetOrdersCommandResponse, OrderListModel>().ReverseMap();
+
+            //Admin
+            CreateMap<AdminOrderVM, Order>().ReverseMap();
+            CreateMap<AdminListOrderQueryResponse, AdminListOrderVM>().ReverseMap();
+            CreateMap<AdminOrderItemVM, OrderItem>().ReverseMap();
+            CreateMap<AdminEditOrderQueryResponse, AdminOrderVM>().ReverseMap();
+
+            //Seller
             #endregion
         }
     }

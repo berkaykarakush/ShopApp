@@ -1,0 +1,197 @@
+﻿@model AdminOrderVM
+<h1 class="h3">Edit Order</h1>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-area="Admin" asp-controller="Order" asp-action="EditOrder" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <input type="hidden" asp-for="OrderId" />
+            <input type="hidden" asp-for="UserId" />
+
+            <div class="form-group row mt-2">
+                <label asp-for="OrderNumber" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input readonly class="form-control" asp-for="OrderNumber" />
+                    <span asp-validation-for="OrderNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="OrderDate" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="OrderDate" />
+                    <span asp-validation-for="OrderDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="CreatedDate" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="CreatedDate" />
+                    <span asp-validation-for="CreatedDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="UpdatedDate" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="UpdatedDate" />
+                    <span asp-validation-for="UpdatedDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="FirstName" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="FirstName" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="LastName" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="LastName" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="Address" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Address" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="City" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="City" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="Country" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Country" />
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="Phone" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Phone" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="Email" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="Note" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="Note" />
+                    <span asp-validation-for="Note" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="PaymentId" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="PaymentId" />
+                    <span asp-validation-for="PaymentId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="ConversationId" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input class="form-control" asp-for="ConversationId" />
+                    <span asp-validation-for="ConversationId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="PaymentType" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <select name="PaymentType" class="form-select" aria-label="Default select example">
+                        <option value="@Model.PaymentType" selected>@Model.PaymentType</option>
+                        <option value="0">CreditCart</option>
+                        <option value="1">EFT</option>
+                    </select>
+                    <span asp-validation-for="PaymentType" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="OrderState" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <select name="OrderState" class="form-select" aria-label="Default select example">
+                        <option value="@Model.OrderState" selected>@Model.OrderState</option>
+                            <option value="0">Waiting</option>
+                            <option value="1">Shipped</option>
+                            <option value="2">Completed</option>
+                    </select>
+                    <span asp-validation-for="OrderState" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <label asp-for="Address" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    @if (Model.OrderItems != null)
+                    {
+                        @foreach (var item in Model.OrderItems)
+                        {
+                            <div class="card mb-3" style="width: 200px; height: 100px;" >
+                                <div class="row g-0">
+                                    @if (item.Product != null)
+                                    {
+
+                                        <div class="col-md-4">
+                                            <img src="~/img/@item.Product.ProductImage" class="img-fluid rounded-start" alt="@item.Product.ProductImage" style="width: 100px;">
+                                        </div>
+
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">@item.Product.Name</h5>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-md-4">
+                                            <img src="~/img/creditcard.png" class="img-fluid rounded-start">
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+
+            <div class="form-group row mt-2">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}
