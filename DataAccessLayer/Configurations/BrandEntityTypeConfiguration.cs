@@ -9,6 +9,11 @@ namespace DataAccessLayer.Configurations
         public void Configure(EntityTypeBuilder<Brand> builder)
         {
             builder.HasKey(x => x.BrandId);
+
+            builder.HasMany(x => x.Products)
+                .WithOne(x => x.Brand)
+                .HasForeignKey(x => x.BrandId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

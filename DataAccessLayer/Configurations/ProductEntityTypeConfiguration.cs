@@ -32,6 +32,16 @@ namespace DataAccessLayer.Configurations
 
             //ImageUrl
             //builder.Property(p => p.ImageUrl).IsRequired();
+
+            builder.HasMany(p => p.ImageUrls)
+                .WithOne(p => p.Product)
+                .HasForeignKey(p => p.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(p => p.Comments)
+                .WithOne(p => p.Product)
+                .HasForeignKey(p => p.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

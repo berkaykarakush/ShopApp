@@ -5,12 +5,13 @@
         <nav class="navbar bg-dark navbar-expand-xxl p-4" data-bs-theme="dark">
             <div class="container-fluid">
                 <a asp-area="Seller" asp-controller="Home" asp-action="Dashboard" class="navbar-brand mr-4">ShopApp</a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
-
                         @*Product - start*@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -18,51 +19,10 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" asp-area="Seller" asp-controller="Product" asp-action="ListProduct">All Products</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" asp-area="Seller" asp-controller="Product" asp-action="CreateProduct">Create Product</a></li>
                             </ul>
                         </li>
                         @*Product - end*@
-
-                        @*Category - start*@
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Category
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-area="Seller" asp-controller="Category" asp-action="ListCategory">All Categories</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        @*Category - end*@
-
-
-                        @*Category2 - start*@
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Category2
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-area="Seller" asp-controller="Category2" asp-action="ListCategory2">All Categories2</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        @*Category2 - end*@
-
-                        @*Role - start*@
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Role
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-area="Seller" asp-controller="Role" asp-action="ListRole">All Roles</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        @*Role- end*@
 
                         @*Order - start*@
                         <li class="nav-item dropdown">
@@ -76,19 +36,6 @@
                             </ul>
                         </li>
                         @*Order- end*@
-
-                        @*User - start*@
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                User
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-area="Seller" asp-controller="User" asp-action="ListUser">All User</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        @*User- end*@
 
                         @*Campaign - start*@
                         <li class="nav-item dropdown">

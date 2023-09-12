@@ -17,6 +17,7 @@
         public string? UpdatedDate { get; set; }
         public bool IsApproved { get; set; }
 
+        public List<Product>?  Products { get; set; }
         public List<ImageUrl>? ImageUrls { get; set; } = new List<ImageUrl>();
     }
 }

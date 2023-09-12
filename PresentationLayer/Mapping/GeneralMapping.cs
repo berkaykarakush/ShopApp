@@ -17,17 +17,25 @@ namespace PresentationLayer.Mapping
             CreateMap<ProductVM, Product>().ReverseMap();
             CreateMap<ProductVM, List<Product>>().ReverseMap();
             CreateMap<EntityLayer.PageInfo, PageInfoVM>().ReverseMap();
-            CreateMap<ListProductQueryResponse, ListProductVM>().ReverseMap();
+            CreateMap<AdminListProductQueryResponse, ListProductVM>().ReverseMap();
             CreateMap<ShopCategoryListQueryResponse, ListProductVM>().ReverseMap();
             CreateMap<ShopDetailsQueryResponse, ProductDetailModel>().ReverseMap();
             CreateMap<ShopSearchQueryResponse, ListProductVM>().ReverseMap();
             CreateMap<TopSalesListQueryResponse, ProductListViewModel>().ReverseMap();
             CreateMap<HomeIndexQueryResponse, ProductListViewModel>().ReverseMap();
-            CreateMap<EditProductQueryResponse, EditProductVM>().ReverseMap();
-            CreateMap<EditProductCommandResponse, EditProductVM>().ReverseMap();
-            CreateMap<CreateProductQueryResponse, CreateProductVM>().ReverseMap();
-            CreateMap<CreateProductCommandResponse, CreateProductVM>().ReverseMap();
+            CreateMap<AdminEditProductQueryResponse, EditProductVM>().ReverseMap();
+            CreateMap<AdminEditProductCommandResponse, EditProductVM>().ReverseMap();
+            CreateMap<AdminCreateProductQueryResponse, CreateProductVM>().ReverseMap();
+            CreateMap<AdminCreateProductCommandResponse, CreateProductVM>().ReverseMap();
             CreateMap<ShopBrandListQueryResponse, ListProductVM>().ReverseMap();
+
+            //Seller
+            CreateMap<SellerProductVM, Product>().ReverseMap(); 
+            CreateMap<SellerListProductQueryResponse, SellerListProductVM>().ReverseMap(); 
+            CreateMap<SellerCreateProductQueryResponse, SellerCreateProductVM>().ReverseMap(); 
+            CreateMap<SellerEditProductQueryResponse, SellerEditProductVM>().ReverseMap(); 
+
+            //Admin
             #endregion
 
             #region Category

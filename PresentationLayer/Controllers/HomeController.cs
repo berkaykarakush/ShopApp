@@ -21,14 +21,12 @@ namespace PresentationLayer.Controllers
         }
 
         //TODO odeme sayfasinda varsa indirim kuponu
-        //TODO orders process
         //TODO SignalR
         //TODO add open source email library 
         //TODO checout form add contract
         //TODO admin dasboard en cok satan urun
         //TODO admin dasboard en cok satis yapan magaza
         //TODO magaza sayfasi olustur
-        //TODO user order listeleme
         //TODO seller stock gorunutleme 
         //TODO seller satis bilgilerini goruntuleme
         //TODO seller siparis kargolandi ekleme

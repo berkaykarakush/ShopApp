@@ -153,7 +153,7 @@ namespace PresentationLayer.Controllers
         {
             foreach (var p in model.CartModel.CartItems)
             {
-                var product = _productService.GetById(p.ProductId);
+                var product = _productService.GetById((double)p.ProductId);
                 if (product != null)
                 {
                     product.SalesCount += p.Quantity;
@@ -167,7 +167,7 @@ namespace PresentationLayer.Controllers
         {
             foreach (var i in model.CartModel.CartItems)
             {
-                var product = _productService.GetById(i.ProductId);
+                var product = _productService.GetById((double)i.ProductId);
 
                 if (product.Quantity < i.Quantity)
                 {

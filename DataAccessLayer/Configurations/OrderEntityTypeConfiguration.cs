@@ -26,6 +26,11 @@ namespace DataAccessLayer.Configurations
 
             //Order Date
             builder.Property(o => o.OrderDate).HasDefaultValueSql("getdate()");
+
+            builder.HasMany(o => o.OrderItems)
+                .WithOne(o => o.Order)
+                .HasForeignKey(o => o.OrderId)  
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

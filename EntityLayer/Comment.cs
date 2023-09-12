@@ -3,7 +3,7 @@
     public class Comment
     {
         public double CommentId { get; set; } = new Random().Next(111111111, 999999999);
-        public double ProductId { get; set; }
+        public double? ProductId { get; set; }
         public Product? Product { get; set; }
         public string? UserId { get; set; }
         public string? UserFirstname { get; set; }

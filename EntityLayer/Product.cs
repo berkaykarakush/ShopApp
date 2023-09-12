@@ -19,7 +19,7 @@
         public int CommentCount { get; set; }
         public int StarCount { get; set; }
 
-        public double BrandId { get; set; }
+        public double? BrandId { get; set; }
         public Brand? Brand { get; set; }
 
         public double? CategoryId { get; set; }
@@ -28,7 +28,10 @@
         public double? Category2Id { get; set; }
         public Category2? Category2 { get; set; }
 
-        public List<ImageUrl>? ImageUrls { get; set; }
+        public double? StoreId { get; set; }
+        public Store? Store { get; set; }
+
+        public List<ImageUrl>? ImageUrls { get; set; } = new List<ImageUrl>();
         public List<Comment>? Comments { get; set; }
     }
 }

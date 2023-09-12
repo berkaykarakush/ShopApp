@@ -10,6 +10,12 @@ namespace DataAccessLayer.Configurations
         {
             builder.HasKey(s => s.StoreId);
 
+            builder.HasMany(s => s.Products)
+                .WithOne(s => s.Store)
+                .HasForeignKey(s => s.StoreId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+          
         }
     }
 }

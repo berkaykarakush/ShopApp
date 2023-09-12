@@ -15,6 +15,7 @@ namespace DataAccessLayer.Abstract
         List<Product> GetTopSalesProductsWithCategory(string name,int page, int pageSize);
         List<Product> GetSearchResult(string searchString);
         List<Product> GetHomePageProducts();
+        List<Product> GetStoreAllProducts(double storeId);
         int GetCountByCategory(string category);
         int GetCountByCategory2(string category2);
         int GetCountByBrand(string brand);

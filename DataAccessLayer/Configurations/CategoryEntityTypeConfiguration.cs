@@ -16,6 +16,10 @@ namespace DataAccessLayer.Configurations
             //url
             builder.Property(c => c.Url).IsRequired();
 
+            builder.HasMany(c => c.Products)
+                .WithOne(c => c.Category)
+                .HasForeignKey(c => c.CategoryId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

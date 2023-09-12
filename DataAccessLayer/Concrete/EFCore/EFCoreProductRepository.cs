@@ -161,6 +161,16 @@ namespace DataAccessLayer.Concrete.EFCore
             return products.Skip((page-1)*pageSize).Take(pageSize).ToList();
         }
 
+        public List<Product> GetStoreAllProducts(double storeId)
+        {
+            return ShopContext.Products
+                            .Where(p => p.StoreId == storeId)
+                            .Include(p => p.ImageUrls)
+                            .Include(p => p.Brand)
+                            .Include(p => p.Comments)
+                            .ToList();
+        }
+
         public List<Product> GetProductsByCategory2(string name, int page, int pageSize)
         {
             var products = ShopContext.Products
@@ -189,6 +199,8 @@ namespace DataAccessLayer.Concrete.EFCore
 
             return products.ToList();
         }
+
+       
 
         public List<Product> GetTopSalesProducts(int page, int pageSize)
         {

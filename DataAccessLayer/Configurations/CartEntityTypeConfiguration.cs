@@ -11,6 +11,11 @@ namespace DataAccessLayer.Configurations
             builder.HasKey(c => c.CartId);
 
             builder.Property(c => c.UserId).IsRequired();
+
+            builder.HasMany(c => c.CartItems)
+                .WithOne(c => c.Cart)
+                .HasForeignKey(c => c.CartId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

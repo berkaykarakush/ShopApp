@@ -17,7 +17,7 @@ namespace DataAccessLayer
             //serviceCollection.AddScoped<IOrderRepository, EFCoreOrderRepository>();
             //serviceCollection.AddScoped<ICartRepository, EFCoreCartRepository>();
             serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
-            serviceCollection.AddTransient<CreateProductCommandHandler>();
+            serviceCollection.AddTransient<AdminCreateProductCommandHandler>();
         }
     }
 }

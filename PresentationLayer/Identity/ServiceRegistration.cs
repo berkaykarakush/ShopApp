@@ -22,7 +22,7 @@ namespace PresentationLayer.Identity
             serviceCollection.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             //MediatR
-            serviceCollection.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateProductCommandHandler).GetTypeInfo().Assembly));
+            serviceCollection.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(AdminCreateProductCommandHandler).GetTypeInfo().Assembly));
 
 
             //identity settings

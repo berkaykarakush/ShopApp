@@ -26,9 +26,9 @@ namespace PresentationLayer.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> ListProduct(ListProductQueryRequest listProductQueryRequest)
+        public async Task<IActionResult> ListProduct(AdminListProductQueryRequest listProductQueryRequest)
         {
-            ListProductQueryResponse  response = await _mediator.Send(listProductQueryRequest);
+            AdminListProductQueryResponse  response = await _mediator.Send(listProductQueryRequest);
             ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
 
             if (!response.IsSuccess)
@@ -38,27 +38,27 @@ namespace PresentationLayer.Areas.Admin.Controllers
         }
         
         [HttpGet]
-        public async Task<IActionResult> CreateProduct(CreateProductQueryRequest createProductQueryRequest)
+        public async Task<IActionResult> CreateProduct(AdminCreateProductQueryRequest createProductQueryRequest)
         {
-            CreateProductQueryResponse response = await _mediator.Send(createProductQueryRequest);
+            AdminCreateProductQueryResponse response = await _mediator.Send(createProductQueryRequest);
             CreateProductVM createProductVM = _mapper.Map<CreateProductVM>(response);
             return View(createProductVM);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateProduct(CreateProductCommandRequest createProductCommandRequest, IFormFileCollection files)
+        public async Task<IActionResult> CreateProduct(AdminCreateProductCommandRequest createProductCommandRequest, IFormFileCollection files)
         {
-            var imageUrls = await ImageNameEditExtensions.ImageNameEdit(files, UrlNameEditExtensions.UrlNameEdit(createProductCommandRequest.Name));
-            createProductCommandRequest.Name = NameEditExtensions.NameEdit(createProductCommandRequest.Name);
+            var imageUrls = await ImageNameEditExtensions.ImageNameEdit(files, UrlNameEditExtensions.UrlNameEdit(createProductCommandRequest.Name ?? string.Empty));
+            createProductCommandRequest.Name = NameEditExtensions.NameEdit(createProductCommandRequest.Name ?? string.Empty);
             createProductCommandRequest.Url = UrlNameEditExtensions.UrlNameEdit(createProductCommandRequest.Name);
-            createProductCommandRequest.ProductImage = imageUrls[0].Url.ToString();
+            createProductCommandRequest.ProductImage = imageUrls[0].Url?.ToString();
 
             foreach (var imageUrl in imageUrls) 
                 createProductCommandRequest.ImageUrls.Add(imageUrl);
 
             if (ModelState.IsValid)
             {
-                CreateProductCommandResponse response = await _mediator.Send(createProductCommandRequest);
+                AdminCreateProductCommandResponse response = await _mediator.Send(createProductCommandRequest);
                 if (response.IsSuccess)
                 {
                     _notyfService.Success($"Transaction Successfull - Product {response.ProductId} added.");
@@ -74,9 +74,9 @@ namespace PresentationLayer.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> EditProduct(EditProductQueryRequest editProductQueryRequest)
+        public async Task<IActionResult> EditProduct(AdminEditProductQueryRequest editProductQueryRequest)
         {
-            EditProductQueryResponse response = await _mediator.Send(editProductQueryRequest);
+            AdminEditProductQueryResponse response = await _mediator.Send(editProductQueryRequest);
             EditProductVM editProductVM = _mapper.Map<EditProductVM>(response);
 
             if (!response.IsSuccess)
@@ -86,7 +86,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditProduct(EditProductCommandRequest editProductCommandRequest, IFormFileCollection files)
+        public async Task<IActionResult> EditProduct(AdminEditProductCommandRequest editProductCommandRequest, IFormFileCollection files)
         {
             if (0 < files.Count)
             {
@@ -99,7 +99,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             editProductCommandRequest.Url = UrlNameEditExtensions.UrlNameEdit(editProductCommandRequest.Name);
             if (ModelState.IsValid)
             {
-                EditProductCommandResponse response = await _mediator.Send(editProductCommandRequest);
+                AdminEditProductCommandResponse response = await _mediator.Send(editProductCommandRequest);
                 EditProductVM editProductVM = _mapper.Map<EditProductVM>(response);
 
                 if (!response.IsSuccess)
@@ -107,16 +107,16 @@ namespace PresentationLayer.Areas.Admin.Controllers
                 else
                     _notyfService.Success("Transaction Successfull - Product Update!");
 
-                return RedirectToAction("EditProduct", "Product", new EditProductQueryRequest() { Id = editProductCommandRequest.ProductId });
+                return RedirectToAction("EditProduct", "Product", new AdminEditProductQueryRequest() { Id = editProductCommandRequest.ProductId });
             }
             _notyfService.Success($"Transaction Successfull - Product {editProductCommandRequest.ProductId} added.");
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteProduct(DeleteProductCommandRequest deleteProductCommandRequest)
+        public async Task<IActionResult> DeleteProduct(AdminDeleteProductCommandRequest deleteProductCommandRequest)
         {
-            DeleteProductCommandResponse response = await _mediator.Send(deleteProductCommandRequest);
+            AdminDeleteProductCommandResponse response = await _mediator.Send(deleteProductCommandRequest);
 
             if (response.IsSuccess)
                 _notyfService.Success($"Transaction Successfull - Item named {response.Name} has been deleted successfully!");

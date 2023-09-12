@@ -6,5 +6,6 @@ namespace DataAccessLayer.Abstract
     {
         Store GetByIdWithImageUrls(double id);
         Store GetByUserIdWithImageUrls(string userId);
+        Store GetStore(string userId);
     }
 }

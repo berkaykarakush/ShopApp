@@ -11,14 +11,6 @@ namespace DataAccessLayer.Configurations
         {
             //Primary Key
             builder.HasKey(c => c.ImageUrlId);
-
-            builder.HasOne<Store>()
-                .WithMany(i => i.ImageUrls)
-                .HasForeignKey(i => i.StoreId);
-
-            builder.HasOne<Product>()
-                .WithMany(i => i.ImageUrls)
-                .HasForeignKey(i => i.ProductId);
         }
     }
 }
