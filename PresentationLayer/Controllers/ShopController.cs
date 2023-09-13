@@ -3,6 +3,8 @@ using AutoMapper;
 using DataAccessLayer.CQRS.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using PresentationLayer.Enums;
 using PresentationLayer.Models;
 
@@ -35,6 +37,7 @@ namespace PresentationLayer.Controllers
             return View(productViewModel);
         }
 
+        //[Route("Shop/CategoryList?category=")]
         [HttpGet]
         public async Task<IActionResult> CategoryList(ShopCategoryListQueryRequest shopListQueryRequest)
         {
@@ -46,6 +49,7 @@ namespace PresentationLayer.Controllers
             return View(listProductVM);
         }
 
+        //[Route("Shop/Category2List?category2=")]
         [HttpGet]
         public async Task<IActionResult> Category2List(ShopCategory2ListQueryRequest shopCategory2ListQueryRequest) 
         {
@@ -58,6 +62,7 @@ namespace PresentationLayer.Controllers
             return View(listProductVM);
         }
 
+        //[Route("Shop/BrandList?brand=")]
         [HttpGet]
         public async Task<IActionResult> BrandList(ShopBrandListQueryRequest shopBrandListQueryRequest)
         {
@@ -70,9 +75,10 @@ namespace PresentationLayer.Controllers
             return View(listProductVM);
         }
 
+        //[Route("Shop/StoreList?store=)]
         [HttpGet]
         public async Task<IActionResult> StoreList(ShopStoreListQueryRequest shopStoreListQueryRequest)
-        {
+        {        //[Route("Shop/StoreHome?store=")]
             ShopStoreListQueryResponse response = await _mediator.Send(shopStoreListQueryRequest);
             ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
 
@@ -80,6 +86,19 @@ namespace PresentationLayer.Controllers
                 _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(listProductVM);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> StoreHome(ShopStoreHomeQueryRequest shopStoreHomeQueryRequest)
+        {
+            ShopStoreHomeQueryResponse response = await _mediator.Send(shopStoreHomeQueryRequest);
+            StoreHomeVM storeHomeVM = _mapper.Map<StoreHomeVM>(response);
+
+            if (!response.IsSuccess)
+                _notyfService.Error(NotyfMessageEnum.Error);
+
+            return View(storeHomeVM);
         }
 
         [HttpGet]

@@ -33,5 +33,13 @@ namespace DataAccessLayer.Concrete.EFCore
                 .Where(s => s.SellerId == userId)
                 .FirstOrDefault();
         }
+
+        public Store GetStoreByStoreUrl(string storeUrl)
+        {
+            return ShopContext.Stores
+                .Where(s => s.StoreUrl == storeUrl)
+                .Include(s => s.ImageUrls)
+                .FirstOrDefault();
+        }
     }
 }

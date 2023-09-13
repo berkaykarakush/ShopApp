@@ -26,13 +26,13 @@ namespace PresentationLayer.Controllers
         //TODO checout form add contract
         //TODO admin dasboard en cok satan urun
         //TODO admin dasboard en cok satis yapan magaza
-        //TODO magaza sayfasi olustur
         //TODO seller stock gorunutleme 
         //TODO seller satis bilgilerini goruntuleme
         //TODO seller siparis kargolandi ekleme
         //TODO seller siparis teslim edildi ekleme
         //TODO user kargom nerede
         //TODO admin komisyon
+        //TODO Store Home Page icerisine tanitim cartlari eklenicek
 
         [HttpGet]
         public async Task<IActionResult> Index(HomeIndexQueryRequest homeIndexQueryRequest)

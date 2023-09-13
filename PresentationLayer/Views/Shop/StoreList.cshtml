@@ -1,18 +1,29 @@
 ﻿@model ListProductVM
 
 <div class="card">
-    <div class="card-header">
-        Store Name
+    <div class="card-body bg-dark">
+        <img src="~/img/@Model.StoreImage" alt="@Model.StoreImage" class="float-start rounded-circle" style="width: 100px; height: 100px;">
+        <h1 class="h3 card-title text-white">@Model.StoreName</h1>
     </div>
-    <div class="card-body">
-        <blockquote class="blockquote mb-0">
-            <p>A well-known quote, contained in a blockquote element.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-        </blockquote>
+    <div class="card-footer">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a asp-controller="Shop" asp-action="StoreList" asp-route-store="@Model.StoreUrl" class="h4 nav-link">All Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-controller="Shop" asp-action="StoreHome" asp-route-store="@Model.StoreUrl" class="h4 nav-link">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-5">
     <div class="col-md-2">
         @*@await Component.InvokeAsync("Categories")*@
     </div>

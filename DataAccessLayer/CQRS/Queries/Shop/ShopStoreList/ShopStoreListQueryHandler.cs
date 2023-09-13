@@ -20,6 +20,7 @@ namespace DataAccessLayer.CQRS.Queries
 
                 var allProducts = _unitOfWork.Products.GetStoreAllProducts(request.Store, request.Page, pageSize);
                 var totalItems = _unitOfWork.Products.GetCountByStore(request.Store);
+                var store = _unitOfWork.Stores.GetStoreByStoreUrl(request.Store);
 
                 if (allProducts == null)
                     return Task.FromResult(new ShopStoreListQueryResponse() { IsSuccess = false });
@@ -34,7 +35,10 @@ namespace DataAccessLayer.CQRS.Queries
                         CurrentPage = request.Page,
                         TotalItems = totalItems,
                         ItemsPerPage = pageSize
-                    }
+                    },
+                    StoreName = store.StoreName,
+                    StoreImage = store.StoreImage,
+                    StoreUrl = store.StoreUrl
                 });
             }
             catch (Exception ex)
