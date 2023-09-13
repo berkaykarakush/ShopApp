@@ -53,7 +53,7 @@ namespace PresentationLayer.Controllers
             CartModel cartModel = _mapper.Map<CartModel>(response);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(cartModel);
         }
@@ -91,7 +91,7 @@ namespace PresentationLayer.Controllers
             orderModel.CartModel = _mapper.Map<CartModel>(response.Cart);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(orderModel);
         }

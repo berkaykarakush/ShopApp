@@ -42,7 +42,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
 
             if (!response.IsSuccess)
             {
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
                 return View();
             }
 
@@ -65,7 +65,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             CreateCategory2CommandResponse response = await _mediator.Send(createCategory2CommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             else
                 _notyfService.Success("Transaction Successfull - Category Added!");
 
@@ -78,7 +78,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             EditCategory2QueryResponse response = await _mediator.Send(editCategory2QueryRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             EditCategory2VM editCategory2VM = _mapper.Map<EditCategory2VM>(response);
             return View(editCategory2VM);
@@ -87,14 +87,14 @@ namespace PresentationLayer.Areas.Admin.Controllers
         public async Task<IActionResult> EditCategory2(EditCategory2CommandRequest editCategory2CommandRequest)
         {
             if (string.IsNullOrEmpty(editCategory2CommandRequest.Name))
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             else
                 editCategory2CommandRequest.Url = UrlNameEditExtensions.UrlNameEdit(editCategory2CommandRequest.Name);
 
             EditCategory2CommandResponse response = await _mediator.Send(editCategory2CommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             else
                 _notyfService.Success("Transaction Successfull - Category Updated!");
 
@@ -107,7 +107,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             DeleteCategory2CommandResponse response = await _mediator.Send(deleteCategory2CommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             else
                 _notyfService.Success("Transaction Successfull - Category Deleted!");
 

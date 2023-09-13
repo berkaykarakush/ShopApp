@@ -31,7 +31,7 @@ namespace PresentationLayer.Controllers
             if (userAddressModel == null)
             {
 
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
                 return RedirectToAction("Manage", "Account");
             }
 
@@ -39,7 +39,7 @@ namespace PresentationLayer.Controllers
             userAddressModel.User = user;
             if (user == null)
             {
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
                 return RedirectToAction("Manage", "Account");
             }
 

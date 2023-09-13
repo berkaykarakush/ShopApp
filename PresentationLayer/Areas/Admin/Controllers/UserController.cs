@@ -54,7 +54,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
                 });
             }
 
-            _notyfService.Error(NotfyMessageEnum.Error);
+            _notyfService.Error(NotyfMessageEnum.Error);
             return RedirectToAction("ListUser", "User");
         }
 
@@ -99,7 +99,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
 
             if (user == null)
             {
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
                 return RedirectToAction("Manage", "Account");
             }
 

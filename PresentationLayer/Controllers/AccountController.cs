@@ -262,7 +262,7 @@ namespace PresentationLayer.Controllers
         {
             if (userId == null || token == null)
             {
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
                 return View();
             }
 
@@ -309,7 +309,7 @@ namespace PresentationLayer.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
-            _notyfService.Error(NotfyMessageEnum.Error);
+            _notyfService.Error(NotyfMessageEnum.Error);
             return View(model);
         }
 
@@ -338,7 +338,7 @@ namespace PresentationLayer.Controllers
 
                 return RedirectToAction("ListUser","User");
             }
-            _notyfService.Error(NotfyMessageEnum.Error);
+            _notyfService.Error(NotyfMessageEnum.Error);
             return RedirectToAction("ListUser","User");
         }
 
@@ -356,7 +356,7 @@ namespace PresentationLayer.Controllers
             var generateToken = await _userManager.GeneratePasswordResetTokenAsync(user);
             if (generateToken == null)
             {
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
                 return View();
             }
 

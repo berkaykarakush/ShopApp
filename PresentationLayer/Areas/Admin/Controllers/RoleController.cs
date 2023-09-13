@@ -47,9 +47,9 @@ namespace PresentationLayer.Areas.Admin.Controllers
                     return RedirectToAction("ListRole", "Role");
                 }
                 else
-                    _notyfService.Error(NotfyMessageEnum.Error);
+                    _notyfService.Error(NotyfMessageEnum.Error);
             }
-            _notyfService.Error(NotfyMessageEnum.Error);
+            _notyfService.Error(NotyfMessageEnum.Error);
             return View(model);
         }
 
@@ -127,7 +127,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
                 _notyfService.Success($"Transaction Successfull - Role {role.Name} has been deleted successfully!");
             }
             else
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return RedirectToAction("ListRole", "Role");
         }

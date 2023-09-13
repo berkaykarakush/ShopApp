@@ -31,7 +31,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             ListBrandVM listBrandVM = _mapper.Map<ListBrandVM>(response); 
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(listBrandVM);
         }
@@ -48,7 +48,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             CreateBrandCommandResponse response = await _mediator.Send(createBrandCommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             _notyfService.Success("Transaction Successfull - Brand Created!");
             return RedirectToAction("ListBrand", "Brand");
@@ -62,7 +62,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             UpdateBrandVM updateBrandVM = _mapper.Map<UpdateBrandVM>(response.Brand);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(updateBrandVM);
         }
@@ -73,7 +73,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             UpdateBrandCommandResponse response = await _mediator.Send(updateBrandCommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             _notyfService.Success("Transaction Successfull - Brand Updated!");
             return View("ListBrand","Brand");
@@ -85,7 +85,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             DeleteBrandCommandResponse response = await _mediator.Send(deleteBrandCommandRequest);
 
             if (!response.IsSuccess) 
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             _notyfService.Success("Transaction Successfull - Brand Deleted!");
             return RedirectToAction("ListBrand", "Brand");

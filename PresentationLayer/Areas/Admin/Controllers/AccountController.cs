@@ -47,7 +47,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
                 return View(model);
             }
 
@@ -100,7 +100,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
 
                 return RedirectToAction("ListUser", "User");
             }
-            _notyfService.Error(NotfyMessageEnum.Error);
+            _notyfService.Error(NotyfMessageEnum.Error);
             return RedirectToAction("ListUser", "User");
         }
 

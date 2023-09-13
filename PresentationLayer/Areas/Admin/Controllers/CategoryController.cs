@@ -32,7 +32,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             CategoryListViewModel categoryListViewModel = _mapper.Map<CategoryListViewModel>(response);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(categoryListViewModel);
         }
@@ -66,7 +66,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             CategoryVM categoryVM = _mapper.Map<CategoryVM>(response);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(categoryVM);
         }
@@ -111,7 +111,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             if (response.IsSuccess)
                 _notyfService.Success("Transaction Successfull - Category Deleted");
             else
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return Redirect("/admin/categories/" + deleteFromCategoryCommandRequest.categoryId);
         }

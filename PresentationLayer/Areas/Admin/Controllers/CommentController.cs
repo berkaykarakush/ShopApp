@@ -44,7 +44,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             EditCommentVM editCommentVM = _mapper.Map<EditCommentVM>(response);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(editCommentVM);
         }
@@ -55,7 +55,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             EditCommentCommandResponse response = await _mediator.Send(editCommentCommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             else
                 _notyfService.Success("Transaction Successfull - Comment updated!");
 
@@ -69,7 +69,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             DeleteCommentCommandResponse response = await _mediator.Send(deleteCommentCommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             else
                 _notyfService.Success("Transaction Successfull - Comment deleted!");
 

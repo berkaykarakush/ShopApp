@@ -46,7 +46,7 @@ namespace PresentationLayer.Areas.Seller.Controllers
 
             if (user == null)
             {
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
                 return View();
             }
 
@@ -61,7 +61,7 @@ namespace PresentationLayer.Areas.Seller.Controllers
 
             if (!response.IsSuccess)
             {
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
                 return View();
             }
 
@@ -76,7 +76,7 @@ namespace PresentationLayer.Areas.Seller.Controllers
 
             SellerRegisterCommandResponse response = await _mediator.Send(sellerRegisterCommandRequest);
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             else
                 _notyfService.Success("Transaction Successfull - Your application has been received!");
 
@@ -101,7 +101,7 @@ namespace PresentationLayer.Areas.Seller.Controllers
 
                 return RedirectToAction("ListUser", "User");
             }
-            _notyfService.Error(NotfyMessageEnum.Error);
+            _notyfService.Error(NotyfMessageEnum.Error);
             return RedirectToAction("ListUser", "User");
         }
     }

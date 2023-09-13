@@ -32,7 +32,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(listProductVM);
         }
@@ -65,7 +65,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
                 return View(response);
             }
 
@@ -80,7 +80,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             EditProductVM editProductVM = _mapper.Map<EditProductVM>(response);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(editProductVM);
         }
@@ -103,7 +103,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
                 EditProductVM editProductVM = _mapper.Map<EditProductVM>(response);
 
                 if (!response.IsSuccess)
-                    _notyfService.Error(NotfyMessageEnum.Error);
+                    _notyfService.Error(NotyfMessageEnum.Error);
                 else
                     _notyfService.Success("Transaction Successfull - Product Update!");
 

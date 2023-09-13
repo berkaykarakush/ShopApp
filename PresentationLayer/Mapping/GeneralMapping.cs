@@ -19,6 +19,7 @@ namespace PresentationLayer.Mapping
             CreateMap<EntityLayer.PageInfo, PageInfoVM>().ReverseMap();
             CreateMap<AdminListProductQueryResponse, ListProductVM>().ReverseMap();
             CreateMap<ShopCategoryListQueryResponse, ListProductVM>().ReverseMap();
+            CreateMap<ShopStoreListQueryResponse, ListProductVM>().ReverseMap();
             CreateMap<ShopDetailsQueryResponse, ProductDetailModel>().ReverseMap();
             CreateMap<ShopSearchQueryResponse, ListProductVM>().ReverseMap();
             CreateMap<TopSalesListQueryResponse, ProductListViewModel>().ReverseMap();

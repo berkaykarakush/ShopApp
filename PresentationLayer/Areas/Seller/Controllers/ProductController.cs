@@ -39,7 +39,7 @@ namespace PresentationLayer.Areas.Seller.Controllers
             SellerListProductQueryResponse response = await _mediator.Send(sellerListProductQueryRequest);
 
             if (!response.IsSucces)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             SellerListProductVM sellerListProductVM = _mapper.Map<SellerListProductVM>(response);
             return View(sellerListProductVM);
@@ -52,7 +52,7 @@ namespace PresentationLayer.Areas.Seller.Controllers
             SellerCreateProductQueryResponse response = await _mediator.Send(sellerCreateProductQueryRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             SellerCreateProductVM sellerCreateProductVM = _mapper.Map<SellerCreateProductVM>(response);
             return View(sellerCreateProductVM);
@@ -76,7 +76,7 @@ namespace PresentationLayer.Areas.Seller.Controllers
             SellerCreateProductCommandResponse response = await _mediator.Send(sellerCreateProductCommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             else
                 _notyfService.Success("Transaction Successfull - Product Created!");
 
@@ -90,7 +90,7 @@ namespace PresentationLayer.Areas.Seller.Controllers
             SellerEditProductQueryResponse response = await _mediator.Send(sellerEditProductQueryRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             SellerEditProductVM sellerEditProductVM = _mapper.Map<SellerEditProductVM>(response);
             return View(sellerEditProductVM);
@@ -114,7 +114,7 @@ namespace PresentationLayer.Areas.Seller.Controllers
             SellerEditProductCommandResponse response = await _mediator.Send(sellerEditProductCommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             else
                 _notyfService.Success("Transaction Successfull - Product Updated!");
 
@@ -129,7 +129,7 @@ namespace PresentationLayer.Areas.Seller.Controllers
             SellerDeleteProductCommandResponse response = await _mediator.Send(sellerDeleteProductCommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             else
                 _notyfService.Success("Transaction Successfull - Product Deleted!");
 

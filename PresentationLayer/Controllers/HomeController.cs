@@ -41,7 +41,7 @@ namespace PresentationLayer.Controllers
             ProductListViewModel productListViewModel = _mapper.Map<ProductListViewModel>(response);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(productListViewModel);
         }

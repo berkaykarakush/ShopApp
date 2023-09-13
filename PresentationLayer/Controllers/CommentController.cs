@@ -40,7 +40,7 @@ namespace PresentationLayer.Controllers
             CreateCommentCommandResponse response = await _mediator.Send(createCommentCommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             else
                 _notyfService.Success("Transaction Successfull - Added comment");
 

@@ -30,7 +30,7 @@ namespace PresentationLayer.Controllers
             productViewModel.Products.Add(productVM);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(productViewModel);
         }
@@ -42,7 +42,7 @@ namespace PresentationLayer.Controllers
             ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             return View(listProductVM);
         }
 
@@ -53,7 +53,7 @@ namespace PresentationLayer.Controllers
             ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(listProductVM);
         }
@@ -65,7 +65,19 @@ namespace PresentationLayer.Controllers
             ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
+
+            return View(listProductVM);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> StoreList(ShopStoreListQueryRequest shopStoreListQueryRequest)
+        {
+            ShopStoreListQueryResponse response = await _mediator.Send(shopStoreListQueryRequest);
+            ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
+
+            if (!response.IsSuccess)
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(listProductVM);
         }
@@ -76,7 +88,7 @@ namespace PresentationLayer.Controllers
             ShopDetailsQueryResponse response = await _mediator.Send(shopDetailsQueryRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             ProductDetailModel model  = _mapper.Map<ProductDetailModel>(response);
             return View(model);
@@ -88,7 +100,7 @@ namespace PresentationLayer.Controllers
             ShopSearchQueryResponse response = await _mediator.Send(shopSearchQueryRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             ListProductVM listProductVM = _mapper.Map<ListProductVM>(response);
             return View(listProductVM);

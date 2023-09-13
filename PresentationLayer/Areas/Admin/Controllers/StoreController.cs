@@ -32,7 +32,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             ListStoreVM listStoreVM = _mapper.Map<ListStoreVM>(response);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             
             return View(listStoreVM);
         }
@@ -44,7 +44,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             EditStoreVM editStoreVM = _mapper.Map<EditStoreVM>(response);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(editStoreVM);
         }
@@ -60,7 +60,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             AdminEditStoreCommandResponse response = await _mediator.Send(editStoreCommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             else
                 _notyfService.Success("Transaction Successfull - Store updated!");
 
@@ -73,7 +73,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             AdminDeleteStoreCommandResponse response = await _mediator.Send(deleteStoreCommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             else
                 _notyfService.Success("Transaction Successfull - Store deleted!");
 

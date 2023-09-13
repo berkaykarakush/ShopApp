@@ -138,6 +138,7 @@ namespace DataAccessLayer.Concrete.EFCore
                 .Include(p => p.Comments)
                 .Include(p => p.Category)
                 .Include(p => p.Category2)
+                .Include(p => p.Store)
                 .FirstOrDefault();
 
         }
@@ -216,6 +217,43 @@ namespace DataAccessLayer.Concrete.EFCore
         public List<Product> GetTopSalesProductsWithCategory(string name, int page, int pageSize)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Product> GetStoreAllProducts(string store, int page, int pageSize)
+        {
+            var products = ShopContext.Products
+                        .Where(p => p.IsApproved)
+                        .Include(p => p.ImageUrls)
+                        .Include(p => p.Brand)
+                        .Include(p => p.Comments)
+                        .AsQueryable();
+
+            if (!string.IsNullOrEmpty(store))
+            {
+                products = products
+                            .Include(p => p.Store)
+                            .Where(p => p.Store.StoreUrl.ToLower() == store.ToLower());
+            }
+
+            return products.Skip((page - 1)* pageSize).Take(pageSize).ToList();
+        }
+
+        public int GetCountByStore(string store)
+        {
+            var products = ShopContext.Products
+                .Where(p => p.IsApproved)
+                .Include(p => p.ImageUrls)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(store))
+            {
+                products = products
+                    .Include(p => p.Store)
+                    .Where(p => p.Store.StoreUrl.ToLower() == store.ToLower());
+            }
+
+            return products.Count();
+
         }
     }
 }

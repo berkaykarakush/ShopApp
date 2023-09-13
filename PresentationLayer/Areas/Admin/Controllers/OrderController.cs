@@ -34,7 +34,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
 
             if (!response.IsSuccess)
             {
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
                 return View();
             }
 
@@ -50,7 +50,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
 
             if (!response.IsSuccess)
             {
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
                 return View();
             }
 
@@ -64,7 +64,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             AdminEditOrderCommandResponse response = await _mediator.Send(adminEditOrderCommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             else
                 _notyfService.Success("Transaction Successfull - Order Updated!");
 
@@ -78,7 +78,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             AdminDeleteOrderCommandResponse response = await _mediator.Send(adminDeleteOrderCommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             else
                 _notyfService.Success("Transaction Successfull - Order Deleted!");
 

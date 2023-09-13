@@ -31,7 +31,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             ListCampaignQueryResponse response = await _mediator.Send(listCampaignQueryRequest);
             ListCampaignVM listCampaignVM = _mapper.Map<ListCampaignVM>(response);
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return View(listCampaignVM);
         }
@@ -55,7 +55,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
             CreateCamapignCommandResponse response = await _mediator.Send(createCamapignCommandRequest);
 
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
 
             return RedirectToAction("ListCampaign", "Campaign");
         }
@@ -65,7 +65,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
         {
             EditCampaignQueryResponse response = await _mediator.Send(editCampaignQueryRequest);
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             EditCampaignVM editCampaignVM = _mapper.Map<EditCampaignVM>(response);
             return View(editCampaignVM);
         }
@@ -82,7 +82,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
 
             EditCampaignCommandResponse response = await _mediator.Send(editCampaignCommandRequest);
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             EditCampaignVM editCampaignVM = _mapper.Map<EditCampaignVM>(response);
             return View(editCampaignVM);
         }
@@ -92,7 +92,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
         {
             DeleteCampaignCommandResponse response = await _mediator.Send(deleteCampaignCommandRequest);
             if (!response.IsSuccess)
-                _notyfService.Error(NotfyMessageEnum.Error);
+                _notyfService.Error(NotyfMessageEnum.Error);
             return RedirectToAction("ListCampaign", "Campaign");
         }
     }

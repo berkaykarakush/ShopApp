@@ -30,6 +30,9 @@ namespace PresentationLayer.Models
         public double? Category2Id { get; set; }
         public Category2VM? Category2 { get; set; }
 
+        public double? StoreId { get; set; }
+        public StoreVM? Store { get; set; }
+
         public List<ImageUrl>? ImageUrls { get; set; } = new List<ImageUrl>();
         public List<CommentVM>? Comments { get; set; } = new List<CommentVM>();
     }
