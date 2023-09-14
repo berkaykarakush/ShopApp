@@ -24,7 +24,6 @@ namespace DataAccessLayer.CQRS.Commands
                     Code = request.Code,
                     Description = request.Description,
                     CampaignImage = request.CampaignImage,
-                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
                     //ImageUrls = request.ImageUrls,
                     IsHome = request.IsHome
                 };

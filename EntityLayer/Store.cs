@@ -1,6 +1,6 @@
 ﻿namespace EntityLayer
 {
-    public class Store
+    public class Store : BaseEntity
     {
         public double StoreId { get; set; } = new Random().Next(111111111, 999999999);
         public string? StoreName { get; set; }
@@ -13,8 +13,6 @@
         public string? SellerEmail { get; set;}
         public string? SellerPhone { get; set; }
 
-        public string? CreatedDate { get; set; }
-        public string? UpdatedDate { get; set; }
         public bool IsApproved { get; set; }
 
         public List<Order>? Orders { get; set; }

@@ -36,7 +36,6 @@ namespace DataAccessLayer.CQRS.Commands
                     Quantity = request.Quantity,
                     Description = request.Description,
                     ProductImage = request.ProductImage,
-                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
                     BrandId = request.BrandId,
                     Brand = brand,
                     CategoryId = request.CategoryId,

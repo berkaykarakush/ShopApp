@@ -1,5 +1,5 @@
 ﻿@model CreateOrderVM
-<form method="post" asp-controller="Cart" asp-action="Checkout" enctype="application/x-www-form-urlencoded">
+<form  method="post" asp-controller="Cart" asp-action="Checkout" enctype="application/x-www-form-urlencoded">
 <div class="row">
     <div class="col-md-8">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -127,14 +127,19 @@
                     <strong>@Model.CartModel.TotalPrice().ToString() TL</strong>
                 </li>
                 <li class="list-group-item d-flex justify-content-between">
-                    <input class="form-check-input" checked type="checkbox" id="flexCheckChecked">
-                    <a class="btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Terms and Conditions</a>
+                    <div class="form-check">
+                            <input asp-for="TermsAndConditions" class="form-check-input" type="checkbox" name="TermsAndConditions" value="true" id="TermsAndConditions" required>
+                        <label class="form-check-label" for="TermsAndConditions">
+                            <a class="btn-link" data-bs-toggle="modal" data-bs-target="#termsAndConditionsModal">Terms and Conditions</a>
+                        </label>
+                    </div>
+                    <span asp-validation-for="TermsAndConditions" class="text-danger"></span>
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="termsAndConditionsModal" tabindex="-1" aria-labelledby="termsAndConditionsModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Terms and Conditions</h1>
+                                    <h1 class="modal-title fs-5" id="termsAndConditionsModalLabel">Terms and Conditions</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">

@@ -30,7 +30,6 @@ namespace DataAccessLayer.CQRS.Commands
                     ProductImage = request.ProductImage,
                     ImageUrls = request.ImageUrls,
                     Quantity = request.Quantity,
-                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
                     Description = request.Description,
                     IsApproved = request.IsApproved,
                     IsHome = request.IsHome,

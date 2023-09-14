@@ -40,8 +40,6 @@ namespace PresentationLayer.Models
         [Display(Name = "E-Mail", Prompt = "john@email.com")]
         public string? Email { get; set; }
         
-        public string? Note { get; set; }
-        
         [Required]
         [Display(Name = "Card Owner", Prompt = "John Doe")]
         public string? CardName { get; set; }
@@ -62,6 +60,10 @@ namespace PresentationLayer.Models
         [Required]
         [Display(Name = "CVC", Prompt= "123")]
         public string? Cvc { get; set; }
+
+        [Required]
+        public bool TermsAndConditions { get; set; }
+
         public CartModel? CartModel { get; set; }
         public List<double>? StoreIds { get; set; }
     }

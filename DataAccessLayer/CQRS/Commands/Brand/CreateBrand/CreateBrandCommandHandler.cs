@@ -24,7 +24,6 @@ namespace DataAccessLayer.CQRS.Commands
                     Name = request.Name,
                     Url = request.Url,
                     Products = _unitOfWork.Products.GetAll(),
-                    CreatedDate = DateTime.Now.ToString(),
                 };
 
                 if (brand == null)

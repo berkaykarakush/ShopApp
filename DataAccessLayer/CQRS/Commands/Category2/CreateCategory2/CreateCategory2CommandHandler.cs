@@ -25,7 +25,6 @@ namespace DataAccessLayer.CQRS.Commands
 
                 var category2 = new Category2()
                 {
-                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
                     Name = request.Name,
                     Url = request.Url,
                     Category = category,

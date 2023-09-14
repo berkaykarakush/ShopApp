@@ -26,7 +26,6 @@ namespace DataAccessLayer.CQRS.Commands
 
                 var comment = new Comment() 
                 {
-                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
                     Description = request.Description,
                     UserId = request.UserId,
                     UserFirstname = request.UserFirstname,

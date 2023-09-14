@@ -1,6 +1,6 @@
 ﻿namespace EntityLayer
 {
-    public class PageInfo 
+    public class PageInfo : BaseEntity
     {
        
         public int TotalItems { get; set; }

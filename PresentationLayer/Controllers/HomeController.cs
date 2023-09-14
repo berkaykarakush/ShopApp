@@ -23,7 +23,6 @@ namespace PresentationLayer.Controllers
         //TODO odeme sayfasinda varsa indirim kuponu
         //TODO SignalR
         //TODO add open source email library 
-        //TODO checout form add contract
         //TODO admin dasboard en cok satan urun
         //TODO admin dasboard en cok satis yapan magaza
         //TODO seller stock gorunutleme 

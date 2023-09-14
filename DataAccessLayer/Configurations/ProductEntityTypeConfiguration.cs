@@ -20,9 +20,6 @@ namespace DataAccessLayer.Configurations
             //Quantity
             builder.Property(p => p.Quantity).IsRequired();
 
-            //DateAdded
-            builder.Property(p => p.CreatedDate).HasDefaultValueSql("getdate()");
-
             //Description
             builder.Property(p => p.Description).IsRequired();
 

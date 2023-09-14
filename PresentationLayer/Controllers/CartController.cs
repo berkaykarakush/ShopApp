@@ -209,7 +209,7 @@ namespace PresentationLayer.Controllers
             order.Address = model.Address;
             order.City = model.City;
             order.UserId = userId;
-            order.Note = model.Note;
+            order.TermsAndConditions = model.TermsAndConditions;
 
             foreach (var item in storeIds)
             {

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    [Migration("20230914084435_mig_1")]
+    [Migration("20230914120150_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -31,6 +31,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("CreatedDate")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -50,300 +51,350 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             BrandId = 111111111.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 0",
                             Url = "brand-0"
                         },
                         new
                         {
                             BrandId = 111111112.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 1",
                             Url = "brand-1"
                         },
                         new
                         {
                             BrandId = 111111113.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 2",
                             Url = "brand-2"
                         },
                         new
                         {
                             BrandId = 111111114.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 3",
                             Url = "brand-3"
                         },
                         new
                         {
                             BrandId = 111111115.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 4",
                             Url = "brand-4"
                         },
                         new
                         {
                             BrandId = 111111116.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 5",
                             Url = "brand-5"
                         },
                         new
                         {
                             BrandId = 111111117.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 6",
                             Url = "brand-6"
                         },
                         new
                         {
                             BrandId = 111111118.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 7",
                             Url = "brand-7"
                         },
                         new
                         {
                             BrandId = 111111119.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 8",
                             Url = "brand-8"
                         },
                         new
                         {
                             BrandId = 111111120.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 9",
                             Url = "brand-9"
                         },
                         new
                         {
                             BrandId = 111111121.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 10",
                             Url = "brand-10"
                         },
                         new
                         {
                             BrandId = 111111122.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 11",
                             Url = "brand-11"
                         },
                         new
                         {
                             BrandId = 111111123.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 12",
                             Url = "brand-12"
                         },
                         new
                         {
                             BrandId = 111111124.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 13",
                             Url = "brand-13"
                         },
                         new
                         {
                             BrandId = 111111125.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 14",
                             Url = "brand-14"
                         },
                         new
                         {
                             BrandId = 111111126.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 15",
                             Url = "brand-15"
                         },
                         new
                         {
                             BrandId = 111111127.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 16",
                             Url = "brand-16"
                         },
                         new
                         {
                             BrandId = 111111128.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 17",
                             Url = "brand-17"
                         },
                         new
                         {
                             BrandId = 111111129.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 18",
                             Url = "brand-18"
                         },
                         new
                         {
                             BrandId = 111111130.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 19",
                             Url = "brand-19"
                         },
                         new
                         {
                             BrandId = 111111131.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 20",
                             Url = "brand-20"
                         },
                         new
                         {
                             BrandId = 111111132.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 21",
                             Url = "brand-21"
                         },
                         new
                         {
                             BrandId = 111111133.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 22",
                             Url = "brand-22"
                         },
                         new
                         {
                             BrandId = 111111134.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 23",
                             Url = "brand-23"
                         },
                         new
                         {
                             BrandId = 111111135.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 24",
                             Url = "brand-24"
                         },
                         new
                         {
                             BrandId = 111111136.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 25",
                             Url = "brand-25"
                         },
                         new
                         {
                             BrandId = 111111137.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 26",
                             Url = "brand-26"
                         },
                         new
                         {
                             BrandId = 111111138.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 27",
                             Url = "brand-27"
                         },
                         new
                         {
                             BrandId = 111111139.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 28",
                             Url = "brand-28"
                         },
                         new
                         {
                             BrandId = 111111140.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 29",
                             Url = "brand-29"
                         },
                         new
                         {
                             BrandId = 111111141.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 30",
                             Url = "brand-30"
                         },
                         new
                         {
                             BrandId = 111111142.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 31",
                             Url = "brand-31"
                         },
                         new
                         {
                             BrandId = 111111143.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 32",
                             Url = "brand-32"
                         },
                         new
                         {
                             BrandId = 111111144.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 33",
                             Url = "brand-33"
                         },
                         new
                         {
                             BrandId = 111111145.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 34",
                             Url = "brand-34"
                         },
                         new
                         {
                             BrandId = 111111146.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 35",
                             Url = "brand-35"
                         },
                         new
                         {
                             BrandId = 111111147.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 36",
                             Url = "brand-36"
                         },
                         new
                         {
                             BrandId = 111111148.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 37",
                             Url = "brand-37"
                         },
                         new
                         {
                             BrandId = 111111149.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 38",
                             Url = "brand-38"
                         },
                         new
                         {
                             BrandId = 111111150.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 39",
                             Url = "brand-39"
                         },
                         new
                         {
                             BrandId = 111111151.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 40",
                             Url = "brand-40"
                         },
                         new
                         {
                             BrandId = 111111152.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 41",
                             Url = "brand-41"
                         },
                         new
                         {
                             BrandId = 111111153.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 42",
                             Url = "brand-42"
                         },
                         new
                         {
                             BrandId = 111111154.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 43",
                             Url = "brand-43"
                         },
                         new
                         {
                             BrandId = 111111155.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 44",
                             Url = "brand-44"
                         },
                         new
                         {
                             BrandId = 111111156.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 45",
                             Url = "brand-45"
                         },
                         new
                         {
                             BrandId = 111111157.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 46",
                             Url = "brand-46"
                         },
                         new
                         {
                             BrandId = 111111158.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 47",
                             Url = "brand-47"
                         },
                         new
                         {
                             BrandId = 111111159.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 48",
                             Url = "brand-48"
                         },
                         new
                         {
                             BrandId = 111111160.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Brand 49",
                             Url = "brand-49"
                         });
@@ -361,6 +412,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedDate")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
@@ -385,7 +437,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111111.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111111",
                             IsHome = true,
                             Name = "Campaign 111111111"
@@ -395,7 +447,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111112.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111112",
                             IsHome = true,
                             Name = "Campaign 111111112"
@@ -405,7 +457,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111113.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111113",
                             IsHome = true,
                             Name = "Campaign 111111113"
@@ -415,7 +467,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111114.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111114",
                             IsHome = true,
                             Name = "Campaign 111111114"
@@ -425,7 +477,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111115.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111115",
                             IsHome = true,
                             Name = "Campaign 111111115"
@@ -435,7 +487,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111116.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111116",
                             IsHome = true,
                             Name = "Campaign 111111116"
@@ -445,7 +497,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111117.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111117",
                             IsHome = true,
                             Name = "Campaign 111111117"
@@ -455,7 +507,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111118.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111118",
                             IsHome = true,
                             Name = "Campaign 111111118"
@@ -465,7 +517,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111119.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111119",
                             IsHome = true,
                             Name = "Campaign 111111119"
@@ -475,7 +527,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111120.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111120",
                             IsHome = true,
                             Name = "Campaign 111111120"
@@ -485,7 +537,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111121.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111121",
                             IsHome = true,
                             Name = "Campaign 111111121"
@@ -495,7 +547,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111122.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111122",
                             IsHome = true,
                             Name = "Campaign 111111122"
@@ -505,7 +557,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111123.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111123",
                             IsHome = true,
                             Name = "Campaign 111111123"
@@ -515,7 +567,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111124.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111124",
                             IsHome = true,
                             Name = "Campaign 111111124"
@@ -525,7 +577,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111125.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111125",
                             IsHome = true,
                             Name = "Campaign 111111125"
@@ -535,7 +587,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111126.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111126",
                             IsHome = true,
                             Name = "Campaign 111111126"
@@ -545,7 +597,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111127.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111127",
                             IsHome = true,
                             Name = "Campaign 111111127"
@@ -555,7 +607,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111128.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111128",
                             IsHome = true,
                             Name = "Campaign 111111128"
@@ -565,7 +617,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111129.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111129",
                             IsHome = true,
                             Name = "Campaign 111111129"
@@ -575,7 +627,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111130.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111130",
                             IsHome = true,
                             Name = "Campaign 111111130"
@@ -585,7 +637,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111131.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111131",
                             IsHome = true,
                             Name = "Campaign 111111131"
@@ -595,7 +647,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111132.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111132",
                             IsHome = true,
                             Name = "Campaign 111111132"
@@ -605,7 +657,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111133.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111133",
                             IsHome = true,
                             Name = "Campaign 111111133"
@@ -615,7 +667,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111134.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111134",
                             IsHome = true,
                             Name = "Campaign 111111134"
@@ -625,7 +677,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111135.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111135",
                             IsHome = true,
                             Name = "Campaign 111111135"
@@ -635,7 +687,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111136.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111136",
                             IsHome = true,
                             Name = "Campaign 111111136"
@@ -645,7 +697,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111137.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111137",
                             IsHome = true,
                             Name = "Campaign 111111137"
@@ -655,7 +707,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111138.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111138",
                             IsHome = true,
                             Name = "Campaign 111111138"
@@ -665,7 +717,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111139.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111139",
                             IsHome = true,
                             Name = "Campaign 111111139"
@@ -675,7 +727,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111140.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111140",
                             IsHome = true,
                             Name = "Campaign 111111140"
@@ -685,7 +737,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111141.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111141",
                             IsHome = true,
                             Name = "Campaign 111111141"
@@ -695,7 +747,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111142.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111142",
                             IsHome = true,
                             Name = "Campaign 111111142"
@@ -705,7 +757,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111143.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111143",
                             IsHome = true,
                             Name = "Campaign 111111143"
@@ -715,7 +767,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111144.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111144",
                             IsHome = true,
                             Name = "Campaign 111111144"
@@ -725,7 +777,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111145.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111145",
                             IsHome = true,
                             Name = "Campaign 111111145"
@@ -735,7 +787,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111146.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111146",
                             IsHome = true,
                             Name = "Campaign 111111146"
@@ -745,7 +797,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111147.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111147",
                             IsHome = true,
                             Name = "Campaign 111111147"
@@ -755,7 +807,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111148.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111148",
                             IsHome = true,
                             Name = "Campaign 111111148"
@@ -765,7 +817,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111149.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111149",
                             IsHome = true,
                             Name = "Campaign 111111149"
@@ -775,7 +827,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111150.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111150",
                             IsHome = true,
                             Name = "Campaign 111111150"
@@ -785,7 +837,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111151.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111151",
                             IsHome = true,
                             Name = "Campaign 111111151"
@@ -795,7 +847,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111152.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111152",
                             IsHome = true,
                             Name = "Campaign 111111152"
@@ -805,7 +857,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111153.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111153",
                             IsHome = true,
                             Name = "Campaign 111111153"
@@ -815,7 +867,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111154.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111154",
                             IsHome = true,
                             Name = "Campaign 111111154"
@@ -825,7 +877,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111155.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111155",
                             IsHome = true,
                             Name = "Campaign 111111155"
@@ -835,7 +887,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111156.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111156",
                             IsHome = true,
                             Name = "Campaign 111111156"
@@ -845,7 +897,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111157.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111157",
                             IsHome = true,
                             Name = "Campaign 111111157"
@@ -855,7 +907,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111158.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111158",
                             IsHome = true,
                             Name = "Campaign 111111158"
@@ -865,7 +917,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111159.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111159",
                             IsHome = true,
                             Name = "Campaign 111111159"
@@ -875,7 +927,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111160.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "Description: 111111160",
                             IsHome = true,
                             Name = "Campaign 111111160"
@@ -888,6 +940,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("CreatedDate")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedDate")
@@ -912,6 +965,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("CreatedDate")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
@@ -951,6 +1005,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("CreatedDate")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -972,340 +1027,350 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             CategoryId = 111111111.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Woman",
                             Url = "woman"
                         },
                         new
                         {
                             CategoryId = 111111112.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Man",
                             Url = "man"
                         },
                         new
                         {
                             CategoryId = 111111113.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Mom & Child",
                             Url = "mom-child"
                         },
                         new
                         {
                             CategoryId = 111111114.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Home & Furniture",
                             Url = "home-furniture"
                         },
                         new
                         {
                             CategoryId = 111111115.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Supermarket",
                             Url = "supermarket"
                         },
                         new
                         {
                             CategoryId = 111111116.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Cosmetics",
                             Url = "cosmetics"
                         },
                         new
                         {
                             CategoryId = 111111117.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Shoe & Bag",
                             Url = "shoe-bag"
                         },
                         new
                         {
                             CategoryId = 111111118.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Electronics",
                             Url = "electronics"
                         },
                         new
                         {
                             CategoryId = 111111119.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Sport & Outdoor",
                             Url = "sport-outdoor"
                         },
                         new
                         {
                             CategoryId = 111111120.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "Book & Instrument",
                             Url = "book-instrument"
                         },
                         new
                         {
                             CategoryId = 111111121.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 0",
                             Url = "category-0"
                         },
                         new
                         {
                             CategoryId = 111111122.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 1",
                             Url = "category-1"
                         },
                         new
                         {
                             CategoryId = 111111123.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 2",
                             Url = "category-2"
                         },
                         new
                         {
                             CategoryId = 111111124.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 3",
                             Url = "category-3"
                         },
                         new
                         {
                             CategoryId = 111111125.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 4",
                             Url = "category-4"
                         },
                         new
                         {
                             CategoryId = 111111126.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 5",
                             Url = "category-5"
                         },
                         new
                         {
                             CategoryId = 111111127.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 6",
                             Url = "category-6"
                         },
                         new
                         {
                             CategoryId = 111111128.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 7",
                             Url = "category-7"
                         },
                         new
                         {
                             CategoryId = 111111129.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 8",
                             Url = "category-8"
                         },
                         new
                         {
                             CategoryId = 111111130.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 9",
                             Url = "category-9"
                         },
                         new
                         {
                             CategoryId = 111111131.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 10",
                             Url = "category-10"
                         },
                         new
                         {
                             CategoryId = 111111132.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 11",
                             Url = "category-11"
                         },
                         new
                         {
                             CategoryId = 111111133.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 12",
                             Url = "category-12"
                         },
                         new
                         {
                             CategoryId = 111111134.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 13",
                             Url = "category-13"
                         },
                         new
                         {
                             CategoryId = 111111135.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 14",
                             Url = "category-14"
                         },
                         new
                         {
                             CategoryId = 111111136.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 15",
                             Url = "category-15"
                         },
                         new
                         {
                             CategoryId = 111111137.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 16",
                             Url = "category-16"
                         },
                         new
                         {
                             CategoryId = 111111138.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 17",
                             Url = "category-17"
                         },
                         new
                         {
                             CategoryId = 111111139.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 18",
                             Url = "category-18"
                         },
                         new
                         {
                             CategoryId = 111111140.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 19",
                             Url = "category-19"
                         },
                         new
                         {
                             CategoryId = 111111141.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 20",
                             Url = "category-20"
                         },
                         new
                         {
                             CategoryId = 111111142.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 21",
                             Url = "category-21"
                         },
                         new
                         {
                             CategoryId = 111111143.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 22",
                             Url = "category-22"
                         },
                         new
                         {
                             CategoryId = 111111144.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 23",
                             Url = "category-23"
                         },
                         new
                         {
                             CategoryId = 111111145.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 24",
                             Url = "category-24"
                         },
                         new
                         {
                             CategoryId = 111111146.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 25",
                             Url = "category-25"
                         },
                         new
                         {
                             CategoryId = 111111147.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 26",
                             Url = "category-26"
                         },
                         new
                         {
                             CategoryId = 111111148.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 27",
                             Url = "category-27"
                         },
                         new
                         {
                             CategoryId = 111111149.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 28",
                             Url = "category-28"
                         },
                         new
                         {
                             CategoryId = 111111150.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 29",
                             Url = "category-29"
                         },
                         new
                         {
                             CategoryId = 111111151.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 30",
                             Url = "category-30"
                         },
                         new
                         {
                             CategoryId = 111111152.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 31",
                             Url = "category-31"
                         },
                         new
                         {
                             CategoryId = 111111153.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 32",
                             Url = "category-32"
                         },
                         new
                         {
                             CategoryId = 111111154.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 33",
                             Url = "category-33"
                         },
                         new
                         {
                             CategoryId = 111111155.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 34",
                             Url = "category-34"
                         },
                         new
                         {
                             CategoryId = 111111156.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 35",
                             Url = "category-35"
                         },
                         new
                         {
                             CategoryId = 111111157.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 36",
                             Url = "category-36"
                         },
                         new
                         {
                             CategoryId = 111111158.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 37",
                             Url = "category-37"
                         },
                         new
                         {
                             CategoryId = 111111159.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 38",
                             Url = "category-38"
                         },
                         new
                         {
                             CategoryId = 111111160.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category 39",
                             Url = "category-39"
                         });
@@ -1320,6 +1385,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("CreatedDate")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -1344,7 +1410,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111111.0,
                             CategoryId = 111111111.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 0",
                             Url = "category2-0"
                         },
@@ -1352,7 +1418,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111112.0,
                             CategoryId = 111111112.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 1",
                             Url = "category2-1"
                         },
@@ -1360,7 +1426,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111113.0,
                             CategoryId = 111111113.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 2",
                             Url = "category2-2"
                         },
@@ -1368,7 +1434,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111114.0,
                             CategoryId = 111111114.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 3",
                             Url = "category2-3"
                         },
@@ -1376,7 +1442,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111115.0,
                             CategoryId = 111111115.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 4",
                             Url = "category2-4"
                         },
@@ -1384,7 +1450,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111116.0,
                             CategoryId = 111111116.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 5",
                             Url = "category2-5"
                         },
@@ -1392,7 +1458,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111117.0,
                             CategoryId = 111111117.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 6",
                             Url = "category2-6"
                         },
@@ -1400,7 +1466,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111118.0,
                             CategoryId = 111111118.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 7",
                             Url = "category2-7"
                         },
@@ -1408,7 +1474,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111119.0,
                             CategoryId = 111111119.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 8",
                             Url = "category2-8"
                         },
@@ -1416,7 +1482,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111120.0,
                             CategoryId = 111111120.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 9",
                             Url = "category2-9"
                         },
@@ -1424,7 +1490,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111121.0,
                             CategoryId = 111111121.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 10",
                             Url = "category2-10"
                         },
@@ -1432,7 +1498,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111122.0,
                             CategoryId = 111111122.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 11",
                             Url = "category2-11"
                         },
@@ -1440,7 +1506,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111123.0,
                             CategoryId = 111111123.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 12",
                             Url = "category2-12"
                         },
@@ -1448,7 +1514,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111124.0,
                             CategoryId = 111111124.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 13",
                             Url = "category2-13"
                         },
@@ -1456,7 +1522,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111125.0,
                             CategoryId = 111111125.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 14",
                             Url = "category2-14"
                         },
@@ -1464,7 +1530,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111126.0,
                             CategoryId = 111111126.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 15",
                             Url = "category2-15"
                         },
@@ -1472,7 +1538,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111127.0,
                             CategoryId = 111111127.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 16",
                             Url = "category2-16"
                         },
@@ -1480,7 +1546,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111128.0,
                             CategoryId = 111111128.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 17",
                             Url = "category2-17"
                         },
@@ -1488,7 +1554,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111129.0,
                             CategoryId = 111111129.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 18",
                             Url = "category2-18"
                         },
@@ -1496,7 +1562,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111130.0,
                             CategoryId = 111111130.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 19",
                             Url = "category2-19"
                         },
@@ -1504,7 +1570,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111131.0,
                             CategoryId = 111111131.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 20",
                             Url = "category2-20"
                         },
@@ -1512,7 +1578,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111132.0,
                             CategoryId = 111111132.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 21",
                             Url = "category2-21"
                         },
@@ -1520,7 +1586,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111133.0,
                             CategoryId = 111111133.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 22",
                             Url = "category2-22"
                         },
@@ -1528,7 +1594,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111134.0,
                             CategoryId = 111111134.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 23",
                             Url = "category2-23"
                         },
@@ -1536,7 +1602,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111135.0,
                             CategoryId = 111111135.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 24",
                             Url = "category2-24"
                         },
@@ -1544,7 +1610,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111136.0,
                             CategoryId = 111111136.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 25",
                             Url = "category2-25"
                         },
@@ -1552,7 +1618,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111137.0,
                             CategoryId = 111111137.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 26",
                             Url = "category2-26"
                         },
@@ -1560,7 +1626,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111138.0,
                             CategoryId = 111111138.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 27",
                             Url = "category2-27"
                         },
@@ -1568,7 +1634,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111139.0,
                             CategoryId = 111111139.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 28",
                             Url = "category2-28"
                         },
@@ -1576,7 +1642,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111140.0,
                             CategoryId = 111111140.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 29",
                             Url = "category2-29"
                         },
@@ -1584,7 +1650,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111141.0,
                             CategoryId = 111111141.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 30",
                             Url = "category2-30"
                         },
@@ -1592,7 +1658,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111142.0,
                             CategoryId = 111111142.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 31",
                             Url = "category2-31"
                         },
@@ -1600,7 +1666,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111143.0,
                             CategoryId = 111111143.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 32",
                             Url = "category2-32"
                         },
@@ -1608,7 +1674,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111144.0,
                             CategoryId = 111111144.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 33",
                             Url = "category2-33"
                         },
@@ -1616,7 +1682,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111145.0,
                             CategoryId = 111111145.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 34",
                             Url = "category2-34"
                         },
@@ -1624,7 +1690,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111146.0,
                             CategoryId = 111111146.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 35",
                             Url = "category2-35"
                         },
@@ -1632,7 +1698,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111147.0,
                             CategoryId = 111111147.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 36",
                             Url = "category2-36"
                         },
@@ -1640,7 +1706,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111148.0,
                             CategoryId = 111111148.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 37",
                             Url = "category2-37"
                         },
@@ -1648,7 +1714,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111149.0,
                             CategoryId = 111111149.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 38",
                             Url = "category2-38"
                         },
@@ -1656,7 +1722,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111150.0,
                             CategoryId = 111111150.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 39",
                             Url = "category2-39"
                         },
@@ -1664,7 +1730,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111151.0,
                             CategoryId = 111111151.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 40",
                             Url = "category2-40"
                         },
@@ -1672,7 +1738,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111152.0,
                             CategoryId = 111111152.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 41",
                             Url = "category2-41"
                         },
@@ -1680,7 +1746,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111153.0,
                             CategoryId = 111111153.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 42",
                             Url = "category2-42"
                         },
@@ -1688,7 +1754,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111154.0,
                             CategoryId = 111111154.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 43",
                             Url = "category2-43"
                         },
@@ -1696,7 +1762,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111155.0,
                             CategoryId = 111111155.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 44",
                             Url = "category2-44"
                         },
@@ -1704,7 +1770,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111156.0,
                             CategoryId = 111111156.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 45",
                             Url = "category2-45"
                         },
@@ -1712,7 +1778,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111157.0,
                             CategoryId = 111111157.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 46",
                             Url = "category2-46"
                         },
@@ -1720,7 +1786,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111158.0,
                             CategoryId = 111111158.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 47",
                             Url = "category2-47"
                         },
@@ -1728,7 +1794,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111159.0,
                             CategoryId = 111111159.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 48",
                             Url = "category2-48"
                         },
@@ -1736,7 +1802,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111160.0,
                             CategoryId = 111111160.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Name = "category2 49",
                             Url = "category2-49"
                         });
@@ -1751,6 +1817,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedDate")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
@@ -1782,7 +1849,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111111.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 0",
                             ProductId = 111111111.0,
                             UserFirstname = "John",
@@ -1793,7 +1860,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111112.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 1",
                             ProductId = 111111112.0,
                             UserFirstname = "John",
@@ -1804,7 +1871,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111113.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 2",
                             ProductId = 111111113.0,
                             UserFirstname = "John",
@@ -1815,7 +1882,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111114.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 3",
                             ProductId = 111111114.0,
                             UserFirstname = "John",
@@ -1826,7 +1893,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111115.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 4",
                             ProductId = 111111115.0,
                             UserFirstname = "John",
@@ -1837,7 +1904,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111116.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 5",
                             ProductId = 111111116.0,
                             UserFirstname = "John",
@@ -1848,7 +1915,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111117.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 6",
                             ProductId = 111111117.0,
                             UserFirstname = "John",
@@ -1859,7 +1926,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111118.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 7",
                             ProductId = 111111118.0,
                             UserFirstname = "John",
@@ -1870,7 +1937,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111119.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 8",
                             ProductId = 111111119.0,
                             UserFirstname = "John",
@@ -1881,7 +1948,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111120.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 9",
                             ProductId = 111111120.0,
                             UserFirstname = "John",
@@ -1892,7 +1959,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111121.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 10",
                             ProductId = 111111121.0,
                             UserFirstname = "John",
@@ -1903,7 +1970,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111122.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 11",
                             ProductId = 111111122.0,
                             UserFirstname = "John",
@@ -1914,7 +1981,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111123.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 12",
                             ProductId = 111111123.0,
                             UserFirstname = "John",
@@ -1925,7 +1992,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111124.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 13",
                             ProductId = 111111124.0,
                             UserFirstname = "John",
@@ -1936,7 +2003,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111125.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 14",
                             ProductId = 111111125.0,
                             UserFirstname = "John",
@@ -1947,7 +2014,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111126.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 15",
                             ProductId = 111111126.0,
                             UserFirstname = "John",
@@ -1958,7 +2025,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111127.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 16",
                             ProductId = 111111127.0,
                             UserFirstname = "John",
@@ -1969,7 +2036,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111128.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 17",
                             ProductId = 111111128.0,
                             UserFirstname = "John",
@@ -1980,7 +2047,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111129.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 18",
                             ProductId = 111111129.0,
                             UserFirstname = "John",
@@ -1991,7 +2058,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111130.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 19",
                             ProductId = 111111130.0,
                             UserFirstname = "John",
@@ -2002,7 +2069,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111131.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 20",
                             ProductId = 111111131.0,
                             UserFirstname = "John",
@@ -2013,7 +2080,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111132.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 21",
                             ProductId = 111111132.0,
                             UserFirstname = "John",
@@ -2024,7 +2091,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111133.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 22",
                             ProductId = 111111133.0,
                             UserFirstname = "John",
@@ -2035,7 +2102,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111134.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 23",
                             ProductId = 111111134.0,
                             UserFirstname = "John",
@@ -2046,7 +2113,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111135.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 24",
                             ProductId = 111111135.0,
                             UserFirstname = "John",
@@ -2057,7 +2124,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111136.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 25",
                             ProductId = 111111136.0,
                             UserFirstname = "John",
@@ -2068,7 +2135,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111137.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 26",
                             ProductId = 111111137.0,
                             UserFirstname = "John",
@@ -2079,7 +2146,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111138.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 27",
                             ProductId = 111111138.0,
                             UserFirstname = "John",
@@ -2090,7 +2157,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111139.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 28",
                             ProductId = 111111139.0,
                             UserFirstname = "John",
@@ -2101,7 +2168,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111140.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 29",
                             ProductId = 111111140.0,
                             UserFirstname = "John",
@@ -2112,7 +2179,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111141.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 30",
                             ProductId = 111111141.0,
                             UserFirstname = "John",
@@ -2123,7 +2190,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111142.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 31",
                             ProductId = 111111142.0,
                             UserFirstname = "John",
@@ -2134,7 +2201,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111143.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 32",
                             ProductId = 111111143.0,
                             UserFirstname = "John",
@@ -2145,7 +2212,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111144.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 33",
                             ProductId = 111111144.0,
                             UserFirstname = "John",
@@ -2156,7 +2223,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111145.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 34",
                             ProductId = 111111145.0,
                             UserFirstname = "John",
@@ -2167,7 +2234,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111146.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 35",
                             ProductId = 111111146.0,
                             UserFirstname = "John",
@@ -2178,7 +2245,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111147.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 36",
                             ProductId = 111111147.0,
                             UserFirstname = "John",
@@ -2189,7 +2256,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111148.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 37",
                             ProductId = 111111148.0,
                             UserFirstname = "John",
@@ -2200,7 +2267,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111149.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 38",
                             ProductId = 111111149.0,
                             UserFirstname = "John",
@@ -2211,7 +2278,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111150.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 39",
                             ProductId = 111111150.0,
                             UserFirstname = "John",
@@ -2222,7 +2289,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111151.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 40",
                             ProductId = 111111151.0,
                             UserFirstname = "John",
@@ -2233,7 +2300,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111152.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 41",
                             ProductId = 111111152.0,
                             UserFirstname = "John",
@@ -2244,7 +2311,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111153.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 42",
                             ProductId = 111111153.0,
                             UserFirstname = "John",
@@ -2255,7 +2322,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111154.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 43",
                             ProductId = 111111154.0,
                             UserFirstname = "John",
@@ -2266,7 +2333,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111155.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 44",
                             ProductId = 111111155.0,
                             UserFirstname = "John",
@@ -2277,7 +2344,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111156.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 45",
                             ProductId = 111111156.0,
                             UserFirstname = "John",
@@ -2288,7 +2355,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111157.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 46",
                             ProductId = 111111157.0,
                             UserFirstname = "John",
@@ -2299,7 +2366,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111158.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 47",
                             ProductId = 111111158.0,
                             UserFirstname = "John",
@@ -2310,7 +2377,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111159.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 48",
                             ProductId = 111111159.0,
                             UserFirstname = "John",
@@ -2321,7 +2388,7 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111160.0,
                             CommentRate = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "description - 49",
                             ProductId = 111111160.0,
                             UserFirstname = "John",
@@ -2336,6 +2403,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("CreatedDate")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("ProductId")
@@ -2362,6 +2430,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111111.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111111.0,
                             StoreId = 111111111.0,
                             Url = "1.jpg"
@@ -2369,6 +2438,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111112.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111112.0,
                             StoreId = 111111112.0,
                             Url = "1.jpg"
@@ -2376,6 +2446,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111113.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111113.0,
                             StoreId = 111111113.0,
                             Url = "1.jpg"
@@ -2383,6 +2454,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111114.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111114.0,
                             StoreId = 111111114.0,
                             Url = "1.jpg"
@@ -2390,6 +2462,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111115.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111115.0,
                             StoreId = 111111115.0,
                             Url = "1.jpg"
@@ -2397,6 +2470,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111116.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111116.0,
                             StoreId = 111111116.0,
                             Url = "1.jpg"
@@ -2404,6 +2478,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111117.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111117.0,
                             StoreId = 111111117.0,
                             Url = "1.jpg"
@@ -2411,6 +2486,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111118.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111118.0,
                             StoreId = 111111118.0,
                             Url = "1.jpg"
@@ -2418,6 +2494,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111119.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111119.0,
                             StoreId = 111111119.0,
                             Url = "1.jpg"
@@ -2425,6 +2502,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111120.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111120.0,
                             StoreId = 111111120.0,
                             Url = "1.jpg"
@@ -2432,6 +2510,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111121.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111121.0,
                             StoreId = 111111121.0,
                             Url = "1.jpg"
@@ -2439,6 +2518,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111122.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111122.0,
                             StoreId = 111111122.0,
                             Url = "1.jpg"
@@ -2446,6 +2526,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111123.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111123.0,
                             StoreId = 111111123.0,
                             Url = "1.jpg"
@@ -2453,6 +2534,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111124.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111124.0,
                             StoreId = 111111124.0,
                             Url = "1.jpg"
@@ -2460,6 +2542,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111125.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111125.0,
                             StoreId = 111111125.0,
                             Url = "1.jpg"
@@ -2467,6 +2550,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111126.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111126.0,
                             StoreId = 111111126.0,
                             Url = "1.jpg"
@@ -2474,6 +2558,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111127.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111127.0,
                             StoreId = 111111127.0,
                             Url = "1.jpg"
@@ -2481,6 +2566,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111128.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111128.0,
                             StoreId = 111111128.0,
                             Url = "1.jpg"
@@ -2488,6 +2574,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111129.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111129.0,
                             StoreId = 111111129.0,
                             Url = "1.jpg"
@@ -2495,6 +2582,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111130.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111130.0,
                             StoreId = 111111130.0,
                             Url = "1.jpg"
@@ -2502,6 +2590,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111131.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111131.0,
                             StoreId = 111111131.0,
                             Url = "1.jpg"
@@ -2509,6 +2598,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111132.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111132.0,
                             StoreId = 111111132.0,
                             Url = "1.jpg"
@@ -2516,6 +2606,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111133.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111133.0,
                             StoreId = 111111133.0,
                             Url = "1.jpg"
@@ -2523,6 +2614,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111134.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111134.0,
                             StoreId = 111111134.0,
                             Url = "1.jpg"
@@ -2530,6 +2622,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111135.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111135.0,
                             StoreId = 111111135.0,
                             Url = "1.jpg"
@@ -2537,6 +2630,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111136.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111136.0,
                             StoreId = 111111136.0,
                             Url = "1.jpg"
@@ -2544,6 +2638,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111137.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111137.0,
                             StoreId = 111111137.0,
                             Url = "1.jpg"
@@ -2551,6 +2646,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111138.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111138.0,
                             StoreId = 111111138.0,
                             Url = "1.jpg"
@@ -2558,6 +2654,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111139.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111139.0,
                             StoreId = 111111139.0,
                             Url = "1.jpg"
@@ -2565,6 +2662,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111140.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111140.0,
                             StoreId = 111111140.0,
                             Url = "1.jpg"
@@ -2572,6 +2670,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111141.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111141.0,
                             StoreId = 111111141.0,
                             Url = "1.jpg"
@@ -2579,6 +2678,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111142.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111142.0,
                             StoreId = 111111142.0,
                             Url = "1.jpg"
@@ -2586,6 +2686,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111143.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111143.0,
                             StoreId = 111111143.0,
                             Url = "1.jpg"
@@ -2593,6 +2694,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111144.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111144.0,
                             StoreId = 111111144.0,
                             Url = "1.jpg"
@@ -2600,6 +2702,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111145.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111145.0,
                             StoreId = 111111145.0,
                             Url = "1.jpg"
@@ -2607,6 +2710,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111146.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111146.0,
                             StoreId = 111111146.0,
                             Url = "1.jpg"
@@ -2614,6 +2718,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111147.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111147.0,
                             StoreId = 111111147.0,
                             Url = "1.jpg"
@@ -2621,6 +2726,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111148.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111148.0,
                             StoreId = 111111148.0,
                             Url = "1.jpg"
@@ -2628,6 +2734,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111149.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111149.0,
                             StoreId = 111111149.0,
                             Url = "1.jpg"
@@ -2635,6 +2742,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111150.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111150.0,
                             StoreId = 111111150.0,
                             Url = "1.jpg"
@@ -2642,6 +2750,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111151.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111151.0,
                             StoreId = 111111151.0,
                             Url = "1.jpg"
@@ -2649,6 +2758,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111152.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111152.0,
                             StoreId = 111111152.0,
                             Url = "1.jpg"
@@ -2656,6 +2766,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111153.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111153.0,
                             StoreId = 111111153.0,
                             Url = "1.jpg"
@@ -2663,6 +2774,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111154.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111154.0,
                             StoreId = 111111154.0,
                             Url = "1.jpg"
@@ -2670,6 +2782,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111155.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111155.0,
                             StoreId = 111111155.0,
                             Url = "1.jpg"
@@ -2677,6 +2790,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111156.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111156.0,
                             StoreId = 111111156.0,
                             Url = "1.jpg"
@@ -2684,6 +2798,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111157.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111157.0,
                             StoreId = 111111157.0,
                             Url = "1.jpg"
@@ -2691,6 +2806,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111158.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111158.0,
                             StoreId = 111111158.0,
                             Url = "1.jpg"
@@ -2698,6 +2814,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111159.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111159.0,
                             StoreId = 111111159.0,
                             Url = "1.jpg"
@@ -2705,6 +2822,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111160.0,
+                            CreatedDate = "2023/09/14 15:01:49",
                             ProductId = 111111160.0,
                             StoreId = 111111160.0,
                             Url = "1.jpg"
@@ -2731,6 +2849,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedDate")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -2743,9 +2862,6 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Note")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("OrderDate")
@@ -2773,6 +2889,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<double>("StoreId")
                         .HasColumnType("float");
 
+                    b.Property<bool>("TermsAndConditions")
+                        .HasColumnType("bit");
+
                     b.Property<string>("UpdatedDate")
                         .HasColumnType("nvarchar(max)");
 
@@ -2791,6 +2910,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("CreatedDate")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -2841,9 +2961,8 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedDate")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(max)")
-                        .HasDefaultValueSql("getdate()");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -2908,7 +3027,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111111.0,
                             CategoryId = 111111111.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 0",
                             IsApproved = true,
                             IsHome = true,
@@ -2920,7 +3039,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 0,
                             StarCount = 0,
                             StoreId = 111111111.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-0"
                         },
                         new
@@ -2930,7 +3049,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111112.0,
                             CategoryId = 111111112.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 1",
                             IsApproved = true,
                             IsHome = true,
@@ -2942,7 +3061,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 1,
                             StarCount = 0,
                             StoreId = 111111112.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-1"
                         },
                         new
@@ -2952,7 +3071,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111113.0,
                             CategoryId = 111111113.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 2",
                             IsApproved = true,
                             IsHome = true,
@@ -2964,7 +3083,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 2,
                             StarCount = 0,
                             StoreId = 111111113.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-2"
                         },
                         new
@@ -2974,7 +3093,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111114.0,
                             CategoryId = 111111114.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 3",
                             IsApproved = true,
                             IsHome = true,
@@ -2986,7 +3105,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 3,
                             StarCount = 0,
                             StoreId = 111111114.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-3"
                         },
                         new
@@ -2996,7 +3115,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111115.0,
                             CategoryId = 111111115.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 4",
                             IsApproved = true,
                             IsHome = true,
@@ -3008,7 +3127,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 4,
                             StarCount = 0,
                             StoreId = 111111115.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-4"
                         },
                         new
@@ -3018,7 +3137,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111116.0,
                             CategoryId = 111111116.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 5",
                             IsApproved = true,
                             IsHome = true,
@@ -3030,7 +3149,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 5,
                             StarCount = 0,
                             StoreId = 111111116.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-5"
                         },
                         new
@@ -3040,7 +3159,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111117.0,
                             CategoryId = 111111117.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 6",
                             IsApproved = true,
                             IsHome = true,
@@ -3052,7 +3171,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 6,
                             StarCount = 0,
                             StoreId = 111111117.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-6"
                         },
                         new
@@ -3062,7 +3181,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111118.0,
                             CategoryId = 111111118.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 7",
                             IsApproved = true,
                             IsHome = true,
@@ -3074,7 +3193,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 7,
                             StarCount = 0,
                             StoreId = 111111118.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-7"
                         },
                         new
@@ -3084,7 +3203,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111119.0,
                             CategoryId = 111111119.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 8",
                             IsApproved = true,
                             IsHome = true,
@@ -3096,7 +3215,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 8,
                             StarCount = 0,
                             StoreId = 111111119.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-8"
                         },
                         new
@@ -3106,7 +3225,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111120.0,
                             CategoryId = 111111120.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 9",
                             IsApproved = true,
                             IsHome = true,
@@ -3118,7 +3237,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 9,
                             StarCount = 0,
                             StoreId = 111111120.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-9"
                         },
                         new
@@ -3128,7 +3247,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111121.0,
                             CategoryId = 111111121.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 10",
                             IsApproved = true,
                             IsHome = true,
@@ -3140,7 +3259,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 10,
                             StarCount = 0,
                             StoreId = 111111121.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-10"
                         },
                         new
@@ -3150,7 +3269,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111122.0,
                             CategoryId = 111111122.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 11",
                             IsApproved = true,
                             IsHome = true,
@@ -3162,7 +3281,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 11,
                             StarCount = 0,
                             StoreId = 111111122.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-11"
                         },
                         new
@@ -3172,7 +3291,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111123.0,
                             CategoryId = 111111123.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 12",
                             IsApproved = true,
                             IsHome = true,
@@ -3184,7 +3303,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 12,
                             StarCount = 0,
                             StoreId = 111111123.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-12"
                         },
                         new
@@ -3194,7 +3313,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111124.0,
                             CategoryId = 111111124.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 13",
                             IsApproved = true,
                             IsHome = true,
@@ -3206,7 +3325,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 13,
                             StarCount = 0,
                             StoreId = 111111124.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-13"
                         },
                         new
@@ -3216,7 +3335,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111125.0,
                             CategoryId = 111111125.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 14",
                             IsApproved = true,
                             IsHome = true,
@@ -3228,7 +3347,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 14,
                             StarCount = 0,
                             StoreId = 111111125.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-14"
                         },
                         new
@@ -3238,7 +3357,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111126.0,
                             CategoryId = 111111126.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 15",
                             IsApproved = true,
                             IsHome = true,
@@ -3250,7 +3369,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 15,
                             StarCount = 0,
                             StoreId = 111111126.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-15"
                         },
                         new
@@ -3260,7 +3379,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111127.0,
                             CategoryId = 111111127.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 16",
                             IsApproved = true,
                             IsHome = true,
@@ -3272,7 +3391,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 16,
                             StarCount = 0,
                             StoreId = 111111127.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-16"
                         },
                         new
@@ -3282,7 +3401,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111128.0,
                             CategoryId = 111111128.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 17",
                             IsApproved = true,
                             IsHome = true,
@@ -3294,7 +3413,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 17,
                             StarCount = 0,
                             StoreId = 111111128.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-17"
                         },
                         new
@@ -3304,7 +3423,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111129.0,
                             CategoryId = 111111129.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 18",
                             IsApproved = true,
                             IsHome = true,
@@ -3316,7 +3435,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 18,
                             StarCount = 0,
                             StoreId = 111111129.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-18"
                         },
                         new
@@ -3326,7 +3445,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111130.0,
                             CategoryId = 111111130.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 19",
                             IsApproved = true,
                             IsHome = true,
@@ -3338,7 +3457,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 19,
                             StarCount = 0,
                             StoreId = 111111130.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-19"
                         },
                         new
@@ -3348,7 +3467,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111131.0,
                             CategoryId = 111111131.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 20",
                             IsApproved = true,
                             IsHome = true,
@@ -3360,7 +3479,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 20,
                             StarCount = 0,
                             StoreId = 111111131.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-20"
                         },
                         new
@@ -3370,7 +3489,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111132.0,
                             CategoryId = 111111132.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 21",
                             IsApproved = true,
                             IsHome = true,
@@ -3382,7 +3501,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 21,
                             StarCount = 0,
                             StoreId = 111111132.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-21"
                         },
                         new
@@ -3392,7 +3511,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111133.0,
                             CategoryId = 111111133.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 22",
                             IsApproved = true,
                             IsHome = true,
@@ -3404,7 +3523,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 22,
                             StarCount = 0,
                             StoreId = 111111133.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-22"
                         },
                         new
@@ -3414,7 +3533,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111134.0,
                             CategoryId = 111111134.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 23",
                             IsApproved = true,
                             IsHome = true,
@@ -3426,7 +3545,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 23,
                             StarCount = 0,
                             StoreId = 111111134.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-23"
                         },
                         new
@@ -3436,7 +3555,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111135.0,
                             CategoryId = 111111135.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 24",
                             IsApproved = true,
                             IsHome = true,
@@ -3448,7 +3567,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 24,
                             StarCount = 0,
                             StoreId = 111111135.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-24"
                         },
                         new
@@ -3458,7 +3577,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111136.0,
                             CategoryId = 111111136.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 25",
                             IsApproved = true,
                             IsHome = true,
@@ -3470,7 +3589,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 25,
                             StarCount = 0,
                             StoreId = 111111136.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-25"
                         },
                         new
@@ -3480,7 +3599,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111137.0,
                             CategoryId = 111111137.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 26",
                             IsApproved = true,
                             IsHome = true,
@@ -3492,7 +3611,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 26,
                             StarCount = 0,
                             StoreId = 111111137.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-26"
                         },
                         new
@@ -3502,7 +3621,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111138.0,
                             CategoryId = 111111138.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 27",
                             IsApproved = true,
                             IsHome = true,
@@ -3514,7 +3633,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 27,
                             StarCount = 0,
                             StoreId = 111111138.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-27"
                         },
                         new
@@ -3524,7 +3643,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111139.0,
                             CategoryId = 111111139.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 28",
                             IsApproved = true,
                             IsHome = true,
@@ -3536,7 +3655,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 28,
                             StarCount = 0,
                             StoreId = 111111139.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-28"
                         },
                         new
@@ -3546,7 +3665,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111140.0,
                             CategoryId = 111111140.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 29",
                             IsApproved = true,
                             IsHome = true,
@@ -3558,7 +3677,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 29,
                             StarCount = 0,
                             StoreId = 111111140.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-29"
                         },
                         new
@@ -3568,7 +3687,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111141.0,
                             CategoryId = 111111141.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 30",
                             IsApproved = true,
                             IsHome = true,
@@ -3580,7 +3699,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 30,
                             StarCount = 0,
                             StoreId = 111111141.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-30"
                         },
                         new
@@ -3590,7 +3709,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111142.0,
                             CategoryId = 111111142.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 31",
                             IsApproved = true,
                             IsHome = true,
@@ -3602,7 +3721,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 31,
                             StarCount = 0,
                             StoreId = 111111142.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-31"
                         },
                         new
@@ -3612,7 +3731,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111143.0,
                             CategoryId = 111111143.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 32",
                             IsApproved = true,
                             IsHome = true,
@@ -3624,7 +3743,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 32,
                             StarCount = 0,
                             StoreId = 111111143.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-32"
                         },
                         new
@@ -3634,7 +3753,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111144.0,
                             CategoryId = 111111144.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 33",
                             IsApproved = true,
                             IsHome = true,
@@ -3646,7 +3765,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 33,
                             StarCount = 0,
                             StoreId = 111111144.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-33"
                         },
                         new
@@ -3656,7 +3775,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111145.0,
                             CategoryId = 111111145.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 34",
                             IsApproved = true,
                             IsHome = true,
@@ -3668,7 +3787,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 34,
                             StarCount = 0,
                             StoreId = 111111145.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-34"
                         },
                         new
@@ -3678,7 +3797,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111146.0,
                             CategoryId = 111111146.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 35",
                             IsApproved = true,
                             IsHome = true,
@@ -3690,7 +3809,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 35,
                             StarCount = 0,
                             StoreId = 111111146.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-35"
                         },
                         new
@@ -3700,7 +3819,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111147.0,
                             CategoryId = 111111147.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 36",
                             IsApproved = true,
                             IsHome = true,
@@ -3712,7 +3831,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 36,
                             StarCount = 0,
                             StoreId = 111111147.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-36"
                         },
                         new
@@ -3722,7 +3841,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111148.0,
                             CategoryId = 111111148.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 37",
                             IsApproved = true,
                             IsHome = true,
@@ -3734,7 +3853,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 37,
                             StarCount = 0,
                             StoreId = 111111148.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-37"
                         },
                         new
@@ -3744,7 +3863,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111149.0,
                             CategoryId = 111111149.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 38",
                             IsApproved = true,
                             IsHome = true,
@@ -3756,7 +3875,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 38,
                             StarCount = 0,
                             StoreId = 111111149.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-38"
                         },
                         new
@@ -3766,7 +3885,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111150.0,
                             CategoryId = 111111150.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 39",
                             IsApproved = true,
                             IsHome = true,
@@ -3778,7 +3897,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 39,
                             StarCount = 0,
                             StoreId = 111111150.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-39"
                         },
                         new
@@ -3788,7 +3907,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111151.0,
                             CategoryId = 111111151.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 40",
                             IsApproved = true,
                             IsHome = true,
@@ -3800,7 +3919,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 40,
                             StarCount = 0,
                             StoreId = 111111151.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-40"
                         },
                         new
@@ -3810,7 +3929,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111152.0,
                             CategoryId = 111111152.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 41",
                             IsApproved = true,
                             IsHome = true,
@@ -3822,7 +3941,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 41,
                             StarCount = 0,
                             StoreId = 111111152.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-41"
                         },
                         new
@@ -3832,7 +3951,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111153.0,
                             CategoryId = 111111153.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 42",
                             IsApproved = true,
                             IsHome = true,
@@ -3844,7 +3963,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 42,
                             StarCount = 0,
                             StoreId = 111111153.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-42"
                         },
                         new
@@ -3854,7 +3973,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111154.0,
                             CategoryId = 111111154.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 43",
                             IsApproved = true,
                             IsHome = true,
@@ -3866,7 +3985,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 43,
                             StarCount = 0,
                             StoreId = 111111154.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-43"
                         },
                         new
@@ -3876,7 +3995,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111155.0,
                             CategoryId = 111111155.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 44",
                             IsApproved = true,
                             IsHome = true,
@@ -3888,7 +4007,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 44,
                             StarCount = 0,
                             StoreId = 111111155.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-44"
                         },
                         new
@@ -3898,7 +4017,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111156.0,
                             CategoryId = 111111156.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 45",
                             IsApproved = true,
                             IsHome = true,
@@ -3910,7 +4029,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 45,
                             StarCount = 0,
                             StoreId = 111111156.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-45"
                         },
                         new
@@ -3920,7 +4039,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111157.0,
                             CategoryId = 111111157.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 46",
                             IsApproved = true,
                             IsHome = true,
@@ -3932,7 +4051,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 46,
                             StarCount = 0,
                             StoreId = 111111157.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-46"
                         },
                         new
@@ -3942,7 +4061,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111158.0,
                             CategoryId = 111111158.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 47",
                             IsApproved = true,
                             IsHome = true,
@@ -3954,7 +4073,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 47,
                             StarCount = 0,
                             StoreId = 111111158.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-47"
                         },
                         new
@@ -3964,7 +4083,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111159.0,
                             CategoryId = 111111159.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 48",
                             IsApproved = true,
                             IsHome = true,
@@ -3976,7 +4095,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 48,
                             StarCount = 0,
                             StoreId = 111111159.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-48"
                         },
                         new
@@ -3986,7 +4105,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111160.0,
                             CategoryId = 111111160.0,
                             CommentCount = 1,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             Description = "urun aciklamasi 49",
                             IsApproved = true,
                             IsHome = true,
@@ -3998,7 +4117,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 49,
                             StarCount = 0,
                             StoreId = 111111160.0,
-                            UpdatedDate = "2023/09/14 11:44:35",
+                            UpdatedDate = "2023/09/14 15:01:49",
                             Url = "urun-49"
                         });
                 });
@@ -4009,6 +4128,7 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("CreatedDate")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsApproved")
@@ -4049,7 +4169,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111111.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 0",
@@ -4058,7 +4178,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111112.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 1",
@@ -4067,7 +4187,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111113.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 2",
@@ -4076,7 +4196,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111114.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 3",
@@ -4085,7 +4205,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111115.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 4",
@@ -4094,7 +4214,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111116.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 5",
@@ -4103,7 +4223,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111117.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 6",
@@ -4112,7 +4232,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111118.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 7",
@@ -4121,7 +4241,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111119.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 8",
@@ -4130,7 +4250,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111120.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 9",
@@ -4139,7 +4259,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111121.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 10",
@@ -4148,7 +4268,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111122.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 11",
@@ -4157,7 +4277,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111123.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 12",
@@ -4166,7 +4286,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111124.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 13",
@@ -4175,7 +4295,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111125.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 14",
@@ -4184,7 +4304,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111126.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 15",
@@ -4193,7 +4313,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111127.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 16",
@@ -4202,7 +4322,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111128.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 17",
@@ -4211,7 +4331,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111129.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 18",
@@ -4220,7 +4340,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111130.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 19",
@@ -4229,7 +4349,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111131.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 20",
@@ -4238,7 +4358,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111132.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 21",
@@ -4247,7 +4367,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111133.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 22",
@@ -4256,7 +4376,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111134.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 23",
@@ -4265,7 +4385,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111135.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 24",
@@ -4274,7 +4394,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111136.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 25",
@@ -4283,7 +4403,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111137.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 26",
@@ -4292,7 +4412,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111138.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 27",
@@ -4301,7 +4421,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111139.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 28",
@@ -4310,7 +4430,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111140.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 29",
@@ -4319,7 +4439,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111141.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 30",
@@ -4328,7 +4448,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111142.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 31",
@@ -4337,7 +4457,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111143.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 32",
@@ -4346,7 +4466,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111144.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 33",
@@ -4355,7 +4475,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111145.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 34",
@@ -4364,7 +4484,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111146.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 35",
@@ -4373,7 +4493,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111147.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 36",
@@ -4382,7 +4502,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111148.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 37",
@@ -4391,7 +4511,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111149.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 38",
@@ -4400,7 +4520,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111150.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 39",
@@ -4409,7 +4529,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111151.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 40",
@@ -4418,7 +4538,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111152.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 41",
@@ -4427,7 +4547,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111153.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 42",
@@ -4436,7 +4556,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111154.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 43",
@@ -4445,7 +4565,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111155.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 44",
@@ -4454,7 +4574,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111156.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 45",
@@ -4463,7 +4583,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111157.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 46",
@@ -4472,7 +4592,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111158.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 47",
@@ -4481,7 +4601,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111159.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 48",
@@ -4490,7 +4610,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111160.0,
-                            CreatedDate = "2023/09/14 11:44:35",
+                            CreatedDate = "2023/09/14 15:01:49",
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 49",

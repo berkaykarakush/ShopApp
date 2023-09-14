@@ -29,7 +29,6 @@ namespace DataAccessLayer.CQRS.Queries
                     OrderDate = order.OrderDate,
                     ConversationId = order.ConversationId,
                     CreatedDate = order.CreatedDate,
-                    Note = order.Note,
                     OrderId = order.OrderId,
                     OrderItems = order.OrderItems,
                     OrderState = order.OrderState,

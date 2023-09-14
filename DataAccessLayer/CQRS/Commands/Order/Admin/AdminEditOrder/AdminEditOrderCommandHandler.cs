@@ -28,7 +28,6 @@ namespace DataAccessLayer.CQRS.Commands
                 order.OrderNumber = request.OrderNumber;
                 order.OrderDate = request.OrderDate;
                 order.UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-                order.Note = request.Note;
                 order.ConversationId = request.ConversationId;
                 order.PaymentId = request.PaymentId;
                 order.PaymentType = request.PaymentType;

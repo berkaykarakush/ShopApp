@@ -25,8 +25,7 @@ namespace DataAccessLayer.CQRS.Commands
                     SellerLastName = request.SellerLastName,
                     SellerEmail = request.SellerEmail,
                     SellerPhone = request.SellerPhone,
-                    StoreName = request.StoreName,
-                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                    StoreName = request.StoreName
                 };
 
                 if (store == null)

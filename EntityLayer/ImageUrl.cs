@@ -1,13 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace EntityLayer
+﻿namespace EntityLayer
 {
-    public class ImageUrl 
+    public class ImageUrl : BaseEntity
     {
         public double ImageUrlId { get; set; } = new Random().Next(111111111, 999999999);
         public string? Url { get; set; }
-        public string? CreatedDate { get; set; }
-        public string? UpdatedDate { get; set; }
 
         //public Campaign? Campaign { get; set; }
         //public double CampaignId { get; set; }
