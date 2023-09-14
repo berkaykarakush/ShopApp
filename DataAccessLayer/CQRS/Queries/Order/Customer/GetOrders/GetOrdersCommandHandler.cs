@@ -19,6 +19,7 @@ namespace DataAccessLayer.CQRS.Queries
             try
             {
                 var orders = _unitOfWork.Orders.GetOrders(request.UserId);
+
                 var orderList = new List<Order>();
                 Order o;
                 foreach (var order in orders)
@@ -48,7 +49,8 @@ namespace DataAccessLayer.CQRS.Queries
 
                     orderList.Add(o);
                 }
-                return Task.FromResult(new GetOrdersCommandResponse() { IsSuccess = true, Orders = orderList});
+
+                return Task.FromResult(new GetOrdersCommandResponse() { IsSuccess = true, Orders = orderList });
             }
             catch (Exception ex)
             {

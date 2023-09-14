@@ -63,5 +63,6 @@ namespace PresentationLayer.Models
         [Display(Name = "CVC", Prompt= "123")]
         public string? Cvc { get; set; }
         public CartModel? CartModel { get; set; }
+        public List<double>? StoreIds { get; set; }
     }
 }

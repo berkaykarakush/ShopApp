@@ -53,7 +53,10 @@ namespace BusinessLayer.Concrete
                 _unitOfWork.Save();
             }
         }
-
+        public Cart GetCartByUserId(string userId)
+        {
+            return _unitOfWork.Carts.GetByUserId(userId);
+        }
         public void ClearCart(double cartId)
         {
             _unitOfWork.Carts.ClearCart(cartId);
@@ -77,12 +80,6 @@ namespace BusinessLayer.Concrete
             _unitOfWork.Carts.Update(cart);
             _unitOfWork.Save();
         }
-
-        public Cart GetCartByUserId(string userId)
-        {
-           return _unitOfWork.Carts.GetByUserId(userId);
-        }
-
         public void InitilazeCart(string userId)
         {
             _unitOfWork.Carts.Create(new Cart() { UserId = userId});

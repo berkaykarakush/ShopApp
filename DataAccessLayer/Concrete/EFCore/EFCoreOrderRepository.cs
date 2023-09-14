@@ -33,7 +33,7 @@ namespace DataAccessLayer.Concrete.EFCore
             if (!string.IsNullOrEmpty(userId))
                 orders = orders.Where(o => o.UserId == userId);
 
-            return orders.ToList();
+            return orders.OrderByDescending(o => o.OrderDate).ToList();
         }
     }
 }

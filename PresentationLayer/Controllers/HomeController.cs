@@ -33,6 +33,7 @@ namespace PresentationLayer.Controllers
         //TODO user kargom nerede
         //TODO admin komisyon
         //TODO Store Home Page icerisine tanitim cartlari eklenicek
+        //TODO Store rate
 
         [HttpGet]
         public async Task<IActionResult> Index(HomeIndexQueryRequest homeIndexQueryRequest)

@@ -119,6 +119,9 @@ namespace PresentationLayer.Mapping
             CreateMap<AdminEditOrderQueryResponse, AdminOrderVM>().ReverseMap();
 
             //Seller
+            CreateMap<SellerOrderVM, Order>().ReverseMap();
+            CreateMap<SellerOrderItemVM, OrderItem>().ReverseMap();
+            CreateMap<SellerListOrderQueryResponse, SellerListOrderVM>().ReverseMap();
             #endregion
         }
     }

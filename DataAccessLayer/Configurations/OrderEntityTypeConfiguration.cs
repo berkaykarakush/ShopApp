@@ -31,6 +31,8 @@ namespace DataAccessLayer.Configurations
                 .WithOne(o => o.Order)
                 .HasForeignKey(o => o.OrderId)  
                 .OnDelete(DeleteBehavior.Cascade);
+
+           
         }
     }
 }

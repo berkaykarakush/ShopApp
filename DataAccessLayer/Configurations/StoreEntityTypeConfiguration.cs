@@ -15,7 +15,6 @@ namespace DataAccessLayer.Configurations
                 .HasForeignKey(s => s.StoreId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-          
         }
     }
 }

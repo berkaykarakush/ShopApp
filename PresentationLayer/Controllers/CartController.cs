@@ -24,13 +24,14 @@ namespace PresentationLayer.Controllers
     {
         private readonly ICartService _cartService;
         private readonly IOrderService _orderService;
+        private readonly IStoreService _storeService;
         private readonly IEmailSender _emailSender;
         private readonly IProductService _productService;
         private readonly IMediator _mediator;
         private readonly IMapper _mapper;
         private UserManager<User> _userManager;
         private readonly INotyfService _notyfService;
-        public CartController(ICartService cartService, UserManager<User> userManager, IOrderService orderService, IEmailSender emailSender, IProductService productService, IMediator mediator, IMapper mapper, INotyfService notyfService)
+        public CartController(ICartService cartService, UserManager<User> userManager, IOrderService orderService, IEmailSender emailSender, IProductService productService, IMediator mediator, IMapper mapper, INotyfService notyfService, IStoreService storeService)
         {
             _cartService = cartService;
             _userManager = userManager;
@@ -40,6 +41,7 @@ namespace PresentationLayer.Controllers
             _mediator = mediator;
             _mapper = mapper;
             _notyfService = notyfService;
+            _storeService = storeService;
         }
 
         [Authorize]
@@ -84,8 +86,9 @@ namespace PresentationLayer.Controllers
         [HttpGet]
         public async Task<IActionResult> Checkout(CheckoutQueryRequest checkoutQueryRequest)
         {
-            Cart cart = _cartService.GetCartByUserId(_userManager.GetUserId(User));
-            checkoutQueryRequest.Cart = cart;
+            var user = await _userManager.GetUserAsync(User);
+            checkoutQueryRequest.UserId = user.Id;
+
             CheckoutQueryResponse response = await _mediator.Send(checkoutQueryRequest);
             CreateOrderVM orderModel = _mapper.Map<CreateOrderVM>(response);
             orderModel.CartModel = _mapper.Map<CartModel>(response.Cart);
@@ -135,7 +138,7 @@ namespace PresentationLayer.Controllers
                 var payment = PaymentProcess(model);
                 if (payment.Status == "success")
                 {
-                    SaveOrder(model, payment, userId);
+                    SaveOrder(model, payment, userId, model.StoreIds);
                     await OrderState(model, EnumOrderState.waiting);
                     DecreaseQuantity(model);
                     ClearCart(model.CartModel.CartId);
@@ -193,7 +196,7 @@ namespace PresentationLayer.Controllers
         }
 
         [Authorize]
-        private void SaveOrder(CreateOrderVM model, Payment payment, string userId)
+        private void SaveOrder(CreateOrderVM model, Payment payment, string userId, List<double> storeIds)
         {
             var order = new Order();
             order.OrderNumber = new Random().Next(111111, 999999).ToString();
@@ -208,6 +211,12 @@ namespace PresentationLayer.Controllers
             order.UserId = userId;
             order.Note = model.Note;
 
+            foreach (var item in storeIds)
+            {
+                var store = _storeService.GetById(item);
+                order.Stores?.Add(store);
+            }
+
             foreach (var item in model.CartModel.CartItems)
             {
                 var orderItem = new EntityLayer.OrderItem()
@@ -216,8 +225,8 @@ namespace PresentationLayer.Controllers
                     Quantity = item.Quantity,
                     ProductId = item.ProductId
                 };
-                order.OrderItems = new List<EntityLayer.OrderItem>();
-                order.OrderItems.Add(orderItem);
+                //order.OrderItems = new List<EntityLayer.OrderItem>();
+                order.OrderItems?.Add(orderItem);
             }
             _orderService.Create(order);
         }

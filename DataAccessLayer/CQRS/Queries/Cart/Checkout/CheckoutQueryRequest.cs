@@ -5,6 +5,6 @@ namespace DataAccessLayer.CQRS.Queries
 {
     public class CheckoutQueryRequest: IRequest<CheckoutQueryResponse>
     {
-        public Cart? Cart{ get; set; }
+        public string? UserId { get; set; }
     }
 }

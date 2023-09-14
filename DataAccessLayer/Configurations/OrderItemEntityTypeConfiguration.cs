@@ -15,6 +15,8 @@ namespace DataAccessLayer.Configurations
 
             //Quantity
             builder.Property(o => o.Quantity).IsRequired();
+
+        
         }
     }
 }

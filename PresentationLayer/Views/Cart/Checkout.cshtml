@@ -108,8 +108,11 @@
         <hr class="mb-3" />
         <div class="card">
             <ul class="list-group mb-3">
-
-                @foreach (var item in Model.CartModel.CartItems)
+                @foreach (var item in Model.StoreIds)
+                {
+                        <input type="hidden" name="StoreIds" value="@item"/>
+                }
+                    @foreach (var item in Model.CartModel.CartItems)
                 {
                     <li class="list-group-item d-flex justify-content-between">
                         <div>

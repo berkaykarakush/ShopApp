@@ -31,6 +31,7 @@ namespace DataAccessLayer.Concrete.EFCore
         {
             return ShopContext.Stores
                 .Where(s => s.SellerId == userId)
+                .Include(s => s.Orders)
                 .FirstOrDefault();
         }
 
