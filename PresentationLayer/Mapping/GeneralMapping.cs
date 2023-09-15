@@ -120,8 +120,10 @@ namespace PresentationLayer.Mapping
 
             //Seller
             CreateMap<SellerOrderVM, Order>().ReverseMap();
+            CreateMap<SellerDetailOrderVM, Order>().ReverseMap();
             CreateMap<SellerOrderItemVM, OrderItem>().ReverseMap();
             CreateMap<SellerListOrderQueryResponse, SellerListOrderVM>().ReverseMap();
+            CreateMap<SellerDetailOrderQueryResponse, SellerDetailOrderVM>().ReverseMap();
             #endregion
         }
     }

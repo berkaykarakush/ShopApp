@@ -50,19 +50,6 @@
                         </li>
                         @*Campaign - end*@
 
-                        @*Brand - start*@
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Brand
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-area="Seller" asp-controller="Brand" asp-action="ListBrand">All Brands</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        @*Brand - end*@
-
                         @*Comment - start*@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,7 +63,7 @@
                         </li>
                         @*Comment - end*@
 
-                        @*Comment - start*@
+                        @*Store - start*@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Store
@@ -87,9 +74,14 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
-                        @*Comment - end*@
+                        @*Store - end*@
                     </ul>
                 </div>
+
+                <a class="nav-link text-white float-end" asp-area="" asp-controller="Account" asp-action="Logout">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                </a>
+
             </div>
         </nav>
     }

@@ -40,7 +40,7 @@ namespace DataAccessLayer.CQRS.Commands
 
                 product.IsApproved = request.IsApproved;
                 product.IsHome = request.IsHome;
-                product.UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                product.UpdatedDate = DateTime.Now;
 
                 product.Category = category;
                 product.CategoryId = category.CategoryId;

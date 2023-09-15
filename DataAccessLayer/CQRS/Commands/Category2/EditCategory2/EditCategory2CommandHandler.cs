@@ -25,7 +25,7 @@ namespace DataAccessLayer.CQRS.Commands
 
                 category2.Name = request.Name;
                 category2.Url = request.Url;
-                category2.UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                category2.UpdatedDate = DateTime.Now;
                 category2.Category2Id = request.Category2Id;
                 category2.Category = category;
                 _unitOfWork.Categories2.Update(category2);

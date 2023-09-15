@@ -8,7 +8,7 @@ namespace EntityLayer
 {
     public class BaseEntity
     {
-        public string CreatedDate { get; set; } = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-        public string? UpdatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public DateTime? UpdatedDate { get; set; }
     }
 }

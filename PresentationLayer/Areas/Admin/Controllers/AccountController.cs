@@ -60,7 +60,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
                 IpAddress = GetPublicIPAddress.GetIPAddress(),
                 NormalizedEmail = $"{model.Email}".ToUpper(),
                 UserName = $"{model.FirstName}{model.LastName}".ToLower(),
-                RegistrationDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                RegistrationDate = DateTime.Now,
                 PhoneNumber = model.Phone
             };
 
@@ -121,7 +121,7 @@ namespace PresentationLayer.Areas.Admin.Controllers
                 if (result.Succeeded)
                 {
                     _cartService.InitilazeCart(user.Id);
-                    user.ConfirmEmailDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                    user.ConfirmEmailDate = DateTime.Now;
                     await _userManager.UpdateAsync(user);
                     TempData.Put("message", new AlertMessage()
                     {

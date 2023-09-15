@@ -11,8 +11,8 @@ namespace PresentationLayer.Models
         public string? UserFirstname { get; set; }
         public string? UserLastname { get; set; }
         public string? Description { get; set; }
-        public string? CreatedDate { get; set; }
-        public string? UpdatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
         public int CommentRate { get; set; }
     }
 }

@@ -21,8 +21,8 @@ namespace PresentationLayer.Models
         public double CategoryId { get; set; }
         public Category? Category { get; set; }
 
-        public string? CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
-        public string? UpdatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
     }
 }

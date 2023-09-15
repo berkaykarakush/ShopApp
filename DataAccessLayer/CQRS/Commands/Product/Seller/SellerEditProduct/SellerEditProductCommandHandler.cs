@@ -39,7 +39,7 @@ namespace DataAccessLayer.CQRS.Commands
                 if (request.ProductImage != null)
                     product.ProductImage = request.ProductImage;
 
-                product.UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                product.UpdatedDate = DateTime.Now;
 
                 product.Category = category;
                 product.CategoryId = category.CategoryId;

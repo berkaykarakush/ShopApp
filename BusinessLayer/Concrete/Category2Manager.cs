@@ -39,12 +39,6 @@ namespace BusinessLayer.Concrete
             return isValid;
         }
 
-        public void DeleteFromCategory2(double productId, double category2Id)
-        {
-            _unitOfWork.Categories2.DeleteFromCategory(productId, category2Id);
-            _unitOfWork.Save();
-        }
-
         public List<Category2> GetAll()
         {
             return _unitOfWork.Categories2.GetAll();

@@ -77,7 +77,7 @@ namespace PresentationLayer.Controllers
                 user.UserDetails.Add(new UserDetail
                 {
                     UserId = user.Id,
-                    LastLoginDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                    LastLoginDate = DateTime.Now,
                 });
 
                 //send mail if you sign in on new device
@@ -125,7 +125,7 @@ namespace PresentationLayer.Controllers
                 Email = model.Email,
                 NormalizedEmail = $"{model.Email}".ToUpper(),
                 IpAddress = GetPublicIPAddress.GetIPAddress(),
-                RegistrationDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                RegistrationDate = DateTime.Now
             };
             
             var result = await _userManager.CreateAsync(user, model.Password);
@@ -186,7 +186,7 @@ namespace PresentationLayer.Controllers
                 user.UserDetails.Add(new UserDetail
                 {
                     UserId = user.Id,
-                    LastLogoutDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                    LastLogoutDate = DateTime.Now,
                 });
                 await _userManager.UpdateAsync(user);
 
@@ -218,7 +218,7 @@ namespace PresentationLayer.Controllers
                 if (result.Succeeded)
                 {
                     _cartService.InitilazeCart(user.Id);
-                    user.ConfirmEmailDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                    user.ConfirmEmailDate = DateTime.Now;
                     await _userManager.UpdateAsync(user);
                     TempData.Put("message", new AlertMessage()
                     {
@@ -299,7 +299,7 @@ namespace PresentationLayer.Controllers
                 user.UserDetails.Add(new UserDetail() 
                 { 
                     Id = user.Id,
-                    ResetPasswordDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                    ResetPasswordDate = DateTime.Now
                 });
 
                 await _userManager.UpdateAsync(user);

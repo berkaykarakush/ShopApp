@@ -8,8 +8,8 @@ namespace DataAccessLayer.CQRS.Queries
         public string? StoreName { get; set; }
         public string? StoreUrl { get; set; }
         public string? StoreImage { get; set; }
-        public string? CreatedDate { get; set; }
-        public string? UpdatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
         public bool IsApproved { get; set; }
 
         public string? SellerId { get; set; }

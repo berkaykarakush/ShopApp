@@ -25,7 +25,6 @@ namespace PresentationLayer.Controllers
         //TODO add open source email library 
         //TODO admin dasboard en cok satan urun
         //TODO admin dasboard en cok satis yapan magaza
-        //TODO seller stock gorunutleme 
         //TODO seller satis bilgilerini goruntuleme
         //TODO seller siparis kargolandi ekleme
         //TODO seller siparis teslim edildi ekleme

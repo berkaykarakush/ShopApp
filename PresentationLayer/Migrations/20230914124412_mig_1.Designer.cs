@@ -12,7 +12,7 @@ using PresentationLayer.Identity;
 namespace PresentationLayer.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230902084441_mig_1")]
+    [Migration("20230914124412_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -170,8 +170,8 @@ namespace PresentationLayer.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ConfirmEmailDate")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("ConfirmEmailDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -183,8 +183,8 @@ namespace PresentationLayer.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FirstOrderDate")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("FirstOrderDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("IpAddress")
                         .HasColumnType("nvarchar(max)");
@@ -215,8 +215,8 @@ namespace PresentationLayer.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<string>("RegistrationDate")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("RegistrationDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
@@ -276,17 +276,17 @@ namespace PresentationLayer.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("LastLoginDate")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("LastLoginDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("LastLogoutDate")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("LastLogoutDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("LastOrderDate")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("LastOrderDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("ResetPasswordDate")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("ResetPasswordDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");

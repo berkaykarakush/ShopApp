@@ -40,5 +40,20 @@ namespace PresentationLayer.Areas.Seller.Controllers
 
             return View(sellerListOrderVM);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> DetailOrder(SellerDetailOrderQueryRequest sellerDetailOrderQueryRequest)
+        {
+            SellerDetailOrderQueryResponse response = await _mediator.Send(sellerDetailOrderQueryRequest);
+            SellerDetailOrderVM detailOrderVM = _mapper.Map<SellerDetailOrderVM>(response);
+           
+            if (!response.IsSuccess)
+            {
+                _notyfService.Error(NotyfMessageEnum.Error);
+                return View();
+            }
+
+            return View(detailOrderVM);
+        }
     }
 }

@@ -13,10 +13,10 @@ namespace PresentationLayer.Models
         public bool EmailConfirmed { get; set; }
         public IEnumerable<string>? SelectedRoles { get; set; }
         public string? UserDetailId { get; set; }
-        public string? ResetPasswordDate { get; set; }
-        public string? LastLoginDate { get; set; }
-        public string? LastLogoutDate { get; set; }
-        public string? FirstOrderDate { get; set; }
-        public string? LastOrderDate { get; set; }
+        public DateTime? ResetPasswordDate { get; set; }
+        public DateTime? LastLoginDate { get; set; }
+        public DateTime? LastLogoutDate { get; set; }
+        public DateTime? FirstOrderDate { get; set; }
+        public DateTime? LastOrderDate { get; set; }
     }
 }

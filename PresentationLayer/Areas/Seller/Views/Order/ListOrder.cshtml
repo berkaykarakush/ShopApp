@@ -9,7 +9,7 @@
                 <tr>
                     <td>Order Number</td>
                     <td>Order Date</td>
-                    <td>Custoemr</td>
+                    <td>Customer</td>
                     <td>Order State</td>
                     <td style="width: 150px;"></td>
                 </tr>
@@ -25,9 +25,9 @@
                             <td>@item.FirstName @item.LastName</td>
                             <td>@item.OrderState</td>
                             <td>
-                                <form asp-area="Seller" asp-controller="Order" asp-action="EditOrder" method="get" style="display: inline;">
+                                <form asp-area="Seller" asp-controller="Order" asp-action="DetailOrder" asp-route-id="@item.OrderId" method="get" style="display: inline;">
                                     <input type="hidden" name="OrderId" value="@item.OrderId">
-                                    <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+                                    <button type="submit" class="btn btn-primary btn-sm">Details</button>
                                 </form>
                             </td>
                         </tr>

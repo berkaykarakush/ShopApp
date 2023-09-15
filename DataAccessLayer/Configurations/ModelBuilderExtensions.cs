@@ -31,7 +31,7 @@ namespace DataAccessLayer.Configurations
             {
                 builder.Entity<Category>().HasData
                 (
-                    new Category() { CategoryId = i + 111111121, Name = $"category {i}", Url = $"category-{i}", CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") }
+                    new Category() { CategoryId = i + 111111121, Name = $"category {i}", Url = $"category-{i}", CreatedDate = DateTime.Now }
                 );
             }
 
@@ -40,7 +40,7 @@ namespace DataAccessLayer.Configurations
             {
                 builder.Entity<Category2>().HasData
                 (
-                    new Category2() { Category2Id = i + 111111111, CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), Name = $"category2 {i}", Url = $"category2-{i}", CategoryId = i + 111111111 }
+                    new Category2() { Category2Id = i + 111111111, CreatedDate = DateTime.Now, Name = $"category2 {i}", Url = $"category2-{i}", CategoryId = i + 111111111 }
                 );
             }
 
@@ -62,7 +62,7 @@ namespace DataAccessLayer.Configurations
             for (int i = 0; i < 50; i++)
             {
                 builder.Entity<Product>().HasData(
-                    new Product() { ProductId = i+111111111, Name = $"urun {i}", Url = $"urun-{i}", Price = 10, Description = $"urun aciklamasi {i}", IsApproved = true, CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), IsHome = true, Quantity = i, SalesCount = i, UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), ProductImage = "1.jpg", BrandId = i + 111111111, CategoryId = i + 111111111, Category2Id = i + 111111111, CommentCount = 1, StoreId = i + 111111111 }
+                    new Product() { ProductId = i+111111111, Name = $"urun {i}", Url = $"urun-{i}", Price = 10, Description = $"urun aciklamasi {i}", IsApproved = true, CreatedDate = DateTime.Now, IsHome = true, Quantity = i, SalesCount = i, UpdatedDate = DateTime.Now, ProductImage = "1.jpg", BrandId = i + 111111111, CategoryId = i + 111111111, Category2Id = i + 111111111, CommentCount = 1, StoreId = i + 111111111 }
                 );
             }
 
@@ -90,7 +90,7 @@ namespace DataAccessLayer.Configurations
                 {
                     StoreId = i + 111111111,
                     StoreImage = "1.jpg",
-                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                    CreatedDate = DateTime.Now,
                     StoreName = $"store {i}",
                     StoreUrl = $"store-{i}"
                 });
@@ -105,7 +105,7 @@ namespace DataAccessLayer.Configurations
                     CampaignId = i + 111111111,
                     CampaignImage = "1.jpg",
                     Code = "23sdasdasd",
-                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                    CreatedDate = DateTime.Now,
                     Description = $"Description: {i + 111111111}",
                     IsHome = true,
                     Name = $"Campaign {i + 111111111}"
@@ -120,7 +120,7 @@ namespace DataAccessLayer.Configurations
                     new Comment()
                     {
                         CommentId = i + 111111111,
-                        CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                        CreatedDate = DateTime.Now,
                         Description = $"description - {i}",
                         ProductId = i + 111111111,
                         UserId = "2c828e40-4226-42b7-808d-de6f20863d13",

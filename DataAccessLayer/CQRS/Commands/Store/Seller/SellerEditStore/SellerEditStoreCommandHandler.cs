@@ -28,7 +28,7 @@ namespace DataAccessLayer.CQRS.Commands
 
                 store.StoreId = request.StoreId;
                 store.StoreName = request.StoreName;
-                store.UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                store.UpdatedDate = DateTime.Now;
                 store.StoreImage = request.StoreImage;
                 store.SellerFirstName = request.SellerFirstName;
                 store.SellerLastName = request.SellerLastName;
@@ -42,7 +42,7 @@ namespace DataAccessLayer.CQRS.Commands
 
                 store.ImageUrls?.Add(new ImageUrl()
                 {
-                    CreatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
+                    CreatedDate = DateTime.Now,
                     Product = null,
                     ProductId = null,
                     Store = store,

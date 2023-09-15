@@ -32,10 +32,10 @@ namespace PresentationLayer.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RegistrationDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConfirmEmailDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RegistrationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ConfirmEmailDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    FirstOrderDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IpAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FirstOrderDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -190,10 +190,10 @@ namespace PresentationLayer.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    LastOrderDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ResetPasswordDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastLoginDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastLogoutDate = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    LastOrderDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    ResetPasswordDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    LastLoginDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    LastLogoutDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {

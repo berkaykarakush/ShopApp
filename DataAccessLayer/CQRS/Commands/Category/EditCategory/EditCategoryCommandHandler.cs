@@ -26,7 +26,7 @@ namespace DataAccessLayer.CQRS.Commands
                 entity.CategoryId = request.CategoryId;
                 entity.Name = request.Name;
                 entity.Url = request.Url;
-                entity.UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                entity.UpdatedDate = DateTime.Now;
 
                 _unitOfWork.Categories.Update(entity);
                 _unitOfWork.Save();

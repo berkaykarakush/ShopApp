@@ -11,12 +11,6 @@ namespace DataAccessLayer.Concrete.EFCore
         }
         private ShopContext ShopContext { get { return _context as ShopContext; } }
 
-        public void DeleteFromCategory(double productId, double category2Id)
-        {
-            //TODO DeleteFromCategory
-            throw new NotImplementedException();
-        }
-
         public Category2 GetByIdWithProducts(double category2Id)
         {
             return ShopContext.Categories2

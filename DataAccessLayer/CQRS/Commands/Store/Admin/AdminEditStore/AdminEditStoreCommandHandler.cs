@@ -31,7 +31,7 @@ namespace DataAccessLayer.CQRS.Commands
 
                 store.ImageUrls = request.ImageUrls;
 
-                store.UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                store.UpdatedDate = DateTime.Now;
                 store.IsApproved = request.IsApproved;
 
                 store.SellerFirstName = request.SellerFirstName;

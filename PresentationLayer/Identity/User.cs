@@ -8,10 +8,10 @@ namespace PresentationLayer.Identity
     {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
-        public string? RegistrationDate { get; set; }
-        public string? ConfirmEmailDate { get; set; }
+        public DateTime? RegistrationDate { get; set; }
+        public DateTime? ConfirmEmailDate { get; set; }
+        public DateTime? FirstOrderDate { get; set; }
         public string? IpAddress { get; set; }
-        public string? FirstOrderDate { get; set; }
         public List<UserAddress>? UserAddresses { get; set; } = new List<UserAddress>();
         public List<UserDetail>? UserDetails { get; set; } = new List<UserDetail>();
 

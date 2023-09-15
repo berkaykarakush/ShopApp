@@ -24,7 +24,7 @@ namespace DataAccessLayer.CQRS.Commands
                 brand.Products = request.Products;
                 brand.Name = request.Name;
                 brand.Url = request.Url;
-                brand.UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                brand.UpdatedDate = DateTime.Now;
 
                 _unitOfWork.Brands.Update(brand);
                 _unitOfWork.Save();

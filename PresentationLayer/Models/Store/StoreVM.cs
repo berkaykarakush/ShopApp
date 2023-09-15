@@ -11,8 +11,8 @@
         public string? SellerEmail { get; set; }
         public string? SellerPhone { get; set; }
         public string? StoreImage { get; set; }
-        public string? CreatedDate { get; set; }
-        public string? UpdatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
         public bool IsApproved { get; set; }
     }
 }

@@ -1,0 +1,79 @@
+﻿@model SellerDetailOrderVM
+
+@if (Model.Order != null)
+{
+    <div class="card">
+        <div class="card-header text-center h5">Order Detail</div>
+        <div class="card-body">
+            <div asp-validation-summary="ModelOnly"></div>
+            @*Order Detail *@
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label"><strong>Customer :</strong> @Model.Order.FirstName @Model.Order.LastName</label>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label"><strong>Customer Phone :</strong> @Model.Order.Phone</label>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label"><strong>Customer Email :</strong> @Model.Order.Email</label>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label"><strong>Address :</strong> @Model.Order.Address @Model.Order.City / @Model.Order.Country</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label"><strong>Order Id :</strong> @Model.Order.OrderId</label>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label"><strong>Order Date :</strong> @Model.Order.OrderDate</label>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label"><strong>Order State :</strong> @Model.Order.OrderState.ToString().ToUpper()</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label"><strong>Payment Id :</strong> @Model.Order.PaymentId</label>
+                    </div>
+                    <div class="form-group row mt-2">
+                        <label class="col-form-label"><strong>Payment Type :</strong> @Model.Order.PaymentType.ToString().ToUpper()</label>
+                    </div>
+                </div>
+            </div>
+            @*Order Detail *@
+            @*Order Items *@
+            @if (Model.Order.OrderItems != null)
+            {
+                <div class="card mt-3">
+                    <div class="card-header text-center h5">Order Items</div>
+                    <div class="col-md-4">
+                        @foreach (var item in Model.Order.OrderItems)
+                        {
+                        
+                            @if (item.Product != null)
+                            {
+                                <div class="card m-2">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                        <img src="~/img/@item.Product.ProductImage" class="img-fluid rounded-start" alt="@item.Product.ProductImage">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <p class="card-title"><strong>Name :</strong> @item.Product.Name</p>
+                                                <p class="card-title"><strong>Price :</strong> @item.Product.Price</p>
+                                                <p class="card-title"><strong>Quantity :</strong> @item.Product.Quantity</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            }
+            @*Order Items *@
+        </div>
+    </div>
+}

@@ -23,7 +23,7 @@ namespace DataAccessLayer.CQRS.Commands
                     return Task.FromResult(new EditCommentCommandResponse() { IsSuccess = false});
 
                 entity.Description = request.Description;
-                entity.UpdatedDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+                entity.UpdatedDate = DateTime.Now;
                 _unitOfWork.Comments.Update(entity);
                 _unitOfWork.Save();
                 return  Task.FromResult(new EditCommentCommandResponse() { IsSuccess = true});

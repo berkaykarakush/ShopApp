@@ -38,15 +38,15 @@ namespace PresentationLayer.Identity
                         EmailConfirmed = true,
                         PhoneNumber = "5435432323",
                         IpAddress = GetPublicIPAddress.GetIPAddress(),
-                        RegistrationDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
-                        FirstOrderDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                        RegistrationDate = DateTime.Now,
+                        FirstOrderDate = DateTime.Now   
                 };
                 user.UserDetails.Add(new UserDetail
                 {
                     UserId = user.Id,
-                    LastOrderDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
-                    LastLoginDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"),
-                    LastLogoutDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+                    LastOrderDate = DateTime.Now,
+                    LastLoginDate = DateTime.Now,
+                    LastLogoutDate = DateTime.Now
                 });
                 user.UserAddresses.Add(new UserAddress 
                 {

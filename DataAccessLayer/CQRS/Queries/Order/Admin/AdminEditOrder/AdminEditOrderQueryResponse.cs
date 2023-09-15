@@ -7,8 +7,8 @@ namespace DataAccessLayer.CQRS.Queries
         public double OrderId { get; set; }     
         public string? OrderNumber { get; set; }
         public DateTime OrderDate { get; set; }
-        public string? CreatedDate { get; set; }
-        public string? UpdatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
         public string? UserId { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }

@@ -1,6 +1,4 @@
-﻿using PresentationLayer.Areas.Admin.Models;
-
-namespace PresentationLayer.Areas.Seller.Models 
+﻿namespace PresentationLayer.Areas.Seller.Models 
 {
     public class SellerListOrderVM
     {
