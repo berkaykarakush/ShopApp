@@ -20,16 +20,14 @@ namespace PresentationLayer.Controllers
             _notyfService = notyfService;
         }
 
-        //TODO odeme sayfasinda varsa indirim kuponu
         //TODO SignalR
         //TODO add open source email library 
         //TODO admin dasboard en cok satan urun
         //TODO admin dasboard en cok satis yapan magaza
-        //TODO seller satis bilgilerini goruntuleme
-        //TODO seller siparis kargolandi ekleme
         //TODO seller siparis teslim edildi ekleme
         //TODO user kargom nerede
         //TODO admin komisyon
+        //TODO odeme sayfasinda varsa indirim kuponu
         //TODO Store Home Page icerisine tanitim cartlari eklenicek
         //TODO Store rate
 

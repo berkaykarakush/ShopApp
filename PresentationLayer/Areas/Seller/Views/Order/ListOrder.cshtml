@@ -4,43 +4,57 @@
 
 <div class="row">
     <div class="col-md-12">
-        <table id="orderTable" class="table table-bordered mt-4">
-            <thead>
-                <tr>
-                    <td>Order Number</td>
-                    <td>Order Date</td>
-                    <td>Customer</td>
-                    <td>Order State</td>
-                    <td style="width: 150px;"></td>
-                </tr>
-            </thead>
-            <tbody>
+            @if (Model.Orders != null)
+            {
                 @if (Model.Orders.Count > 0)
                 {
-                    @foreach (var item in Model.Orders)
-                    {
-                        <tr>
-                            <td>@item.OrderNumber</td>
-                            <td>@item.OrderDate.ToShortDateString() @item.OrderDate.ToShortTimeString() </td>
-                            <td>@item.FirstName @item.LastName</td>
-                            <td>@item.OrderState</td>
-                            <td>
-                                <form asp-area="Seller" asp-controller="Order" asp-action="DetailOrder" asp-route-id="@item.OrderId" method="get" style="display: inline;">
-                                    <input type="hidden" name="OrderId" value="@item.OrderId">
-                                    <button type="submit" class="btn btn-primary btn-sm">Details</button>
-                                </form>
-                            </td>
-                        </tr>
+                    <table id="orderTable" class="table table-bordered mt-4">
+                        <thead>
+                            <tr>
+                                <td><strong>Order Number</strong></td>
+                                <td><strong>Order Date</strong></td>
+                                <td><strong>Customer</strong></td>
+                                <td><strong>Order State</strong></td>
+                                <td style="width: 150px;"></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Orders)
+                            {
+                                <tr>
+                                    <td>@item.OrderNumber</td>
+                                    <td>@item.OrderDate.ToShortDateString() @item.OrderDate.ToShortTimeString() </td>
+                                    <td>@item.FirstName @item.LastName</td>
+                                    @if (@EnumOrderState.waiting == @item.OrderState)
+                                    {
+                                        <td class="text-danger"><strong>@item.OrderState.ToString().ToUpper()</strong></td>
+                                    }
+                                    @if (@EnumOrderState.shipped == @item.OrderState)
+                                    {
+                                        <td class="text-warning"><strong>@item.OrderState.ToString().ToUpper()</strong></td>
+                                    }
+                                    @if (@EnumOrderState.completed == @item.OrderState)
+                                    {
+                                        <td class="text-success"><strong>@item.OrderState.ToString().ToUpper()</strong></td>
+                                    }
+                                    <td>
+                                        <form asp-area="Seller" asp-controller="Order" asp-action="DetailOrder" asp-route-id="@item.OrderId" method="get" style="display: inline;">
+                                            <input type="hidden" name="OrderId" value="@item.OrderId">
+                                            <button type="submit" class="btn btn-primary btn-sm">Details</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
                     }
-                }
                 else
                 {
-                    <div class="alert alert-warning">
-                        <h3>No orders</h3>
+                    <div class="alert alert-primary" role="alert">
+                        No orders!
                     </div>
                 }
-            </tbody>
-        </table>
+            }
     </div>
 </div>
 

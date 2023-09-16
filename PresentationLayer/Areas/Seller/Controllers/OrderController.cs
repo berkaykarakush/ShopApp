@@ -1,5 +1,6 @@
 ﻿using AspNetCoreHero.ToastNotification.Abstractions;
 using AutoMapper;
+using DataAccessLayer.CQRS.Commands;
 using DataAccessLayer.CQRS.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -54,6 +55,19 @@ namespace PresentationLayer.Areas.Seller.Controllers
             }
 
             return View(detailOrderVM);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DetailOrder(SellerDetailOrderCommandRequest sellerDetailOrderCommandRequest)
+        {
+            SellerDetailOrderCommandResponse response = await _mediator.Send(sellerDetailOrderCommandRequest);
+
+            if (!response.IsSuccess)
+                _notyfService.Error(NotyfMessageEnum.Error);
+            else
+                _notyfService.Success("Transaction Successfull - Order Updated!");
+
+            return RedirectToAction("DetailOrder","Order",new SellerDetailOrderQueryRequest() { Id = sellerDetailOrderCommandRequest.Id});
         }
     }
 }

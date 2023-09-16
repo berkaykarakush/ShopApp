@@ -29,9 +29,20 @@
                     <div class="form-group row mt-2">
                         <label class="col-form-label"><strong>Order Date :</strong> @Model.Order.OrderDate</label>
                     </div>
-                    <div class="form-group row mt-2">
-                        <label class="col-form-label"><strong>Order State :</strong> @Model.Order.OrderState.ToString().ToUpper()</label>
-                    </div>
+                    <form asp-area="Seller" asp-controller="Order" asp-action="DetailOrder" asp-route-id="@Model.Order.OrderId">
+                        <div class="form-group row mt-2">
+                            <label class="col-sm-4 col-form-label"><strong>Order State :</strong> </label>
+                            <div class="col-sm-8">
+                                <select asp-for="@Model.Order.OrderState" name="OrderState" class="form-select" aria-label="Default select example">
+                                    <option selected>@Model.Order.OrderState.ToString().ToUpper()</option>
+                                    <option value="@EnumOrderState.waiting">@EnumOrderState.waiting.ToString().ToUpper()</option>
+                                    <option value="@EnumOrderState.completed">@EnumOrderState.completed.ToString().ToUpper()</option>
+                                    <option value="@EnumOrderState.shipped">@EnumOrderState.shipped.ToString().ToUpper()</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm">Save Changes</button>
+                    </form>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group row mt-2">
