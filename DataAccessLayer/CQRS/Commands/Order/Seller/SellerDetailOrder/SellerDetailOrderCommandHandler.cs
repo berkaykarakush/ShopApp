@@ -24,7 +24,7 @@ namespace DataAccessLayer.CQRS.Commands
                 _unitOfWork.Orders.Update(order);
                 _unitOfWork.Save();
 
-                return Task.FromResult(new SellerDetailOrderCommandResponse() { IsSuccess = true });
+                return Task.FromResult(new SellerDetailOrderCommandResponse() { IsSuccess = true, CustomerEmail = order.Email, OrderState = order.OrderState });
             }
             catch (Exception ex)
             {
