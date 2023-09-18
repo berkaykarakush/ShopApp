@@ -4,25 +4,25 @@ using Serilog;
 
 namespace DataAccessLayer.CQRS.Queries
 {
-    public class EditCommentQueryHandler : IRequestHandler<EditCommentQueryRequest, EditCommentQueryResponse>
+    public class AdminEditCommentQueryHandler : IRequestHandler<AdminEditCommentQueryRequest, AdminEditCommentQueryResponse>
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public EditCommentQueryHandler(IUnitOfWork unitOfWork)
+        public AdminEditCommentQueryHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public Task<EditCommentQueryResponse> Handle(EditCommentQueryRequest request, CancellationToken cancellationToken)
+        public Task<AdminEditCommentQueryResponse> Handle(AdminEditCommentQueryRequest request, CancellationToken cancellationToken)
         {
             try
             {
                 var entity = _unitOfWork.Comments.GetById(request.CommentId);
 
                 if (entity == null)
-                    return Task.FromResult(new EditCommentQueryResponse() { IsSuccess = false});
+                    return Task.FromResult(new AdminEditCommentQueryResponse() { IsSuccess = false});
 
-                return Task.FromResult(new EditCommentQueryResponse()
+                return Task.FromResult(new AdminEditCommentQueryResponse()
                 {
                     CommentId = entity.CommentId,
                     CreatedDate = entity.CreatedDate,
@@ -38,7 +38,7 @@ namespace DataAccessLayer.CQRS.Queries
             {
                 Log.Error(ex, $"Source: {ex.Source} - Message: {ex.Message}");
             }
-            return Task.FromResult(new EditCommentQueryResponse() { IsSuccess = false });
+            return Task.FromResult(new AdminEditCommentQueryResponse() { IsSuccess = false });
         }
     }
 }

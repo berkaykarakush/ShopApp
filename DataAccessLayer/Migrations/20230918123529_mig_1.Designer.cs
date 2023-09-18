@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    [Migration("20230914124338_mig_1")]
+    [Migration("20230918123529_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -50,350 +50,350 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             BrandId = 111111111.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9204),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2680),
                             Name = "Brand 0",
                             Url = "brand-0"
                         },
                         new
                         {
                             BrandId = 111111112.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9220),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2717),
                             Name = "Brand 1",
                             Url = "brand-1"
                         },
                         new
                         {
                             BrandId = 111111113.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9517),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2747),
                             Name = "Brand 2",
                             Url = "brand-2"
                         },
                         new
                         {
                             BrandId = 111111114.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9563),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2772),
                             Name = "Brand 3",
                             Url = "brand-3"
                         },
                         new
                         {
                             BrandId = 111111115.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9578),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2797),
                             Name = "Brand 4",
                             Url = "brand-4"
                         },
                         new
                         {
                             BrandId = 111111116.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9596),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2825),
                             Name = "Brand 5",
                             Url = "brand-5"
                         },
                         new
                         {
                             BrandId = 111111117.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9613),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2856),
                             Name = "Brand 6",
                             Url = "brand-6"
                         },
                         new
                         {
                             BrandId = 111111118.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9627),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2883),
                             Name = "Brand 7",
                             Url = "brand-7"
                         },
                         new
                         {
                             BrandId = 111111119.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9642),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2910),
                             Name = "Brand 8",
                             Url = "brand-8"
                         },
                         new
                         {
                             BrandId = 111111120.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9657),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2939),
                             Name = "Brand 9",
                             Url = "brand-9"
                         },
                         new
                         {
                             BrandId = 111111121.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9674),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2969),
                             Name = "Brand 10",
                             Url = "brand-10"
                         },
                         new
                         {
                             BrandId = 111111122.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9689),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2995),
                             Name = "Brand 11",
                             Url = "brand-11"
                         },
                         new
                         {
                             BrandId = 111111123.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9703),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3020),
                             Name = "Brand 12",
                             Url = "brand-12"
                         },
                         new
                         {
                             BrandId = 111111124.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9717),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3045),
                             Name = "Brand 13",
                             Url = "brand-13"
                         },
                         new
                         {
                             BrandId = 111111125.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9733),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3083),
                             Name = "Brand 14",
                             Url = "brand-14"
                         },
                         new
                         {
                             BrandId = 111111126.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9747),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3110),
                             Name = "Brand 15",
                             Url = "brand-15"
                         },
                         new
                         {
                             BrandId = 111111127.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9761),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3136),
                             Name = "Brand 16",
                             Url = "brand-16"
                         },
                         new
                         {
                             BrandId = 111111128.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9777),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3165),
                             Name = "Brand 17",
                             Url = "brand-17"
                         },
                         new
                         {
                             BrandId = 111111129.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9794),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3193),
                             Name = "Brand 18",
                             Url = "brand-18"
                         },
                         new
                         {
                             BrandId = 111111130.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(83),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3221),
                             Name = "Brand 19",
                             Url = "brand-19"
                         },
                         new
                         {
                             BrandId = 111111131.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(135),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3249),
                             Name = "Brand 20",
                             Url = "brand-20"
                         },
                         new
                         {
                             BrandId = 111111132.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(150),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3273),
                             Name = "Brand 21",
                             Url = "brand-21"
                         },
                         new
                         {
                             BrandId = 111111133.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(167),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3302),
                             Name = "Brand 22",
                             Url = "brand-22"
                         },
                         new
                         {
                             BrandId = 111111134.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(181),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3326),
                             Name = "Brand 23",
                             Url = "brand-23"
                         },
                         new
                         {
                             BrandId = 111111135.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(195),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3350),
                             Name = "Brand 24",
                             Url = "brand-24"
                         },
                         new
                         {
                             BrandId = 111111136.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(209),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3374),
                             Name = "Brand 25",
                             Url = "brand-25"
                         },
                         new
                         {
                             BrandId = 111111137.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(225),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3402),
                             Name = "Brand 26",
                             Url = "brand-26"
                         },
                         new
                         {
                             BrandId = 111111138.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(239),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3426),
                             Name = "Brand 27",
                             Url = "brand-27"
                         },
                         new
                         {
                             BrandId = 111111139.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(254),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3450),
                             Name = "Brand 28",
                             Url = "brand-28"
                         },
                         new
                         {
                             BrandId = 111111140.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(268),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3474),
                             Name = "Brand 29",
                             Url = "brand-29"
                         },
                         new
                         {
                             BrandId = 111111141.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(284),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3502),
                             Name = "Brand 30",
                             Url = "brand-30"
                         },
                         new
                         {
                             BrandId = 111111142.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(299),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3527),
                             Name = "Brand 31",
                             Url = "brand-31"
                         },
                         new
                         {
                             BrandId = 111111143.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(314),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3565),
                             Name = "Brand 32",
                             Url = "brand-32"
                         },
                         new
                         {
                             BrandId = 111111144.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(331),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3594),
                             Name = "Brand 33",
                             Url = "brand-33"
                         },
                         new
                         {
                             BrandId = 111111145.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(348),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3622),
                             Name = "Brand 34",
                             Url = "brand-34"
                         },
                         new
                         {
                             BrandId = 111111146.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(363),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3647),
                             Name = "Brand 35",
                             Url = "brand-35"
                         },
                         new
                         {
                             BrandId = 111111147.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(657),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3671),
                             Name = "Brand 36",
                             Url = "brand-36"
                         },
                         new
                         {
                             BrandId = 111111148.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(709),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3695),
                             Name = "Brand 37",
                             Url = "brand-37"
                         },
                         new
                         {
                             BrandId = 111111149.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(728),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3725),
                             Name = "Brand 38",
                             Url = "brand-38"
                         },
                         new
                         {
                             BrandId = 111111150.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(742),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3751),
                             Name = "Brand 39",
                             Url = "brand-39"
                         },
                         new
                         {
                             BrandId = 111111151.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(757),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3776),
                             Name = "Brand 40",
                             Url = "brand-40"
                         },
                         new
                         {
                             BrandId = 111111152.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(771),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3800),
                             Name = "Brand 41",
                             Url = "brand-41"
                         },
                         new
                         {
                             BrandId = 111111153.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(787),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3829),
                             Name = "Brand 42",
                             Url = "brand-42"
                         },
                         new
                         {
                             BrandId = 111111154.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(802),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3854),
                             Name = "Brand 43",
                             Url = "brand-43"
                         },
                         new
                         {
                             BrandId = 111111155.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(816),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3879),
                             Name = "Brand 44",
                             Url = "brand-44"
                         },
                         new
                         {
                             BrandId = 111111156.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(830),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3915),
                             Name = "Brand 45",
                             Url = "brand-45"
                         },
                         new
                         {
                             BrandId = 111111157.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(846),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3945),
                             Name = "Brand 46",
                             Url = "brand-46"
                         },
                         new
                         {
                             BrandId = 111111158.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(860),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3971),
                             Name = "Brand 47",
                             Url = "brand-47"
                         },
                         new
                         {
                             BrandId = 111111159.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(875),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(3996),
                             Name = "Brand 48",
                             Url = "brand-48"
                         },
                         new
                         {
                             BrandId = 111111160.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(889),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4030),
                             Name = "Brand 49",
                             Url = "brand-49"
                         });
@@ -435,7 +435,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111111.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7285),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8585),
                             Description = "Description: 111111111",
                             IsHome = true,
                             Name = "Campaign 111111111"
@@ -445,7 +445,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111112.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7301),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8621),
                             Description = "Description: 111111112",
                             IsHome = true,
                             Name = "Campaign 111111112"
@@ -455,7 +455,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111113.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7315),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8653),
                             Description = "Description: 111111113",
                             IsHome = true,
                             Name = "Campaign 111111113"
@@ -465,7 +465,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111114.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7326),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8680),
                             Description = "Description: 111111114",
                             IsHome = true,
                             Name = "Campaign 111111114"
@@ -475,7 +475,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111115.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7336),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8718),
                             Description = "Description: 111111115",
                             IsHome = true,
                             Name = "Campaign 111111115"
@@ -485,7 +485,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111116.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7349),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8752),
                             Description = "Description: 111111116",
                             IsHome = true,
                             Name = "Campaign 111111116"
@@ -495,7 +495,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111117.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7362),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8782),
                             Description = "Description: 111111117",
                             IsHome = true,
                             Name = "Campaign 111111117"
@@ -505,7 +505,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111118.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7373),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8807),
                             Description = "Description: 111111118",
                             IsHome = true,
                             Name = "Campaign 111111118"
@@ -515,7 +515,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111119.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7384),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8831),
                             Description = "Description: 111111119",
                             IsHome = true,
                             Name = "Campaign 111111119"
@@ -525,7 +525,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111120.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7716),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8864),
                             Description = "Description: 111111120",
                             IsHome = true,
                             Name = "Campaign 111111120"
@@ -535,7 +535,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111121.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7745),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8898),
                             Description = "Description: 111111121",
                             IsHome = true,
                             Name = "Campaign 111111121"
@@ -545,7 +545,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111122.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7760),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8925),
                             Description = "Description: 111111122",
                             IsHome = true,
                             Name = "Campaign 111111122"
@@ -555,7 +555,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111123.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7775),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8951),
                             Description = "Description: 111111123",
                             IsHome = true,
                             Name = "Campaign 111111123"
@@ -565,7 +565,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111124.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7790),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8976),
                             Description = "Description: 111111124",
                             IsHome = true,
                             Name = "Campaign 111111124"
@@ -575,7 +575,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111125.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7807),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9007),
                             Description = "Description: 111111125",
                             IsHome = true,
                             Name = "Campaign 111111125"
@@ -585,7 +585,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111126.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7821),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9035),
                             Description = "Description: 111111126",
                             IsHome = true,
                             Name = "Campaign 111111126"
@@ -595,7 +595,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111127.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7836),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9062),
                             Description = "Description: 111111127",
                             IsHome = true,
                             Name = "Campaign 111111127"
@@ -605,7 +605,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111128.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7853),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9093),
                             Description = "Description: 111111128",
                             IsHome = true,
                             Name = "Campaign 111111128"
@@ -615,7 +615,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111129.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7870),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9124),
                             Description = "Description: 111111129",
                             IsHome = true,
                             Name = "Campaign 111111129"
@@ -625,7 +625,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111130.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7884),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9159),
                             Description = "Description: 111111130",
                             IsHome = true,
                             Name = "Campaign 111111130"
@@ -635,7 +635,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111131.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7899),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9186),
                             Description = "Description: 111111131",
                             IsHome = true,
                             Name = "Campaign 111111131"
@@ -645,7 +645,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111132.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7913),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9212),
                             Description = "Description: 111111132",
                             IsHome = true,
                             Name = "Campaign 111111132"
@@ -655,7 +655,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111133.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7930),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9244),
                             Description = "Description: 111111133",
                             IsHome = true,
                             Name = "Campaign 111111133"
@@ -665,7 +665,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111134.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7945),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9270),
                             Description = "Description: 111111134",
                             IsHome = true,
                             Name = "Campaign 111111134"
@@ -675,7 +675,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111135.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8294),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9297),
                             Description = "Description: 111111135",
                             IsHome = true,
                             Name = "Campaign 111111135"
@@ -685,7 +685,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111136.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8326),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9324),
                             Description = "Description: 111111136",
                             IsHome = true,
                             Name = "Campaign 111111136"
@@ -695,7 +695,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111137.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8346),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9356),
                             Description = "Description: 111111137",
                             IsHome = true,
                             Name = "Campaign 111111137"
@@ -705,7 +705,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111138.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8360),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9383),
                             Description = "Description: 111111138",
                             IsHome = true,
                             Name = "Campaign 111111138"
@@ -715,7 +715,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111139.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8375),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9409),
                             Description = "Description: 111111139",
                             IsHome = true,
                             Name = "Campaign 111111139"
@@ -725,7 +725,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111140.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8390),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9435),
                             Description = "Description: 111111140",
                             IsHome = true,
                             Name = "Campaign 111111140"
@@ -735,7 +735,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111141.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8407),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9468),
                             Description = "Description: 111111141",
                             IsHome = true,
                             Name = "Campaign 111111141"
@@ -745,7 +745,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111142.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8422),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9496),
                             Description = "Description: 111111142",
                             IsHome = true,
                             Name = "Campaign 111111142"
@@ -755,7 +755,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111143.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8437),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9522),
                             Description = "Description: 111111143",
                             IsHome = true,
                             Name = "Campaign 111111143"
@@ -765,7 +765,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111144.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8454),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9552),
                             Description = "Description: 111111144",
                             IsHome = true,
                             Name = "Campaign 111111144"
@@ -775,7 +775,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111145.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8471),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9595),
                             Description = "Description: 111111145",
                             IsHome = true,
                             Name = "Campaign 111111145"
@@ -785,7 +785,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111146.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8486),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9624),
                             Description = "Description: 111111146",
                             IsHome = true,
                             Name = "Campaign 111111146"
@@ -795,7 +795,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111147.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8500),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9650),
                             Description = "Description: 111111147",
                             IsHome = true,
                             Name = "Campaign 111111147"
@@ -805,7 +805,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111148.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8514),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9677),
                             Description = "Description: 111111148",
                             IsHome = true,
                             Name = "Campaign 111111148"
@@ -815,7 +815,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111149.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8532),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9709),
                             Description = "Description: 111111149",
                             IsHome = true,
                             Name = "Campaign 111111149"
@@ -825,7 +825,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111150.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8874),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9735),
                             Description = "Description: 111111150",
                             IsHome = true,
                             Name = "Campaign 111111150"
@@ -835,7 +835,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111151.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8891),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9761),
                             Description = "Description: 111111151",
                             IsHome = true,
                             Name = "Campaign 111111151"
@@ -845,7 +845,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111152.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8905),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9788),
                             Description = "Description: 111111152",
                             IsHome = true,
                             Name = "Campaign 111111152"
@@ -855,7 +855,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111153.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8924),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9821),
                             Description = "Description: 111111153",
                             IsHome = true,
                             Name = "Campaign 111111153"
@@ -865,7 +865,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111154.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8939),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9848),
                             Description = "Description: 111111154",
                             IsHome = true,
                             Name = "Campaign 111111154"
@@ -875,7 +875,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111155.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8953),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9873),
                             Description = "Description: 111111155",
                             IsHome = true,
                             Name = "Campaign 111111155"
@@ -885,7 +885,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111156.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8968),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9904),
                             Description = "Description: 111111156",
                             IsHome = true,
                             Name = "Campaign 111111156"
@@ -895,7 +895,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111157.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(8985),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9937),
                             Description = "Description: 111111157",
                             IsHome = true,
                             Name = "Campaign 111111157"
@@ -905,7 +905,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111158.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9000),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9964),
                             Description = "Description: 111111158",
                             IsHome = true,
                             Name = "Campaign 111111158"
@@ -915,7 +915,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111159.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9015),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(9991),
                             Description = "Description: 111111159",
                             IsHome = true,
                             Name = "Campaign 111111159"
@@ -925,7 +925,7 @@ namespace DataAccessLayer.Migrations
                             CampaignId = 111111160.0,
                             CampaignImage = "1.jpg",
                             Code = "23sdasdasd",
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9029),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(34),
                             Description = "Description: 111111160",
                             IsHome = true,
                             Name = "Campaign 111111160"
@@ -1022,350 +1022,350 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             CategoryId = 111111111.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(5969),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 452, DateTimeKind.Local).AddTicks(9832),
                             Name = "Woman",
                             Url = "woman"
                         },
                         new
                         {
                             CategoryId = 111111112.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(5981),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 452, DateTimeKind.Local).AddTicks(9853),
                             Name = "Man",
                             Url = "man"
                         },
                         new
                         {
                             CategoryId = 111111113.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(5994),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 452, DateTimeKind.Local).AddTicks(9871),
                             Name = "Mom & Child",
                             Url = "mom-child"
                         },
                         new
                         {
                             CategoryId = 111111114.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(5995),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 452, DateTimeKind.Local).AddTicks(9876),
                             Name = "Home & Furniture",
                             Url = "home-furniture"
                         },
                         new
                         {
                             CategoryId = 111111115.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(5997),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 452, DateTimeKind.Local).AddTicks(9880),
                             Name = "Supermarket",
                             Url = "supermarket"
                         },
                         new
                         {
                             CategoryId = 111111116.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(5999),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 452, DateTimeKind.Local).AddTicks(9884),
                             Name = "Cosmetics",
                             Url = "cosmetics"
                         },
                         new
                         {
                             CategoryId = 111111117.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6003),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 452, DateTimeKind.Local).AddTicks(9893),
                             Name = "Shoe & Bag",
                             Url = "shoe-bag"
                         },
                         new
                         {
                             CategoryId = 111111118.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6004),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 452, DateTimeKind.Local).AddTicks(9897),
                             Name = "Electronics",
                             Url = "electronics"
                         },
                         new
                         {
                             CategoryId = 111111119.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6006),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 452, DateTimeKind.Local).AddTicks(9900),
                             Name = "Sport & Outdoor",
                             Url = "sport-outdoor"
                         },
                         new
                         {
                             CategoryId = 111111120.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6008),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 452, DateTimeKind.Local).AddTicks(9904),
                             Name = "Book & Instrument",
                             Url = "book-instrument"
                         },
                         new
                         {
                             CategoryId = 111111121.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6098),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(147),
                             Name = "category 0",
                             Url = "category-0"
                         },
                         new
                         {
                             CategoryId = 111111122.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6113),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(183),
                             Name = "category 1",
                             Url = "category-1"
                         },
                         new
                         {
                             CategoryId = 111111123.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6124),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(208),
                             Name = "category 2",
                             Url = "category-2"
                         },
                         new
                         {
                             CategoryId = 111111124.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6134),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(233),
                             Name = "category 3",
                             Url = "category-3"
                         },
                         new
                         {
                             CategoryId = 111111125.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6147),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(264),
                             Name = "category 4",
                             Url = "category-4"
                         },
                         new
                         {
                             CategoryId = 111111126.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6157),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(292),
                             Name = "category 5",
                             Url = "category-5"
                         },
                         new
                         {
                             CategoryId = 111111127.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6168),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(331),
                             Name = "category 6",
                             Url = "category-6"
                         },
                         new
                         {
                             CategoryId = 111111128.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6179),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(360),
                             Name = "category 7",
                             Url = "category-7"
                         },
                         new
                         {
                             CategoryId = 111111129.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6192),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(389),
                             Name = "category 8",
                             Url = "category-8"
                         },
                         new
                         {
                             CategoryId = 111111130.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6202),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(415),
                             Name = "category 9",
                             Url = "category-9"
                         },
                         new
                         {
                             CategoryId = 111111131.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6213),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(441),
                             Name = "category 10",
                             Url = "category-10"
                         },
                         new
                         {
                             CategoryId = 111111132.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6689),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(467),
                             Name = "category 11",
                             Url = "category-11"
                         },
                         new
                         {
                             CategoryId = 111111133.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6716),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(494),
                             Name = "category 12",
                             Url = "category-12"
                         },
                         new
                         {
                             CategoryId = 111111134.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6727),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(520),
                             Name = "category 13",
                             Url = "category-13"
                         },
                         new
                         {
                             CategoryId = 111111135.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6737),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(544),
                             Name = "category 14",
                             Url = "category-14"
                         },
                         new
                         {
                             CategoryId = 111111136.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6748),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(568),
                             Name = "category 15",
                             Url = "category-15"
                         },
                         new
                         {
                             CategoryId = 111111137.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6760),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(598),
                             Name = "category 16",
                             Url = "category-16"
                         },
                         new
                         {
                             CategoryId = 111111138.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6771),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(624),
                             Name = "category 17",
                             Url = "category-17"
                         },
                         new
                         {
                             CategoryId = 111111139.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6781),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(646),
                             Name = "category 18",
                             Url = "category-18"
                         },
                         new
                         {
                             CategoryId = 111111140.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6791),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(671),
                             Name = "category 19",
                             Url = "category-19"
                         },
                         new
                         {
                             CategoryId = 111111141.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6804),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(700),
                             Name = "category 20",
                             Url = "category-20"
                         },
                         new
                         {
                             CategoryId = 111111142.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6815),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(728),
                             Name = "category 21",
                             Url = "category-21"
                         },
                         new
                         {
                             CategoryId = 111111143.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6824),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(754),
                             Name = "category 22",
                             Url = "category-22"
                         },
                         new
                         {
                             CategoryId = 111111144.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6839),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(793),
                             Name = "category 23",
                             Url = "category-23"
                         },
                         new
                         {
                             CategoryId = 111111145.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6852),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(825),
                             Name = "category 24",
                             Url = "category-24"
                         },
                         new
                         {
                             CategoryId = 111111146.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6862),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(850),
                             Name = "category 25",
                             Url = "category-25"
                         },
                         new
                         {
                             CategoryId = 111111147.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(6872),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(876),
                             Name = "category 26",
                             Url = "category-26"
                         },
                         new
                         {
                             CategoryId = 111111148.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7241),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(901),
                             Name = "category 27",
                             Url = "category-27"
                         },
                         new
                         {
                             CategoryId = 111111149.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7288),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(931),
                             Name = "category 28",
                             Url = "category-28"
                         },
                         new
                         {
                             CategoryId = 111111150.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7304),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(958),
                             Name = "category 29",
                             Url = "category-29"
                         },
                         new
                         {
                             CategoryId = 111111151.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7319),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(985),
                             Name = "category 30",
                             Url = "category-30"
                         },
                         new
                         {
                             CategoryId = 111111152.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7334),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1014),
                             Name = "category 31",
                             Url = "category-31"
                         },
                         new
                         {
                             CategoryId = 111111153.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7351),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1043),
                             Name = "category 32",
                             Url = "category-32"
                         },
                         new
                         {
                             CategoryId = 111111154.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7366),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1068),
                             Name = "category 33",
                             Url = "category-33"
                         },
                         new
                         {
                             CategoryId = 111111155.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7380),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1093),
                             Name = "category 34",
                             Url = "category-34"
                         },
                         new
                         {
                             CategoryId = 111111156.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7395),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1117),
                             Name = "category 35",
                             Url = "category-35"
                         },
                         new
                         {
                             CategoryId = 111111157.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7412),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1146),
                             Name = "category 36",
                             Url = "category-36"
                         },
                         new
                         {
                             CategoryId = 111111158.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7426),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1172),
                             Name = "category 37",
                             Url = "category-37"
                         },
                         new
                         {
                             CategoryId = 111111159.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7440),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1196),
                             Name = "category 38",
                             Url = "category-38"
                         },
                         new
                         {
                             CategoryId = 111111160.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7455),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1230),
                             Name = "category 39",
                             Url = "category-39"
                         });
@@ -1404,7 +1404,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111111.0,
                             CategoryId = 111111111.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7475),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1267),
                             Name = "category2 0",
                             Url = "category2-0"
                         },
@@ -1412,7 +1412,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111112.0,
                             CategoryId = 111111112.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7498),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1303),
                             Name = "category2 1",
                             Url = "category2-1"
                         },
@@ -1420,7 +1420,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111113.0,
                             CategoryId = 111111113.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7513),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1327),
                             Name = "category2 2",
                             Url = "category2-2"
                         },
@@ -1428,7 +1428,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111114.0,
                             CategoryId = 111111114.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7528),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1350),
                             Name = "category2 3",
                             Url = "category2-3"
                         },
@@ -1436,7 +1436,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111115.0,
                             CategoryId = 111111115.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7850),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1376),
                             Name = "category2 4",
                             Url = "category2-4"
                         },
@@ -1444,7 +1444,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111116.0,
                             CategoryId = 111111116.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7887),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1402),
                             Name = "category2 5",
                             Url = "category2-5"
                         },
@@ -1452,7 +1452,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111117.0,
                             CategoryId = 111111117.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7903),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1425),
                             Name = "category2 6",
                             Url = "category2-6"
                         },
@@ -1460,7 +1460,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111118.0,
                             CategoryId = 111111118.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7918),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1448),
                             Name = "category2 7",
                             Url = "category2-7"
                         },
@@ -1468,7 +1468,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111119.0,
                             CategoryId = 111111119.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7935),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1474),
                             Name = "category2 8",
                             Url = "category2-8"
                         },
@@ -1476,7 +1476,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111120.0,
                             CategoryId = 111111120.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7951),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1500),
                             Name = "category2 9",
                             Url = "category2-9"
                         },
@@ -1484,7 +1484,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111121.0,
                             CategoryId = 111111121.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7966),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1523),
                             Name = "category2 10",
                             Url = "category2-10"
                         },
@@ -1492,7 +1492,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111122.0,
                             CategoryId = 111111122.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7982),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1550),
                             Name = "category2 11",
                             Url = "category2-11"
                         },
@@ -1500,7 +1500,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111123.0,
                             CategoryId = 111111123.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(7999),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1580),
                             Name = "category2 12",
                             Url = "category2-12"
                         },
@@ -1508,7 +1508,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111124.0,
                             CategoryId = 111111124.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8014),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1606),
                             Name = "category2 13",
                             Url = "category2-13"
                         },
@@ -1516,7 +1516,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111125.0,
                             CategoryId = 111111125.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8029),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1632),
                             Name = "category2 14",
                             Url = "category2-14"
                         },
@@ -1524,7 +1524,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111126.0,
                             CategoryId = 111111126.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8043),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1667),
                             Name = "category2 15",
                             Url = "category2-15"
                         },
@@ -1532,7 +1532,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111127.0,
                             CategoryId = 111111127.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8060),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1698),
                             Name = "category2 16",
                             Url = "category2-16"
                         },
@@ -1540,7 +1540,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111128.0,
                             CategoryId = 111111128.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8077),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1729),
                             Name = "category2 17",
                             Url = "category2-17"
                         },
@@ -1548,7 +1548,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111129.0,
                             CategoryId = 111111129.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8091),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1756),
                             Name = "category2 18",
                             Url = "category2-18"
                         },
@@ -1556,7 +1556,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111130.0,
                             CategoryId = 111111130.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8106),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1781),
                             Name = "category2 19",
                             Url = "category2-19"
                         },
@@ -1564,7 +1564,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111131.0,
                             CategoryId = 111111131.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8431),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1811),
                             Name = "category2 20",
                             Url = "category2-20"
                         },
@@ -1572,7 +1572,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111132.0,
                             CategoryId = 111111132.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8458),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1837),
                             Name = "category2 21",
                             Url = "category2-21"
                         },
@@ -1580,7 +1580,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111133.0,
                             CategoryId = 111111133.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8473),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1863),
                             Name = "category2 22",
                             Url = "category2-22"
                         },
@@ -1588,7 +1588,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111134.0,
                             CategoryId = 111111134.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8488),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1893),
                             Name = "category2 23",
                             Url = "category2-23"
                         },
@@ -1596,7 +1596,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111135.0,
                             CategoryId = 111111135.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8505),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1926),
                             Name = "category2 24",
                             Url = "category2-24"
                         },
@@ -1604,7 +1604,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111136.0,
                             CategoryId = 111111136.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8521),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1953),
                             Name = "category2 25",
                             Url = "category2-25"
                         },
@@ -1612,7 +1612,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111137.0,
                             CategoryId = 111111137.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8536),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(1980),
                             Name = "category2 26",
                             Url = "category2-26"
                         },
@@ -1620,7 +1620,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111138.0,
                             CategoryId = 111111138.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8550),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2006),
                             Name = "category2 27",
                             Url = "category2-27"
                         },
@@ -1628,7 +1628,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111139.0,
                             CategoryId = 111111139.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8567),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2036),
                             Name = "category2 28",
                             Url = "category2-28"
                         },
@@ -1636,7 +1636,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111140.0,
                             CategoryId = 111111140.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8582),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2061),
                             Name = "category2 29",
                             Url = "category2-29"
                         },
@@ -1644,7 +1644,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111141.0,
                             CategoryId = 111111141.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8597),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2088),
                             Name = "category2 30",
                             Url = "category2-30"
                         },
@@ -1652,7 +1652,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111142.0,
                             CategoryId = 111111142.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8611),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2125),
                             Name = "category2 31",
                             Url = "category2-31"
                         },
@@ -1660,7 +1660,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111143.0,
                             CategoryId = 111111143.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8629),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2157),
                             Name = "category2 32",
                             Url = "category2-32"
                         },
@@ -1668,7 +1668,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111144.0,
                             CategoryId = 111111144.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8647),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2188),
                             Name = "category2 33",
                             Url = "category2-33"
                         },
@@ -1676,7 +1676,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111145.0,
                             CategoryId = 111111145.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8662),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2215),
                             Name = "category2 34",
                             Url = "category2-34"
                         },
@@ -1684,7 +1684,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111146.0,
                             CategoryId = 111111146.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(8996),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2242),
                             Name = "category2 35",
                             Url = "category2-35"
                         },
@@ -1692,7 +1692,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111147.0,
                             CategoryId = 111111147.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9042),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2273),
                             Name = "category2 36",
                             Url = "category2-36"
                         },
@@ -1700,7 +1700,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111148.0,
                             CategoryId = 111111148.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9054),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2299),
                             Name = "category2 37",
                             Url = "category2-37"
                         },
@@ -1708,7 +1708,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111149.0,
                             CategoryId = 111111149.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9065),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2325),
                             Name = "category2 38",
                             Url = "category2-38"
                         },
@@ -1716,7 +1716,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111150.0,
                             CategoryId = 111111150.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9076),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2352),
                             Name = "category2 39",
                             Url = "category2-39"
                         },
@@ -1724,7 +1724,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111151.0,
                             CategoryId = 111111151.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9090),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2382),
                             Name = "category2 40",
                             Url = "category2-40"
                         },
@@ -1732,7 +1732,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111152.0,
                             CategoryId = 111111152.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9100),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2410),
                             Name = "category2 41",
                             Url = "category2-41"
                         },
@@ -1740,7 +1740,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111153.0,
                             CategoryId = 111111153.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9111),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2438),
                             Name = "category2 42",
                             Url = "category2-42"
                         },
@@ -1748,7 +1748,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111154.0,
                             CategoryId = 111111154.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9121),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2464),
                             Name = "category2 43",
                             Url = "category2-43"
                         },
@@ -1756,7 +1756,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111155.0,
                             CategoryId = 111111155.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9135),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2496),
                             Name = "category2 44",
                             Url = "category2-44"
                         },
@@ -1764,7 +1764,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111156.0,
                             CategoryId = 111111156.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9145),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2523),
                             Name = "category2 45",
                             Url = "category2-45"
                         },
@@ -1772,7 +1772,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111157.0,
                             CategoryId = 111111157.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9156),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2551),
                             Name = "category2 46",
                             Url = "category2-46"
                         },
@@ -1780,7 +1780,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111158.0,
                             CategoryId = 111111158.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9166),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2585),
                             Name = "category2 47",
                             Url = "category2-47"
                         },
@@ -1788,7 +1788,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111159.0,
                             CategoryId = 111111159.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9179),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2618),
                             Name = "category2 48",
                             Url = "category2-48"
                         },
@@ -1796,7 +1796,7 @@ namespace DataAccessLayer.Migrations
                         {
                             Category2Id = 111111160.0,
                             CategoryId = 111111160.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 317, DateTimeKind.Local).AddTicks(9189),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(2645),
                             Name = "category2 49",
                             Url = "category2-49"
                         });
@@ -1817,6 +1817,12 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("ProductId")
+                        .HasColumnType("float");
+
+                    b.Property<string>("SellerAnswer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("StoreId")
                         .HasColumnType("float");
 
                     b.Property<DateTime?>("UpdatedDate")
@@ -1842,9 +1848,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111111.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9052),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(84),
                             Description = "description - 0",
                             ProductId = 111111111.0,
+                            StoreId = 111111111.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -1853,9 +1860,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111112.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9072),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(121),
                             Description = "description - 1",
                             ProductId = 111111112.0,
+                            StoreId = 111111112.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -1864,9 +1872,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111113.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9087),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(150),
                             Description = "description - 2",
                             ProductId = 111111113.0,
+                            StoreId = 111111113.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -1875,9 +1884,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111114.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9102),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(176),
                             Description = "description - 3",
                             ProductId = 111111114.0,
+                            StoreId = 111111114.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -1886,9 +1896,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111115.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9119),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(207),
                             Description = "description - 4",
                             ProductId = 111111115.0,
+                            StoreId = 111111115.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -1897,9 +1908,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111116.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9458),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(236),
                             Description = "description - 5",
                             ProductId = 111111116.0,
+                            StoreId = 111111116.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -1908,9 +1920,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111117.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9476),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(263),
                             Description = "description - 6",
                             ProductId = 111111117.0,
+                            StoreId = 111111117.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -1919,9 +1932,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111118.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9491),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(288),
                             Description = "description - 7",
                             ProductId = 111111118.0,
+                            StoreId = 111111118.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -1930,9 +1944,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111119.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9509),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(319),
                             Description = "description - 8",
                             ProductId = 111111119.0,
+                            StoreId = 111111119.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -1941,9 +1956,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111120.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9526),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(349),
                             Description = "description - 9",
                             ProductId = 111111120.0,
+                            StoreId = 111111120.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -1952,9 +1968,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111121.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9541),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(374),
                             Description = "description - 10",
                             ProductId = 111111121.0,
+                            StoreId = 111111121.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -1963,9 +1980,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111122.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9556),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(400),
                             Description = "description - 11",
                             ProductId = 111111122.0,
+                            StoreId = 111111122.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -1974,9 +1992,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111123.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9573),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(432),
                             Description = "description - 12",
                             ProductId = 111111123.0,
+                            StoreId = 111111123.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -1985,9 +2004,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111124.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9589),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(458),
                             Description = "description - 13",
                             ProductId = 111111124.0,
+                            StoreId = 111111124.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -1996,9 +2016,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111125.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9603),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(484),
                             Description = "description - 14",
                             ProductId = 111111125.0,
+                            StoreId = 111111125.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2007,9 +2028,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111126.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9618),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(510),
                             Description = "description - 15",
                             ProductId = 111111126.0,
+                            StoreId = 111111126.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2018,9 +2040,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111127.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9635),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(552),
                             Description = "description - 16",
                             ProductId = 111111127.0,
+                            StoreId = 111111127.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2029,9 +2052,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111128.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9652),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(580),
                             Description = "description - 17",
                             ProductId = 111111128.0,
+                            StoreId = 111111128.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2040,9 +2064,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111129.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9667),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(603),
                             Description = "description - 18",
                             ProductId = 111111129.0,
+                            StoreId = 111111129.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2051,9 +2076,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111130.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9681),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(627),
                             Description = "description - 19",
                             ProductId = 111111130.0,
+                            StoreId = 111111130.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2062,9 +2088,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111131.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(9698),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(657),
                             Description = "description - 20",
                             ProductId = 111111131.0,
+                            StoreId = 111111131.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2073,9 +2100,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111132.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(26),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(684),
                             Description = "description - 21",
                             ProductId = 111111132.0,
+                            StoreId = 111111132.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2084,9 +2112,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111133.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(75),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(710),
                             Description = "description - 22",
                             ProductId = 111111133.0,
+                            StoreId = 111111133.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2095,9 +2124,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111134.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(91),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(735),
                             Description = "description - 23",
                             ProductId = 111111134.0,
+                            StoreId = 111111134.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2106,9 +2136,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111135.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(109),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(767),
                             Description = "description - 24",
                             ProductId = 111111135.0,
+                            StoreId = 111111135.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2117,9 +2148,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111136.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(124),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(793),
                             Description = "description - 25",
                             ProductId = 111111136.0,
+                            StoreId = 111111136.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2128,9 +2160,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111137.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(139),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(819),
                             Description = "description - 26",
                             ProductId = 111111137.0,
+                            StoreId = 111111137.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2139,9 +2172,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111138.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(153),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(845),
                             Description = "description - 27",
                             ProductId = 111111138.0,
+                            StoreId = 111111138.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2150,9 +2184,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111139.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(170),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(875),
                             Description = "description - 28",
                             ProductId = 111111139.0,
+                            StoreId = 111111139.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2161,9 +2196,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111140.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(184),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(902),
                             Description = "description - 29",
                             ProductId = 111111140.0,
+                            StoreId = 111111140.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2172,9 +2208,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111141.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(199),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(929),
                             Description = "description - 30",
                             ProductId = 111111141.0,
+                            StoreId = 111111141.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2183,9 +2220,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111142.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(214),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(958),
                             Description = "description - 31",
                             ProductId = 111111142.0,
+                            StoreId = 111111142.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2194,9 +2232,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111143.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(230),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1001),
                             Description = "description - 32",
                             ProductId = 111111143.0,
+                            StoreId = 111111143.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2205,9 +2244,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111144.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(249),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1029),
                             Description = "description - 33",
                             ProductId = 111111144.0,
+                            StoreId = 111111144.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2216,9 +2256,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111145.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(263),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1054),
                             Description = "description - 34",
                             ProductId = 111111145.0,
+                            StoreId = 111111145.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2227,9 +2268,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111146.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(278),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1078),
                             Description = "description - 35",
                             ProductId = 111111146.0,
+                            StoreId = 111111146.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2238,9 +2280,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111147.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(294),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1106),
                             Description = "description - 36",
                             ProductId = 111111147.0,
+                            StoreId = 111111147.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2249,9 +2292,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111148.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(595),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1131),
                             Description = "description - 37",
                             ProductId = 111111148.0,
+                            StoreId = 111111148.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2260,9 +2304,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111149.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(647),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1160),
                             Description = "description - 38",
                             ProductId = 111111149.0,
+                            StoreId = 111111149.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2271,9 +2316,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111150.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(663),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1184),
                             Description = "description - 39",
                             ProductId = 111111150.0,
+                            StoreId = 111111150.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2282,9 +2328,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111151.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(681),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1215),
                             Description = "description - 40",
                             ProductId = 111111151.0,
+                            StoreId = 111111151.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2293,9 +2340,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111152.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(697),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1241),
                             Description = "description - 41",
                             ProductId = 111111152.0,
+                            StoreId = 111111152.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2304,9 +2352,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111153.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(712),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1264),
                             Description = "description - 42",
                             ProductId = 111111153.0,
+                            StoreId = 111111153.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2315,9 +2364,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111154.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(726),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1287),
                             Description = "description - 43",
                             ProductId = 111111154.0,
+                            StoreId = 111111154.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2326,9 +2376,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111155.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(743),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1317),
                             Description = "description - 44",
                             ProductId = 111111155.0,
+                            StoreId = 111111155.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2337,9 +2388,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111156.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(758),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1343),
                             Description = "description - 45",
                             ProductId = 111111156.0,
+                            StoreId = 111111156.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2348,9 +2400,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111157.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(772),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1367),
                             Description = "description - 46",
                             ProductId = 111111157.0,
+                            StoreId = 111111157.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2359,9 +2412,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111158.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(787),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1393),
                             Description = "description - 47",
                             ProductId = 111111158.0,
+                            StoreId = 111111158.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2370,9 +2424,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111159.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(803),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1595),
                             Description = "description - 48",
                             ProductId = 111111159.0,
+                            StoreId = 111111159.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2381,9 +2436,10 @@ namespace DataAccessLayer.Migrations
                         {
                             CommentId = 111111160.0,
                             CommentRate = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 319, DateTimeKind.Local).AddTicks(818),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 454, DateTimeKind.Local).AddTicks(1636),
                             Description = "description - 49",
                             ProductId = 111111160.0,
+                            StoreId = 111111160.0,
                             UserFirstname = "John",
                             UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                             UserLastname = "Doe"
@@ -2422,7 +2478,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111111.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3782),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5864),
                             ProductId = 111111111.0,
                             StoreId = 111111111.0,
                             Url = "1.jpg"
@@ -2430,7 +2486,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111112.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3798),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5895),
                             ProductId = 111111112.0,
                             StoreId = 111111112.0,
                             Url = "1.jpg"
@@ -2438,7 +2494,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111113.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3809),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5919),
                             ProductId = 111111113.0,
                             StoreId = 111111113.0,
                             Url = "1.jpg"
@@ -2446,7 +2502,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111114.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3817),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5938),
                             ProductId = 111111114.0,
                             StoreId = 111111114.0,
                             Url = "1.jpg"
@@ -2454,7 +2510,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111115.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3824),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5957),
                             ProductId = 111111115.0,
                             StoreId = 111111115.0,
                             Url = "1.jpg"
@@ -2462,7 +2518,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111116.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3834),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5980),
                             ProductId = 111111116.0,
                             StoreId = 111111116.0,
                             Url = "1.jpg"
@@ -2470,7 +2526,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111117.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3843),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6003),
                             ProductId = 111111117.0,
                             StoreId = 111111117.0,
                             Url = "1.jpg"
@@ -2478,7 +2534,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111118.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3851),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6030),
                             ProductId = 111111118.0,
                             StoreId = 111111118.0,
                             Url = "1.jpg"
@@ -2486,7 +2542,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111119.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3858),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6049),
                             ProductId = 111111119.0,
                             StoreId = 111111119.0,
                             Url = "1.jpg"
@@ -2494,7 +2550,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111120.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3866),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6069),
                             ProductId = 111111120.0,
                             StoreId = 111111120.0,
                             Url = "1.jpg"
@@ -2502,7 +2558,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111121.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3876),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6091),
                             ProductId = 111111121.0,
                             StoreId = 111111121.0,
                             Url = "1.jpg"
@@ -2510,7 +2566,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111122.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3884),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6110),
                             ProductId = 111111122.0,
                             StoreId = 111111122.0,
                             Url = "1.jpg"
@@ -2518,7 +2574,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111123.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3891),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6128),
                             ProductId = 111111123.0,
                             StoreId = 111111123.0,
                             Url = "1.jpg"
@@ -2526,7 +2582,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111124.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4184),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6147),
                             ProductId = 111111124.0,
                             StoreId = 111111124.0,
                             Url = "1.jpg"
@@ -2534,7 +2590,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111125.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4233),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6170),
                             ProductId = 111111125.0,
                             StoreId = 111111125.0,
                             Url = "1.jpg"
@@ -2542,7 +2598,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111126.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4246),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6189),
                             ProductId = 111111126.0,
                             StoreId = 111111126.0,
                             Url = "1.jpg"
@@ -2550,7 +2606,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111127.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4257),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6207),
                             ProductId = 111111127.0,
                             StoreId = 111111127.0,
                             Url = "1.jpg"
@@ -2558,7 +2614,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111128.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4271),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6228),
                             ProductId = 111111128.0,
                             StoreId = 111111128.0,
                             Url = "1.jpg"
@@ -2566,7 +2622,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111129.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4285),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6251),
                             ProductId = 111111129.0,
                             StoreId = 111111129.0,
                             Url = "1.jpg"
@@ -2574,7 +2630,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111130.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4296),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6270),
                             ProductId = 111111130.0,
                             StoreId = 111111130.0,
                             Url = "1.jpg"
@@ -2582,7 +2638,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111131.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4307),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6290),
                             ProductId = 111111131.0,
                             StoreId = 111111131.0,
                             Url = "1.jpg"
@@ -2590,7 +2646,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111132.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4318),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6310),
                             ProductId = 111111132.0,
                             StoreId = 111111132.0,
                             Url = "1.jpg"
@@ -2598,7 +2654,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111133.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4331),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6335),
                             ProductId = 111111133.0,
                             StoreId = 111111133.0,
                             Url = "1.jpg"
@@ -2606,7 +2662,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111134.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4342),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6355),
                             ProductId = 111111134.0,
                             StoreId = 111111134.0,
                             Url = "1.jpg"
@@ -2614,7 +2670,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111135.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4353),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6375),
                             ProductId = 111111135.0,
                             StoreId = 111111135.0,
                             Url = "1.jpg"
@@ -2622,7 +2678,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111136.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4364),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6394),
                             ProductId = 111111136.0,
                             StoreId = 111111136.0,
                             Url = "1.jpg"
@@ -2630,7 +2686,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111137.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4377),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6416),
                             ProductId = 111111137.0,
                             StoreId = 111111137.0,
                             Url = "1.jpg"
@@ -2638,7 +2694,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111138.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4387),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6447),
                             ProductId = 111111138.0,
                             StoreId = 111111138.0,
                             Url = "1.jpg"
@@ -2646,7 +2702,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111139.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4398),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6466),
                             ProductId = 111111139.0,
                             StoreId = 111111139.0,
                             Url = "1.jpg"
@@ -2654,7 +2710,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111140.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4409),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6478),
                             ProductId = 111111140.0,
                             StoreId = 111111140.0,
                             Url = "1.jpg"
@@ -2662,7 +2718,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111141.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4422),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6493),
                             ProductId = 111111141.0,
                             StoreId = 111111141.0,
                             Url = "1.jpg"
@@ -2670,7 +2726,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111142.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4433),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6505),
                             ProductId = 111111142.0,
                             StoreId = 111111142.0,
                             Url = "1.jpg"
@@ -2678,7 +2734,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111143.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4444),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6517),
                             ProductId = 111111143.0,
                             StoreId = 111111143.0,
                             Url = "1.jpg"
@@ -2686,7 +2742,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111144.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4768),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6532),
                             ProductId = 111111144.0,
                             StoreId = 111111144.0,
                             Url = "1.jpg"
@@ -2694,7 +2750,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111145.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4791),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6547),
                             ProductId = 111111145.0,
                             StoreId = 111111145.0,
                             Url = "1.jpg"
@@ -2702,7 +2758,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111146.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4802),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6558),
                             ProductId = 111111146.0,
                             StoreId = 111111146.0,
                             Url = "1.jpg"
@@ -2710,7 +2766,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111147.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4813),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6570),
                             ProductId = 111111147.0,
                             StoreId = 111111147.0,
                             Url = "1.jpg"
@@ -2718,7 +2774,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111148.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4824),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6582),
                             ProductId = 111111148.0,
                             StoreId = 111111148.0,
                             Url = "1.jpg"
@@ -2726,7 +2782,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111149.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4837),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6596),
                             ProductId = 111111149.0,
                             StoreId = 111111149.0,
                             Url = "1.jpg"
@@ -2734,7 +2790,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111150.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4847),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6608),
                             ProductId = 111111150.0,
                             StoreId = 111111150.0,
                             Url = "1.jpg"
@@ -2742,7 +2798,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111151.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4858),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6620),
                             ProductId = 111111151.0,
                             StoreId = 111111151.0,
                             Url = "1.jpg"
@@ -2750,7 +2806,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111152.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4868),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6631),
                             ProductId = 111111152.0,
                             StoreId = 111111152.0,
                             Url = "1.jpg"
@@ -2758,7 +2814,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111153.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4881),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6646),
                             ProductId = 111111153.0,
                             StoreId = 111111153.0,
                             Url = "1.jpg"
@@ -2766,7 +2822,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111154.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4892),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6658),
                             ProductId = 111111154.0,
                             StoreId = 111111154.0,
                             Url = "1.jpg"
@@ -2774,7 +2830,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111155.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4902),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6669),
                             ProductId = 111111155.0,
                             StoreId = 111111155.0,
                             Url = "1.jpg"
@@ -2782,7 +2838,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111156.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4913),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6681),
                             ProductId = 111111156.0,
                             StoreId = 111111156.0,
                             Url = "1.jpg"
@@ -2790,7 +2846,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111157.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4926),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6703),
                             ProductId = 111111157.0,
                             StoreId = 111111157.0,
                             Url = "1.jpg"
@@ -2798,7 +2854,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111158.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4937),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6715),
                             ProductId = 111111158.0,
                             StoreId = 111111158.0,
                             Url = "1.jpg"
@@ -2806,7 +2862,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111159.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4948),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6733),
                             ProductId = 111111159.0,
                             StoreId = 111111159.0,
                             Url = "1.jpg"
@@ -2814,7 +2870,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             ImageUrlId = 111111160.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4958),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6752),
                             ProductId = 111111160.0,
                             StoreId = 111111160.0,
                             Url = "1.jpg"
@@ -3016,7 +3072,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111111.0,
                             CategoryId = 111111111.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(920),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4091),
                             Description = "urun aciklamasi 0",
                             IsApproved = true,
                             IsHome = true,
@@ -3028,7 +3084,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 0,
                             StarCount = 0,
                             StoreId = 111111111.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(921),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4094),
                             Url = "urun-0"
                         },
                         new
@@ -3038,7 +3094,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111112.0,
                             CategoryId = 111111112.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(947),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4138),
                             Description = "urun aciklamasi 1",
                             IsApproved = true,
                             IsHome = true,
@@ -3050,7 +3106,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 1,
                             StarCount = 0,
                             StoreId = 111111112.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(947),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4139),
                             Url = "urun-1"
                         },
                         new
@@ -3060,7 +3116,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111113.0,
                             CategoryId = 111111113.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1248),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4173),
                             Description = "urun aciklamasi 2",
                             IsApproved = true,
                             IsHome = true,
@@ -3072,7 +3128,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 2,
                             StarCount = 0,
                             StoreId = 111111113.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1252),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4174),
                             Url = "urun-2"
                         },
                         new
@@ -3082,7 +3138,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111114.0,
                             CategoryId = 111111114.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1306),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4205),
                             Description = "urun aciklamasi 3",
                             IsApproved = true,
                             IsHome = true,
@@ -3094,7 +3150,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 3,
                             StarCount = 0,
                             StoreId = 111111114.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1307),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4206),
                             Url = "urun-3"
                         },
                         new
@@ -3104,7 +3160,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111115.0,
                             CategoryId = 111111115.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1329),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4241),
                             Description = "urun aciklamasi 4",
                             IsApproved = true,
                             IsHome = true,
@@ -3116,7 +3172,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 4,
                             StarCount = 0,
                             StoreId = 111111115.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1330),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4242),
                             Url = "urun-4"
                         },
                         new
@@ -3126,7 +3182,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111116.0,
                             CategoryId = 111111116.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1351),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4277),
                             Description = "urun aciklamasi 5",
                             IsApproved = true,
                             IsHome = true,
@@ -3138,7 +3194,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 5,
                             StarCount = 0,
                             StoreId = 111111116.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1352),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4278),
                             Url = "urun-5"
                         },
                         new
@@ -3148,7 +3204,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111117.0,
                             CategoryId = 111111117.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1369),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4310),
                             Description = "urun aciklamasi 6",
                             IsApproved = true,
                             IsHome = true,
@@ -3160,7 +3216,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 6,
                             StarCount = 0,
                             StoreId = 111111117.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1370),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4311),
                             Url = "urun-6"
                         },
                         new
@@ -3170,7 +3226,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111118.0,
                             CategoryId = 111111118.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1387),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4341),
                             Description = "urun aciklamasi 7",
                             IsApproved = true,
                             IsHome = true,
@@ -3182,7 +3238,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 7,
                             StarCount = 0,
                             StoreId = 111111118.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1388),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4343),
                             Url = "urun-7"
                         },
                         new
@@ -3192,7 +3248,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111119.0,
                             CategoryId = 111111119.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1408),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4380),
                             Description = "urun aciklamasi 8",
                             IsApproved = true,
                             IsHome = true,
@@ -3204,7 +3260,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 8,
                             StarCount = 0,
                             StoreId = 111111119.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1408),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4381),
                             Url = "urun-8"
                         },
                         new
@@ -3214,7 +3270,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111120.0,
                             CategoryId = 111111120.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1428),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4416),
                             Description = "urun aciklamasi 9",
                             IsApproved = true,
                             IsHome = true,
@@ -3226,7 +3282,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 9,
                             StarCount = 0,
                             StoreId = 111111120.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1428),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4417),
                             Url = "urun-9"
                         },
                         new
@@ -3236,7 +3292,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111121.0,
                             CategoryId = 111111121.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1446),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4461),
                             Description = "urun aciklamasi 10",
                             IsApproved = true,
                             IsHome = true,
@@ -3248,7 +3304,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 10,
                             StarCount = 0,
                             StoreId = 111111121.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1447),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4462),
                             Url = "urun-10"
                         },
                         new
@@ -3258,7 +3314,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111122.0,
                             CategoryId = 111111122.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1465),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4495),
                             Description = "urun aciklamasi 11",
                             IsApproved = true,
                             IsHome = true,
@@ -3270,7 +3326,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 11,
                             StarCount = 0,
                             StoreId = 111111122.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1465),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4496),
                             Url = "urun-11"
                         },
                         new
@@ -3280,7 +3336,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111123.0,
                             CategoryId = 111111123.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1485),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4534),
                             Description = "urun aciklamasi 12",
                             IsApproved = true,
                             IsHome = true,
@@ -3292,7 +3348,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 12,
                             StarCount = 0,
                             StoreId = 111111123.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1486),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4535),
                             Url = "urun-12"
                         },
                         new
@@ -3302,7 +3358,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111124.0,
                             CategoryId = 111111124.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1959),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4566),
                             Description = "urun aciklamasi 13",
                             IsApproved = true,
                             IsHome = true,
@@ -3314,7 +3370,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 13,
                             StarCount = 0,
                             StoreId = 111111124.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(1962),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4568),
                             Url = "urun-13"
                         },
                         new
@@ -3324,7 +3380,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111125.0,
                             CategoryId = 111111125.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2018),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4601),
                             Description = "urun aciklamasi 14",
                             IsApproved = true,
                             IsHome = true,
@@ -3336,7 +3392,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 14,
                             StarCount = 0,
                             StoreId = 111111125.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2019),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4602),
                             Url = "urun-14"
                         },
                         new
@@ -3346,7 +3402,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111126.0,
                             CategoryId = 111111126.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2033),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4634),
                             Description = "urun aciklamasi 15",
                             IsApproved = true,
                             IsHome = true,
@@ -3358,7 +3414,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 15,
                             StarCount = 0,
                             StoreId = 111111126.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2033),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4636),
                             Url = "urun-15"
                         },
                         new
@@ -3368,7 +3424,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111127.0,
                             CategoryId = 111111127.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2050),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4673),
                             Description = "urun aciklamasi 16",
                             IsApproved = true,
                             IsHome = true,
@@ -3380,7 +3436,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 16,
                             StarCount = 0,
                             StoreId = 111111127.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2050),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4674),
                             Url = "urun-16"
                         },
                         new
@@ -3390,7 +3446,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111128.0,
                             CategoryId = 111111128.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2067),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4710),
                             Description = "urun aciklamasi 17",
                             IsApproved = true,
                             IsHome = true,
@@ -3402,7 +3458,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 17,
                             StarCount = 0,
                             StoreId = 111111128.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2067),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4711),
                             Url = "urun-17"
                         },
                         new
@@ -3412,7 +3468,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111129.0,
                             CategoryId = 111111129.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2080),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4741),
                             Description = "urun aciklamasi 18",
                             IsApproved = true,
                             IsHome = true,
@@ -3424,7 +3480,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 18,
                             StarCount = 0,
                             StoreId = 111111129.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2080),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4742),
                             Url = "urun-18"
                         },
                         new
@@ -3434,7 +3490,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111130.0,
                             CategoryId = 111111130.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2094),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4775),
                             Description = "urun aciklamasi 19",
                             IsApproved = true,
                             IsHome = true,
@@ -3446,7 +3502,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 19,
                             StarCount = 0,
                             StoreId = 111111130.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2094),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4776),
                             Url = "urun-19"
                         },
                         new
@@ -3456,7 +3512,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111131.0,
                             CategoryId = 111111131.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2109),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4813),
                             Description = "urun aciklamasi 20",
                             IsApproved = true,
                             IsHome = true,
@@ -3468,7 +3524,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 20,
                             StarCount = 0,
                             StoreId = 111111131.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2110),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4814),
                             Url = "urun-20"
                         },
                         new
@@ -3478,7 +3534,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111132.0,
                             CategoryId = 111111132.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2123),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4854),
                             Description = "urun aciklamasi 21",
                             IsApproved = true,
                             IsHome = true,
@@ -3490,7 +3546,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 21,
                             StarCount = 0,
                             StoreId = 111111132.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2123),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4855),
                             Url = "urun-21"
                         },
                         new
@@ -3500,7 +3556,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111133.0,
                             CategoryId = 111111133.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2135),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4888),
                             Description = "urun aciklamasi 22",
                             IsApproved = true,
                             IsHome = true,
@@ -3512,7 +3568,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 22,
                             StarCount = 0,
                             StoreId = 111111133.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2136),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4889),
                             Url = "urun-22"
                         },
                         new
@@ -3522,7 +3578,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111134.0,
                             CategoryId = 111111134.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2148),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4921),
                             Description = "urun aciklamasi 23",
                             IsApproved = true,
                             IsHome = true,
@@ -3534,7 +3590,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 23,
                             StarCount = 0,
                             StoreId = 111111134.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2149),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4922),
                             Url = "urun-23"
                         },
                         new
@@ -3544,7 +3600,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111135.0,
                             CategoryId = 111111135.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2476),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4959),
                             Description = "urun aciklamasi 24",
                             IsApproved = true,
                             IsHome = true,
@@ -3556,7 +3612,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 24,
                             StarCount = 0,
                             StoreId = 111111135.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2479),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4961),
                             Url = "urun-24"
                         },
                         new
@@ -3566,7 +3622,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111136.0,
                             CategoryId = 111111136.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2536),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4993),
                             Description = "urun aciklamasi 25",
                             IsApproved = true,
                             IsHome = true,
@@ -3578,7 +3634,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 25,
                             StarCount = 0,
                             StoreId = 111111136.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2537),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(4994),
                             Url = "urun-25"
                         },
                         new
@@ -3588,7 +3644,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111137.0,
                             CategoryId = 111111137.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2557),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5025),
                             Description = "urun aciklamasi 26",
                             IsApproved = true,
                             IsHome = true,
@@ -3600,7 +3656,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 26,
                             StarCount = 0,
                             StoreId = 111111137.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2557),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5026),
                             Url = "urun-26"
                         },
                         new
@@ -3610,7 +3666,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111138.0,
                             CategoryId = 111111138.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2575),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5056),
                             Description = "urun aciklamasi 27",
                             IsApproved = true,
                             IsHome = true,
@@ -3622,7 +3678,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 27,
                             StarCount = 0,
                             StoreId = 111111138.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2576),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5058),
                             Url = "urun-27"
                         },
                         new
@@ -3632,7 +3688,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111139.0,
                             CategoryId = 111111139.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2596),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5094),
                             Description = "urun aciklamasi 28",
                             IsApproved = true,
                             IsHome = true,
@@ -3644,7 +3700,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 28,
                             StarCount = 0,
                             StoreId = 111111139.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2597),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5095),
                             Url = "urun-28"
                         },
                         new
@@ -3654,7 +3710,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111140.0,
                             CategoryId = 111111140.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2615),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5128),
                             Description = "urun aciklamasi 29",
                             IsApproved = true,
                             IsHome = true,
@@ -3666,7 +3722,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 29,
                             StarCount = 0,
                             StoreId = 111111140.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2616),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5129),
                             Url = "urun-29"
                         },
                         new
@@ -3676,7 +3732,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111141.0,
                             CategoryId = 111111141.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2634),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5161),
                             Description = "urun aciklamasi 30",
                             IsApproved = true,
                             IsHome = true,
@@ -3688,7 +3744,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 30,
                             StarCount = 0,
                             StoreId = 111111141.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2634),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5162),
                             Url = "urun-30"
                         },
                         new
@@ -3698,7 +3754,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111142.0,
                             CategoryId = 111111142.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2651),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5194),
                             Description = "urun aciklamasi 31",
                             IsApproved = true,
                             IsHome = true,
@@ -3710,7 +3766,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 31,
                             StarCount = 0,
                             StoreId = 111111142.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2652),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5196),
                             Url = "urun-31"
                         },
                         new
@@ -3720,7 +3776,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111143.0,
                             CategoryId = 111111143.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2672),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5241),
                             Description = "urun aciklamasi 32",
                             IsApproved = true,
                             IsHome = true,
@@ -3732,7 +3788,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 32,
                             StarCount = 0,
                             StoreId = 111111143.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2672),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5242),
                             Url = "urun-32"
                         },
                         new
@@ -3742,7 +3798,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111144.0,
                             CategoryId = 111111144.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2693),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5278),
                             Description = "urun aciklamasi 33",
                             IsApproved = true,
                             IsHome = true,
@@ -3754,7 +3810,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 33,
                             StarCount = 0,
                             StoreId = 111111144.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2693),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5279),
                             Url = "urun-33"
                         },
                         new
@@ -3764,7 +3820,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111145.0,
                             CategoryId = 111111145.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2711),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5311),
                             Description = "urun aciklamasi 34",
                             IsApproved = true,
                             IsHome = true,
@@ -3776,7 +3832,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 34,
                             StarCount = 0,
                             StoreId = 111111145.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(2711),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5312),
                             Url = "urun-34"
                         },
                         new
@@ -3786,7 +3842,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111146.0,
                             CategoryId = 111111146.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3115),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5343),
                             Description = "urun aciklamasi 35",
                             IsApproved = true,
                             IsHome = true,
@@ -3798,7 +3854,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 35,
                             StarCount = 0,
                             StoreId = 111111146.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3116),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5344),
                             Url = "urun-35"
                         },
                         new
@@ -3808,7 +3864,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111147.0,
                             CategoryId = 111111147.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3168),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5381),
                             Description = "urun aciklamasi 36",
                             IsApproved = true,
                             IsHome = true,
@@ -3820,7 +3876,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 36,
                             StarCount = 0,
                             StoreId = 111111147.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3168),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5382),
                             Url = "urun-36"
                         },
                         new
@@ -3830,7 +3886,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111148.0,
                             CategoryId = 111111148.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3187),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5414),
                             Description = "urun aciklamasi 37",
                             IsApproved = true,
                             IsHome = true,
@@ -3842,7 +3898,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 37,
                             StarCount = 0,
                             StoreId = 111111148.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3188),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5415),
                             Url = "urun-37"
                         },
                         new
@@ -3852,7 +3908,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111149.0,
                             CategoryId = 111111149.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3205),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5446),
                             Description = "urun aciklamasi 38",
                             IsApproved = true,
                             IsHome = true,
@@ -3864,7 +3920,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 38,
                             StarCount = 0,
                             StoreId = 111111149.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3206),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5447),
                             Url = "urun-38"
                         },
                         new
@@ -3874,7 +3930,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111150.0,
                             CategoryId = 111111150.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3223),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5478),
                             Description = "urun aciklamasi 39",
                             IsApproved = true,
                             IsHome = true,
@@ -3886,7 +3942,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 39,
                             StarCount = 0,
                             StoreId = 111111150.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3223),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5479),
                             Url = "urun-39"
                         },
                         new
@@ -3896,7 +3952,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111151.0,
                             CategoryId = 111111151.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3243),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5515),
                             Description = "urun aciklamasi 40",
                             IsApproved = true,
                             IsHome = true,
@@ -3908,7 +3964,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 40,
                             StarCount = 0,
                             StoreId = 111111151.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3243),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5516),
                             Url = "urun-40"
                         },
                         new
@@ -3918,7 +3974,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111152.0,
                             CategoryId = 111111152.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3261),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5548),
                             Description = "urun aciklamasi 41",
                             IsApproved = true,
                             IsHome = true,
@@ -3930,7 +3986,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 41,
                             StarCount = 0,
                             StoreId = 111111152.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3262),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5550),
                             Url = "urun-41"
                         },
                         new
@@ -3940,7 +3996,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111153.0,
                             CategoryId = 111111153.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3279),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5582),
                             Description = "urun aciklamasi 42",
                             IsApproved = true,
                             IsHome = true,
@@ -3952,7 +4008,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 42,
                             StarCount = 0,
                             StoreId = 111111153.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3279),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5583),
                             Url = "urun-42"
                         },
                         new
@@ -3962,7 +4018,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111154.0,
                             CategoryId = 111111154.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3296),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5623),
                             Description = "urun aciklamasi 43",
                             IsApproved = true,
                             IsHome = true,
@@ -3974,7 +4030,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 43,
                             StarCount = 0,
                             StoreId = 111111154.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3297),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5624),
                             Url = "urun-43"
                         },
                         new
@@ -3984,7 +4040,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111155.0,
                             CategoryId = 111111155.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3316),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5662),
                             Description = "urun aciklamasi 44",
                             IsApproved = true,
                             IsHome = true,
@@ -3996,7 +4052,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 44,
                             StarCount = 0,
                             StoreId = 111111155.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3317),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5663),
                             Url = "urun-44"
                         },
                         new
@@ -4006,7 +4062,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111156.0,
                             CategoryId = 111111156.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3335),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5696),
                             Description = "urun aciklamasi 45",
                             IsApproved = true,
                             IsHome = true,
@@ -4018,7 +4074,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 45,
                             StarCount = 0,
                             StoreId = 111111156.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3335),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5697),
                             Url = "urun-45"
                         },
                         new
@@ -4028,7 +4084,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111157.0,
                             CategoryId = 111111157.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3689),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5729),
                             Description = "urun aciklamasi 46",
                             IsApproved = true,
                             IsHome = true,
@@ -4040,7 +4096,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 46,
                             StarCount = 0,
                             StoreId = 111111157.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3691),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5730),
                             Url = "urun-46"
                         },
                         new
@@ -4050,7 +4106,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111158.0,
                             CategoryId = 111111158.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3737),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5761),
                             Description = "urun aciklamasi 47",
                             IsApproved = true,
                             IsHome = true,
@@ -4062,7 +4118,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 47,
                             StarCount = 0,
                             StoreId = 111111158.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3738),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5762),
                             Url = "urun-47"
                         },
                         new
@@ -4072,7 +4128,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111159.0,
                             CategoryId = 111111159.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3755),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5798),
                             Description = "urun aciklamasi 48",
                             IsApproved = true,
                             IsHome = true,
@@ -4084,7 +4140,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 48,
                             StarCount = 0,
                             StoreId = 111111159.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3756),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5799),
                             Url = "urun-48"
                         },
                         new
@@ -4094,7 +4150,7 @@ namespace DataAccessLayer.Migrations
                             Category2Id = 111111160.0,
                             CategoryId = 111111160.0,
                             CommentCount = 1,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3769),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5833),
                             Description = "urun aciklamasi 49",
                             IsApproved = true,
                             IsHome = true,
@@ -4106,7 +4162,7 @@ namespace DataAccessLayer.Migrations
                             SalesCount = 49,
                             StarCount = 0,
                             StoreId = 111111160.0,
-                            UpdatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(3769),
+                            UpdatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(5835),
                             Url = "urun-49"
                         });
                 });
@@ -4157,7 +4213,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111111.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(4979),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6791),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 0",
@@ -4166,7 +4222,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111112.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5296),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6892),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 1",
@@ -4175,7 +4231,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111113.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5354),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(6948),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 2",
@@ -4184,7 +4240,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111114.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5372),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7001),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 3",
@@ -4193,7 +4249,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111115.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5392),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7042),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 4",
@@ -4202,7 +4258,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111116.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5410),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7097),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 5",
@@ -4211,7 +4267,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111117.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5426),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7147),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 6",
@@ -4220,7 +4276,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111118.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5442),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7191),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 7",
@@ -4229,7 +4285,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111119.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5461),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7242),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 8",
@@ -4238,7 +4294,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111120.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5478),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7340),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 9",
@@ -4247,7 +4303,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111121.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5494),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7397),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 10",
@@ -4256,7 +4312,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111122.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5511),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7439),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 11",
@@ -4265,7 +4321,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111123.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5529),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7474),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 12",
@@ -4274,7 +4330,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111124.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5546),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7501),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 13",
@@ -4283,7 +4339,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111125.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5562),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7528),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 14",
@@ -4292,7 +4348,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111126.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5578),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7556),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 15",
@@ -4301,7 +4357,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111127.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5911),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7589),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 16",
@@ -4310,7 +4366,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111128.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5946),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7624),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 17",
@@ -4319,7 +4375,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111129.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5963),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7651),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 18",
@@ -4328,7 +4384,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111130.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5979),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7678),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 19",
@@ -4337,7 +4393,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111131.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(5998),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7710),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 20",
@@ -4346,7 +4402,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111132.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6014),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7737),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 21",
@@ -4355,7 +4411,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111133.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6030),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7763),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 22",
@@ -4364,7 +4420,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111134.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6046),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7790),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 23",
@@ -4373,7 +4429,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111135.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6064),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7822),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 24",
@@ -4382,7 +4438,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111136.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6080),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7856),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 25",
@@ -4391,7 +4447,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111137.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6095),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7885),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 26",
@@ -4400,7 +4456,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111138.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6112),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7910),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 27",
@@ -4409,7 +4465,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111139.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6130),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7941),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 28",
@@ -4418,7 +4474,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111140.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6146),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7968),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 29",
@@ -4427,7 +4483,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111141.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6477),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(7996),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 30",
@@ -4436,7 +4492,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111142.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6525),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8024),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 31",
@@ -4445,7 +4501,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111143.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6546),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8056),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 32",
@@ -4454,7 +4510,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111144.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6565),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8088),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 33",
@@ -4463,7 +4519,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111145.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6582),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8116),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 34",
@@ -4472,7 +4528,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111146.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6598),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8143),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 35",
@@ -4481,7 +4537,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111147.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6616),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8175),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 36",
@@ -4490,7 +4546,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111148.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6633),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8200),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 37",
@@ -4499,7 +4555,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111149.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6649),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8224),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 38",
@@ -4508,7 +4564,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111150.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6664),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8260),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 39",
@@ -4517,7 +4573,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111151.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6683),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8292),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 40",
@@ -4526,7 +4582,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111152.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6699),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8317),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 41",
@@ -4535,7 +4591,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111153.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6715),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8345),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 42",
@@ -4544,7 +4600,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111154.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(6731),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8373),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 43",
@@ -4553,7 +4609,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111155.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7187),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8405),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 44",
@@ -4562,7 +4618,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111156.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7216),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8433),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 45",
@@ -4571,7 +4627,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111157.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7228),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8458),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 46",
@@ -4580,7 +4636,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111158.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7239),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8486),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 47",
@@ -4589,7 +4645,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111159.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7253),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8518),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 48",
@@ -4598,7 +4654,7 @@ namespace DataAccessLayer.Migrations
                         new
                         {
                             StoreId = 111111160.0,
-                            CreatedDate = new DateTime(2023, 9, 14, 15, 43, 38, 318, DateTimeKind.Local).AddTicks(7265),
+                            CreatedDate = new DateTime(2023, 9, 18, 15, 35, 28, 453, DateTimeKind.Local).AddTicks(8544),
                             IsApproved = false,
                             StoreImage = "1.jpg",
                             StoreName = "store 49",

@@ -1,0 +1,52 @@
+﻿@model SellerCommentVM
+
+<div class="card">
+    <div class="card-header text-center h5">Comment </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group row mt-4">
+                    <label class="col-form-label"><strong>Customer</strong></label>
+                    <p>@Model.UserFirstname @Model.UserLastname</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row mt-4">
+                    <label class="col-form-label"><strong>Comment Rate</strong></label>
+                    <p>@Model.CommentRate</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row mt-2">
+                    <label class="col-form-label"><strong>Description</strong></label>
+                    <p>@Model.Description</p>
+                </div>
+            </div>
+        </div>
+        <form asp-area="Seller" asp-controller="Comment" asp-action="AnswerComment" asp-route-id="@Model.CommentId">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group row mt-2">
+                    <label for="answer" class="form-label"><strong>Answer</strong></label>
+                    <div class="m-2">
+                        <input type="hidden" asp-for="@Model.CommentId"/>
+                        @if (Model.SellerAnswer == null)
+                        {
+                            <textarea asp-for="SellerAnswer" class="form-control" id="answer"></textarea>
+                        }
+                        else{
+                            <textarea asp-for="SellerAnswer" class="form-control" id="answer">@Model.SellerAnswer</textarea>
+
+                        }
+                    </div>
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-danger" type="submit">Save Changes</button>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>

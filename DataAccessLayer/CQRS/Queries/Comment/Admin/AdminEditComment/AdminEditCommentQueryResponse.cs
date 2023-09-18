@@ -2,7 +2,7 @@
 
 namespace DataAccessLayer.CQRS.Queries
 {
-    public class EditCommentQueryResponse
+    public class AdminEditCommentQueryResponse
     {
         public double CommentId { get; set; }
         public double? ProductId { get; set; }

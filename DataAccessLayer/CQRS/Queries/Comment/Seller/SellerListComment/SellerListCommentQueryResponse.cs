@@ -2,9 +2,9 @@
 
 namespace DataAccessLayer.CQRS.Queries
 {
-    public class ListCommentQueryResponse
+    public class SellerListCommentQueryResponse
     {
-        public List<Comment>? Comments { get; set; } = new List<Comment>();
+        public List<Comment>? Comments { get; set; }
         public bool IsSuccess { get; set; }
     }
 }

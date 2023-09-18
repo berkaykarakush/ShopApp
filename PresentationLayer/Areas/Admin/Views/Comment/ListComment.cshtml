@@ -4,44 +4,44 @@
 
 <div class="row">
     <div class="col-md-12">
-        <table id="commentTable" class="table table-bordered mt-4">
-            <thead>
-                <tr>
-                    <td style="width: 30px;">Id</td>
-                    <td>Description</td>
-                    <td style="width: 150px;"></td>
-                </tr>
-            </thead>
-            <tbody>
-                @if (Model.Comments.Count > 0)
-                {
+        @if (Model.Comments.Count > 0)
+        {
+            <table id="commentTable" class="table table-bordered mt-4">
+                <thead>
+                    <tr>
+                        <td style="width: 30px;">Id</td>
+                        <td>Description</td>
+                        <td style="width: 150px;"></td>
+                    </tr>
+                </thead>
+                <tbody>
                     @foreach (var item in Model.Comments)
-                    {
-                        <tr>
-                            <td>@item.CommentId</td>
-                            <td>@item.Description</td>
-                            <td>
-                                <form asp-area="Admin" asp-controller="Comment" asp-action="EditComment" method="get" style="display: inline;">
-                                    <input type="hidden" name="CommentId" value="@item.CommentId">
-                                    <button type="submit" class="btn btn-primary btn-sm">Edit</button>
-                                </form>
+            {
+                <tr>
+                    <td>@item.CommentId</td>
+                    <td>@item.Description</td>
+                    <td>
+                        <form asp-area="Admin" asp-controller="Comment" asp-action="EditComment" method="get" style="display: inline;">
+                            <input type="hidden" name="CommentId" value="@item.CommentId">
+                            <button type="submit" class="btn btn-primary btn-sm">Edit</button>
+                        </form>
 
-                                <form asp-area="Admin" asp-controller="Comment" asp-action="DeleteComment" method="post" style="display: inline;">
-                                    <input type="hidden" name="CommentId" value="@item.CommentId">
-                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    }
-                }
-                else
-                {
-                    <div class="alert alert-warning">
-                        <h3>No comments</h3>
-                    </div>
-                }
-            </tbody>
-        </table>
+                        <form asp-area="Admin" asp-controller="Comment" asp-action="DeleteComment" method="post" style="display: inline;">
+                            <input type="hidden" name="CommentId" value="@item.CommentId">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                <h3>No comments</h3>
+            </div>
+        }
     </div>
 </div>
 

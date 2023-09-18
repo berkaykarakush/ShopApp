@@ -87,10 +87,17 @@ namespace PresentationLayer.Mapping
             CreateMap<Comment, CommentVM>().ReverseMap();
             CreateMap<Comment, CreateCommentVM>().ReverseMap();
             CreateMap<Comment, EditCommentVM>().ReverseMap();
-            CreateMap<ListCommentQueryResponse, ListCommentVM>().ReverseMap();
-            CreateMap<EditCommentQueryResponse, EditCommentVM>().ReverseMap();
             CreateMap<ProductDetailModel, CreateCommentVM>().ReverseMap();
             CreateMap<ProductDetailModel, CommentVM>().ReverseMap();
+
+            //Admin
+            CreateMap<AdminListCommentQueryResponse, ListCommentVM>().ReverseMap();
+            CreateMap<AdminEditCommentQueryResponse, EditCommentVM>().ReverseMap();
+
+            //Seller
+            CreateMap<SellerCommentVM, Comment>().ReverseMap();
+            CreateMap<SellerListCommentQueryResponse, SellerListCommentVM>().ReverseMap();
+            CreateMap<SellerDetailCommentQueryResponse, SellerCommentVM>().ReverseMap();
             #endregion
 
             #region Seller

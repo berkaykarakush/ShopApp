@@ -30,17 +30,17 @@ namespace PresentationLayer.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> ListComment(ListCommentQueryRequest listCommentQueryRequest)
+        public async Task<IActionResult> ListComment(AdminListCommentQueryRequest listCommentQueryRequest)
         {
-            ListCommentQueryResponse response = await _mediator.Send(listCommentQueryRequest);
+            AdminListCommentQueryResponse response = await _mediator.Send(listCommentQueryRequest);
             ListCommentVM listCommentVM = _mapper.Map<ListCommentVM>(response);
             return View(listCommentVM);
         }
         
         [HttpGet]
-        public async Task<IActionResult> EditComment(EditCommentQueryRequest editCommentQueryRequest) 
+        public async Task<IActionResult> EditComment(AdminEditCommentQueryRequest editCommentQueryRequest) 
         {
-            EditCommentQueryResponse response = await _mediator.Send(editCommentQueryRequest);
+            AdminEditCommentQueryResponse response = await _mediator.Send(editCommentQueryRequest);
             EditCommentVM editCommentVM = _mapper.Map<EditCommentVM>(response);
 
             if (!response.IsSuccess)

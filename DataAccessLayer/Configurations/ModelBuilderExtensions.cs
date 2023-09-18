@@ -126,7 +126,8 @@ namespace DataAccessLayer.Configurations
                         UserId = "2c828e40-4226-42b7-808d-de6f20863d13",
                         UserFirstname = "John",
                         UserLastname = "Doe",
-                        CommentRate = 1
+                        CommentRate = 1,
+                        StoreId = i + 111111111
                     }
                 );
             }
