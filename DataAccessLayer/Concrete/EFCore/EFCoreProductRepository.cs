@@ -34,6 +34,7 @@ namespace DataAccessLayer.Concrete.EFCore
                 .Include(p => p.Brand)
                 .Include(p => p.Category)
                 .Include(p => p.Category2)
+                .Include(p => p.Store)
                 .FirstOrDefault();
         }
 

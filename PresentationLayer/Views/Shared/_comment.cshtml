@@ -12,7 +12,7 @@
                         <div class="card border-0">
                             <form asp-controller="Comment" asp-action="CreateComment" enctype="application/x-www-form-urlencoded" method="post">
                                 <input type="hidden" name="ProductId" value="@Model.Product.ProductId"/>
-                                <input type="hidden" asp-for="Comment.CommentId"/>
+                                <input type="hidden" asp-for="@Model.Comment.CommentId"/>
                                 <input type="hidden" asp-for="Product"/>
                                 <div class="card-body">
                                     <div class="mb-3">
@@ -34,7 +34,7 @@
                                     <div class="mb-3">
                                         <label name="Description"class="form-label">Example textarea</label>
                                         <textarea name="Description" class="form-control" rows="3"></textarea>
-                                        <span asp-validation-for="Comment.Description" class="text-danger"></span>
+                                        <span asp-validation-for="@Model.Comment.Description" class="text-danger"></span>
                                     </div>
                                     <div class="d-grid gap-2">
                                         <button class="btn btn-outline-warning" type="submit">Submit</button>
@@ -43,55 +43,67 @@
                             </form>
                         </div>
                     </div>
-                        @*comment list - start*@
-                        <div class="col-md-12 mt-4">
-                            @if (Model.Comments != null)
+                    @*comment list - start*@
+                    <div class="col-md-12 mt-4">
+                        @if (Model.Comments != null)
+                        {
+                            @foreach (var item in Model.Comments)
                             {
-                                @foreach (var item in Model.Comments)
-                                {
-                                    <div class="card border-0">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <h6 class="card-title">@item.UserFirstname @item.UserLastname</h6>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <a class="h4 nav-link">
-                                                        <strong>
-                                                            @for (int i = 0; i < item.CommentRate; i++)
-                                                            {
-                                                                <i class="fa-solid fa-star text-warning"></i>
-                                                            }
-                                                            @for (int i = 0; i < 5 - item.CommentRate; i++)
-                                                            {
-                                                                <i class="fa-regular fa-star text-warning"></i>
-                                                            }
-                                                        </strong>
-                                                    </a>
-                                                </div>
+                                <div class="card border-0">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6 class="card-title">@item.UserFirstname @item.UserLastname</h6>
                                             </div>
-                                            <p class="card-text mt-2">@item.Description</p>
+                                            <div class="col-md-12 my-2">
+                                                <p class="card-text">@item.Description</p>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <p>@item.CreatedDate.ToShortDateString() @item.CreatedDate.ToShortTimeString()</p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <a class="h4 nav-link">
+                                                    <strong>
+                                                        @for (int i = 0; i < item.CommentRate; i++)
+                                                        {
+                                                            <i class="fa-solid fa-star text-warning"></i>
+                                                        }
+                                                        @for (int i = 0; i < 5 - item.CommentRate; i++)
+                                                        {
+                                                            <i class="fa-regular fa-star text-warning"></i>
+                                                        }
+                                                    </strong>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                }
-                                    <hr />
 
-                                    <div class="d-grid gap-2 col-6 mx-auto mt-4">
-                                        <button class="btn btn-warning" type="submit">
-                                            <strong>All Comments</strong>
-                                        </button>
+                                        @if(item.SellerAnswer != null)
+                                        {
+                                            <div class="col-md-12 m-4">
+                                                <h6 class="card-title">Seller Answer</h6>
+                                                <p class="card-text mt-2">@item.SellerAnswer</p>
+                                            </div>
+                                        }
                                     </div>
-                            }
-                            else{
-                            <div class="card border-0">
-                                <div class="card-body">
-                                        <h4>No Comments</h4>
                                 </div>
-                            </div>
                             }
+                                <hr />
+
+                                <div class="d-grid gap-2 col-6 mx-auto mt-4">
+                                    <button class="btn btn-warning" type="submit">
+                                        <strong>All Comments</strong>
+                                    </button>
+                                </div>
+                        }
+                        else{
+                        <div class="card border-0">
+                            <div class="card-body">
+                                    <h4>No Comments</h4>
+                            </div>
                         </div>
-                        @*comment list - end*@
+                        }
                     </div>
+                    @*comment list - end*@
                 </div>
             </div>
         </div>

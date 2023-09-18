@@ -19,8 +19,8 @@ namespace DataAccessLayer.CQRS.Commands
         {
             try
             {
-                var product = _unitOfWork.Products.GetById(request.ProductId);
-
+                //var product = _unitOfWork.Products.GetById(request.ProductId);
+                var product = _unitOfWork.Products.GetByIdWithImageUrls(request.ProductId);
                 if (product == null)
                     return Task.FromResult(new CreateCommentCommandResponse() { IsSuccess = false });
 
@@ -63,6 +63,13 @@ namespace DataAccessLayer.CQRS.Commands
                 product.StarCount += comment.CommentRate; 
                 product.ProductRate = (decimal)product.StarCount / (decimal)product.CommentCount;
                 //**********************
+
+                if (product.Store != null)
+                {
+                    product.Store.CommentCount += 1;
+                    product.Store.StarCount += comment.CommentRate;
+                    product.Store.StoreRate = (decimal)product.Store.StarCount / (decimal)product.Store.CommentCount;
+                }
 
                 _unitOfWork.Products.Update(product);
                 _unitOfWork.Comments.Create(comment);

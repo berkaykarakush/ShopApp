@@ -156,12 +156,15 @@
                         <a asp-controller="Shop" asp-action="StoreList" asp-route-store="@Model.Product.Store.StoreUrl" class="h4 nav-link text-danger"><strong>@Model.Product.Store.StoreName</strong></a>
                         <a href="#" class="h4 nav-link">
                             <strong>
-                                <i class="fa-solid fa-star text-warning"></i>
-                                <i class="fa-solid fa-star text-warning"></i>
-                                <i class="fa-solid fa-star text-warning"></i>
-                                <i class="fa-solid fa-star text-warning"></i>
-                                <i class="fa-solid fa-star text-warning"></i>
-                                4.8
+                                @for (int i = 0; i < Math.Floor(Model.Product.Store.StoreRate); i++)
+                                {
+                                    <i class="fa-solid fa-star text-warning"></i>
+                                }
+                                @for (int i = 0; i < 5 - Model.Product.Store.StoreRate; i++)
+                                {
+                                    <i class="fa-regular fa-star text-warning"></i>
+                                }
+                                @Model.Product.Store.StoreRate
                             </strong> 
                         </a>
                     </div>
