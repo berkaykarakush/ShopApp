@@ -1,10 +1,8 @@
-﻿using EntityLayer;
-
-namespace PresentationLayer.Models  
+﻿namespace PresentationLayer.Areas.Seller.Models 
 {
-    public class EditCampaignVM
+    public class SellerCampaignVM
     {
-        public double CampaignId { get; set; }
+        public double CampaignId { get; set; }  
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Code { get; set; }

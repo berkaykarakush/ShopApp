@@ -68,8 +68,13 @@ namespace PresentationLayer.Mapping
             #region Campaign
             CreateMap<Campaign, HomeSliderVM>().ReverseMap();
             CreateMap<Campaign, CreateCampaignVM>().ReverseMap();
-            CreateMap<ListCampaignQueryResponse, ListCampaignVM>().ReverseMap();
-            CreateMap<EditCampaignQueryResponse, EditCampaignVM>().ReverseMap();
+            CreateMap<AdminListCampaignQueryResponse, ListCampaignVM>().ReverseMap();
+            CreateMap<AdminEditCampaignQueryResponse, EditCampaignVM>().ReverseMap();
+
+            //Seller
+            CreateMap<SellerCampaignVM, Campaign>().ReverseMap();
+            CreateMap<SellerListCampaignQueryResponse, SellerListCampaignVM>().ReverseMap();
+            CreateMap<SellerEditCampaignQueryResponse, SellerEditCampaignVM>().ReverseMap();
             #endregion
 
             #region User

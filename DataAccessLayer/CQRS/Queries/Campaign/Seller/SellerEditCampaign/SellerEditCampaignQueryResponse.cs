@@ -1,14 +1,13 @@
-﻿using EntityLayer;
-
-namespace PresentationLayer.Models  
+﻿namespace DataAccessLayer.CQRS.Queries
 {
-    public class EditCampaignVM
+    public class SellerEditCampaignQueryResponse
     {
+        public bool IsSuccess { get; set; }
         public double CampaignId { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Code { get; set; }
-        public bool IsApproved { get; set; }
         public string? CampaignImage { get; set; }
+        public bool IsApproved { get; set; }
     }
 }

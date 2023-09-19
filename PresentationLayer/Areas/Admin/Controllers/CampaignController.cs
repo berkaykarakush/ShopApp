@@ -26,13 +26,17 @@ namespace PresentationLayer.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> ListCampaign(ListCampaignQueryRequest listCampaignQueryRequest)
+        public async Task<IActionResult> ListCampaign(AdminListCampaignQueryRequest listCampaignQueryRequest)
         {
-            ListCampaignQueryResponse response = await _mediator.Send(listCampaignQueryRequest);
-            ListCampaignVM listCampaignVM = _mapper.Map<ListCampaignVM>(response);
-            if (!response.IsSuccess)
-                _notyfService.Error(NotyfMessageEnum.Error);
+            AdminListCampaignQueryResponse response = await _mediator.Send(listCampaignQueryRequest);
 
+            if (!response.IsSuccess)
+            {
+                _notyfService.Error(NotyfMessageEnum.Error);
+                return View();
+            }
+
+            ListCampaignVM listCampaignVM = _mapper.Map<ListCampaignVM>(response);
             return View(listCampaignVM);
         }
 
@@ -43,56 +47,64 @@ namespace PresentationLayer.Areas.Admin.Controllers
         }
         
         [HttpPost]
-        public async Task<IActionResult> CreateCampaign(CreateCamapignCommandRequest createCamapignCommandRequest, IFormFileCollection file)
+        public async Task<IActionResult> CreateCampaign(AdminCreateCamapignCommandRequest createCamapignCommandRequest, IFormFile file)
         {
-            var imageUrls = await ImageNameEditExtensions.ImageNameEdit(file, UrlNameEditExtensions.UrlNameEdit(createCamapignCommandRequest.Name));
+            var imageUrl = await ImageNameEditExtensions.ImageNameEdit(file, UrlNameEditExtensions.UrlNameEdit(createCamapignCommandRequest.Name));
             createCamapignCommandRequest.Name = NameEditExtensions.NameEdit(createCamapignCommandRequest.Name);
-            createCamapignCommandRequest.CampaignImage = imageUrls[0].Url.ToString();
+            createCamapignCommandRequest.CampaignImage = imageUrl;
 
-            foreach (var imageUrl in imageUrls)
-                createCamapignCommandRequest.ImageUrls.Add(imageUrl);
-
-            CreateCamapignCommandResponse response = await _mediator.Send(createCamapignCommandRequest);
+            AdminCreateCamapignCommandResponse response = await _mediator.Send(createCamapignCommandRequest);
 
             if (!response.IsSuccess)
                 _notyfService.Error(NotyfMessageEnum.Error);
+            else
+                _notyfService.Success("Transaction Successfull - Campaign created!");
 
             return RedirectToAction("ListCampaign", "Campaign");
         }
 
         [HttpGet]
-        public async Task<IActionResult> EditCampaign(EditCampaignQueryRequest editCampaignQueryRequest)
+        public async Task<IActionResult> EditCampaign(AdminEditCampaignQueryRequest editCampaignQueryRequest)
         {
-            EditCampaignQueryResponse response = await _mediator.Send(editCampaignQueryRequest);
+            AdminEditCampaignQueryResponse response = await _mediator.Send(editCampaignQueryRequest);
+
             if (!response.IsSuccess)
+            {
                 _notyfService.Error(NotyfMessageEnum.Error);
+                return View();
+            }
+
             EditCampaignVM editCampaignVM = _mapper.Map<EditCampaignVM>(response);
             return View(editCampaignVM);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditCampaign(EditCampaignCommandRequest editCampaignCommandRequest, IFormFileCollection file)
+        public async Task<IActionResult> EditCampaign(AdminEditCampaignCommandRequest editCampaignCommandRequest, IFormFile file)
         {
-            var imageUrls = await ImageNameEditExtensions.ImageNameEdit(file, UrlNameEditExtensions.UrlNameEdit(editCampaignCommandRequest.Name));
-            editCampaignCommandRequest.Name = NameEditExtensions.NameEdit(editCampaignCommandRequest.Name);
-            editCampaignCommandRequest.CampaignImage = imageUrls[0].Url.ToString();
+            var imageUrl = await ImageNameEditExtensions.ImageNameEdit(file, UrlNameEditExtensions.UrlNameEdit(editCampaignCommandRequest.Name ?? string.Empty));
+            editCampaignCommandRequest.Name = NameEditExtensions.NameEdit(editCampaignCommandRequest.Name ?? string.Empty);
+            editCampaignCommandRequest.CampaignImage = imageUrl;
 
-            foreach (var imageUrl in imageUrls)
-                editCampaignCommandRequest.ImageUrls.Add(imageUrl);
+            AdminEditCampaignCommandResponse response = await _mediator.Send(editCampaignCommandRequest);
 
-            EditCampaignCommandResponse response = await _mediator.Send(editCampaignCommandRequest);
             if (!response.IsSuccess)
                 _notyfService.Error(NotyfMessageEnum.Error);
-            EditCampaignVM editCampaignVM = _mapper.Map<EditCampaignVM>(response);
-            return View(editCampaignVM);
+            else
+                _notyfService.Success("Transaction Successfull - Campaign updated!");
+
+            return RedirectToAction("EditCampaign", "Campaign", new AdminEditCampaignQueryRequest() { CampaignId = editCampaignCommandRequest.CampaignId});
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteCampaign(DeleteCampaignCommandRequest deleteCampaignCommandRequest)
+        public async Task<IActionResult> DeleteCampaign(AdminDeleteCampaignCommandRequest deleteCampaignCommandRequest)
         {
-            DeleteCampaignCommandResponse response = await _mediator.Send(deleteCampaignCommandRequest);
+            AdminDeleteCampaignCommandResponse response = await _mediator.Send(deleteCampaignCommandRequest);
+
             if (!response.IsSuccess)
                 _notyfService.Error(NotyfMessageEnum.Error);
+            else
+                _notyfService.Success("Transaction Successfull - Campaign deleted!");
+
             return RedirectToAction("ListCampaign", "Campaign");
         }
     }

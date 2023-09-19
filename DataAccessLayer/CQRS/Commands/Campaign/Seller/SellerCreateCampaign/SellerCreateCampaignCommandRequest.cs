@@ -1,14 +1,14 @@
 ﻿using EntityLayer;
+using MediatR;
+using System.ComponentModel.DataAnnotations;
 
-namespace PresentationLayer.Models  
+namespace DataAccessLayer.CQRS.Commands
 {
-    public class EditCampaignVM
+    public class SellerCreateCampaignCommandRequest: IRequest<SellerCreateCampaignCommandResponse>
     {
-        public double CampaignId { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Code { get; set; }
-        public bool IsApproved { get; set; }
         public string? CampaignImage { get; set; }
     }
 }

@@ -1,8 +1,9 @@
 ﻿using EntityLayer;
+using MediatR;
 
-namespace PresentationLayer.Models  
+namespace DataAccessLayer.CQRS.Commands
 {
-    public class EditCampaignVM
+    public class AdminEditCampaignCommandRequest: IRequest<AdminEditCampaignCommandResponse>
     {
         public double CampaignId { get; set; }
         public string? Name { get; set; }

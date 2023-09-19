@@ -1,10 +1,11 @@
 ﻿using EntityLayer;
+using MediatR;
+using Microsoft.AspNetCore.Http;
 
-namespace PresentationLayer.Models  
+namespace DataAccessLayer.CQRS.Commands
 {
-    public class EditCampaignVM
+    public class AdminCreateCamapignCommandRequest: IRequest<AdminCreateCamapignCommandResponse>
     {
-        public double CampaignId { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Code { get; set; }

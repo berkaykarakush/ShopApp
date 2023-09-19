@@ -27,7 +27,6 @@ namespace PresentationLayer.Controllers
         //TODO admin komisyon
         //TODO odeme sayfasinda varsa indirim kuponu
         //TODO Store Home Page icerisine tanitim cartlari eklenicek
-        //TODO Seller Campaign
 
         [HttpGet]
         public async Task<IActionResult> Index(HomeIndexQueryRequest homeIndexQueryRequest)

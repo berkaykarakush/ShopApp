@@ -1,8 +1,8 @@
 ﻿using EntityLayer;
 
-namespace PresentationLayer.Models  
+namespace DataAccessLayer.CQRS.Queries
 {
-    public class EditCampaignVM
+    public class AdminEditCampaignQueryResponse
     {
         public double CampaignId { get; set; }
         public string? Name { get; set; }
@@ -10,5 +10,6 @@ namespace PresentationLayer.Models
         public string? Code { get; set; }
         public bool IsApproved { get; set; }
         public string? CampaignImage { get; set; }
+        public bool IsSuccess { get; set; } 
     }
 }

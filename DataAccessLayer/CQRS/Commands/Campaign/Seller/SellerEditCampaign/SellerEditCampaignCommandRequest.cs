@@ -1,14 +1,14 @@
 ﻿using EntityLayer;
+using MediatR;
 
-namespace PresentationLayer.Models  
+namespace DataAccessLayer.CQRS.Commands
 {
-    public class EditCampaignVM
+    public class SellerEditCampaignCommandRequest: IRequest<SellerEditCampaignCommandResponse>
     {
         public double CampaignId { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Code { get; set; }
-        public bool IsApproved { get; set; }
         public string? CampaignImage { get; set; }
     }
 }

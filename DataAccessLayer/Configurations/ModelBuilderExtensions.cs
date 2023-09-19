@@ -107,10 +107,9 @@ namespace DataAccessLayer.Configurations
                 {
                     CampaignId = i + 111111111,
                     CampaignImage = "1.jpg",
-                    Code = "23sdasdasd",
+                    Code = $"campaign-code-{i + 111111111}",
                     CreatedDate = DateTime.Now,
                     Description = $"Description: {i + 111111111}",
-                    IsHome = true,
                     Name = $"Campaign {i + 111111111}"
                 });
             }
