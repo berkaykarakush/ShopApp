@@ -28,6 +28,7 @@ namespace DataAccessLayer.CQRS.Queries
                     Description = campaign.Description,
                     Code = campaign.Code,
                     CampaignImage = campaign.CampaignImage,
+                    DiscountPercentage = campaign.DiscountPercentage,
                     IsApproved = campaign.IsApproved
                 });
             }

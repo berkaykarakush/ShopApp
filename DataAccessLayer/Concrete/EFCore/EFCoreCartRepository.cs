@@ -35,6 +35,14 @@ namespace DataAccessLayer.Concrete.EFCore
                 .FirstOrDefault(c => c.UserId == userId);
         }
 
+        public Cart GetCartWithCartItems(double cartId)
+        {
+            return ShopContext.Carts
+                .Include(c => c.CartItems)
+                .ThenInclude(c => c.Product)
+                .FirstOrDefault(c => c.CartId == cartId);
+        }
+
         public override void Update(Cart entity)
         {
             ShopContext.Carts.Update(entity);

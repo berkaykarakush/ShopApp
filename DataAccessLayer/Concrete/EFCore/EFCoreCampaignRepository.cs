@@ -9,9 +9,16 @@ namespace DataAccessLayer.Concrete.EFCore
         public EFCoreCampaignRepository(ShopContext context) : base(context)
         {
         }
-        private ShopContext? ShopContext
+        private ShopContext ShopContext
         {
             get { return _context as ShopContext; }
+        }
+
+        public Campaign GetByCode(string code)
+        {
+            return ShopContext.Campaigns
+                .Where(c => c.Code == code)
+                .FirstOrDefault();
         }
     }
 }

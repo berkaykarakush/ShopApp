@@ -3,17 +3,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PresentationLayer.Models
 {
-    public class CartModel
+    public class CartVM
     {
         public double CartId { get; set; }
+        public decimal TotalPrice { get; set; }
+        public string? Code { get; set; }
         public ProductModel? ProductModel { get; set; }
         public List<CartItemModel>? CartItems { get; set; }
-        public decimal TotalPrice()
-        {
-            if (CartItems != null)
-                return CartItems.Sum(c => c.Price * c.Quantity);
-            else
-                throw new Exception("Error");
-        }
     }
 }

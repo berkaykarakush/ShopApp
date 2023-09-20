@@ -7,5 +7,6 @@ namespace DataAccessLayer.Abstract
         void ClearCart(double cartId);
         void DeleteFromCart(double cartId, double productId);
         Cart GetByUserId(string userId);
+        Cart GetCartWithCartItems(double cartId);
     }
 }

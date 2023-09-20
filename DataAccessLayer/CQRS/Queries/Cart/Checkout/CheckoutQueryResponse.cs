@@ -20,8 +20,12 @@ namespace DataAccessLayer.CQRS.Queries
         public string? ExpirationYear { get; set; }
         public string? ExpirationMonth { get; set; }
         public string? Cvc { get; set; }
-        public Cart? Cart { get; set; }
 
-        public List<double> StoreIds { get; set; }
+        public string? DiscountName { get; set; }
+        public string? DiscountCode { get; set; }
+        public int DiscountPercentage { get; set; }
+
+        public Cart? Cart { get; set; }
+        public List<double>? StoreIds { get; set; }
     }
 }

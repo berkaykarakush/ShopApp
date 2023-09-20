@@ -25,7 +25,6 @@ namespace PresentationLayer.Controllers
         //TODO admin dasboard en cok satan urun
         //TODO admin dasboard en cok satis yapan magaza
         //TODO admin komisyon
-        //TODO odeme sayfasinda varsa indirim kuponu
         //TODO Store Home Page icerisine tanitim cartlari eklenicek
 
         [HttpGet]

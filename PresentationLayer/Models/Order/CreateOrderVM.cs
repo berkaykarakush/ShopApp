@@ -19,7 +19,7 @@ namespace PresentationLayer.Models
         [Required]
         [Display(Name = "Address", Prompt = "Boston street No: 12")]
         public string? Address { get; set; }
-        
+
         [Required]
         [Display(Name = "City", Prompt = "Boston")]
         public string? City { get; set; }
@@ -35,36 +35,40 @@ namespace PresentationLayer.Models
         [Required]
         [Display(Name = "Phone Number", Prompt = "5555551234")]
         public string? Phone { get; set; }
-        
+
         [Required]
         [Display(Name = "E-Mail", Prompt = "john@email.com")]
         public string? Email { get; set; }
-        
+
         [Required]
         [Display(Name = "Card Owner", Prompt = "John Doe")]
         public string? CardName { get; set; }
-        
+
         [Required]
-        [Display(Name = "Card Number", Prompt= "5528790000000008")]
+        [Display(Name = "Card Number", Prompt = "5528790000000008")]
         public string? CardNumber { get; set; }
-        
+
         [Required]
-        [Display(Name = "Expiration Year", Prompt= "2023")]
+        [Display(Name = "Expiration Year", Prompt = "2023")]
         public string? ExpirationYear { get; set; }
-        
+
         [Required]
-        [Display(Name = "Expiration Month", Prompt= "12")]
+        [Display(Name = "Expiration Month", Prompt = "12")]
 
         public string? ExpirationMonth { get; set; }
-       
+
         [Required]
-        [Display(Name = "CVC", Prompt= "123")]
+        [Display(Name = "CVC", Prompt = "123")]
         public string? Cvc { get; set; }
 
         [Required]
         public bool TermsAndConditions { get; set; }
 
-        public CartModel? CartModel { get; set; }
+        public string? DiscountName { get; set; }
+        public string? DiscountCode { get; set; }
+        public int DiscountPercentage { get; set; }
+
+        public CartVM? Cart { get; set; }
         public List<double>? StoreIds { get; set; }
     }
 }

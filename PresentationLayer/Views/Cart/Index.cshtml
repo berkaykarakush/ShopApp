@@ -1,4 +1,4 @@
-﻿@model CartModel
+﻿@model CartVM
 @*cart items - start*@
 @if (Model.CartItems.Count() == 0)
 {
@@ -58,32 +58,60 @@ else
        </div>
     </div>
     @*cart items - end*@
-    @*Cart Summary - start*@
     <div class="col-md-4">
-        <div class="card m-1">
-            <h1 class="h4 m-4 text-center">Cart Summary</h1>
-            <table class="table table-hover">
-                <tbody>
-                    <tr>
-                        <th>Cart Total</th>
-                        <th>@Model.TotalPrice().ToString() TL</th>
-                    </tr>
-                    <tr>
-                        <th>Shipping</th>
-                        <th>Free</th>
-                    </tr>
-                    <tr>
-                        <th>Cart Total</th>
-                        <th>@Model.TotalPrice().ToString() TL</th>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="text-center my-4">
-                <a asp-controller="Shop" asp-action="List" class="btn btn-outline-danger"><i class="fa-solid fa-left-long"></i> Continue Shopping</a>
-                <a asp-controller="Cart" asp-action="Checkout" class="btn btn-success"><i class="fa-solid fa-basket-shopping"></i> Checkout</a>
+        @*Cart Summary - Start*@
+        <div class="col-md-12">
+            <div class="card m-1">
+                <h1 class="h4 m-4 text-center">Cart Summary</h1>
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <th>Shipping</th>
+                            <th>Free</th>
+                        </tr>
+                        <tr>
+                            <th>Cart Total</th>
+                            <th>@Model.TotalPrice TL</th>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center my-4">
+                    <a asp-controller="Shop" asp-action="List" class="btn btn-outline-danger"><i class="fa-solid fa-left-long"></i> Continue Shopping</a>
+                    <a asp-controller="Cart" asp-action="Checkout" class="btn btn-success"><i class="fa-solid fa-basket-shopping"></i> Checkout</a>
+                </div>
             </div>
         </div>
+        @*Cart Summary - End*@
+
+        @*Discount Coupon - start*@
+        <div class="col-md-12 mt-3">
+            <form asp-area="" asp-controller="Cart" asp-action="Discount">
+                <input type="hidden" asp-for="CartId">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Discount Coupon
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show m-4" data-bs-parent="#accordionExample">
+                            <div class="row g-3 align-items-center">
+                                <div class="col-md-2">
+                                    <label asp-for="Code" for="inputPassword6" class="col-form-label"></label>
+                                </div>
+                                <div class="col-md-10">
+                                    <input asp-for="Code" type="text" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2 mt-3">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        @*Discount Coupon- end*@
     </div>
-    @*Cart Summary - end*@
 </div>
 }

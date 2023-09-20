@@ -1,16 +1,23 @@
-﻿using EntityLayer;
+﻿using DataAccessLayer.Abstract;
+using EntityLayer;
 using MediatR;
 using Serilog;
+using System.IO.Pipes;
 
 namespace DataAccessLayer.CQRS.Queries
 {
     public class CartIndexQueryHandler : IRequestHandler<CartIndexQueryRequest, CartIndexQueryResponse>
     {
+        private readonly IUnitOfWork _unitOfWork;
+
+        public CartIndexQueryHandler(IUnitOfWork unitOfWork)
+            => _unitOfWork = unitOfWork;
+
         public  Task<CartIndexQueryResponse> Handle(CartIndexQueryRequest request, CancellationToken cancellationToken)
         {
             try
             {
-                var cart = request.Cart;
+                var cart = _unitOfWork.Carts.GetByUserId(request.UserId ?? string.Empty);
 
                 if (cart == null)
                     return Task.FromResult(new CartIndexQueryResponse() { IsSuccess = false });
@@ -29,6 +36,7 @@ namespace DataAccessLayer.CQRS.Queries
                         Quantity = c.Quantity,
                         ProductImage = c.Product.ProductImage
                     }).ToList(),
+                    TotalPrice = cart.TotalPrice,
                     IsSuccess = true
                 });
             }

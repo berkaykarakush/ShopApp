@@ -110,7 +110,8 @@ namespace DataAccessLayer.Configurations
                     Code = $"campaign-code-{i + 111111111}",
                     CreatedDate = DateTime.Now,
                     Description = $"Description: {i + 111111111}",
-                    Name = $"Campaign {i + 111111111}"
+                    Name = $"Campaign {i + 111111111}",
+                    DiscountPercentage = i+1
                 });
             }
 

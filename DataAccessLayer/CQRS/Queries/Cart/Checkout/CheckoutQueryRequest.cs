@@ -6,5 +6,6 @@ namespace DataAccessLayer.CQRS.Queries
     public class CheckoutQueryRequest: IRequest<CheckoutQueryResponse>
     {
         public string? UserId { get; set; }
+        public string? Code { get; set; }
     }
 }

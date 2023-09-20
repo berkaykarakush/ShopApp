@@ -26,6 +26,7 @@ namespace DataAccessLayer.CQRS.Commands
                 campaign.Description = request.Description;
                 campaign.CampaignImage = request.CampaignImage;
                 campaign.UpdatedDate = DateTime.Now;
+                campaign.DiscountPercentage = request.DiscountPercentage;
 
                 _unitOfWork.Campaigns.Update(campaign);
                 _unitOfWork.Save();

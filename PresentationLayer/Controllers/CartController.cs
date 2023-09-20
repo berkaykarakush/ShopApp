@@ -2,6 +2,7 @@
 using AutoMapper;
 using BusinessLayer.Abstract;
 using DataAccessLayer.Concrete.EFCore;
+using DataAccessLayer.CQRS.Commands;
 using DataAccessLayer.CQRS.Queries;
 using EntityLayer;
 using Iyzipay;
@@ -48,37 +49,48 @@ namespace PresentationLayer.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(CartIndexQueryRequest cartIndexQueryRequest)
         {
-            var cart = _cartService.GetCartByUserId(_userManager.GetUserId(User));
-            cartIndexQueryRequest.Cart = cart;
+            var user = await _userManager.GetUserAsync(User);
+            cartIndexQueryRequest.UserId = user.Id;
 
             CartIndexQueryResponse response = await _mediator.Send(cartIndexQueryRequest);
-            CartModel cartModel = _mapper.Map<CartModel>(response);
 
             if (!response.IsSuccess)
                 _notyfService.Error(NotyfMessageEnum.Error);
 
+            CartVM cartModel = _mapper.Map<CartVM>(response);
             return View(cartModel);
         }
 
         [Authorize]
         [HttpPost]
-        public IActionResult AddToCart(double productId, int quantity)
+        public async Task<IActionResult> AddToCart(AddToCartCommandRequest addToCartCommandRequest)
         {
             var userId = _userManager.GetUserId(User);
-            _cartService.AddToCart(userId, productId, quantity);
+            addToCartCommandRequest.UserId = userId;
 
-            var product = _productService.GetById(productId);
+            AddToCartCommandResponse response = await _mediator.Send(addToCartCommandRequest);
 
-            _notyfService.Success("Transaction Successfull - Product added to cart");
-            return RedirectToAction("Details", "Shop",new ShopDetailsQueryRequest() { Url = product.Url});
+            if (!response.IsSuccess)
+                _notyfService.Error(NotyfMessageEnum.Error);
+            else
+                _notyfService.Success("Transaction Successfull - Product added to cart");
+
+            return RedirectToAction("Details", "Shop",new ShopDetailsQueryRequest() { Url = response.Url ?? string.Empty});
         }
 
         [Authorize]
         [HttpPost]
-        public IActionResult DeleteFromCart(double productId)
+        public async Task<IActionResult> DeleteFromCart(DeleteFromCartCommandRequest deleteFromCartCommandRequest)
         {
             string userId = _userManager.GetUserId(User);
-            _cartService.DeleteFromCart(userId, productId);
+            deleteFromCartCommandRequest.UserId = userId;
+            DeleteFromCartCommandResponse response = await _mediator.Send(deleteFromCartCommandRequest);
+
+            if (!response.IsSuccess)
+                _notyfService.Error(NotyfMessageEnum.Error);
+            else
+                _notyfService.Success("Transaction Successfull - Item deleted!");
+
             return RedirectToAction("Index", "Cart");
         }
 
@@ -86,16 +98,18 @@ namespace PresentationLayer.Controllers
         [HttpGet]
         public async Task<IActionResult> Checkout(CheckoutQueryRequest checkoutQueryRequest)
         {
-            var user = await _userManager.GetUserAsync(User);
-            checkoutQueryRequest.UserId = user.Id;
+            string userId = _userManager.GetUserId(User);
+            checkoutQueryRequest.UserId = userId;
 
             CheckoutQueryResponse response = await _mediator.Send(checkoutQueryRequest);
-            CreateOrderVM orderModel = _mapper.Map<CreateOrderVM>(response);
-            orderModel.CartModel = _mapper.Map<CartModel>(response.Cart);
 
             if (!response.IsSuccess)
+            {
                 _notyfService.Error(NotyfMessageEnum.Error);
+                return View();
+            }
 
+            CreateOrderVM orderModel = _mapper.Map<CreateOrderVM>(response);
             return View(orderModel);
         }
 
@@ -108,7 +122,7 @@ namespace PresentationLayer.Controllers
                 var userId = _userManager.GetUserId(User);
                 var cart = _cartService.GetCartByUserId(userId);
 
-                model.CartModel = new CartModel()
+                model.Cart = new CartVM()
                 {
                     CartId = cart.CartId,
                     CartItems = cart.CartItems.Select(c => new CartItemModel()
@@ -119,21 +133,8 @@ namespace PresentationLayer.Controllers
                         Price = c.Product.Price,
                         Quantity = c.Quantity,
                         ProductImage = c.Product.ProductImage
-                    }).ToList()
+                    }).ToList(),
                 };
-                var user = await _userManager.FindByIdAsync(userId);
-                if (user != null)
-                {
-                    user.UserAddresses.Add(new UserAddress()
-                    {
-                        UserId = userId,
-                        Address = model.Address,
-                        City = model.City,
-                        Country = model.City,
-                        ZipCode = model.ZipCode
-                    });
-                    await _userManager.UpdateAsync(user);
-                }
 
                 var payment = PaymentProcess(model);
                 if (payment.Status == "success")
@@ -141,8 +142,23 @@ namespace PresentationLayer.Controllers
                     SaveOrder(model, payment, userId, model.StoreIds);
                     await OrderState(model, EnumOrderState.waiting);
                     DecreaseQuantity(model);
-                    ClearCart(model.CartModel.CartId);
+                    _cartService.ClearCart(model.Cart.CartId);
                     IncreaseProductSaleCount(model);
+
+                    var user = await _userManager.FindByIdAsync(userId);
+                    if (user != null)
+                    {
+                        user.UserAddresses.Add(new UserAddress()
+                        {
+                            UserId = userId,
+                            Address = model.Address,
+                            City = model.City,
+                            Country = model.City,
+                            ZipCode = model.ZipCode
+                        });
+                        await _userManager.UpdateAsync(user);
+                    }
+
                     _notyfService.Success($"Transaction Successfull - Your payment transaction number {payment.PaymentId} has been completed.");
                     return View("Success");
                 }
@@ -152,9 +168,23 @@ namespace PresentationLayer.Controllers
             return RedirectToAction("Checkout", "Cart");
         }
 
+        [HttpPost]
+
+        public async Task<IActionResult> Discount(DiscountCommandRequest discountCommandRequest)
+        {
+            DiscountCommandResponse response = await _mediator.Send(discountCommandRequest);
+
+            if (!response.IsSuccess)
+                _notyfService.Error(NotyfMessageEnum.Error);
+            else
+                _notyfService.Success("Transaction Successfull - Code implemented!");
+
+            return RedirectToAction("Checkout", "Cart", new CheckoutQueryRequest() { Code = discountCommandRequest.Code});
+        }
+
         private void IncreaseProductSaleCount(CreateOrderVM model)
         {
-            foreach (var p in model.CartModel.CartItems)
+            foreach (var p in model.Cart.CartItems)
             {
                 var product = _productService.GetById((double)p.ProductId);
                 if (product != null)
@@ -168,7 +198,7 @@ namespace PresentationLayer.Controllers
         [Authorize]
         private void DecreaseQuantity(CreateOrderVM model)
         {
-            foreach (var i in model.CartModel.CartItems)
+            foreach (var i in model.Cart.CartItems)
             {
                 var product = _productService.GetById((double)i.ProductId);
 
@@ -187,12 +217,6 @@ namespace PresentationLayer.Controllers
                     _notyfService.Error($"Error - {product.Name} has no stock.");
                 }
             }
-        }
-
-        [Authorize]
-        private void ClearCart(double cartId)
-        {
-            _cartService.ClearCart(cartId);
         }
 
         [Authorize]
@@ -217,7 +241,7 @@ namespace PresentationLayer.Controllers
                 order.Stores?.Add(store);
             }
 
-            foreach (var item in model.CartModel.CartItems)
+            foreach (var item in model.Cart.CartItems)
             {
                 var orderItem = new EntityLayer.OrderItem()
                 {
@@ -225,7 +249,6 @@ namespace PresentationLayer.Controllers
                     Quantity = item.Quantity,
                     ProductId = item.ProductId
                 };
-                //order.OrderItems = new List<EntityLayer.OrderItem>();
                 order.OrderItems?.Add(orderItem);
             }
             _orderService.Create(order);
@@ -242,11 +265,11 @@ namespace PresentationLayer.Controllers
             CreatePaymentRequest request = new CreatePaymentRequest();
             request.Locale = Locale.TR.ToString();
             request.ConversationId = new Random().Next(111111111, 999999999).ToString();
-            request.Price = model.CartModel.TotalPrice().ToString();
-            request.PaidPrice = model.CartModel.TotalPrice().ToString();
+            request.Price = model.Cart.TotalPrice.ToString();
+            request.PaidPrice = model.Cart.TotalPrice.ToString();
             request.Currency = Currency.TRY.ToString();
             request.Installment = 1;
-            request.BasketId = model.CartModel.CartId.ToString();
+            request.BasketId = model.Cart.CartId.ToString();
             request.PaymentChannel = PaymentChannel.WEB.ToString();
             request.PaymentGroup = PaymentGroup.PRODUCT.ToString();
 
@@ -299,7 +322,7 @@ namespace PresentationLayer.Controllers
             List<BasketItem> basketItems = new List<BasketItem>();
             BasketItem basketItem;
 
-            foreach (var item in model.CartModel.CartItems)
+            foreach (var item in model.Cart.CartItems)
             {
                 basketItem = new BasketItem();
                 basketItem.Id = item.ProductId.ToString();
@@ -323,13 +346,13 @@ namespace PresentationLayer.Controllers
             switch (_state)
             {
                 case EnumOrderState.waiting:
-                    await _emailSender.SendEmailAsync(model.Email, "You order has been received", $"Your order number {model.CartModel.CartId} has reached us.");
+                    await _emailSender.SendEmailAsync(model.Email, "You order has been received", $"Your order number {model.Cart.CartId} has reached us.");
                     break;
                 case EnumOrderState.shipped:
-                    await _emailSender.SendEmailAsync(model.Email, "Your order has been shipped", $"Your order number {model.CartModel.CartId} has been delivered to cargo.");
+                    await _emailSender.SendEmailAsync(model.Email, "Your order has been shipped", $"Your order number {model.Cart.CartId} has been delivered to cargo.");
                     break;
                 case EnumOrderState.completed:
-                    await _emailSender.SendEmailAsync(model.Email,"Your order has been delivered",$"Your cargo number {model.CartModel.CartId} has been delivered.");
+                    await _emailSender.SendEmailAsync(model.Email,"Your order has been delivered",$"Your cargo number {model.Cart.CartId} has been delivered.");
                     break;
                 default:
                     break;

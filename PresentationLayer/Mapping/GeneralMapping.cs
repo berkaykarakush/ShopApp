@@ -59,10 +59,10 @@ namespace PresentationLayer.Mapping
             #endregion
 
             #region Cart
-            CreateMap<CartIndexQueryResponse, CartModel>().ReverseMap();
+            CreateMap<Cart, CartVM>().ReverseMap();
+            CreateMap<CartIndexQueryResponse, CartVM>().ReverseMap();
             CreateMap<CartItem, CartItemModel>().ReverseMap();
             CreateMap<CheckoutQueryResponse, CreateOrderVM>().ReverseMap();
-            CreateMap<Cart, CartModel>().ReverseMap();
             #endregion
 
             #region Campaign

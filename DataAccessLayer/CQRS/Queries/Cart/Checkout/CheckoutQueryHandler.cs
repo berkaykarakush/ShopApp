@@ -20,12 +20,30 @@ namespace DataAccessLayer.CQRS.Queries
 
                 if (cart == null)
                     return Task.FromResult(new CheckoutQueryResponse() { IsSuccess = false });
-                List<double> storeIds = new List<double>();
-                foreach (var item in cart.CartItems)
-                {
-                    storeIds.Add((double)item.Product.StoreId);
-                }
 
+                var campaign = _unitOfWork.Campaigns.GetByCode(request.Code ?? string.Empty);
+
+                List<double> storeIds = new List<double>();
+
+                if (campaign == null)
+                    return Task.FromResult(new CheckoutQueryResponse()
+                    {
+                        Cart = new Cart()
+                        {
+                            CartId = cart.CartId,
+                            CartItems = cart.CartItems.Select(c => new CartItem()
+                            {
+                                ProductId = c.ProductId,
+                                CartItemId = c.ProductId,
+                                ProductName = c.Product.Name,
+                                Price = c.Product.Price,
+                                Quantity = c.Quantity
+                            }).ToList(),
+                            TotalPrice = cart.TotalPrice
+                        },
+                        IsSuccess = true,
+                        StoreIds = storeIds
+                    });
 
                 return Task.FromResult(new CheckoutQueryResponse() 
                 {
@@ -39,10 +57,14 @@ namespace DataAccessLayer.CQRS.Queries
                             ProductName = c.Product.Name,
                             Price = c.Product.Price,
                             Quantity = c.Quantity
-                        }).ToList()
+                        }).ToList(),
+                        TotalPrice = cart.TotalPrice
                     },
                     IsSuccess = true,
-                    StoreIds = storeIds
+                    StoreIds = storeIds,
+                    DiscountCode = campaign.Code,
+                    DiscountName = campaign.Name,
+                    DiscountPercentage = campaign.DiscountPercentage
                 });
             }
             catch (Exception ex)

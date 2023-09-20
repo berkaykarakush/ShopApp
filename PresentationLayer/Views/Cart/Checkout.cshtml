@@ -102,62 +102,71 @@
                 <button class="btn btn-primary" type="submit">Submit</button>
             </div>
     </div>
-    @*Summary - start*@
     <div class="col-md-4">
-        <h1 class="h4">Summary</h1>
-        <hr class="mb-3" />
-        <div class="card">
-            <ul class="list-group mb-3">
-                @foreach (var item in Model.StoreIds)
-                {
-                        <input type="hidden" name="StoreIds" value="@item"/>
-                }
-                    @foreach (var item in Model.CartModel.CartItems)
-                {
+         @*Summary - start*@
+        <div class="col-md-12 mt-2">
+            <div class="card">
+                <h5 class="card-header">Summary</h5>
+                <div class="card-body">
+                    <ul class="list-group mb-3">
+                    @foreach (var item in Model.StoreIds)
+                    {
+                        <input type="hidden" name="StoreIds" value="@item" />
+                    }
+                    @foreach (var item in Model.Cart.CartItems)
+                    {
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div>
+                                <h1 class="h6">@item.ProductName</h1>
+                            </div>
+                            <span class="text-muted">@item.Price.ToString() TL</span>
+                            <span class="text-muted">@item.Quantity</span>
+                        </li>
+                    }
                     <li class="list-group-item d-flex justify-content-between">
-                        <div>
-                            <h1 class="h6">@item.ProductName</h1>
-                        </div>
-                        <span class="text-muted">@item.Price.ToString() TL</span>
-                        <span class="text-muted">@item.Quantity</span>
+                        <span>Discount Name</span>
+                        <strong>@Model.DiscountName</strong>
+                        <strong>@Model.DiscountCode</strong>
+                        <strong>@Model.DiscountPercentage</strong>
                     </li>
-                }
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Total Price</span>
-                    <strong>@Model.CartModel.TotalPrice().ToString() TL</strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <div class="form-check">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Total Price</span>
+                        <strong>@Model.Cart.TotalPrice TL</strong>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div class="form-check">
                             <input asp-for="TermsAndConditions" class="form-check-input" type="checkbox" name="TermsAndConditions" value="true" id="TermsAndConditions" required>
-                        <label class="form-check-label" for="TermsAndConditions">
-                            <a class="btn-link" data-bs-toggle="modal" data-bs-target="#termsAndConditionsModal">Terms and Conditions</a>
-                        </label>
-                    </div>
-                    <span asp-validation-for="TermsAndConditions" class="text-danger"></span>
-                    <!-- Modal -->
-                    <div class="modal fade" id="termsAndConditionsModal" tabindex="-1" aria-labelledby="termsAndConditionsModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="termsAndConditionsModalLabel">Terms and Conditions</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
+                            <label class="form-check-label" for="TermsAndConditions">
+                                <a class="btn-link" data-bs-toggle="modal" data-bs-target="#termsAndConditionsModal">Terms and Conditions</a>
+                            </label>
+                        </div>
+                        <span asp-validation-for="TermsAndConditions" class="text-danger"></span>
+                        <!-- Modal -->
+                        <div class="modal fade" id="termsAndConditionsModal" tabindex="-1" aria-labelledby="termsAndConditionsModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="termsAndConditionsModalLabel">Terms and Conditions</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Modal -->
-                </li>
-            </ul>
+                        <!-- Modal -->
+                    </li>
+                </ul>
+                </div>
+            </div>
         </div>
+        @*Summary - end*@
     </div>
-    @*Summary - end*@
 </div>
 </form>
 @section Scripts{

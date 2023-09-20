@@ -21,7 +21,8 @@ namespace DataAccessLayer.CQRS.Commands
                     Name = request.Name,
                     Code = request.Code,
                     Description = request.Description,
-                    CampaignImage = request.CampaignImage
+                    CampaignImage = request.CampaignImage,
+                    DiscountPercentage = request.DiscountPercentage
                 };
 
                 if (campaign == null)
