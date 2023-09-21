@@ -11,6 +11,7 @@ using PresentationLayer.Identity;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.MSSqlServer;
+using SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDataAccessLayerServices();
 builder.Services.AddBusinessLayerServices();
 builder.Services.AddPresentationLayerServices();
+builder.Services.AddSignalRServices();
 
 //CORS Policy
 builder.Services.AddCors(options => 
@@ -197,6 +199,9 @@ try
     app.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
+
+    //Custom map hubs method
+    app.MapHubs();
 
     app.Run();
 

@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{BCC8E1E6-2D68-4AC6-8ACF-72B4478C655C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR", "SignalR\SignalR.csproj", "{BF8FD041-9F59-4E07-8EA6-23E3704891D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{BCC8E1E6-2D68-4AC6-8ACF-72B4478C655C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCC8E1E6-2D68-4AC6-8ACF-72B4478C655C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCC8E1E6-2D68-4AC6-8ACF-72B4478C655C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF8FD041-9F59-4E07-8EA6-23E3704891D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF8FD041-9F59-4E07-8EA6-23E3704891D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF8FD041-9F59-4E07-8EA6-23E3704891D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF8FD041-9F59-4E07-8EA6-23E3704891D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

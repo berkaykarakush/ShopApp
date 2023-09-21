@@ -3,14 +3,21 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "provider": "cdnjs",
       "library": "ckeditor5@38.1.1",
       "destination": "wwwroot/lib/ckeditor5/"
     },
     {
-      "provider": "cdnjs",
       "library": "paginationjs@2.6.0",
       "destination": "wwwroot/lib/paginationjs/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "@microsoft/signalr@latest",
+      "destination": "wwwroot/js/signalr",
+      "files": [
+        "dist/browser/signalr.js",
+        "dist/browser/signalr.min.js"
+      ]
     }
   ]
 }
