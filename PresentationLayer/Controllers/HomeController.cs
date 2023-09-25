@@ -20,13 +20,6 @@ namespace PresentationLayer.Controllers
             _notyfService = notyfService;
         }
 
-        //TODO SignalR
-        //TODO add open source email library 
-        //TODO admin dasboard en cok satan urun
-        //TODO admin dasboard en cok satis yapan magaza
-        //TODO admin komisyon
-        //TODO Store Home Page icerisine tanitim cartlari eklenicek
-
         [HttpGet]
         public async Task<IActionResult> Index(HomeIndexQueryRequest homeIndexQueryRequest)
         {
